@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>حوزه اضافه</title>
+<style>
+@font-face{font-family:P;src:url(/fonts/PeydaWeb-Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:P;src:url(/fonts/PeydaWeb-Medium.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:P;src:url(/fonts/PeydaWeb-SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:P;src:url(/fonts/PeydaWeb-Bold.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:P;src:url(/fonts/PeydaWeb-ExtraBold.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:P;src:url(/fonts/PeydaWeb-Black.woff2) format('woff2');font-weight:900;font-display:swap}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;font-family:P,system-ui,sans-serif;background:#f4f1ed;color:#2c3e50}
+textarea,button,input,select{font-family:inherit}
+.shell{height:100%;display:flex;flex-direction:column}
+
+/* ══════════ TOP BAR ══════════ */
+.bar{height:50px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#fff;border-bottom:1.5px solid #e0dbd5;gap:8px}
+.bar-r{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.logo{font-size:1rem;font-weight:800;color:#c0392b;white-space:nowrap}
+.bar-l{display:flex;align-items:center;gap:6px;flex-shrink:0}
+
+/* ══════════ CUSTOM COMBO BOX ══════════ */
+.combo{position:relative;user-select:none}
+.combo-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 12px;border-radius:18px;
+  border:1.5px solid #e0dbd5;background:#fff;
+  font-size:.7rem;font-weight:700;color:#2c3e50;
+  cursor:pointer;transition:all .18s;white-space:nowrap;
+}
+.combo-btn:hover{border-color:#c0392b;background:#fffdfc}
+.combo-btn:active{transform:scale(.97)}
+.combo-btn .dot{width:7px;height:7px;border-radius:50%;background:#27ae60;flex-shrink:0;animation:pulseDot 2s ease-in-out infinite}
+.combo-btn.loading .dot{background:#d35400}
+.combo-btn.err .dot{background:#95a5a6}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.combo-btn .arrow{font-size:.55rem;color:#999;transition:transform .2s}
+.combo.open .combo-btn .arrow{transform:rotate(180deg)}
+.combo.open .combo-btn{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.08)}
+
+.combo-menu{
+  position:absolute;top:calc(100% + 6px);left:0;min-width:210px;
+  background:#fff;border:1.5px solid #e0dbd5;border-radius:12px;
+  box-shadow:0 10px 32px rgba(0,0,0,.12);
+  padding:5px;z-index:200;
+  opacity:0;visibility:hidden;transform:translateY(-8px) scale(.96);
+  transform-origin:top left;
+  transition:opacity .2s,transform .22s cubic-bezier(.3,1.4,.6,1),visibility .2s;
+}
+.combo.open .combo-menu{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.combo-item{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 11px;border-radius:8px;cursor:pointer;
+  transition:background .15s;
+}
+.combo-item:hover{background:#faf7f5}
+.combo-item.active{background:#fdecea}
+.combo-item .ic{
+  width:26px;height:26px;border-radius:7px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.62rem;font-weight:800;color:#fff;
+}
+.combo-item.t-edge .ic{background:#27ae60}
+.combo-item.t-bio .ic{background:#c0392b}
+.combo-item.t-min .ic{background:#d35400}
+.combo-item .tx{display:flex;flex-direction:column;gap:1px;min-width:0}
+.combo-item .nm{font-size:.72rem;font-weight:700;color:#2c3e50;white-space:nowrap}
+.combo-item .ds{font-size:.58rem;color:#999;white-space:nowrap}
+.combo-item .chk{margin-right:auto;color:#27ae60;font-size:.7rem;font-weight:900;opacity:0;transition:opacity .15s}
+.combo-item.active .chk{opacity:1}
+
+/* sound button */
+.snd-btn{width:32px;height:32px;border-radius:50%;border:1.5px solid #e0dbd5;background:#fff;cursor:pointer;font-size:.82rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
+.snd-btn:hover{background:#f4f1ed;border-color:#c0392b}
+.snd-btn:active{transform:scale(.92)}
+.snd-btn.off{opacity:.3}
+
+/* ══════════ MAIN ══════════ */
+.main{flex:1;display:flex;min-height:0;overflow:hidden}
+
+.pan-in{width:38%;min-width:260px;max-width:420px;display:flex;flex-direction:column;background:#fff;border-left:1.5px solid #e0dbd5}
+.pan-head{padding:9px 16px;font-size:.66rem;font-weight:700;color:#999;border-bottom:1px solid #eee;display:flex;justify-content:space-between}
+.ta{flex:1;min-height:0}
+.ta textarea{width:100%;height:100%;border:none;outline:none;resize:none;padding:14px 16px;font-size:1rem;line-height:2.2;color:#2c3e50;background:transparent}
+.ta textarea::placeholder{color:#bbb}
+.chips{padding:8px 12px;border-top:1px solid #eee;display:flex;gap:5px;overflow-x:auto;flex-shrink:0;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;padding:5px 12px;border-radius:14px;font-size:.68rem;font-weight:500;cursor:pointer;background:#fef5ec;color:#d35400;border:1px solid transparent;transition:all .15s;flex-shrink:0}
+.chip:hover{background:#e74c3c;color:#fff}
+.chip:active{transform:scale(.96)}
+.acts{padding:10px 12px;border-top:1px solid #eee;display:flex;gap:8px;flex-shrink:0}
+.btn-go{flex:1;padding:11px 0;border:none;border-radius:8px;background:#c0392b;color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .12s}
+.btn-go:hover{background:#e74c3c}
+.btn-go:active{transform:scale(.98)}
+.btn-go:disabled{opacity:.4}
+.btn-clr{padding:11px 16px;border:1.5px solid #e0dbd5;border-radius:8px;background:transparent;color:#999;font-size:.78rem;font-weight:600;cursor:pointer}
+.btn-clr:hover{background:#f4f1ed}
+
+.pan-out{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.results{flex:1;overflow-y:auto;padding:16px 20px;scrollbar-width:thin;scrollbar-color:#ddd transparent}
+.results::-webkit-scrollbar{width:3px}
+.results::-webkit-scrollbar-thumb{background:#ddd;border-radius:3px}
+
+.empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#bbb}
+.empty b{font-size:2.8rem;font-weight:900;color:#c0392b;opacity:.12}
+.empty span{font-size:.82rem;text-align:center;line-height:1.8}
+
+.spin{display:none;height:100%;align-items:center;justify-content:center;gap:5px}
+.spin.on{display:flex}
+.spin i{width:6px;height:6px;border-radius:50%;background:#c0392b;opacity:.3;animation:dot .5s ease-in-out infinite alternate}
+.spin i:nth-child(2){animation-delay:.1s}
+.spin i:nth-child(3){animation-delay:.2s}
+@keyframes dot{to{opacity:1;transform:translateY(-6px)}}
+
+/* ══════════ SECTIONS ══════════ */
+.section{background:#fff;border:1px solid #d5dbdb;border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.section:last-child{margin-bottom:0}
+.sec-title{font-size:.78rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.sec-title.bio{color:#c0392b}
+.sec-title.edge{color:#27ae60}
+.sec-title.kasre{color:#8e44ad}
+
+/* 📖 kasre reading */
+.kasre-flow{font-size:1.5rem;font-weight:700;line-height:3.4;direction:rtl;display:flex;flex-wrap:wrap;gap:5px;align-items:baseline}
+.kasre-chain{display:inline-flex;align-items:baseline;gap:3px;border-bottom:3px solid #e74c3c;padding-bottom:5px;margin-bottom:3px;border-radius:0 0 2px 2px;position:relative;opacity:0;animation:chainFade .6s ease-out forwards}
+.kasre-chain.alt{border-bottom-color:#d35400}
+.kasre-chain.alt .kw.ez{color:#d35400}
+.kasre-chain::after{content:attr(data-chain);position:absolute;bottom:-17px;left:50%;transform:translateX(-50%);font-size:.46rem;font-weight:700;color:#e74c3c;background:#fdecea;padding:1px 6px;border-radius:3px;white-space:nowrap}
+.kasre-chain.alt::after{color:#d35400;background:#fef5ec}
+.kasre-flow .kw{opacity:0;animation:wordFade .5s ease-out forwards}
+.kasre-flow .kw.ez{color:#c0392b}
+.kasre-flow .kw.o{color:#95a5a6}
+@keyframes wordFade{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
+@keyframes chainFade{0%{opacity:0}100%{opacity:1}}
+
+/* 🏷️ BIO */
+.bio-flow{display:flex;flex-wrap:wrap;gap:12px;direction:rtl;align-items:flex-start}
+.bio-group{display:inline-flex;align-items:flex-start;gap:6px;border:2px solid #e74c3c;background:#fdecea;border-radius:10px;padding:9px 12px;position:relative;opacity:0;animation:popIn .45s cubic-bezier(.3,1.4,.6,1) forwards}
+.bio-group::before{content:attr(data-label);position:absolute;top:-9px;right:10px;font-size:.5rem;font-weight:700;color:#fff;background:#e74c3c;padding:1px 8px;border-radius:4px;white-space:nowrap}
+.bio-group.alt{border-color:#d35400;background:#fef5ec}
+.bio-group.alt::before{background:#d35400}
+.bio-group.alt .bio-word.B-EZ .w,.bio-group.alt .bio-word.I-EZ .w{color:#d35400}
+.bio-group.alt .bio-word.B-EZ .tag{background:#d35400}
+.bio-group.alt .bio-word.I-EZ .tag{background:#e67e22}
+.bio-word{text-align:center;opacity:0;animation:popIn .4s cubic-bezier(.3,1.4,.6,1) forwards}
+.bio-word .w{font-size:1rem;font-weight:700;color:#2c3e50;display:block;margin-bottom:3px}
+.bio-word .tag{font-size:.6rem;font-weight:700;padding:1px 8px;border-radius:5px;color:#fff;display:inline-block}
+.bio-word.B-EZ .w{color:#c0392b}
+.bio-word.B-EZ .tag{background:#e74c3c}
+.bio-word.I-EZ .w{color:#d35400}
+.bio-word.I-EZ .tag{background:#d35400}
+.bio-word.O .w{color:#95a5a6}
+.bio-word.O .tag{background:#7f8c8d}
+.bio-lone{text-align:center;opacity:0;animation:popIn .4s cubic-bezier(.3,1.4,.6,1) forwards}
+.bio-lone .w{font-size:1rem;font-weight:600;color:#95a5a6;display:block;margin-bottom:3px}
+.bio-lone .tag{font-size:.6rem;font-weight:700;padding:1px 8px;border-radius:5px;color:#fff;background:#7f8c8d;display:inline-block}
+
+/* 🔗 EDGE */
+.edge-flow{display:flex;flex-wrap:wrap;gap:12px;direction:rtl;align-items:center}
+.chain-bubble{display:inline-flex;align-items:center;gap:8px;border:2px solid #27ae60;background:#e8f8f5;padding:9px 16px;border-radius:10px;position:relative;opacity:0;animation:popIn .45s cubic-bezier(.3,1.4,.6,1) forwards}
+.chain-bubble::before{content:attr(data-label);position:absolute;top:-9px;right:10px;font-size:.5rem;font-weight:700;color:#fff;background:#27ae60;padding:1px 8px;border-radius:4px;white-space:nowrap}
+.chain-bubble .cw{font-size:1rem;font-weight:700;color:#1e8449}
+.chain-bubble .link{color:#27ae60;font-size:.85rem;font-weight:700}
+.lone-word{font-size:1rem;font-weight:600;color:#95a5a6;padding:9px 10px;opacity:0;animation:popIn .4s cubic-bezier(.3,1.4,.6,1) forwards}
+
+@keyframes popIn{0%{opacity:0;transform:scale(.5) translateY(10px)}100%{opacity:1;transform:none}}
+
+/* ══════════ STATS ══════════ */
+.stats{flex-shrink:0;height:48px;border-top:1.5px solid #e0dbd5;background:#fff;display:flex;align-items:center;padding:0 16px;gap:6px;overflow-x:auto;scrollbar-width:none}
+.stats::-webkit-scrollbar{display:none}
+.st{display:flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;background:#f4f1ed;border:1px solid #e8e0db;white-space:nowrap;flex-shrink:0}
+.st .n{font-size:.85rem;font-weight:800}
+.st .l{font-size:.55rem;color:#999;font-weight:500}
+.st.sk .n{color:#c0392b}
+.st.sc .n{color:#d35400}
+.st.so .n{color:#7f8c8d}
+.st.sg .n{color:#27ae60}
+.sep{width:1px;height:22px;background:#e0dbd5;flex-shrink:0;margin:0 3px}
+
+.toast{position:fixed;bottom:14px;left:50%;transform:translateX(-50%) translateY(70px);background:#fff;border:1.5px solid #e0dbd5;padding:9px 20px;border-radius:9px;font-size:.78rem;z-index:300;box-shadow:0 5px 22px rgba(0,0,0,.1);transition:transform .35s cubic-bezier(.3,1.5,.6,1)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:700px){
+  .main{flex-direction:column}
+  .pan-in{width:100%;max-width:100%;border-left:none;border-bottom:1.5px solid #e0dbd5;max-height:42dvh}
+  .pan-out{min-height:0}
+  .results{padding:12px}
+  .kasre-flow{font-size:1.2rem;line-height:3.2}
+  .bio-word .w,.bio-lone .w{font-size:.9rem}
+  .chain-bubble .cw{font-size:.9rem}
+  .stats{height:42px}
+  .bar{padding:0 10px}
+  .logo{font-size:.88rem}
+  .combo-btn{padding:5px 9px;font-size:.62rem}
+  .combo-menu{min-width:190px}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- TOP BAR -->
+  <div class="bar">
+    <div class="bar-r"><div class="logo">حوزه اضافه</div></div>
+    <div class="bar-l">
+
+      <!-- CUSTOM COMBO BOX -->
+      <div class="combo" id="combo">
+        <div class="combo-btn" id="comboBtn" onclick="toggleCombo(event)">
+          <span class="dot"></span>
+          <span id="comboLabel">اِج</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="combo-menu" id="comboMenu">
+          <div class="combo-item t-edge active" data-model="best_edge_model.pt" data-label="اِج" onclick="pickModel(this)">
+            <div class="ic">E</div>
+            <div class="tx"><div class="nm">مدل اِج</div><div class="ds">پیوندی جفت‌کلمه</div></div>
+            <div class="chk">✓</div>
+          </div>
+          <div class="combo-item t-bio" data-model="best_bio_model.pt" data-label="بایو" onclick="pickModel(this)">
+            <div class="ic">B</div>
+            <div class="tx"><div class="nm">مدل بایو</div><div class="ds">برچسب‌زن دنباله‌ای</div></div>
+            <div class="chk">✓</div>
+          </div>
+          <div class="combo-item t-min" data-model="bio_model_min.pt" data-label="سبک" onclick="pickModel(this)">
+            <div class="ic">Q</div>
+            <div class="tx"><div class="nm">نسخه سبک</div><div class="ds">فشرده هشت‌بیتی</div></div>
+            <div class="chk">✓</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="snd-btn" id="sndBtn" onclick="tglSnd()">🔊</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="pan-in">
+      <div class="pan-head"><span>ورودی</span><span id="cc">۰</span></div>
+      <div class="ta"><textarea id="inp" placeholder="جمله فارسی بنویسید ..."></textarea></div>
+      <div class="chips" id="chips"></div>
+      <div class="acts">
+        <button class="btn-go" id="goBtn" onclick="run()">تحلیل کسره اضافه</button>
+        <button class="btn-clr" onclick="clr()">پاک</button>
+      </div>
+    </div>
+
+    <div class="pan-out">
+      <div class="results" id="results">
+        <div class="empty"><b>ـِ</b><span>جمله‌ای بنویسید تا ساختار<br><strong>کسره اضافه</strong> آن تحلیل شود</span></div>
+      </div>
+      <div class="spin" id="spin"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="st sk"><span class="n" id="nB">—</span><span class="l">آغاز</span></div>
+    <div class="st sc"><span class="n" id="nI">—</span><span class="l">ادامه</span></div>
+    <div class="st so"><span class="n" id="nO">—</span><span class="l">بدون</span></div>
+    <div class="sep"></div>
+    <div class="st sg"><span class="n" id="nCh">—</span><span class="l">زنجیره</span></div>
+    <div class="st sg"><span class="n" id="nLn">—</span><span class="l">بلندترین</span></div>
+  </div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════ PERSIAN NUMERALS ═══════════════ */
+
+const API_BASE = "https://aisland.co/ezafe/api";
+
+const FA_DIGITS = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+function faNum(n){
+  return String(n).replace(/\d/g, d => FA_DIGITS[+d]);
+}
+
+/* ═══════════════ AUDIO — Apple-style subtle system feedback ═══════════════
+   Design principles borrowed from iOS/macOS UI sounds:
+   • Very short attack, longer smooth exponential decay
+   • Low base volume (0.02–0.06 range)
+   • Multiple stacked partials (fundamental + soft harmonic) for warmth
+   • Gentle lowpass filtering to remove any "plasticky" high frequencies
+   • Slight stereo dispersion for perceived depth
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const AC = window.AudioContext || window.webkitAudioContext;
+let ax = null, snd = true, audioReady = false;
+let masterGain = null;   // one shared gain node → global "silky" volume
+let masterFilter = null; // one shared lowpass → warmth
+
+function unlockAudio(){
+  if(audioReady || !snd) return;
+  try{
+    if(!ax) ax = new AC();
+    if(ax.state === 'suspended') ax.resume();
+
+    /* master chain: source → filter → gain → destination */
+    masterFilter = ax.createBiquadFilter();
+    masterFilter.type = 'lowpass';
+    masterFilter.frequency.value = 4200;   // warm ceiling like iOS UI
+    masterFilter.Q.value = 0.7;
+
+    masterGain = ax.createGain();
+    masterGain.gain.value = 0.55;          // global soft cap
+
+    masterFilter.connect(masterGain);
+    masterGain.connect(ax.destination);
+
+    /* silent unlock buffer for iOS */
+    const buf = ax.createBuffer(1, 1, 22050);
+    const src = ax.createBufferSource();
+    src.buffer = buf;
+    src.connect(ax.destination);
+    src.start(0);
+
+    audioReady = true;
+  }catch(e){ console.warn('audio unlock failed', e); }
+}
+
+['touchstart','touchend','mousedown','pointerdown','keydown','click'].forEach(ev=>{
+  document.addEventListener(ev, unlockAudio, {once:false, passive:true});
+});
+
+function tglSnd(){
+  snd = !snd;
+  const b = document.getElementById('sndBtn');
+  b.textContent = snd ? '🔊' : '🔇';
+  b.classList.toggle('off', !snd);
+  if(snd){ unlockAudio(); if(ax && ax.state==='suspended') ax.resume(); }
+  try{ localStorage.setItem('ez_snd', snd?'1':'0'); }catch(e){}
+}
+try{
+  if(localStorage.getItem('ez_snd')==='0'){
+    snd=false;
+    document.getElementById('sndBtn').textContent='🔇';
+    document.getElementById('sndBtn').classList.add('off');
+  }
+}catch(e){}
+
+/* ─── Core sound primitive: a soft, smooth "bell-like" tap ───
+   freq   → fundamental
+   dur    → total duration (s)
+   vol    → peak (already very low: 0.02–0.07)
+   type   → 'sine' (silky) | 'triangle' (slightly brighter)
+   harm   → optional harmonic ratio for depth (e.g. 2.0 = octave up)
+   pan    → -1..1 stereo (adds spaciousness) */
+function bell(freq, dur = .35, vol = .04, type = 'sine', harm = 0, pan = 0){
+  if(!snd || !ax || !masterGain) return;
+  if(ax.state === 'suspended') ax.resume();
+
+  try{
+    const now = ax.currentTime;
+
+    /* fundamental */
+    const o1 = ax.createOscillator();
+    o1.type = type;
+    o1.frequency.value = freq;
+
+    /* subtle harmonic overtone for "roundness" (Apple-like body) */
+    const o2 = harm > 0 ? ax.createOscillator() : null;
+    if(o2){
+      o2.type = 'sine';
+      o2.frequency.value = freq * harm;
+    }
+
+    /* individual envelope */
+    const g = ax.createGain();
+    g.gain.setValueAtTime(0.00001, now);
+    g.gain.exponentialRampToValueAtTime(vol,      now + 0.008); // 8ms silky attack
+    g.gain.exponentialRampToValueAtTime(vol*0.35, now + dur*0.35);
+    g.gain.exponentialRampToValueAtTime(0.00001,  now + dur);   // long smooth tail
+
+    /* optional stereo panner (falls back gracefully on unsupported iOS) */
+    let panner = null;
+    try{
+      panner = ax.createStereoPanner();
+      panner.pan.value = pan;
+    }catch(e){}
+
+    o1.connect(g);
+    if(o2){
+      const gh = ax.createGain();
+      gh.gain.value = 0.35;   // harmonic mixed in quietly
+      o2.connect(gh);
+      gh.connect(g);
+    }
+
+    if(panner){
+      g.connect(panner);
+      panner.connect(masterFilter);
+    }else{
+      g.connect(masterFilter);
+    }
+
+    o1.start(now);
+    o1.stop(now + dur + 0.05);
+    if(o2){ o2.start(now); o2.stop(now + dur + 0.05); }
+  }catch(e){}
+}
+
+/* ═══════════ SEMANTIC SOUNDS ═══════════
+   Each event maps to a small, purposeful chime.
+   Frequencies chosen from a pentatonic-minor palette
+   (A minor: A3=220, C4=261, E4=330, G4=392, A4=440, C5=523)
+   so accidental combinations never sound dissonant. */
+
+/* Word inside an ezafe chain — soft, breathy "connection" ping */
+function sndWord(tag){
+  if(tag === 'B-EZ'){
+    /* chain opens: warm mid tone with harmonic body */
+    bell(392.00, .38, .055, 'sine', 2.0, -0.15);   // G4 + octave
+  }else if(tag === 'I-EZ'){
+    /* chain continues: slightly higher, lighter */
+    bell(440.00, .30, .038, 'sine', 2.0,  0.15);   // A4 + octave
+  }else{
+    /* neutral word: barely audible tick */
+    bell(261.63, .15, .014, 'sine', 0,    0);      // C4, no harmonic
+  }
+}
+
+/* Chain closes — resolving descending fifth (calming, "done") */
+function sndChainEnd(){
+  bell(329.63, .45, .032, 'sine', 2.0, 0);          // E4
+}
+
+/* Full analysis done — three-note ascending pentatonic (Apple "sent" style) */
+function sndDone(){
+  bell(392.00, .40, .038, 'sine', 2.0, -0.2);       // G4
+  setTimeout(()=> bell(523.25, .40, .038, 'sine', 2.0,  0.0), 130); // C5
+  setTimeout(()=> bell(659.25, .55, .042, 'sine', 2.0,  0.2), 280); // E5
+}
+
+/* UI tap — dry, extremely subtle click */
+function sndTap(){
+  bell(880, .06, .022, 'sine', 0, 0);               // A5, very short
+}
+
+/* Submit / analyze pressed — soft two-note "ready" */
+function sndGo(){
+  bell(523.25, .18, .035, 'sine', 2.0, -0.1);       // C5
+  setTimeout(()=> bell(659.25, .22, .035, 'sine', 2.0, 0.1), 70);  // E5
+}
+
+/* Model swapped — quick three-note sparkle */
+function sndSwap(){
+  bell(659.25, .16, .032, 'sine', 2.0, -0.2);       // E5
+  setTimeout(()=> bell(783.99, .16, .032, 'sine', 2.0,  0.0), 80); // G5
+  setTimeout(()=> bell(987.77, .22, .036, 'sine', 2.0,  0.2), 170);// B5
+}
+
+/* ═══════════════ CUSTOM COMBO BOX ═══════════════ */
+function toggleCombo(e){
+  e.stopPropagation();
+  unlockAudio(); sndTap();
+  document.getElementById('combo').classList.toggle('open');
+}
+document.addEventListener('click', ()=> document.getElementById('combo').classList.remove('open'));
+document.getElementById('comboMenu').addEventListener('click', e=> e.stopPropagation());
+
+async function pickModel(el){
+  unlockAudio(); sndTap();
+  const val = el.dataset.model;
+  const lbl = el.dataset.label;
+  document.querySelectorAll('.combo-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('comboLabel').textContent = lbl;
+  document.getElementById('combo').classList.remove('open');
+
+  const btn = document.getElementById('comboBtn');
+  btn.classList.add('loading');
+
+  try{
+    const r = await fetch('${API_BASE}/switch',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({model_name: val})
+    });
+    const d = await r.json();
+    btn.classList.remove('loading');
+    if(d.mode === 'mock'){ btn.classList.add('err'); toast('مدل یافت نشد — حالت نمایشی'); }
+    else{ btn.classList.remove('err'); toast('مدل تعویض شد'); sndSwap(); }
+  }catch(e){
+    btn.classList.remove('loading'); btn.classList.add('err');
+    toast('خطا در تعویض مدل');
+  }
+}
+
+/* ═══════════════ STATUS ═══════════════ */
+fetch('${API_BASE}/status').then(r=>r.json()).then(d=>{
+  const btn = document.getElementById('comboBtn');
+  if(d.mode === 'mock') btn.classList.add('err');
+  document.querySelectorAll('.combo-item').forEach(i=>{
+    if(i.dataset.model === d.current_model){
+      document.querySelectorAll('.combo-item').forEach(x=>x.classList.remove('active'));
+      i.classList.add('active');
+      document.getElementById('comboLabel').textContent = i.dataset.label;
+    }
+  });
+}).catch(()=>{});
+
+/* ═══════════════ EXAMPLES ═══════════════ */
+const EX = [
+  "کتاب نظام آوایی زبان فارسی",
+  "خانه پدربزرگ من در شمال شهر تهران",
+  "صدای باران روی سقف خانه قدیمی",
+  "ساختار حوزه اضافه در زبان فارسی",
+  "دانشگاه تهران بزرگترین دانشگاه کشور است",
+  "رنگ آبی آسمان صاف تابستانی",
+  "نتایج تحقیقات دانشمندان ایرانی",
+  "پدر من مرد خوبی است"
+];
+const chC = document.getElementById('chips');
+EX.forEach(e=>{
+  const c = document.createElement('div');
+  c.className='chip'; c.textContent = e;
+  c.onclick = ()=>{ unlockAudio(); sndTap(); document.getElementById('inp').value = e; ucc(); run(); };
+  chC.appendChild(c);
+});
+
+const inp = document.getElementById('inp');
+inp.addEventListener('input', ucc);
+function ucc(){ document.getElementById('cc').textContent = faNum(inp.value.length); }
+
+function esc(s){ return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2300); }
+
+/* ═══════════════ GROUPING ═══════════════ */
+function extractGroups(tokens){
+  const groups=[]; let chainIdx=0, i=0;
+  while(i<tokens.length){
+    if(tokens[i].tag==='B-EZ'){
+      const words=[tokens[i]]; let j=i+1;
+      while(j<tokens.length && tokens[j].tag==='I-EZ'){ words.push(tokens[j]); j++; }
+      groups.push({type:'chain', words, chainIdx}); chainIdx++; i=j;
+    }else{
+      groups.push({type:'lone', word:tokens[i]}); i++;
+    }
+  }
+  return {groups, chainCount:chainIdx};
+}
+
+/* ═══════════════ RENDER — SLOW READING RHYTHM ═══════════════ */
+const STEP_CHAIN = 144;   /* ms per word inside an ezafe chain (slow, deliberate) */
+const STEP_LONE  = 104;   /* ms per standalone word */
+const CHAIN_GAP  = 60;   /* extra pause after finishing a chain */
+
+function render(tokens){
+  const res = document.getElementById('results');
+  res.innerHTML = '';
+  const {groups, chainCount} = extractGroups(tokens);
+
+  let bC=0, iC=0, oC=0, maxLen=0;
+  groups.forEach(g=>{
+    if(g.type==='chain'){
+      g.words.forEach(w=>{ w.tag==='B-EZ' ? bC++ : iC++; });
+      if(g.words.length > maxLen) maxLen = g.words.length;
+    }else oC++;
+  });
+
+  /* ─── build DOM (all hidden, revealed by timers) ─── */
+  const s1 = document.createElement('div'); s1.className='section';
+  let h1 = '<div class="sec-title kasre">📖 خوانش کسره‌دار</div><div class="kasre-flow">';
+  const s2 = document.createElement('div'); s2.className='section';
+  let h2 = '<div class="sec-title bio">🏷️ برچسب‌گذاری بایو</div><div class="bio-flow">';
+  const s3 = document.createElement('div'); s3.className='section';
+  let h3 = '<div class="sec-title edge">🔗 زنجیره‌های اضافه</div><div class="edge-flow">';
+
+  let t = 0;                     /* running timeline in ms */
+  const schedule = [];           /* {at, tag} sound events */
+
+  groups.forEach(g=>{
+    if(g.type==='chain'){
+      const alt = g.chainIdx % 2 === 1;
+      const lbl = 'زنجیره ' + faNum(g.chainIdx + 1);
+
+      /* section 1 — kasre reading */
+      h1 += `<span class="kasre-chain${alt?' alt':''}" data-chain="${lbl}" style="animation-delay:${t}ms">`;
+      g.words.forEach((tk, wi)=>{
+        const isLast = wi === g.words.length - 1;
+        h1 += `<span class="kw ez" style="animation-delay:${t}ms">${esc(tk.word)}${!isLast?'ِ':''}</span>`;
+        schedule.push({at:t, tag:tk.tag});
+        t += STEP_CHAIN;
+      });
+      h1 += '</span>';
+      schedule.push({at:t, tag:'CHAIN_END'});
+      t += CHAIN_GAP;
+
+    }else{
+      h1 += `<span class="kw o" style="animation-delay:${t}ms">${esc(g.word.word)}</span>`;
+      schedule.push({at:t, tag:'O'});
+      t += STEP_LONE;
+    }
+  });
+  h1 += '</div>';
+
+  /* section 2 & 3 use same timeline */
+  let t2 = 0;
+  groups.forEach(g=>{
+    if(g.type==='chain'){
+      const alt = g.chainIdx % 2 === 1;
+      const lbl = 'زنجیره ' + faNum(g.chainIdx + 1);
+      h2 += `<div class="bio-group${alt?' alt':''}" data-label="${lbl}" style="animation-delay:${t2}ms">`;
+      g.words.forEach(tk=>{
+        h2 += `<div class="bio-word ${tk.tag}" style="animation-delay:${t2}ms"><span class="w">${esc(tk.word)}</span><span class="tag">${tk.tag}</span></div>`;
+        t2 += STEP_CHAIN;
+      });
+      h2 += '</div>';
+      t2 += CHAIN_GAP;
+
+      h3 += `<div class="chain-bubble" data-label="${lbl}" style="animation-delay:${t2 - (g.words.length*STEP_CHAIN) - CHAIN_GAP}ms">`;
+      g.words.forEach((tk, wi)=>{
+        h3 += `<span class="cw">${esc(tk.word)}</span>`;
+        if(wi < g.words.length - 1) h3 += '<span class="link">🔗</span>';
+      });
+      h3 += '</div>';
+
+    }else{
+      h2 += `<div class="bio-lone" style="animation-delay:${t2}ms"><span class="w">${esc(g.word.word)}</span><span class="tag">O</span></div>`;
+      h3 += `<span class="lone-word" style="animation-delay:${t2}ms">${esc(g.word.word)}</span>`;
+      t2 += STEP_LONE;
+    }
+  });
+  h2 += '</div>'; h3 += '</div>';
+
+  s1.innerHTML = h1; s2.innerHTML = h2; s3.innerHTML = h3;
+  res.appendChild(s1); res.appendChild(s2); res.appendChild(s3);
+
+  /* ─── play sounds on the same slow timeline ─── */
+  schedule.forEach(ev=>{
+    setTimeout(()=>{
+      if(ev.tag === 'CHAIN_END') sndChainEnd();
+      else sndWord(ev.tag);
+    }, ev.at);
+  });
+
+  /* ─── stats (Persian numerals) ─── */
+  document.getElementById('nB').textContent  = faNum(bC);
+  document.getElementById('nI').textContent  = faNum(iC);
+  document.getElementById('nO').textContent  = faNum(oC);
+  document.getElementById('nCh').textContent = faNum(chainCount);
+  document.getElementById('nLn').textContent = faNum(maxLen);
+
+  setTimeout(sndDone, t + 240);
+}
+
+/* ═══════════════ RUN ═══════════════ */
+async function run(){
+  unlockAudio();
+  const text = inp.value.trim();
+  if(!text){ toast('متنی وارد کنید'); return; }
+  sndGo();
+
+  const res  = document.getElementById('results');
+  const spin = document.getElementById('spin');
+  const btn  = document.getElementById('goBtn');
+
+  res.style.display = 'none';
+  spin.classList.add('on');
+  btn.disabled = true;
+
+  try{
+    const r = await fetch('${API_BASE}/predict',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({text})
+    });
+    const d = await r.json();
+    spin.classList.remove('on');
+    res.style.display = 'block';
+    if(!d.tokens || !d.tokens.length){ toast('نتیجه‌ای نیست'); return; }
+    render(d.tokens);
+  }catch(e){
+    spin.classList.remove('on');
+    res.style.display = 'block';
+    toast('خطا: ' + e.message);
+  }
+  btn.disabled = false;
+}
+
+function clr(){
+  unlockAudio(); sndTap();
+  inp.value = ''; ucc();
+  document.getElementById('results').innerHTML =
+    '<div class="empty"><b>ـِ</b><span>جمله‌ای بنویسید تا ساختار<br><strong>کسره اضافه</strong> آن تحلیل شود</span></div>';
+  ['nB','nI','nO','nCh','nLn'].forEach(id=> document.getElementById(id).textContent = '—');
+}
+
+document.addEventListener('keydown', e=>{
+  if((e.ctrlKey || e.metaKey) && e.key === 'Enter') run();
+});
+</script>
+</body>
+</html>
