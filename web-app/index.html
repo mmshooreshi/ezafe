@@ -477,7 +477,7 @@ async function pickModel(el){
   btn.classList.add('loading');
 
   try{
-    const r = await fetch('${API_BASE}/switch',{
+    const r = await fetch(`${API_BASE}/switch`,{
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({model_name: val})
     });
@@ -492,7 +492,7 @@ async function pickModel(el){
 }
 
 /* ═══════════════ STATUS ═══════════════ */
-fetch('${API_BASE}/status').then(r=>r.json()).then(d=>{
+fetch(`${API_BASE}/status`).then(r=>r.json()).then(d=>{
   const btn = document.getElementById('comboBtn');
   if(d.mode === 'mock') btn.classList.add('err');
   document.querySelectorAll('.combo-item').forEach(i=>{
@@ -665,7 +665,7 @@ async function run(){
   btn.disabled = true;
 
   try{
-    const r = await fetch('${API_BASE}/predict',{
+    const r = await fetch(`${API_BASE}/predict`,{
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({text})
     });
