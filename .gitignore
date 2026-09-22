@@ -1,0 +1,9 @@
+.DS_Store
+*.original.html
+*.standalone.html
+new_thesis/
+scripts/
+slides/
+templates/
+data/
+THESIS_ARCHITECTURE.md

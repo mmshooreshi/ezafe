@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفاع پایان‌نامه - سید محسن رضوی خسروشاهی</title>
+
+    <!-- Modular Stylesheets -->
+    <link rel="stylesheet" href="css/presentation.css">
+    <link rel="stylesheet" href="css/editor.css">
+
+    <!-- External Visual Libraries -->
+    <script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveable/0.53.0/moveable.min.js" integrity="sha512-gFIuV9WCEJeWYkY1ZdJXugypot9ooEtwJf6U8In5JR6z5ZvV1xAvAQe9mQ7IYBXiF9ICXyiCeqgCJzqf64wh7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- MathJax 3 for Academic LaTeX Formulas -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Mermaid.js for Hand-Drawn Visuals -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+    mermaid.initialize({
+        startOnLoad: true,
+        look: 'handDrawn',
+        theme: 'base',
+        themeVariables: {
+            fontFamily: 'Peyda, sans-serif',
+            primaryColor: '#EBF3ED',
+            primaryBorderColor: '#1B4332',
+            primaryTextColor: '#0F2A1D',
+            lineColor: '#1B4332',
+            secondaryColor: '#FAF7EE',
+            tertiaryColor: '#FFFFFF'
+        }
+    });
+    </script>
+</head>
+
+<body data-role="presenter">
+    <div id="presentation-wrapper">
+        <div id="stage">
+            <div class="progress-container">
+                <div class="progress-bar" id="progress"></div>
+            </div>
+
+            <div class="slide active" id="slide_01" style="background: #FAF7EE; border: 3px solid #1B4332; padding: 44px 70px; display: flex; flex-direction: column; justify-content: space-between;">
+    <!-- Top Running Header -->
+    <div style="border-bottom: 2px solid #1B4332; padding-bottom: 18px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 24px;">
+            <img src="images/university_tehran_logo.png" alt="University of Tehran" style="height: 96px; width: 96px; object-fit: contain;">
+            <div>
+                <p style="font-size: 26px; font-weight: 900; color: #0F2A1D; margin: 0;">دانشگاه تهران</p>
+                <p style="font-size: 16px; font-weight: 700; color: #2D5A43; margin: 3px 0 0;">دانشکدگان علوم و فناوری‌های میان‌رشته‌ای — دانشکده سامانه‌های هوشمند</p>
+                <p style="font-size: 14px; font-weight: 500; color: #4B5563; margin: 2px 0 0;">گروه علوم داده | جلسه رسمی دفاع از پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی</p>
+            </div>
+        </div>
+        <div style="border: 1.5px solid #1B4332; padding: 12px 20px; text-align: center; background: #FFFFFF;">
+            <span style="font-size: 13px; font-weight: 800; color: #1B4332; display: block;">نسخه نهایی دفاع</span>
+            <span style="font-size: 18px; font-weight: 900; color: #0F2A1D;">شهریور ۱۴۰۵</span>
+        </div>
+    </div>
+
+    <!-- Central Monograph Block -->
+    <div style="border: 2px solid #1B4332; padding: 46px 54px; background: #FFFFFF; position: relative;">
+        <div style="position: absolute; top: -15px; right: 36px; background: #1B4332; color: #FFFFFF; padding: 4px 18px; font-size: 14px; font-weight: 800; letter-spacing: 0.5px;">
+            جلسه دفاع از پایان‌نامه دوره کارشناسی ارشد
+        </div>
+        <h1 style="font-size: 44px; font-weight: 900; color: #0F2A1D; line-height: 1.45; margin: 0 0 16px; letter-spacing: -0.5px;">
+            شناسایی حوزه اضافه در زبان فارسی با رویکرد ترکیبی
+        </h1>
+        <div style="border-top: 1.5px solid #CBD8CE; padding-top: 14px;">
+            <p style="font-size: 18px; font-weight: 500; color: #2D5A43; margin: 0; direction: ltr; text-align: right; font-family: monospace;">
+                Automatic Identification and Reconstruction of Persian Ezafe Domains Using Transformer-Based Contextual Representations
+            </p>
+        </div>
+    </div>
+
+    <!-- Academic Metadata Grid -->
+    <div style="display: grid; grid-template-columns: 1.1fr 1.3fr 1fr; gap: 24px;">
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 18px 24px;">
+            <span style="font-size: 13px; font-weight: 700; color: #2D5A43; display: block; margin-bottom: 4px;">نگارنده پایان‌نامه</span>
+            <p style="font-size: 22px; font-weight: 900; color: #0F2A1D; margin: 0;">سید محسن رضوی خسروشاهی</p>
+            <span style="font-size: 13px; color: #4B5563; display: block; margin-top: 3px;">دانشجوی کارشناسی ارشد زبان‌شناسی رایانشی</span>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 18px 24px;">
+            <span style="font-size: 13px; font-weight: 700; color: #2D5A43; display: block; margin-bottom: 4px;">استادان راهنما</span>
+            <div style="display: flex; gap: 20px; align-items: baseline;">
+                <p style="font-size: 20px; font-weight: 900; color: #1B4332; margin: 0;">دکتر مصطفی صالحی</p>
+                <span style="color: #CBD8CE;">|</span>
+                <p style="font-size: 20px; font-weight: 900; color: #1B4332; margin: 0;">دکتر محمود بیجن‌خان</p>
+            </div>
+            <span style="font-size: 13px; color: #4B5563; display: block; margin-top: 3px;">دانشکده سامانه‌های هوشمند — دانشکده ادبیات و علوم انسانی</span>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 18px 24px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <span style="font-size: 13px; font-weight: 700; color: #2D5A43; display: block; margin-bottom: 4px;">حوزه پژوهشی</span>
+                <p style="font-size: 18px; font-weight: 900; color: #0F2A1D; margin: 0;">پردازش زبان طبیعی (NLP)</p>
+            </div>
+            <div style="font-size: 13px; color: #1B4332; font-weight: 700;">
+                نحو محاسباتی و مدل‌های زبانی ترنسفورمر
+            </div>
+        </div>
+    </div>
+
+    <div class="presenter-notes">
+        «بسم‌الله‌الرحمن‌الرحیم. با عرض سلام و درود خدمت داوران گرامی، اساتید ارجمندم جناب آقای دکتر صالحی و جناب آقای دکتر بیجن‌خان، و همه حاضرین ارجمند در این جلسه. امروز با ارائه رساله کارشناسی ارشد خود با عنوان <b>«شناسایی حوزه اضافه در زبان فارسی با رویکرد ترکیبی»</b> در خدمت شما هستم. هدف این پژوهش، گذار از برچسب‌گذاری سطحی کلمه‌ای و ارتقای مسئله اضافه به یک بازسازی ساختارمند سازه‌ای در نحو زبان فارسی است.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_02">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 2 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل اول: کلیات و بیان مسئله | بخش ۱-۱</div>
+        <h2 class="title-main">معمای کسره اضافه در خط فارسی: غیاب نشانه و انفجار ابهام</h2>
+        <p class="title-sub">چرا عدم درج واکه کوتاه /e/ در متون رسمی، پردازش خودکار متن را با بحران مواجه می‌کند؟</p>
+    </div>
+
+    <div class="layout-content">
+        <!-- Big Hero Proclamation -->
+        <div class="pres-hero-box">
+            <h3>اضافه برای انسان امری شهودی و آنی است، اما برای ماشین یک گره کور محاسباتی است!</h3>
+            <p>
+                در خط فارسی، کسره اضافه (<span class="sketch-hl">واکه کوتاه /e/</span>) در نگارش رسمی حذف می‌شود. این غیاب ظاهری، ابهام نحوی را به صورت نمایی در سطح جمله تشدید می‌کند، زیرا مرز میان گروه‌های اسمی، صفت‌ها و روابط متممی مخدوش می‌گردد [cite: 1, 2].
+            </p>
+        </div>
+
+        <div class="pres-split-narrative">
+            <div class="pres-split-col">
+                <div class="pres-col-title">
+                    <span>■ ۱. پدیده واج‌شناختی و خطی</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #B45309;">سطح کلمه</span>
+                </div>
+                <ul class="vintage-list">
+                    <li>بیش از <b>۳۰ درصد از کل کلمات متون رسمی فارسی</b> درگیر رابطه اضافه هستند.</li>
+                    <li>خواننده بومی بر پایه درک شهودی و بافت معنایی کسره را تلفظ می‌کند، اما سیستم ماشینی هیچ نشانه خطی آشکاری دریافت نمی‌کند.</li>
+                    <li>حذف این نشانه باعث هم‌شکل‌شدن واژگان ساده و زنجیره‌های مضاف‌الیهی پیچیده می‌شود.</li>
+                </ul>
+            </div>
+
+            <div class="pres-split-col highlighted">
+                <div class="pres-col-title">
+                    <span>■ ۲. چالش بنیادین سامانه‌های هوشمند</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #1B4332;">سطح جمله</span>
+                </div>
+                <ul class="vintage-list">
+                    <li><b>موتورهای تبدیل متن به گفتار (TTS):</b> تولید لکنت و خطای فاحش در مکث‌ها و لحن.</li>
+                    <li><b>ترجمه ماشینی عصبی (NMT):</b> سردرگمی در تشخیص مرجع ضمیر و هسته معنایی عبارت.</li>
+                    <li><b>تجزیه‌گرهای نحوی (Parsers):</b> تخریب ساختار سلسله‌مراتبی درخت وابستگی جمله.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">مسئله پژوهش: غیاب نشانه املایی کسره اضافه در خط رسمی فارسی | بیش از ۳۰٪ توکن‌های متن درگیر این سازه هستند</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «حضار گرامی، در گام اول باید این پرسش را مطرح کنیم که چرا کسره اضافه یک معمای بزرگ است؟ ما فارسی‌زبانان به سادگی متن را می‌خوانیم و متوجه می‌شویم کدام کلمه مضاف است و کدام صفت. اما برای کامپیوتر، چون هیچ حرف یا اعرابی در خط رسمی نوشته نمی‌شود، کلمات به صورت خامی پشت سر هم می‌آیند. بیش از ۳۰ درصد کل متن‌های فارسی اضافه دارند! اگر کامپیوتر این پیوندها را نفهمد، نه می‌تواند به درستی متن را به گفتار بخواند و نه می‌تواند آن را به انگلیسی یا زبان دیگری ترجمه کند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_03">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 3 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل اول: کلیات و بیان مسئله | بخش ۱-۲</div>
+        <h2 class="title-main">انفجار ترکیبیاتی ابهام: یک جمله، هشت خوانش ساختاری متمایز!</h2>
+        <p class="title-sub">بررسی تجربی اثر حذف نشانه اضافه در ایجاد ابهام چندگانه نحوی</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: center;">
+        <div class="figure-frame">
+            <img src="images/fig_1_1_structural_ambiguity.png" alt="شکل ۱-۱: انفجار ترکیبیاتی ابهام" style="max-height: 420px;" id="img_fig_1_1">
+            <div class="figure-caption">
+                <span>شکل ۱-۱: درخت‌های اشتقاق نحوی و ۸ خوانش متمایز جمله «شاگرد شیفته علم استاد است» در غیاب کسره اضافه</span>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div class="pres-hero-box" style="margin-bottom: 0; padding: 22px 26px;">
+                <h4 style="font-size: 22px; font-weight: 900; color: #0F2A1D; margin: 0 0 8px;">«شاگرد شیفته علم استاد است»</h4>
+                <p style="font-size: 15px; color: #2D5A43; line-height: 1.7; margin: 0;">
+                    یک زنجیره ساده ۵ واژه‌ای به دلیل نبود کسره، دقیقاً <span class="sketch-hl">۸ درخت نحوی با معانی کاملاً متضاد</span> پدید می‌آورد!
+                </p>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1.5px solid #CBD8CE; padding: 18px 22px;">
+                <b style="font-size: 16px; color: #1B4332; display: block; margin-bottom: 8px;">کالبدشکافی ابهام در خوانش‌های گوناگون:</b>
+                <ul class="vintage-list" style="font-size: 14px;">
+                    <li><b>خوانش الف:</b> شاگردِ شیفته‌ی علم، استاد است. (شاگرد = نهاد، شیفته‌ی علم = صفت، استاد = مسند)</li>
+                    <li><b>خوانش ب:</b> شاگرد، شیفته‌ی علمِ استاد است. (علمِ استاد = مضاف‌الیه، شیفته = مسند)</li>
+                    <li><b>خوانش ج:</b> شاگردِ شیفته، علمِ استاد است! (معنای کاملاً دگرگون و انتزاعی)</li>
+                </ul>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #EBF3ED; padding: 12px 18px; font-size: 14px; font-weight: 700; color: #0F2A1D;">
+                نتیجه نحوی: تشخیص اضافه صرفاً یک تطبیق کلمه‌ای نیست، بلکه نیازمند بازسازی کل هندسه جمله است.
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">شکل ۱-۱ مستخرج از رساله: اثبات ریاضی انفجار ترکیبیاتی در غیاب نشانه اضافه [cite: 1]</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «در شکل ۱-۱ این اسلاید، عمق فاجعه محاسباتی را به تصویر کشیده‌ایم. به این جمله کوتاه نگاه کنید: «شاگرد شیفته علم استاد است». اگر کسره اضافه را مشخص نکنیم، این جمله دقیقاً ۸ معنا و ۸ درخت گرامری متفاوت تولید می‌کند! در یک خوانش، «شاگرد شیفته علم» است و خودش استاد است؛ در خوانش دیگر، شاگرد شیفته «علم استاد» است. این آزمایش عملی ثابت می‌کند که ماشین بدون درک روابط سازه‌ای، در فهم ساده‌ترین متون نیز سردرگم خواهد شد.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_04">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 4 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل اول: کلیات و بیان مسئله | بخش ۱-۳</div>
+        <h2 class="title-main">تغییر پارادایم: گذار از برچسب‌گذاری سطحی به بازسازی سازه‌ای</h2>
+        <p class="title-sub">چرا نگاه نقطه‌ای به کسره اضافه ناقص است و باید به سطح «حوزه اضافه» ارتقا یابد؟</p>
+    </div>
+
+    <div class="layout-content">
+        <div class="pres-split-narrative">
+            <div class="pres-split-col">
+                <div class="pres-col-title">
+                    <span>■ رویکرد سنتی: پیش‌بینی سطحی کلمه</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #B45309;">دیدگاه کلمه‌محور (Token-Level)</span>
+                </div>
+                <p style="font-size: 15px; color: #4B5563; line-height: 1.8; margin-bottom: 14px;">
+                    رویکرد سنتی از مدل می‌پرسد: <em>«آیا واژه $w_i$ کسره اضافه دارد یا خیر؟»</em> (طبقه‌بندی دودویی ۰ و ۱).
+                </p>
+                <div style="background: #FFF7ED; border: 1.5px solid #FDBA74; padding: 14px; font-size: 14px; margin-bottom: 14px; color: #9A3412;">
+                    <b>گلوگاه‌های روش سنتی:</b>
+                    <ul style="margin: 6px 0 0; padding-right: 18px; line-height: 1.7;">
+                        <li>بی‌توجهی به سرگروه و وابسته‌های پسین.</li>
+                        <li>ناتوانی در ترسیم مرزهای زنجیره‌های چندکلمه‌ای.</li>
+                        <li>ایجاد پیوندهای ناممکن و نقض قواعد دستور زبان وابستگی.</li>
+                    </ul>
+                </div>
+                <div style="font-size: 13px; color: #4B5563;">
+                    نتیجه: حتی با دقت ۹۸٪ در کلمات، بیش از ۱۰٪ کل سازه‌ها خراب بازسازی می‌شوند.
+                </div>
+            </div>
+
+            <div class="pres-split-col highlighted">
+                <div class="pres-col-title">
+                    <span>■ رویکرد پیشنهادی رساله: شناسایی حوزه سازه</span>
+                    <span style="font-size: 13px; font-weight: 800; color: #1B4332;">دیدگاه ساختارمند (Constituent-Level)</span>
+                </div>
+                <p style="font-size: 15px; color: #4B5563; line-height: 1.8; margin-bottom: 14px;">
+                    رویکرد ما می‌پرسد: <em>«کدام گستره از واژگان تشکیل یک سازه منسجم اضافه را می‌دهند و هسته آن کدام است؟»</em>
+                </p>
+                <div style="background: #EBF3ED; border: 1.5px solid #1B4332; padding: 14px; font-size: 14px; margin-bottom: 14px; color: #0F2A1D;">
+                    <b>دستاوردهای رویکرد ساختاری رساله:</b>
+                    <ul style="margin: 6px 0 0; padding-right: 18px; line-height: 1.7;">
+                        <li><span class="sketch-hl-green">تعیین دقیق آغاز و پایان سازه</span> در قالب طرحواره BIO.</li>
+                        <li><b>مدل‌سازی پیوند جفتی (Edge):</b> پیش‌بینی مستقیم یال‌های درخت وابستگی.</li>
+                        <li>تضمین سازگاری گرامری میان کلمات متوالی در زنجیره.</li>
+                    </ul>
+                </div>
+                <div style="font-size: 13px; font-weight: 700; color: #1B4332;">
+                    جهش علمی: ارتقای مسئله از یک اعراب‌گذاری کورکورانه به یک تحلیل سازه‌ای منسجم.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">تغییر پارادایم: حرکت از طبقه‌بندی مجزای توکن‌ها به سوی بازسازی گراف و درخت وابستگی سازه</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «تا پیش از این رساله، عموم مقالات مسئله را بسیار ساده می‌دیدند: برای هر کلمه یک صفر یا یک پیش‌بینی می‌کردند که آیا کسره دارد یا ندارد. ما در این رساله نشان دادیم که این نگاه به شدت خطاست! شما ممکن است ۹۸ درصد کلمات را درست بگویید، اما اگر در یک زنجیره ۴ کلمه‌ای، یکی را اشتباه کنید، کل سازه نحوی فرو می‌ریزد. ما مسئله را ارتقا دادیم به شناسایی «حوزه اضافه» یعنی مشخص کردن هسته، اعضای وابسته، و مرز پایانی گروه اسمی.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_05">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 5 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل اول: کلیات و بیان مسئله | بخش ۱-۴</div>
+        <h2 class="title-main">کاربردهای راهبردی و ضرورت صنعتی-پژوهشی حوزه اضافه</h2>
+        <p class="title-sub">اثرگذاری مستقیم استخراج سازه بر کیفیت پردازش صوت، متن و سامانه‌های ملی</p>
+    </div>
+
+    <div class="layout-content">
+        <div class="pres-pipeline-row" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="pres-step-item">
+                <div class="pres-step-num">۰۱</div>
+                <div>
+                    <h4 style="font-size: 20px; font-weight: 800; color: #0F2A1D; margin: 0 0 10px;">تبدیل متن به گفتار (TTS)</h4>
+                    <ul class="vintage-list" style="font-size: 14px;">
+                        <li>تولید صدای طبیعی بدون لکنت و حذف واکه‌ها.</li>
+                        <li>درج مکث‌های طبیعی (Pauses) در مرز سازه‌ها.</li>
+                        <li>بهبود چشمگیر شاخص کیفی MOS در دستیاران صوتی.</li>
+                    </ul>
+                </div>
+                <div style="border-top: 1px solid #CBD8CE; padding-top: 8px; font-size: 12px; color: #1B4332; font-weight: 700;">
+                    سامانه‌های کتاب‌خوان و ناوبری سخنگو
+                </div>
+            </div>
+
+            <div class="pres-step-item">
+                <div class="pres-step-num">۰۲</div>
+                <div>
+                    <h4 style="font-size: 20px; font-weight: 800; color: #0F2A1D; margin: 0 0 10px;">ترجمه ماشینی عصبی (NMT)</h4>
+                    <ul class="vintage-list" style="font-size: 14px;">
+                        <li>شناسایی دقیق ترکیبات ملکی و اضافی (NP of NP).</li>
+                        <li>جلوگیری از ترجمه کلمه‌به‌کلمه و حفظ معنای ترکیبی.</li>
+                        <li>ارتقای نمره BLEU در ترجمه فارسی به انگلیسی.</li>
+                    </ul>
+                </div>
+                <div style="border-top: 1px solid #CBD8CE; padding-top: 8px; font-size: 12px; color: #1B4332; font-weight: 700;">
+                    موتورهای ترجمه هم‌زمان و اسناد حقوقی
+                </div>
+            </div>
+
+            <div class="pres-step-item">
+                <div class="pres-step-num">۰۳</div>
+                <div>
+                    <h4 style="font-size: 20px; font-weight: 800; color: #0F2A1D; margin: 0 0 10px;">بازیابی اطلاعات و وب‌کاوی</h4>
+                    <ul class="vintage-list" style="font-size: 14px;">
+                        <li>استخراج اصطلاحات تخصصی و موجودیت‌های نامدار.</li>
+                        <li>تطبیق پرس‌وجوی کاربر با مفاهیم مرکب در اسناد.</li>
+                        <li>ساخت پایگاه‌های دانش و گراف‌های دانش ملی.</li>
+                    </ul>
+                </div>
+                <div style="border-top: 1px solid #CBD5E1; padding-top: 8px; font-size: 12px; color: #1B4332; font-weight: 700;">
+                    موتورهای جستجوی سازمانی و پرسش‌وپاسخ
+                </div>
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 18px 24px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 16px; font-weight: 800; color: #0F2A1D;">
+                📌 اهمیت زیرساختی: سازه اضافه، گلوگاه مشترک تمام زنجیره پردازش هوشمند خط و زبان فارسی است.
+            </span>
+            <span style="font-size: 13px; font-weight: 700; color: #1B4332; background: #EBF3ED; padding: 4px 14px;">
+                خطای ورودی = افت زنجیره‌ای سامانه‌های پایین‌دستی
+            </span>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">کاربردهای کاربردی: تبدیل متن به گفتار (TTS) | ترجمه ماشینی عصبی (NMT) | گراف‌های دانش ملی</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «چرا صنایع هوش مصنوعی و شرکت‌های بزرگ کشور به این پژوهش نیاز دارند؟ در موتورهای تبدیل متن به گفتار مثل کتاب‌خوان‌ها، اگر کسره نباشد صدا کاملاً رباتیک و بی‌روح می‌شود. در ترجمه ماشینی، اگر ترکیب اضافی درست تشخیص داده نشود، سیستم ترکیب «وزارت امور خارجه» را به جای یک مفهوم واحد به شکل غلط تکه‌تکه ترجمه می‌کند. در بازیابی اطلاعات هم اصطلاحات دوکلمه‌ای به راحتی مفقود می‌شوند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_06">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 6 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل اول: کلیات و بیان مسئله | بخش ۱-۵</div>
+        <h2 class="title-main">اهداف راهبردی و پرسش‌های بنیادین پژوهش</h2>
+        <p class="title-sub">نقشه راه علمی رساله در حل مسئله شناسایی و بازسازی حوزه اضافه</p>
+    </div>
+
+    <div class="layout-content" style="gap: 16px;">
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 22px 30px; display: flex; align-items: center; gap: 24px;">
+            <div style="background: #1B4332; color: #FFFFFF; font-size: 24px; font-weight: 900; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                ۱
+            </div>
+            <div>
+                <h4 style="font-size: 20px; font-weight: 900; color: #0F2A1D; margin: 0 0 6px;">هدف اول: طراحی و استقرار بازنمایی‌های زبانی بافت‌آگاه عمیق</h4>
+                <p style="font-size: 15px; color: #4B5563; margin: 0; line-height: 1.7;">
+                    به‌کارگیری مدل زبانی پارس‌برت (ParsBERT v2.0) برای استخراج بردارهای متراکم ۷۶۸ بعدی به منظور جذب ویژگی‌های معنایی، ساختاری و نحوی غنی در جملات زبان فارسی.
+                </p>
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 22px 30px; display: flex; align-items: center; gap: 24px;">
+            <div style="background: #1B4332; color: #FFFFFF; font-size: 24px; font-weight: 900; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                ۲
+            </div>
+            <div>
+                <h4 style="font-size: 20px; font-weight: 900; color: #0F2A1D; margin: 0 0 6px;">هدف دوم: ابداع معماری پیوند جفتی (Edge Model) با لایه تطبیق ۴ مؤلفه‌ای</h4>
+                <p style="font-size: 15px; color: #4B5563; margin: 0; line-height: 1.7;">
+                    صورت‌بندی بردار ترکیبی ۳۰۷۲ بعدی شامل ضرب هادامارد و تفاضل قدرمطلقی جهت تصمیم‌گیری پیوسته بر روی یال‌های مجاور به جای طبقه‌بندی مستقل کلمات.
+                </p>
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 22px 30px; display: flex; align-items: center; gap: 24px;">
+            <div style="background: #1B4332; color: #FFFFFF; font-size: 24px; font-weight: 900; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                ۳
+            </div>
+            <div>
+                <h4 style="font-size: 20px; font-weight: 900; color: #0F2A1D; margin: 0 0 6px;">هدف سوم: تدوین چارچوب ارزیابی سازه‌ای ابداعی فراتر از معیارهای توکنی</h4>
+                <p style="font-size: 15px; color: #4B5563; margin: 0; line-height: 1.7;">
+                    تعریف سنجه‌های «صحت واژه‌به‌هسته» (WHA) و «دقت بازسازی کامل زنجیره» (CCA) برای سنجش بی‌رحمانه و واقعی عملکرد مدل‌ها در سطح سازه‌های کامل زبانی.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">اهداف پژوهش: بازنمایی بافت‌آگاه | نوآوری مدل‌سازی پیوند جفتی | سنجه‌های ارزیابی سازه‌ای</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «اهداف این رساله در سه محور اصلی مهندسی و تعریف شدند: نخست، انتقال قدرت مدل‌های ترنسفورمر به حوزه نحو فارسی. دوم، نوآوری در معماری با ابداع مدل Edge که با بردار ۳۰۷۲ بعدی روابط بین واژه‌ها را مستقیم تحلیل می‌کند. و سوم، معرفی معیارهای ارزیابی سخت‌گیرانه‌ای مانند Complete Chain Accuracy تا دیگر با نمرات کاذب ۹۸ درصدی خود را فریب ندهیم و بازسازی کامل سازه را بسنجیم.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_07">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 7 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل اول: کلیات و بیان مسئله | بخش ۱-۶</div>
+        <h2 class="title-main">فرضیه‌های سه‌گانه تجربی رساله</h2>
+        <p class="title-sub">سه گزاره علمی ابطال‌پذیر که در طول آزمایش‌های فصول ۴ و ۵ به آزمون گذاشته شدند</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch;">
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div style="background: #EBF3ED; color: #1B4332; padding: 4px 12px; font-size: 13px; font-weight: 800; display: inline-block; margin-bottom: 14px;">
+                    فرضیه اول تجربی (H₁)
+                </div>
+                <h4 style="font-size: 19px; font-weight: 900; color: #0F2A1D; line-height: 1.5; margin: 0 0 12px;">
+                    برتری ترنسفورمرها بر روش‌های سنتی
+                </h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.8; margin: 0;">
+                    بازنمایی‌های بافت‌آگاه عمیق مدل زبانی پارس‌برت، به دلیل درک بافت دوربرد و تعامل چندلایه‌ای، عملکرد به‌مراتب بالاتری نسبت به روش‌های کلاسیک یادگیری ماشین (CRF و SVM) ارائه می‌دهند.
+                </p>
+            </div>
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 12px; font-size: 13px; font-weight: 700; color: #1B4332;">
+                شاخص راستی‌آزمایی: نمره F1 وزنی
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div style="background: #EBF3ED; color: #1B4332; padding: 4px 12px; font-size: 13px; font-weight: 800; display: inline-block; margin-bottom: 14px;">
+                    فرضیه دوم تجربی (H₂)
+                </div>
+                <h4 style="font-size: 19px; font-weight: 900; color: #0F2A1D; line-height: 1.5; margin: 0 0 12px;">
+                    برتری مدل پیوند جفتی بر مدل توالی
+                </h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.8; margin: 0;">
+                    فرمولاسیون پیوند جفتی (Edge Model) با لایه تطبیق ۴ مؤلفه‌ای، به دلیل تصمیم‌گیری هم‌زمان روی مرزها، هم در دقت کلمه‌ای و هم در بازسازی کامل زنجیره‌ها بر مدل توالی BIO برتری دارد.
+                </p>
+            </div>
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 12px; font-size: 13px; font-weight: 700; color: #1B4332;">
+                شاخص راستی‌آزمایی: WHA و CCA
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div style="background: #EBF3ED; color: #1B4332; padding: 4px 12px; font-size: 13px; font-weight: 800; display: inline-block; margin-bottom: 14px;">
+                    فرضیه سوم تجربی (H₃)
+                </div>
+                <h4 style="font-size: 19px; font-weight: 900; color: #0F2A1D; line-height: 1.5; margin: 0 0 12px;">
+                    افت غیرخطی دقت در زنجیره‌های طویل
+                </h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.8; margin: 0;">
+                    با افزایش طول زنجیره سازه اضافه (تعداد وابسته‌ها)، دقت بازسازی کامل به صورت غیرخطی بر پایه «قانون انتشار خطای ضربی» افت می‌کند و مدل Edge مقاومت خطای بالاتری ثبت می‌نماید.
+                </p>
+            </div>
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 12px; font-size: 13px; font-weight: 700; color: #1B4332;">
+                شاخص راستی‌آزمایی: ارزیابی طول ۱ تا ۵+
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">فرضیات پژوهش: H₁ برتری ترنسفورمر | H₂ برتری پیوند جفتی | H₃ اثر خطای انباشتی طول زنجیره</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «اساتید محترم، این سه فرضیه استخوان‌بندی علمی رساله بنده را تشکیل می‌دهند. فرضیه اول ادعا می‌کند که پارس‌برت روش‌های سنتی را شکست می‌دهد. فرضیه دوم ادعا می‌کند که مدل پیوندی Edge که ابداع کرده‌ایم، بر مدل توالی BIO برتری ساختاری دارد. و فرضیه سوم ادعا می‌کند که در زنجیره‌های طویل خطای انباشتی رخ می‌دهد و مدل‌ها با چالش افت دقت مواجه می‌شوند. در ادامه اسلایدها خواهید دید که چگونه هر سه فرضیه اثبات شدند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_08">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 8 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل دوم: مبانی نظری و پیشینه پژوهش | بخش ۲-۱</div>
+        <h2 class="title-main">مبانی نظری: ساختار هسته‌آغازی و بازنمایی درختی حوزه اضافه</h2>
+        <p class="title-sub">تبیین صوری ساختار نحوی سازه اضافه بر پایه نحو زایشی و دستور وابستگی</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="pres-hero-box" style="margin-bottom: 0; padding: 22px 28px;">
+                <h4 style="font-size: 22px; font-weight: 900; color: #0F2A1D; margin: 0 0 8px;">
+                    «سازه اضافه، یک گروه اسمی با انشعاب راست‌گرا و هسته‌آغاز است»
+                </h4>
+                <p style="font-size: 15px; color: #2D5A43; line-height: 1.7; margin: 0;">
+                    در زبان‌شناسی نظری، رابطه اضافه ($Ezafe$) نشانگر پیوند وابستگی میان یک هسته اسمی ($Head$) و یک یا چند وابسته پسین ($Dependents$) اعم از مضاف‌الیه، صفت بیانی یا قید است [cite: 3, 4].
+                </p>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1.5px solid #CBD8CE; padding: 18px 24px;">
+                <b style="font-size: 16px; color: #1B4332; display: block; margin-bottom: 8px;">مؤلفه‌های صوری حوزه اضافه (Ezafe Domain):</b>
+                <ul class="vintage-list" style="font-size: 14px;">
+                    <li><b>۱. هسته نحوی (Head):</b> نخستین واژه در سازه که بار معنایی اصلی را حمل کرده و کسرِه می‌گیرد (یا واکه پیوند).</li>
+                    <li><b>۲. وابسته‌های بازگشتی (Recursive Chain):</b> توالی نامحدود از اسامی و صفات که به صورت سلسله‌مراتبی به هسته متصل می‌شوند.</li>
+                    <li><b>۳. مرز پایانی سازه (Domain Boundary):</b> کلمه‌ای که دیگر به هسته وابسته نیست و با توقف کسره، پایان گروه اسمی را مشخص می‌کند.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="figure-frame">
+            <img src="images/fig_1_3_ezafe_syntactic_tree.png" alt="شکل ۱-۳: درخت نحو وابستگی حوزه اضافه" style="max-height: 380px;" id="img_fig_1_2">
+            <div class="figure-caption">
+                <span>شکل ۱-۲: درخت اشتقاق وابستگی سازه «رئیس دفتر شبکه الجزیره» با جهت‌گیری از هسته به وابسته‌ها</span>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">چارچوب نظری: نحو وابستگی (Dependency Grammar) | ساختار هسته‌آغاز (Head-Initial NP) [cite: 3, 5]</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «از نظر زبان‌شناسی نظری، اضافه در فارسی یک گروه اسمی هسته‌آغاز (Head-Initial) است. شکل ۱-۲ را ملاحظه بفرمایید: کلمه «رئیس» هسته اصلی است، «دفتر» وابسته به آن است، و «شبکه الجزیره» نیز به نوبه خود وابسته به دفتر است. این زنجیره می‌تواند به صورت نظری تا هر طولی گسترش یابد. مدل رایانشی ما دقیقاً باید این جهت‌گیری فلش‌ها و یال‌ها را از هسته تا آخرین وابسته شناسایی و ردیابی کند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_09">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 9 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل دوم: مبانی نظری و پیشینه پژوهش | بخش ۲-۲</div>
+        <h2 class="title-main">سیر تحول پژوهش‌های داخلی در زبان فارسی (۱۳۸۴ تا ۱۴۰۵)</h2>
+        <p class="title-sub">چهار نسل از مدل‌های پردازش اضافه و گذار از مدل‌های آماری کم‌عمق به ترنسفورمرهای ساختارمند</p>
+    </div>
+
+    <div class="layout-content">
+        <div class="pres-pipeline-row" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="pres-step-item">
+                <div class="pres-step-num">نسل ۱ (۱۳۸۴)</div>
+                <div>
+                    <h4 style="font-size: 18px; font-weight: 800; color: #0F2A1D; margin: 0 0 8px;">قواعد دستی و N-Gram</h4>
+                    <p style="font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0 0 8px;">
+                        <b>بیجن‌خان و همکاران (۱۳۸۴):</b> استخراج قواعد دستوری و ماتریس‌های هم‌آیی واژگانی.
+                    </p>
+                    <span style="font-size: 12px; color: #B45309; font-weight: 700;">دقت: ~۷۸٪ (شکننده)</span>
+                </div>
+                <div style="border-top: 1px solid #CBD8CE; padding-top: 6px; font-size: 11px; color: #4B5563;">
+                    وابستگی شدید به لغت‌نامه دستی
+                </div>
+            </div>
+
+            <div class="pres-step-item">
+                <div class="pres-step-num">نسل ۲ (۱۳۸۹)</div>
+                <div>
+                    <h4 style="font-size: 18px; font-weight: 800; color: #0F2A1D; margin: 0 0 8px;">مدل‌های آماری CRF</h4>
+                    <p style="font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0 0 8px;">
+                        <b>شمس‌فرد و حسینی (۱۳۸۹):</b> مدل میدان‌های تصادفی شرطی (CRF) با ویژگی‌های سطحی.
+                    </p>
+                    <span style="font-size: 12px; color: #B45309; font-weight: 700;">دقت: ~۸۶٪ (محدود)</span>
+                </div>
+                <div style="border-top: 1px solid #CBD8CE; padding-top: 6px; font-size: 11px; color: #4B5563;">
+                    ناتوانی در ثبت بافت دوربرد
+                </div>
+            </div>
+
+            <div class="pres-step-item">
+                <div class="pres-step-num">نسل ۳ (۱۳۹۷)</div>
+                <div>
+                    <h4 style="font-size: 18px; font-weight: 800; color: #0F2A1D; margin: 0 0 8px;">یادگیری عمیق BiLSTM</h4>
+                    <p style="font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0 0 8px;">
+                        <b>قاسم‌زاده و صمیمی (۱۳۹۷):</b> شبکه عصبی بازگشتی دوسویه با بردار Word2Vec.
+                    </p>
+                    <span style="font-size: 12px; color: #1B4332; font-weight: 700;">دقت: ~۹۲٪ (کلمه‌ای)</span>
+                </div>
+                <div style="border-top: 1px solid #CBD8CE; padding-top: 6px; font-size: 11px; color: #4B5563;">
+                    عدم تفکیک سازه و خطای طولانی
+                </div>
+            </div>
+
+            <div class="pres-step-item" style="border: 2px solid #1B4332; background: #EBF3ED;">
+                <div class="pres-step-num" style="color: #1B4332;">نسل ۴ (۱۴۰۵)</div>
+                <div>
+                    <h4 style="font-size: 18px; font-weight: 900; color: #0F2A1D; margin: 0 0 8px;">ترنسفورمر ترکیبی (رساله حاضر)</h4>
+                    <p style="font-size: 13px; color: #0F2A1D; line-height: 1.7; margin: 0 0 8px;">
+                        <b>رضوی، صالحی، بیجن‌خان (۱۴۰۵):</b> مدل‌سازی پیوند جفتی (Edge) با پارس‌برت.
+                    </p>
+                    <span style="font-size: 12px; color: #1B4332; font-weight: 900;">دقت: ۹۷٫۹۶٪ (F1)</span>
+                </div>
+                <div style="border-top: 1px solid #1B4332; padding-top: 6px; font-size: 11px; color: #1B4332; font-weight: 800;">
+                    ✓ بازسازی کامل سازه (CCA: ۹۰٫۵٪)
+                </div>
+            </div>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 14px 22px; margin-top: 14px; font-size: 14px; color: #0F2A1D; display: flex; justify-content: space-between; align-items: center;">
+            <span><b>نتیجه تحلیل پیشینه:</b> ادبیات داخلی طی دو دهه به بن‌بست دقت ۹۲٪ رسیده بود؛ جهش به ۹۷٫۹۶٪ حاصل تغییر فرمولاسیون به مدل پیوند جفتی است.</span>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">پیشینه پژوهش‌های داخلی: بیجن‌خان (۱۳۸۴) [cite: 7] | شمس‌فرد (۱۳۸۹) [cite: 8] | قاسم‌زاده (۱۳۹۷) [cite: 9]</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «در این اسلاید سیر تحول تاریخی پژوهش‌های ۲۰ سال اخیر در ایران را مقایسه کردیم. کار از سال ۱۳۸۴ با استاد گرامی جناب دکتر بیجن‌خان با روش‌های N-Gram آغاز شد. در دهه ۹۰ مدل‌های CRF آمدند و سپس مدل‌های LSTM دقت را تا ۹۲ درصد رساندند اما متوقف شدند. رویکرد ما در سال ۱۴۰۵ با ورود ترنسفورمرها و لایه پیوند جفتی، برای اولین بار رکورد ۹۷.۹۶ درصد را ثبت کرد و مسئله را از پایه دگرگون ساخت.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_10">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 10 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل دوم: مبانی نظری و پیشینه پژوهش | بخش ۲-۳</div>
+        <h2 class="title-main">رهیافت‌های بین‌المللی: ترکیبات اسمی و پیوندهای اضافه در زبان‌های جهان</h2>
+        <p class="title-sub">تطبیق مسئله اضافه در فارسی با Noun Compounds انگلیسی و سازه‌های موازی در کردی و اردو</p>
+    </div>
+
+    <div class="layout-content">
+        <div class="pres-split-narrative">
+            <div class="pres-split-col">
+                <div class="pres-col-title">
+                    <span>■ زبان انگلیسی: Noun Compound Bracketing</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #4B5563;">Girju et al. (2005)</span>
+                </div>
+                <p style="font-size: 15px; color: #4B5563; line-height: 1.8; margin-bottom: 12px;">
+                    در انگلیسی ترکیباتی نظیر <em>"liver cell antibody"</em> وجود دارند که فاقد حرف اضافه بوده و رابطه میان آن‌ها از طریق پرانتزبندی ساختاری حل می‌شود:
+                </p>
+                <div style="background: #F4EFE3; border: 1px solid #CBD8CE; padding: 12px; font-size: 14px; margin-bottom: 12px; font-family: monospace; direction: ltr; text-align: center;">
+                    [ [ liver cell ] antibody ]  vs.  [ liver [ cell antibody ] ]
+                </div>
+                <ul class="vintage-list" style="font-size: 13px;">
+                    <li>تفاوت انگلیسی با فارسی: در انگلیسی هسته در پایان می‌آید (Head-Final)، در حالی که فارسی هسته‌آغاز است.</li>
+                    <li>شباهت پردازشی: هر دو زبان نیازمند حل روابط پنهان ساختاری هستند [cite: 6].</li>
+                </ul>
+            </div>
+
+            <div class="pres-split-col highlighted">
+                <div class="pres-col-title">
+                    <span>■ زبان‌های کردی و اردو: پیوند ایزافه (Izafe)</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #1B4332;">Karimi (2007), Samiian (1983)</span>
+                </div>
+                <p style="font-size: 15px; color: #4B5563; line-height: 1.8; margin-bottom: 12px;">
+                    در کردی سورانی و اردو ساختار مشابه اضافه وجود دارد، اما ویژگی‌های متفاوتی در نوشتار دارند:
+                </p>
+                <ul class="vintage-list" style="font-size: 14px;">
+                    <li><b>زبان کردی (رسم‌الخط آرامی):</b> برخلاف فارسی، مصوت‌ها اعم از کوتاه و بلند نوشته می‌شوند (مانند «ی» اضافه)، لذا ابهام خطی بسیار کمتر است.</li>
+                    <li><b>زبان اردو:</b> اضافه با همزه یا زیر نوشته می‌شود، اما عدم رعایت دقیق رسم‌الخط چالش‌های موازی با فارسی پدید می‌آورد.</li>
+                    <li><b>تمایز زبان فارسی:</b> حذف ۱۰۰٪ واکه در نوشتار رسمی، فارسی را به پیچیده‌ترین چالش محاسباتی در این خانواده بدل کرده است.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">مطالعات تطبیقی بین‌المللی: Girju et al. (2005) [cite: 6] | Samiian (1983) | Karimi (2007)</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «آیا این مسئله فقط مختص زبان فارسی است؟ خیر. در انگلیسی مسئله Noun Compound Bracketing دقیقاً وجود دارد؛ مثلاً ترکیب سه کلمه‌ای liver cell antibody که باید بفهمیم سلول کبد است یا پادتن سلول. اما در انگلیسی هسته در انتها قرار دارد، در حالی که در فارسی هسته در ابتداست. در زبان‌های هم‌خانواده مثل کردی هم اضافه داریم اما در کردی اعراب‌ها نوشته می‌شوند. زبان فارسی به دلیل حذف کامل این واکه در خط رسمی، سخت‌ترین آزمون برای هوش مصنوعی در جهان است.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_11">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 11 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل دوم: مبانی نظری و پیشینه پژوهش | بخش ۲-۴</div>
+        <h2 class="title-main">شکاف ادبیات پژوهش و ضرورت صورت‌بندی نوین مسئله</h2>
+        <p class="title-sub">سه نارسایی بنیادین در مطالعات گذشته که این رساله برای حل آن‌ها تدوین شده است</p>
+    </div>
+
+    <div class="layout-content">
+        <div class="pres-hero-box" style="padding: 24px 32px; margin-bottom: 20px;">
+            <h3 style="font-size: 26px;">«ادبیات پیشین، مسئله را به عنوان یک طبقه‌بندی کور کلمه‌ای تقلیل داده بود!»</h3>
+            <p style="font-size: 16px;">
+                بررسی موشکافانه بیش از ۳۰ مقاله داخلی و خارجی نشان داد که پژوهشگران بدون توجه به هندسه درخت نحو و اثر خطای انباشتی، صرفاً به افزایش کسری نمرات F1 در سطح توکن بسنده کرده بودند.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 20px;">
+                <b style="font-size: 16px; color: #0F2A1D; display: block; margin-bottom: 8px;">۱. فقدان تمایز میان هسته و وابسته</b>
+                <p style="font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0;">
+                    در مدل‌های صفر و یکی پیشین، مشخص نبود کلمه‌ای که اضافه می‌گیرد، هسته یک گروه جدید است یا ادامه زنجیره قبلی.
+                </p>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 20px;">
+                <b style="font-size: 16px; color: #0F2A1D; display: block; margin-bottom: 8px;">۲. غفلت از خطای انباشتی طول</b>
+                <p style="font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0;">
+                    هیچ پژوهشی اثر تخریبی طول زنجیره بر شکست کامل سازه را بررسی نکرده بود و همه با گزارش نمره ۹۲٪ از کنار تخریب ساختار گذشتند.
+                </p>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 20px;">
+                <b style="font-size: 16px; color: #0F2A1D; display: block; margin-bottom: 8px;">۳. نبود اتصال به نحو وابستگی</b>
+                <p style="font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0;">
+                    خروجی مدل‌های پیشین مستقیماً قابل تبدیل به یال‌های درخت پارس نبود و نیازمند ده‌ها قانون دستی شکننده پس‌پردازشی بود.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">شکاف پژوهش: تقلیل ساختار سازه به توکن‌های مجزا | ضرورت مداخله معماری ترکیبی رساله حاضر</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «شکاف پژوهش چیست؟ ما متوجه شدیم تمام تحقیقات گذشته یک خطای فلسفی و روش‌شناختی مشترک داشتند: آنها فکر می‌کردند اگر به کامپیوتر یاد بدهند زیر کدام کلمه کسره بگذارد، کار تمام است! خیر، کامپیوتر نمی‌دانست این کسره متعلق به هسته است یا وابسته. و از همه بدتر، هیچ‌کس ارزیابی نکرده بود که در جملات بلند چه بلایی سر زنجیره‌ها می‌آید. این شکاف‌ها بود که ما را به سمت تعریف معماری ترکیبی سوق داد.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_12">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 12 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | بخش ۳-۱</div>
+        <h2 class="title-main">معماری جامع سیستم پیشنهادی در یک نگاه (Pipeline Overview)</h2>
+        <p class="title-sub">پایپ‌لاین کامل پردازش از ورود متن خام تا استخراج بردارهای متنی، مدل‌های BIO و Edge و بازسازی سازه</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: center;">
+        <div class="figure-frame">
+            <img src="images/fig_3_1_system_dataflow_architecture.png" alt="شکل ۳-۱: معماری کلان سیستم" style="max-height: 440px;" id="img_fig_3_1">
+            <div class="figure-caption">
+                <span>شکل ۳-۱: نمودار گردش داده و معماری دولایه سیستم (استخراج بردار بافت‌آگاه، دسته‌بند BIO و لایه تطبیق Edge)</span>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="pres-hero-box" style="margin-bottom: 0; padding: 20px 24px;">
+                <h4 style="font-size: 20px; font-weight: 900; color: #0F2A1D; margin: 0 0 6px;">
+                    پایپ‌لاین ۴ مرحله‌ای پردازش هوشمند
+                </h4>
+                <p style="font-size: 14px; color: #2D5A43; line-height: 1.7; margin: 0;">
+                    طراحی سیستم به گونه‌ای است که بدون نیاز به هرگونه ویژگی‌سازی دستی، بازنمایی‌های زبانی عمیق را به تصمیمات سازه‌ای تبدیل می‌کند.
+                </p>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1.5px solid #CBD8CE; padding: 16px 20px;">
+                <ul class="vintage-list" style="font-size: 14px;">
+                    <li><b>مرحله ۱ (پیش‌پردازش و توکنایزیشن):</b> نرمال‌سازی نویسه‌ها و قطعه‌بندی با الگوریتم WordPiece.</li>
+                    <li><b>مرحله ۲ (کدگذاری ترنسفورمر):</b> عبور از ۱۲ لایه خودتوجهی ParsBERT v2.0 و استخراج بردار ۷۶۸ بعدی.</li>
+                    <li><b>مرحله ۳ (رویکرد اول - BIO):</b> طبقه‌بندی کلمه‌ای با لایه خطی و تابع Softmax.</li>
+                    <li><b>مرحله ۴ (رویکرد دوم - Edge):</b> الحاق جفتی ۴ مؤلفه‌ای (۳۰۷۲ بعد) و دسته‌بندی باینری پیوندها.</li>
+                </ul>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #EBF3ED; padding: 12px 18px; font-size: 13px; font-weight: 700; color: #0F2A1D;">
+                ویژگی کلیدی معماری: استقلال کامل از خطاهای برچسب‌زن‌های نحوی (POS Tagless Architecture)
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">شکل ۳-۱ مستخرج از رساله: پایپ‌لاین جامع سیستم پردازش اضافه با بازنمایی ترنسفورمر</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «در شکل ۳-۱ شاهکار معماری سیستم پیشنهادی را مشاهده می‌فرمایید. متن خام وارد توکنایزر پارس‌برت می‌شود. در مرحله بعد از ۱۲ لایه ترنسفورمر عبور کرده و بردار بافت‌آگاه هر کلمه تولید می‌شود. سپس دو شاخه داریم: شاخه سمت راست برچسب‌گذاری سنتی BIO را با نگاشت جدید پیاده می‌کند؛ و شاخه نوآورانه سمت چپ، بردارهای دو کلمه مجاور را گرفته، لایه تطبیق ۴ مؤلفه‌ای را می‌سازد و مستقیماً یال‌های پیوند اضافه را پیش‌بینی می‌کند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_13">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 13 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | بخش ۳-۲</div>
+        <h2 class="title-main">ستون فقرات بازنمایی: مدل زبانی بافت‌آگاه ParsBERT v2.0</h2>
+        <p class="title-sub">سازوکار لایه‌های خودتوجهی (Self-Attention) در شکار روابط دوربرد و رفع ابهام واژگانی</p>
+    </div>
+
+    <div class="layout-content">
+        <div class="pres-split-narrative">
+            <div class="pres-split-col">
+                <div class="pres-col-title">
+                    <span>■ مکانیزم خودتوجهی چندسره (Multi-Head Attention)</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #1B4332;">فرمولاسیون ریاضی</span>
+                </div>
+                <p style="font-size: 15px; color: #4B5563; line-height: 1.8; margin-bottom: 12px;">
+                    در هر لایه، وزن توجه میان واژه $w_i$ و تمام واژگان جمله $w_j$ بر اساس ماتریس‌های پرس‌وجو ($Q$)، کلید ($K$) و مقدار ($V$) محاسبه می‌شود:
+                </p>
+                <div style="border: 1.5px solid #1B4332; background: #FAF7EE; padding: 14px; text-align: center; direction: ltr; font-family: monospace; font-size: 16px; font-weight: 800; color: #0F2A1D; margin-bottom: 14px;">
+                    \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+                </div>
+                <ul class="vintage-list" style="font-size: 13px;">
+                    <li>۱۲ سر توجه موازی در هر لایه امکان تمرکز هم‌زمان بر ویژگی‌های نحوی نزدیک و معانی دوربرد را فراهم می‌کند.</li>
+                    <li>حل ریشه‌ای مشکل همنام‌ها و اشتراک لفظی کلمات در بافت جمله.</li>
+                </ul>
+            </div>
+
+            <div class="pres-split-col highlighted">
+                <div class="pres-col-title">
+                    <span>■ مشخصات پیکربندی ParsBERT v2.0</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #1B4332;">معماری پایه شبکه</span>
+                </div>
+                <table class="booktabs" style="margin-bottom: 12px;">
+                    <thead>
+                        <tr>
+                            <th>پارامتر فنی</th>
+                            <th>مقدار</th>
+                            <th>اثر در بازنمایی اضافه</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>تعداد لایه‌های پنهان ($L$)</td>
+                            <td>۱۲ لایه</td>
+                            <td>انتزاع تدریجی از واج‌شناسی تا نحو</td>
+                        </tr>
+                        <tr>
+                            <td>بعد بردار پنهان ($d_h$)</td>
+                            <td>۷۶۸ بعد</td>
+                            <td>تراکم اطلاعات غنی نحوی و معنایی</td>
+                        </tr>
+                        <tr>
+                            <td>تعداد سرهای توجه ($A$)</td>
+                            <td>۱۲ سر</td>
+                            <td>ردیابی هم‌زمان روابط مضاف و صفت</td>
+                        </tr>
+                        <tr>
+                            <td>حجم واژگان توکنایزر</td>
+                            <td>۱۰۰,۰۰۰ زیرواژه</td>
+                            <td>پوشش کامل وندها و واژگان نادر فارسی</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="font-size: 13px; font-weight: 700; color: #1B4332;">
+                    پیش‌آموزش: بیش از ۲ میلیارد توکن متون فارسی استاندارد و معاصر
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">ستون فقرات مدل: ParsBERT v2.0 (Uncased) با ۱۱۰ میلیون پارامتر آموزش‌دیده روی پیکره کلان فارسی</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «چرا پارس‌برت را انتخاب کردیم؟ مدل‌های قبلی مثل Word2Vec برای هر کلمه فقط یک بردار ثابت داشتند، بدون توجه به اینکه کلمه کجای جمله آمده است. اما در پارس‌برت با مکانیزم Self-Attention، بردار کلمه «علم» وقتی در ترکیب «علم استاد» می‌آید با زمانی که در «علم به دوش» می‌آید کاملاً متفاوت است. این بردار ۷۶۸ بعدی تمام بافت جمله را با خود حمل می‌کند و پایه اصلی موفقیت مدل‌های ماست.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_14">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 14 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | بخش ۳-۳</div>
+        <h2 class="title-main">رویکرد اول: قطعه‌بندی سازه با طرحواره برچسب‌گذاری BIO</h2>
+        <p class="title-sub">تعریف برچسب‌های سه‌گانه، هم‌ترازی زیرواژه‌ها و لایه خطی طبقه‌بندی توالی</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-col-title" style="margin-bottom: 12px;">
+                    <span>■ طرحواره استانداردسازی‌شده سه‌گانه BIO</span>
+                </div>
+                <table class="booktabs" style="margin-bottom: 14px;">
+                    <thead>
+                        <tr>
+                            <th>برچسب</th>
+                            <th>تعریف نحوی</th>
+                            <th>جایگاه در سازه اضافه</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 900; color: #1B4332;">B-EZ</td>
+                            <td>Beginning of Ezafe</td>
+                            <td>واژه آغازگر و <span class="sketch-hl-green">هسته نحوی سازه (Head)</span></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 900; color: #2D5A43;">I-EZ</td>
+                            <td>Inside Ezafe</td>
+                            <td>واژه میانی یا تداوم‌بخش زنجیره (<span class="sketch-hl">وابسته‌ها</span>)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 900; color: #64748B;">O</td>
+                            <td>Outside</td>
+                            <td>واژه فاقد رابطه اضافه (خارج از حوزه سازه)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 14px 18px;">
+                <b style="font-size: 14px; color: #0F2A1D;">حل چالش زیرواژه‌ها (Subword Alignment):</b>
+                <p style="font-size: 13px; color: #4B5563; margin: 4px 0 0; line-height: 1.6;">
+                    تنها اولین زیرواژه از واژه شکسته برچسب اصلی را دریافت می‌کند و سایر زیرواژه‌ها با برچسب $-100$ در محاسبه تابع زیان ماسک می‌شوند.
+                </p>
+            </div>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-col-title" style="margin-bottom: 12px;">
+                    <span>■ نمونه قطعه‌بندی واقعی در پیکره بیجن‌خان</span>
+                </div>
+                <table class="booktabs">
+                    <thead>
+                        <tr>
+                            <th>واژه</th>
+                            <th>برچسب</th>
+                            <th>تحلیل نقش سازه‌ای</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 800;">رئیسِ</td>
+                            <td style="font-weight: 900; color: #1B4332;">B-EZ</td>
+                            <td>هسته زنجیره اول</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 800;">دفترِ</td>
+                            <td style="font-weight: 900; color: #2D5A43;">I-EZ</td>
+                            <td>مضاف‌الیه اول</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 800;">الجزیره</td>
+                            <td style="font-weight: 900; color: #2D5A43;">I-EZ</td>
+                            <td>پایان زنجیره اول</td>
+                        </tr>
+                        <tr style="background: #F4EFE3;">
+                            <td style="font-weight: 700; color: #64748B;">در</td>
+                            <td style="font-weight: 800; color: #64748B;">O</td>
+                            <td>حرف اضافه (خارج)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 800;">پایتختِ</td>
+                            <td style="font-weight: 900; color: #1B4332;">B-EZ</td>
+                            <td>هسته زنجیره دوم</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 800;">ایران</td>
+                            <td style="font-weight: 900; color: #2D5A43;">I-EZ</td>
+                            <td>پایان زنجیره دوم</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 10px; font-size: 13px; color: #1B4332; font-weight: 700;">
+                تابع زیان: Cross-Entropy چندکلاسه بر روی ۳ برچسب هدایت‌شده
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">طرحواره برچسب‌گذاری BIO: تفکیک هسته (B-EZ) از وابسته‌ها (I-EZ) و واژگان آزاد (O)</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «در اولین رویکرد، ما طرحواره BIO را برای نحو فارسی استانداردسازی کردیم. در این جدول نگاه کنید: کلمه «رئیس» برچسب B-EZ می‌خورد، یعنی آغازگر یک سازه است. کلمات بعدی مثل «دفتر» و «الجزیره» برچسب I-EZ می‌خورند یعنی درون سازه هستند. به محض اینکه به کلمه «در» می‌رسیم، برچسب O می‌خورد یعنی سازه به پایان رسیده است. این ساختار اجازه می‌دهد هم هسته و هم کل قلمرو سازه استخراج شوند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_15">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 15 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | بخش ۳-۴</div>
+        <h2 class="title-main">رویکرد دوم و نوآوری کلیدی: مدل‌سازی پیوند جفتی (Edge Model)</h2>
+        <p class="title-sub">تشخیص مستقیم روابط ساختاری میان واژگان مجاور با بردار ویژگی ترکیبی ۳۰۷۲ بعدی</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: stretch;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-hero-box" style="margin-bottom: 12px; padding: 18px 24px;">
+                    <h4 style="font-size: 20px; font-weight: 900; color: #0F2A1D; margin: 0 0 6px;">
+                        «آیا میان واژه $w_i$ و $w_{i+1}$ رابطه اضافه برقرار است یا خیر؟»
+                    </h4>
+                    <p style="font-size: 14px; color: #2D5A43; margin: 0; line-height: 1.6;">
+                        تغییر پرسش سیستم از برچسب مستقل کلمه‌ای به سنجش همبستگی جفتی میان دو واژه متوالی.
+                    </p>
+                </div>
+
+                <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 18px 22px; margin-bottom: 12px;">
+                    <b style="font-size: 15px; color: #0F2A1D; display: block; margin-bottom: 8px;">فرمولاسیون بردار تطبیق چهارگانه (Matching Representation):</b>
+                    <div style="border: 1.5px solid #1B4332; background: #FAF7EE; padding: 10px; text-align: center; direction: ltr; font-family: monospace; font-size: 16px; font-weight: 900; color: #0F2A1D; margin-bottom: 8px;">
+                        \mathbf{h}_{(i, i+1)} = [ \mathbf{u} \; ; \; \mathbf{v} \; ; \; \mathbf{u} \odot \mathbf{v} \; ; \; |\mathbf{u} - \mathbf{v}| ] \in \mathbb{R}^{3072}
+                    </div>
+                </div>
+            </div>
+
+            <table class="booktabs">
+                <thead>
+                    <tr>
+                        <th>مؤلفه ریاضی</th>
+                        <th>بعد</th>
+                        <th>تفسیر زبانی و کارکرد نحوی</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-family: monospace; direction: ltr;">[u ; v]</td>
+                        <td>۱۵۳۶</td>
+                        <td>الحاق مستقیم: حفظ بافت انفرادی هر دو کلمه</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: monospace; direction: ltr;">u ⊙ v</td>
+                        <td>۷۶۸</td>
+                        <td><span class="sketch-hl-green">ضرب هادامارد</span>: سنجش همبستگی و تعامل ویژگی‌ها</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: monospace; direction: ltr;">|u - v|</td>
+                        <td>۷۶۸</td>
+                        <td><span class="sketch-hl">فاصله تفاضلی</span>: تفکیک نقش‌های نحوی و تمایز مرزی</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-col-title" style="margin-bottom: 14px;">
+                    <span>■ لایه طبقه‌بندی باینری و بهینه‌سازی آستانه</span>
+                </div>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.8; margin-bottom: 14px;">
+                    بردار ۳۰۷۲ بعدی از یک لایه خطی با وزن‌های $mathbf{W}_e$ و بایاس $b_e$ عبور کرده و تابع سیگموئید احتمال وجود پیوند را تعیین می‌کند:
+                </p>
+                <div style="border: 1px solid #1B4332; background: #EBF3ED; padding: 12px; text-align: center; direction: ltr; font-family: monospace; font-size: 15px; font-weight: 800; color: #0F2A1D; margin-bottom: 14px;">
+                    P(y_{(i, i+1)} = 1) = \sigma(\mathbf{W}_e \mathbf{h}_{(i, i+1)} + b_e)
+                </div>
+                <ul class="vintage-list" style="font-size: 13px;">
+                    <li>تابع زیان: <b>Binary Cross-Entropy (BCE) Loss</b>.</li>
+                    <li>بهینه‌سازی آستانه تصمیم‌گیری: تعیین آستانه کالیبره‌شده <span class="sketch-hl-green">$	au = 0.65$</span> به جای احتمال صلب ۰٫۵.</li>
+                </ul>
+            </div>
+
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 10px; font-size: 13px; font-weight: 700; color: #1B4332;">
+                دست‌آورد: بازسازی مستقیم گراف متنی هم‌تراز با یال‌های درخت نحو وابستگی
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">مدل پیوند جفتی (Edge Model): بازنمایی ۳۰۷۲ بعدی [u; v; u⊙v; |u-v|] | آستانه بهینه τ=0.65</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «رویکرد دوم که نوآوری اصلی این پایان‌نامه است، مدل Edge نام دارد. به جای پرسش از تک‌تک کلمات، ما دو کلمه مجاور را با هم در نظر می‌گیریم و یک بردار ویژگی فوق‌العاده غنی ۳۰۷۲ بعدی می‌سازیم. ضرب هادامارد تعامل و همبستگی ویژگی‌ها را می‌سنجد و تفاضل قدرمطلقی فاصله دستوری را نشان می‌دهد. با تابع سیگموئید و آستانه ۰.۶۵، مستقیماً پیش‌بینی می‌کنیم که آیا بین این دو کلمه یال اضافه برقرار است یا خیر.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_16">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 16 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | بخش ۳-۵</div>
+        <h2 class="title-main">مقایسه ادراکی و ساختاری دو رویکرد: چرا مدل Edge برتر است؟</h2>
+        <p class="title-sub">کالبدشکافی تفاوت‌های ذاتی میان برچسب‌گذاری توالی و مدل‌سازی پیوند جفتی</p>
+    </div>
+
+    <div class="layout-content">
+        <div class="pres-split-narrative">
+            <div class="pres-split-col">
+                <div class="pres-col-title">
+                    <span>■ مدل توالی BIO (رویکرد اول)</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #4B5563;">تصمیم‌گیری مستقل</span>
+                </div>
+                <ul class="vintage-list" style="font-size: 14px;">
+                    <li><b>تصمیم‌گیری مجزا:</b> هر کلمه مستقل از کلمه بعدی برچسب می‌خورد، بدون تضمین سازگاری با همسایه.</li>
+                    <li><b>شکنندگی مرزی:</b> احتمال وقوع خطای غیرگرامری (مثلاً آمدن I-EZ بعد از O بدون وجود هسته B-EZ).</li>
+                    <li><b>فضای برداری ساده:</b> استفاده صرف از بردار ۷۶۸ بعدی انفرادی کلمه.</li>
+                    <li><b>آستانه صلب:</b> انتخاب کلاس با بیشترین احتمال آرگ‌ماکس (Argmax).</li>
+                </ul>
+            </div>
+
+            <div class="pres-split-col highlighted">
+                <div class="pres-col-title">
+                    <span>■ مدل پیوند جفتی Edge (رویکرد دوم)</span>
+                    <span style="font-size: 13px; font-weight: 800; color: #1B4332;">تصمیم‌گیری توأم (Joint)</span>
+                </div>
+                <ul class="vintage-list" style="font-size: 14px;">
+                    <li><span class="sketch-hl-green"><b>تصمیم‌گیری توأم (Joint Decision):</b></span> تصمیم‌گیری روی پیوند هم‌زمان با ارزیابی ویژگی‌های هر دو کلمه.</li>
+                    <li><b>سازگاری کامل با نحو وابستگی:</b> هر پیوند مثبت دقیقاً یک یال جهت‌دار در درخت وابستگی است.</li>
+                    <li><b>فضای برداری ۴ برابری:</b> بردار ۳۰۷۲ بعدی شامل تضاد و تعامل معنایی.</li>
+                    <li><span class="sketch-hl"><b>کالیبراسیون منعطف آستانه:</b></span> تنظیم آستانه $	au=0.65$ برای تعادل بی‌نقص Precision و Recall.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 16px 24px; margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 15px; font-weight: 800; color: #0F2A1D;">
+                خلاصه تئوریک: مدل Edge ساختار ذاتاً رابطه‌ای اضافه را با ابزار ذاتاً رابطه‌ای (پیوند جفتی) مدل می‌کند.
+            </span>
+            <span style="font-size: 13px; font-weight: 700; color: #1B4332; background: #EBF3ED; padding: 4px 12px;">
+                تطابق کامل ساختار داده با فرمولاسیون مدل
+            </span>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">تحلیل تطبیقی معماری‌ها: تصمیم‌گیری مستقل تک‌توکنی در برابر تصمیم‌گیری توأم پیوند جفتی</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «چرا ما اصرار داریم که مدل Edge از نظر تئوریک برتر است؟ چون اضافه ذاتاً یک رابطه بین دو کلمه است، نه یک ویژگی متعلق به یک کلمه! در BIO شما به کلمه اول می‌گویید تو B-EZ هستی و به دومی می‌گویید I-EZ، بدون اینکه این دو با هم حرف بزنند. اما در مدل Edge، ما وضعیت رابطه را مستقیماً از تعامل دو کلمه می‌پرسیم. خروجی مدل Edge مستقیماً درخت وابستگی را می‌سازد و هیچ نیازی به دستکاری پس‌پردازشی ندارد.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_17">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 17 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | بخش ۳-۶</div>
+        <h2 class="title-main">پیکره استاندارد بیجن‌خان و چالش شدید عدم تعادل طبقات</h2>
+        <p class="title-sub">مشخصات آماری بیش از ۲٫۵۸ میلیون توکن و تفکیک مجموعه‌های آموزش، اعتبارسنجی و آزمون مستقل</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch;">
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-hero-box" style="margin-bottom: 12px; padding: 18px 22px;">
+                    <h4 style="font-size: 18px; font-weight: 900; color: #0F2A1D; margin: 0 0 4px;">پیکره بیجن‌خان (Bijankhan Corpus)</h4>
+                    <p style="font-size: 14px; color: #2D5A43; line-height: 1.6; margin: 0;">
+                        معتبرترین و بزرگ‌ترین پیکره نشان‌دار زبان فارسی در حوزه نحو و صرف با بیش از ۲٫۵۸ میلیون توکن [cite: 7].
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+                    <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 14px; text-align: center;">
+                        <span style="font-size: 13px; color: #4B5563; font-weight: 700;">کل توکن‌های پیکره</span>
+                        <p style="font-size: 26px; font-weight: 900; color: #0F2A1D; margin: 4px 0 0;">۲,۵۸۸,۳۲۰</p>
+                    </div>
+                    <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 14px; text-align: center;">
+                        <span style="font-size: 13px; color: #1B4332; font-weight: 700;">توکن‌های آزمون مستقل</span>
+                        <p style="font-size: 26px; font-weight: 900; color: #1B4332; margin: 4px 0 0;">۶۳,۹۱۹</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #EBF3ED; padding: 12px 18px; font-size: 13px; color: #0F2A1D;">
+                <b>جفت‌واژه‌های ارزیابی‌شده در مدل Edge:</b> ۴۸٬۲۹۶ جفت‌واژه متوالی در مجموعه آزمون مستقل
+            </div>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-col-title" style="margin-bottom: 12px;">
+                    <span>■ توزیع نامتعادل طبقات در آزمون نهایی</span>
+                </div>
+                <table class="booktabs">
+                    <thead>
+                        <tr>
+                            <th>برچسب</th>
+                            <th>تعداد توکن</th>
+                            <th>درصد از کل</th>
+                            <th>وضعیت تعادل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 800; color: #64748B;">O (خارج از سازه)</td>
+                            <td>۴۴,۹۵۲</td>
+                            <td>۷۰٫۳۳٪</td>
+                            <td>کلاس اکثریت (حجم غالب)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 800; color: #1B4332;">B-EZ (آغازگر سازه)</td>
+                            <td>۱۰,۱۵۰</td>
+                            <td>۱۵٫۸۸٪</td>
+                            <td>کلاس اقلیت (هسته‌ها)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 800; color: #2D5A43;">I-EZ (تداوم سازه)</td>
+                            <td>۸,۸۱۷</td>
+                            <td>۱۳٫۷۹٪</td>
+                            <td>کلاس اقلیت (وابسته‌ها)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 10px; font-size: 13px; color: #B45309; font-weight: 700;">
+                ⚠️ چالش کلاس اقلیت: نسبت ۷ به ۳ نیازمند وزن‌دهی معکوس به توابع زیان جهت مهار سوگیری مدل بود.
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">پیکره بیجن‌خان: ۲٫۵۸ میلیون توکن | آزمون مستقل: ۶۳٬۹۱۹ توکن و ۴۸٬۲۹۶ جفت‌واژه</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «برای ارزیابی تجربی، پیکره استاندارد بیجن‌خان را به کار گرفتیم. در مجموعه آزمون مستقل ۶۳,۹۱۹ توکن و در مدل Edge دقیقاً ۴۸,۲۹۶ جفت‌واژه ارزیابی شدند. یک چالش بزرگ در این دادگان، عدم تعادل طبقات است: بیش از ۷۰ درصد کلمات خارج از حوزه اضافه هستند و تنها ۳۰ درصد درگیر ساختارند. اگر مدل مراقبت نشود، تمایل پیدا می‌کند همه چیز را O پیش‌بینی کند تا دقت کاذب بگیرد؛ ما با وزن‌دهی به زیان این چالش را مهار کردیم.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_18">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 18 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | بخش ۳-۷</div>
+        <h2 class="title-main">پیکربندی سخت‌افزاری و ابرپارامترهای بهینه‌سازی مدل</h2>
+        <p class="title-sub">تنظیمات دقیق یادگیری عمیق، توقف زودهنگام و محاسبات شتاب‌یافته گرافیکی</p>
+    </div>
+
+    <div class="layout-content">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: stretch;">
+            <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 22px;">
+                <div class="pres-col-title" style="margin-bottom: 12px;">
+                    <span>■ جدول ابرپارامترهای بهینه‌سازی شبکه</span>
+                </div>
+                <table class="booktabs">
+                    <thead>
+                        <tr>
+                            <th>ابرپارامتر (Hyperparameter)</th>
+                            <th>مقدار تنظیمی</th>
+                            <th>علت و منطق تجربی</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 700;">مدل پایه بازنمایی</td>
+                            <td style="font-weight: 800; color: #1B4332;">ParsBERT v2.0</td>
+                            <td>بهترین مدل پیش‌آموزش‌دیده موجود در خط فارسی</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700;">الگوریتم بهینه‌ساز</td>
+                            <td>AdamW</td>
+                            <td>جلوگیری از بیش‌برازش با زوال وزن $lambda = 0.01$</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700;">نرخ یادگیری پایه (Learning Rate)</td>
+                            <td style="font-family: monospace; direction: ltr; font-weight: 800;">2 × 10⁻⁵</td>
+                            <td>همگرایی سریع بدون تخریب وزن‌های از پیش‌آموخته</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700;">اندازه دسته (Batch Size)</td>
+                            <td>۳۲ جمله</td>
+                            <td>حداکثر بهره‌وری حافظه GPU و پایداری برآورد گرادیان</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700;">تعداد دوره‌ها (Epochs)</td>
+                            <td>۳ دوره کامل</td>
+                            <td>کفایت همگرایی با پایش اعتبارسنجی زودهنگام</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700;">ضریب افتادگی (Dropout)</td>
+                            <td>۰٫۱</td>
+                            <td>منظم‌سازی لایه‌های اتصال خطی</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 20px;">
+                    <b style="font-size: 16px; color: #0F2A1D; display: block; margin-bottom: 8px;">بستر سخت‌افزاری و نرم‌افزاری:</b>
+                    <ul class="vintage-list" style="font-size: 14px;">
+                        <li><b>پردازشگر گرافیکی:</b> سرور NVIDIA Tesla V100 با حافظه ۱۶ گیگابایت VRAM.</li>
+                        <li><b>دقت محاسباتی:</b> ممیز شناور ۱۶ بیتی مختلط (FP16 Mixed Precision).</li>
+                        <li><b>چارچوب پیاده‌سازی:</b> PyTorch 2.x به همراه کتابخانه HuggingFace Transformers.</li>
+                    </ul>
+                </div>
+
+                <div style="border: 1.5px solid #1B4332; background: #EBF3ED; padding: 14px 18px; font-size: 13px; font-weight: 700; color: #1B4332;">
+                    زمان آموزش: مجموعاً ۴٫۲ ساعت آموزش پایدار برای هر دو مدل روی کل پیکره بیجن‌خان
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">پیکربندی تجربی: بهینه‌ساز AdamW با نرخ یادگیری 2e-5 | کارت گرافیک NVIDIA V100 | آموزش در ۳ دوره</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «تنظیم ابرپارامترها با وسواس علمی انجام شد. نرخ یادگیری ۲ در ۱۰ به توان منفی ۵ بهترین نرخ برای تیون کردن پارس‌برت بدون تخریب وزن‌های پایه بود. اندازه دسته ۳۲ با بهینه‌ساز AdamW و ضریب زوال وزن ۰.۰۱ پایداری فوق‌العاده‌ای نشان دادند. کل آموزش روی کارت گرافیک قدرتمند تسلا V100 حدود ۴ ساعت به طول انجامید.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_19">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 19 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل چهارم: یافته‌ها و ارزیابی تجربی | بخش ۴-۱</div>
+        <h2 class="title-main">پایش پایداری آموزش و اثبات قاطع عدم بیش‌برازش (Overfitting)</h2>
+        <p class="title-sub">تحلیل مقایسه‌ای منحنی‌های زیان آموزش و اعتبارسنجی در طول گام‌های بهینه‌سازی</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center;">
+        <div class="figure-frame">
+            <img src="images/fig_4_1_bio_convergence_stability.png" alt="شکل ۴-۱: همگرایی مدل BIO" style="max-height: 290px;" id="img_fig_4_1">
+            <div class="figure-caption">
+                <span>شکل ۴-۱: روند خطای آموزش و اعتبارسنجی مدل توالی BIO (افت زیان آموزش به ۰٫۰۵ و تثبیت اعتبارسنجی در ۰٫۱۱)</span>
+            </div>
+        </div>
+
+        <div class="figure-frame">
+            <img src="images/fig_4_2_edge_convergence_stability.png" alt="شکل ۴-۲: همگرایی مدل Edge" style="max-height: 290px;" id="img_fig_4_2">
+            <div class="figure-caption">
+                <span>شکل ۴-۲: روند خطای آموزش و اعتبارسنجی مدل پیوند Edge (افت زیان باینری به ۰٫۰۴ و اعتبارسنجی ۰٫۰۹)</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 14px; font-weight: 800; color: #0F2A1D;">
+            ✓ ۳ گواه علمی بر سلامت بهینه‌سازی: انحراف معیار غلتان $< 0.018$ | عدم وقوع شکاف واگرای تعمیم | همگرایی پایدار در دوره سوم
+        </span>
+        <span style="background: #EBF3ED; color: #1B4332; font-weight: 900; font-size: 13px; padding: 3px 12px;">
+            عدم بیش‌برازش تایید شد
+        </span>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">شکل‌های ۴-۱ و ۴-۲ مستخرج از رساله: اثبات پایداری آموزش و عدم رخداد Overfitting در هر دو مدل</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «یکی از اولین مواردی که هیئت محترم داوران همواره بررسی می‌کنند، خطر بیش‌برازش یا Overfitting است. در شکل‌های ۴-۱ و ۴-۲ منحنی‌های زیان آموزش و اعتبارسنجی را ترسیم کرده‌ایم. می‌بینید که در هر دو مدل، خطای داده‌های اعتبارسنجی پا به پای خطای داده‌های آموزشی افت کرده و در پایان دوره سوم کاملاً تخت شده است. انحراف معیار غلتان زیر ۰.۰۲ نشان‌دهنده تعمیم‌پذیری عالی مدل روی داده‌های نادیده است.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_20">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 20 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل چهارم: یافته‌ها و ارزیابی تجربی | بخش ۴-۲</div>
+        <h2 class="title-main">نتایج سطح اول: برتری قاطع مدل Edge در نمره F1 وزنی</h2>
+        <p class="title-sub">مقایسه جامع شاخص‌های دقت (Precision)، بازیابی (Recall) و F1 در مجموعه آزمون مستقل</p>
+    </div>
+
+    <div class="layout-content">
+        <!-- Big Stat Presentation -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; margin-bottom: 14px;">
+            <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
+                <span style="font-size: 15px; font-weight: 700; color: #2D5A43;">مدل پایه توالی BIO (پارس‌برت)</span>
+                <div class="pres-stat-block">
+                    <span class="pres-stat-num" style="color: #4B5563;">۹۶٫۵۸٪</span>
+                    <span class="pres-stat-label">نمره F1 وزنی</span>
+                </div>
+                <div style="font-size: 13px; color: #4B5563;">
+                    دقت: ۹۶٫۶۲٪ | بازیابی: ۹۶٫۵۸٪ | خطای کل: ۲,۱۸۵ توکن
+                </div>
+            </div>
+
+            <div style="border: 3px solid #1B4332; background: #EBF3ED; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 15px; font-weight: 800; color: #1B4332;">مدل پیوند جفتی Edge (پیشنهادی)</span>
+                    <span style="background: #1B4332; color: #FFFFFF; font-size: 12px; font-weight: 900; padding: 2px 10px;">دستاورد برتر</span>
+                </div>
+                <div class="pres-stat-block">
+                    <span class="pres-stat-num" style="color: #1B4332;">۹۷٫۹۶٪</span>
+                    <span class="pres-stat-label" style="color: #1B4332;">نمره F1 وزنی</span>
+                </div>
+                <div style="font-size: 14px; font-weight: 800; color: #0F2A1D;">
+                    <span class="sketch-hl-green">+۱٫۳۸ واحد درصد بهبود معنادار</span> (کاهش ۵۰٪ کل خطاهای دسته‌بندی)
+                </div>
+            </div>
+        </div>
+
+        <table class="booktabs">
+            <thead>
+                <tr>
+                    <th>مدل ارزیابی‌شده</th>
+                    <th>جامعه آزمون</th>
+                    <th>دقت (Precision)</th>
+                    <th>بازیابی (Recall)</th>
+                    <th>نمره کل F1</th>
+                    <th>F1 وزنی (Weighted)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight: 700;">مدل توالی BIO</td>
+                    <td>۶۳,۹۱۹ توکن</td>
+                    <td>۹۶٫۶۲٪</td>
+                    <td>۹۶٫۵۸٪</td>
+                    <td>۹۶٫۵۹٪</td>
+                    <td style="font-weight: 700;">۹۶٫۵۸٪</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td style="font-weight: 900; color: #1B4332;">مدل پیوند جفتی Edge (پیشنهادی)</td>
+                    <td>۴۸,۲۹۶ رابطه</td>
+                    <td style="font-weight: 800; color: #1B4332;">۹۸٫۰۱٪</td>
+                    <td style="font-weight: 800; color: #1B4332;">۹۷٫۹۳٪</td>
+                    <td style="font-weight: 800; color: #1B4332;">۹۷٫۹۷٪</td>
+                    <td style="font-weight: 900; color: #1B4332; font-size: 16px;"><span class="sketch-hl-green">۹۷٫۹۶٪</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="font-size: 13px; color: #4B5563; margin-top: 6px;">
+            آزمون مک‌نمار (McNemar's Test) برتری مدل Edge را در سطح خطای $p < 0.001$ از نظر آماری کاملاً معنادار اثبات کرد.
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">یافته کلیدی ۱: مدل Edge با نمره ۹۷٫۹۶٪ مدل BIO را با اختلاف ۱٫۳۸٪ و p < 0.001 پشت سر گذاشت</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «نخستین نتیجه تجربی بزرگ ما در این اسلاید ثبت شده است: مدل BIO نمره F1 وزنی بسیار عالی ۹۶.۵۸ درصد را کسب کرد، اما مدل Edge با درخشش بیشتر به ۹۷.۹۶ درصد رسید. این ۱.۳۸ درصد بهبود در سطح نمرات بالای ۹۶ درصد، یعنی کاهش بیش از ۵۰ درصد از کل خطاهای باقی‌مانده سیستم! آزمون آماری مک‌نمار نیز با سطح خطای کمتر از یک‌هزارم نشان داد که این برتری کاملاً واقعی و معنادار است.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_21">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 21 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل چهارم: یافته‌ها و ارزیابی تجربی | بخش ۴-۳</div>
+        <h2 class="title-main">راز کالیبراسیون دقیق: پویش و تنظیم آستانه تصمیم‌گیری</h2>
+        <p class="title-sub">دستیابی به بیشینه نمره F1 با تعیین آستانه بهینه τ=0.65 در مدل پیوند جفتی</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+        <div class="figure-frame">
+            <img src="images/chart_edge_threshold_tuning.png" alt="نمودار آستانه تصمیم‌گیری" style="max-height: 400px;" id="img_threshold">
+            <div class="figure-caption">
+                <span>نمودار تغییرات Precision، Recall و F1 بر حسب تغییر آستانه تصمیم‌گیری از ۰٫۵۰ تا ۰٫۸۰</span>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="pres-hero-box" style="margin-bottom: 0; padding: 22px 26px;">
+                <h4 style="font-size: 20px; font-weight: 900; color: #0F2A1D; margin: 0 0 6px;">
+                    «چرا آستانه پیش‌فرض ۰٫۵۰ مناسب زبان فارسی نیست؟»
+                </h4>
+                <p style="font-size: 14px; color: #2D5A43; line-height: 1.7; margin: 0;">
+                    در آستانه متداول ۰٫۵۰، مدل پیوندهای مثبت کاذب زیادی تولید می‌کند. با پویش دقیق در گام‌های ۰٫۰۵، مشخص شد که نقطه تلاقی طلایی در <span class="sketch-hl-green">$	au = 0.65$</span> قرار دارد.
+                </p>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1.5px solid #1B4332; padding: 18px 22px;">
+                <ul class="vintage-list" style="font-size: 14px;">
+                    <li><b>در $	au = 0.50$:</b> بازیابی بالا (۹۸٫۷٪) اما افت دقت به ۹۵٫۲٪ به دلیل مثبت‌های کاذب.</li>
+                    <li><b>در $	au = 0.65$ (نقطه بهینه):</b> توازن کامل میان دقت (۹۸٫۰۱٪) و بازیابی (۹۷٫۹۳٪).</li>
+                    <li><b>در $	au = 0.80$:</b> سخت‌گیری بیش از حد و افت بازیابی به زیر ۹۳٪.</li>
+                </ul>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #EBF3ED; padding: 12px 18px; font-size: 13px; font-weight: 700; color: #1B4332;">
+                مزیت مهندسی: امکان تغییر آستانه برای کاربردهای حساس (مثلاً آستانه محافظه‌کارانه در پزشکی یا حقوقی)
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">کالیبراسیون تصمیم: نقطه بیشینه F1 در τ=0.65 با توازن کم‌نظیر میان Precision و Recall</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «چرا مدل Edge این‌قدر خوب کار کرد؟ یکی از رازهای آن کالیبراسیون آستانه بود. در مدل‌های استاندارد معمولاً احتمال بالای نیم را مثبت می‌گیرند. اما در نمودار این اسلاید می‌بینید که در آستانه ۰.۵۰ مدل دچار مثبت کاذب می‌شود. ما آستانه را بین ۰.۵۰ تا ۰.۸۰ پویش کردیم و دیدیم که در نقطه ۰.۶۵ منحنی Precision و Recall در بالاترین نقطه ممکن با هم تلاقی می‌کنند و نمره ۹۷.۹۶ درصد را خلق می‌نمایند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_22">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 22 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل چهارم: یافته‌ها و ارزیابی تجربی | بخش ۴-۴</div>
+        <h2 class="title-main">کالبدشکافی آماری خطاها: ماتریس‌های درهم‌ریختگی (Confusion Matrix)</h2>
+        <p class="title-sub">بررسی دقیق پیش‌بینی‌های صحیح و تحلیل ریشه خطاهای جابه‌جایی کلاس‌ها در مدل‌های BIO و Edge</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch;">
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-col-title" style="margin-bottom: 10px;">
+                    <span>■ ماتریس درهم‌ریختگی مدل توالی BIO</span>
+                    <span style="font-size: 12px; color: #4B5563;">۶۳٬۹۱۹ توکن</span>
+                </div>
+                <div class="figure-frame" style="margin-bottom: 10px;">
+                    <img src="images/table_4_4_bio_confusion_matrix.png" alt="ماتریس BIO" style="max-height: 200px;" id="img_bio_cm">
+                    <div class="figure-caption">
+                        <span>جدول ۴-۴: ماتریس درهم‌ریختگی مدل برچسب‌گذاری توالی BIO</span>
+                    </div>
+                </div>
+                <ul class="vintage-list" style="font-size: 13px;">
+                    <li><b>پیش‌بینی صحیح:</b> ۶۱,۷۳۴ توکن (۹۶٫۵۸٪ کل نمونه‌ها).</li>
+                    <li><b>تداخل مرزی:</b> ۳۶۲ مورد جابه‌جایی میان B-EZ و I-EZ در تشخیص هسته اولیه.</li>
+                    <li><b>خطای خروج (O Error):</b> ۹۴۲ مورد مضاف یا مضاف‌الیه که کلمه آزاد فرض شدند.</li>
+                </ul>
+            </div>
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 8px; font-size: 12px; color: #B45309; font-weight: 700;">
+                علت خطای BIO: ناتوانی در برقراری قیدهای گرامری میان برچسب‌های متوالی
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div class="pres-col-title" style="margin-bottom: 10px;">
+                    <span>■ ماتریس درهم‌ریختگی مدل پیوند جفتی Edge</span>
+                    <span style="font-size: 12px; color: #1B4332; font-weight: 800;">۴۸٬۲۹۶ رابطه</span>
+                </div>
+                <div class="figure-frame" style="margin-bottom: 10px;">
+                    <img src="images/table_4_6_edge_confusion_matrix.png" alt="ماتریس Edge" style="max-height: 200px;" id="img_edge_cm">
+                    <div class="figure-caption">
+                        <span>جدول ۴-۶: ماتریس درهم‌ریختگی مدل پیوند جفتی Edge</span>
+                    </div>
+                </div>
+                <ul class="vintage-list" style="font-size: 13px;">
+                    <li><b>پیش‌بینی صحیح:</b> ۴۷,۳۱۲ رابطه مجاور (<span class="sketch-hl-green">۹۷٫۹۶٪</span> کل پیوندها).</li>
+                    <li><b>مثبت کاذب (FP):</b> ۵۰۶ مورد (تشخیص اضافه در غیاب رابطه واقعی).</li>
+                    <li><b>منفی کاذب (FN):</b> ۴۷۸ مورد (عدم تشخیص پیوند واقعی اضافه).</li>
+                </ul>
+            </div>
+            <div style="border-top: 1px solid #1B4332; padding-top: 8px; font-size: 12px; color: #1B4332; font-weight: 800;">
+                ✓ تقارن کم‌نظیر: اختلاف ناچیز ۲۸ موردی میان FP و FN حاکی از کالیبراسیون بی‌نقص آستانه است.
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">تحلیل خطای ماتریس‌ها: کاهش ۴۲ درصدی مثبت‌های کاذب در مدل Edge نسبت به مدل توالی</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «در ماتریس‌های درهم‌ریختگی این اسلاید، به بررسی ریزدانه خطاها پرداختیم. در مدل BIO مشاهده کردید که بخش زیادی از خطا ناشی از جابه‌جایی بین B-EZ و I-EZ بوده؛ یعنی مدل گیج شده که آیا کلمه سرگروه است یا ادامه سازه. اما در مدل Edge فقط ۹۸۴ خطا از میان ۴۸ هزار رابطه داریم که به شکل فوق‌العاده متقارنی بین مثبت کاذب (۵۰۶) و منفی کاذب (۴۷۸) تقسیم شده است و این تقارن زیباترین نشانه سلامت مدل است.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_23">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 23 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل چهارم: یافته‌ها و ارزیابی تجربی | بخش ۴-۵</div>
+        <h2 class="title-main">ارزیابی سازه‌ای ابداعی: دقت واژه‌به‌هسته (WHA) و بازسازی کامل (CCA)</h2>
+        <p class="title-sub">اثبات تجربی فرضیه کلیدی رساله: چرا نمرات ۹۸٪ توکنی برای بازسازی سازه‌های زبانی کافی نیستند؟</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch;">
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h4 style="font-size: 21px; font-weight: 900; color: #0F2A1D; margin: 0 0 10px;">
+                    ۱. دقت واژه‌به‌هسته (Word-to-Head Accuracy - WHA)
+                </h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.7; margin-bottom: 14px;">
+                    نسبت کلماتی که اشاره‌گر هسته مستقیم نحوی آن‌ها در سازه اضافه به درستی توسط مدل تعیین شده است:
+                </p>
+                <div style="border: 1px solid #1B4332; background: #FAF7EE; padding: 10px; text-align: center; direction: ltr; font-family: monospace; font-size: 15px; font-weight: 800; color: #0F2A1D; margin-bottom: 16px;">
+                    \text{WHA} = \frac{1}{|V_{\text{dep}}|} \sum_{w \in V_{\text{dep}}} \mathbb{I}(\hat{\text{head}}(w) = \text{head}^*(w))
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                    <div style="border: 1px solid #CBD8CE; background: #FAF7EE; padding: 14px; text-align: center;">
+                        <span style="font-size: 13px; color: #4B5563; font-weight: 700;">مدل توالی BIO</span>
+                        <p style="font-size: 30px; font-weight: 900; color: #2D5A43; margin: 4px 0 0;">۹۳٫۶۱٪</p>
+                    </div>
+                    <div style="border: 2px solid #1B4332; background: #EBF3ED; padding: 14px; text-align: center;">
+                        <span style="font-size: 13px; color: #1B4332; font-weight: 800;">مدل پیوند Edge</span>
+                        <p style="font-size: 30px; font-weight: 900; color: #1B4332; margin: 4px 0 0;"><span class="sketch-hl-green">۹۴٫۵۱٪</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 10px; font-size: 13px; color: #1B4332; font-weight: 700;">
+                شاخص WHA: تضمین صحت یال‌های نحوی برای موتورهای پارسر (بهبود +۰٫۹۰٪)
+            </div>
+        </div>
+
+        <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h4 style="font-size: 21px; font-weight: 900; color: #0F2A1D; margin: 0 0 10px;">
+                    ۲. دقت بازسازی کامل زنجیره (Complete Chain Accuracy - CCA)
+                </h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.7; margin-bottom: 14px;">
+                    سخت‌گیرانه‌ترین معیار: یک سازه <b>تنها در صورتی درست شمرده می‌شود که ۱۰۰٪ اعضا و یال‌های آن بدون خطا</b> بازسازی شوند:
+                </p>
+                <div style="border: 1px solid #1B4332; background: #FAF7EE; padding: 10px; text-align: center; direction: ltr; font-family: monospace; font-size: 15px; font-weight: 800; color: #0F2A1D; margin-bottom: 16px;">
+                    \text{CCA} = \frac{1}{|C|} \sum_{c \in C} \prod_{e \in c} \mathbb{I}(\hat{e} = e^*)
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                    <div style="border: 1px solid #CBD8CE; background: #FAF7EE; padding: 14px; text-align: center;">
+                        <span style="font-size: 13px; color: #4B5563; font-weight: 700;">مدل توالی BIO</span>
+                        <p style="font-size: 30px; font-weight: 900; color: #B45309; margin: 4px 0 0;">۸۹٫۴۴٪</p>
+                    </div>
+                    <div style="border: 2px solid #1B4332; background: #EBF3ED; padding: 14px; text-align: center;">
+                        <span style="font-size: 13px; color: #1B4332; font-weight: 800;">مدل پیوند Edge</span>
+                        <p style="font-size: 30px; font-weight: 900; color: #1B4332; margin: 4px 0 0;"><span class="sketch-hl-green">۹۰٫۵۷٪</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #FEF3C7; border: 1.5px solid #F59E0B; padding: 10px 14px; font-size: 13px; color: #92400E; font-weight: 800;">
+                💡 کشف علمی رساله: شکاف ۸ درصدی میان F1 توکنی (۹۸٪) و بازسازی کامل (۹۰٪) که خطای انباشتی را اثبات می‌کند!
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">نوآوری ارزیابی سازه‌ای: Word-to-Head Accuracy (WHA) | Complete Chain Accuracy (CCA)</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «این اسلاید قلب نوآوری تئوریک این رساله است. تا امروز تمام مقالات به داشتن نمره F1 برابر ۹۸ درصد افتخار می‌کردند. ما گفتیم بیایید یک سنجه سخت‌گیرانه به نام Complete Chain Accuracy تعریف کنیم: اگر در یک زنجیره ۴ کلمه‌ای، ۳ کلمه درست باشد و یکی اشتباه، کل آن عبارت برای سامانه ترجمه یا صدا نامفهوم است. در این سنجه سخت‌گیرانه، دقت BIO به ۸۹.۴۴ درصد و مدل Edge به ۹۰.۵۷ درصد می‌رسد. این شکاف ۸ درصدی اثبات می‌کند که ارزیابی‌های پیشین گمراه‌کننده بوده‌اند.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_24">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 24 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل چهارم: یافته‌ها و ارزیابی تجربی | بخش ۴-۶</div>
+        <h2 class="title-main">رفتار مدل‌ها در برابر طول زنجیره: کشف قانون خطای انباشتی</h2>
+        <p class="title-sub">تحلیل حساسیت دقت بازسازی کامل زنجیره (CCA) بر حسب طول زنجیره‌ها از طول ۱ تا ۵ و بالاتر</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: center;">
+        <div class="figure-frame">
+            <img src="images/fig_4_3_chain_length_vs_accuracy.png" alt="شکل ۴-۳: افت دقت بر حسب طول زنجیره" style="max-height: 400px;" id="img_fig_4_3">
+            <div class="figure-caption">
+                <span>شکل ۴-۳: روند افت غیرخطی دقت بازسازی کامل (CCA) با افزایش تعداد وابسته‌ها در زنجیره اضافه</span>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+            <table class="booktabs">
+                <thead>
+                    <tr>
+                        <th>طول زنجیره</th>
+                        <th>تعداد نمونه</th>
+                        <th>دقت BIO</th>
+                        <th>دقت Edge</th>
+                        <th>برتری Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 700;">طول ۱ (تک‌وابسته)</td>
+                        <td>۱۸,۲۴۰</td>
+                        <td>۹۴٫۲٪</td>
+                        <td style="font-weight: 800; color: #1B4332;">۹۵٫۱٪</td>
+                        <td style="color: #16A34A; font-weight: 700;">+۰٫۹٪</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 700;">طول ۲ (دو وابسته)</td>
+                        <td>۸,۶۵۰</td>
+                        <td>۸۸٫۶٪</td>
+                        <td style="font-weight: 800; color: #1B4332;">۹۰٫۲٪</td>
+                        <td style="color: #16A34A; font-weight: 700;">+۱٫۶٪</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 700;">طول ۳ (سه وابسته)</td>
+                        <td>۲,۴۱۰</td>
+                        <td>۷۸٫۴٪</td>
+                        <td style="font-weight: 800; color: #1B4332;">۸۱٫۳٪</td>
+                        <td style="color: #16A34A; font-weight: 700;">+۲٫۹٪</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 700;">طول ۴ (چهار وابسته)</td>
+                        <td>۶۸۰</td>
+                        <td>۶۵٫۱٪</td>
+                        <td style="font-weight: 800; color: #1B4332;">۶۹٫۴٪</td>
+                        <td style="color: #16A34A; font-weight: 700;">+۴٫۳٪</td>
+                    </tr>
+                    <tr style="background: #FEE2E2;">
+                        <td style="font-weight: 800; color: #991B1B;">طول ۵ و بیشتر</td>
+                        <td>۱۹۰</td>
+                        <td style="color: #991B1B; font-weight: 700;">۴۸٫۳٪</td>
+                        <td style="color: #1B4332; font-weight: 900;">۵۳٫۸٪</td>
+                        <td style="color: #16A34A; font-weight: 900;">+۵٫۵٪</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 14px 18px;">
+                <b style="font-size: 13px; color: #0F2A1D;">قانون انتشار خطای ضربی (Multiplicative Law):</b>
+                <p style="font-size: 13px; color: #4B5563; margin: 4px 0 0; line-height: 1.6;">
+                    اگر صحت هر پیوند $p approx 0.95$ باشد، صحت کل زنجیره برابر است با $P = p^L implies 0.95^5 approx 0.77$. مدل Edge در زنجیره‌های طویل ۵٫۵٪ برتری مقاومتی خود را حفظ می‌کند.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">تحلیل حساسیت طول زنجیره: اثبات قطعی فرضیه ۳ رساله و کشف قانون انتشار خطای ضربی</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «شکل ۴-۳ و جدول این اسلاید، فرضیه سوم رساله را اثبات می‌کند. در طول ۱ هر دو مدل بالای ۹۴ درصد دقت دارند. اما وقتی به ۵ کلمه می‌رسیم، دقت به ۵۰ درصد سقوط می‌کند! چرا؟ چون طبق قانون انتشار خطای ضربی، کوچک‌ترین اشتباه در کلمه چهارم کل سازه را تخریب می‌کند. با این حال مدل Edge در زنجیره‌های طویل هم ۵.۵ درصد از BIO مقاوم‌تر عمل کرده است.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_25">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 25 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل چهارم: یافته‌ها و ارزیابی تجربی | بخش ۴-۷</div>
+        <h2 class="title-main">کالبدشکافی زبان‌شناختی خطاها: ۳ گلوگاه پیچیده زبان فارسی</h2>
+        <p class="title-sub">دسته‌بندی کیفی مواردی که مجاورت واژگانی با وابستگی نحوی مستقیم منطبق نیست</p>
+    </div>
+
+    <div class="layout-content" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch;">
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <span style="background: #FEE2E2; color: #991B1B; font-size: 12px; font-weight: 800; padding: 2px 10px;">الگوی اول (۳۸٪ کل خطاها)</span>
+                <h4 style="font-size: 18px; font-weight: 900; color: #0F2A1D; margin: 12px 0 8px;">توالی‌های چنداسمی (Multi-nominal)</h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.7; margin: 0 0 12px;">
+                    در توالی چند اسم متوالی، مجاورت خطی لزوماً به معنای پیوند اضافه نیست. اسم دوم ممکن است قید زمان، مفعول یا تمییز باشد اما مدل به غلط آن را مضاف‌الیه می‌گیرد.
+                </p>
+                <div style="background: #FAF7EE; border: 1px solid #CBD8CE; padding: 10px; font-size: 13px;">
+                    <b>مثال واقعی:</b> «هیئت دولت <span class="sketch-hl">امروز</span> تشکیل جلسه داد»<br>
+                    <span style="color: #991B1B;">خطای مدل:</span> فرض «دولتِ امروز» به جای قید بودن «امروز».
+                </div>
+            </div>
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 8px; font-size: 12px; color: #1B4332; font-weight: 700;">
+                راهکار آینده: ادغام ویژگی‌های نقش دستوری (POS)
+            </div>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <span style="background: #FEE2E2; color: #991B1B; font-size: 12px; font-weight: 800; padding: 2px 10px;">الگوی دوم (۲۹٪ کل خطاها)</span>
+                <h4 style="font-size: 18px; font-weight: 900; color: #0F2A1D; margin: 12px 0 8px;">واژگان مختوم به واکه (Vowel-Ending)</h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.7; margin: 0 0 12px;">
+                    کلماتی که به «ا»، «و» یا «ه» غیرملفوظ ختم می‌شوند و نیازمند «ی» میانجی هستند. تشتت رسم‌الخط در متون فارسی الگوی برداری مدل را به اشتباه می‌اندازد.
+                </p>
+                <div style="background: #FAF7EE; border: 1px solid #CBD8CE; padding: 10px; font-size: 13px;">
+                    <b>مثال واقعی:</b> «خانه‌ی بزرگ» در برابر «خانه بزرگ»<br>
+                    <span style="color: #991B1B;">خطای مدل:</span> حذف یا گسست یال پیوند به دلیل عدم رعایت نیم‌فاصله.
+                </div>
+            </div>
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 8px; font-size: 12px; color: #1B4332; font-weight: 700;">
+                راهکار آینده: پیش‌پردازش و نرمال‌سازی رسم‌الخط
+            </div>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #FFFFFF; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <span style="background: #FEE2E2; color: #991B1B; font-size: 12px; font-weight: 800; padding: 2px 10px;">الگوی سوم (۲۱٪ کل خطاها)</span>
+                <h4 style="font-size: 18px; font-weight: 900; color: #0F2A1D; margin: 12px 0 8px;">ساختارهای غیرتصویری و بافاصله</h4>
+                <p style="font-size: 14px; color: #4B5563; line-height: 1.7; margin: 0 0 12px;">
+                    درج صفات بلند، عبارات معترضه یا بندهای موصولی که میان هسته و وابسته فاصله می‌اندازند و پیوند مجاورت سطحی را می‌شکنند [cite: 10, 11].
+                </p>
+                <div style="background: #FAF7EE; border: 1px solid #CBD8CE; padding: 10px; font-size: 13px;">
+                    <b>مثال واقعی:</b> «استاد بسیار محترم و بااخلاق دانشگاه»<br>
+                    <span style="color: #991B1B;">خطای مدل:</span> گسست رابطه «استاد» با «دانشگاه» به دلیل فاصله ۴ واژه‌ای.
+                </div>
+            </div>
+            <div style="border-top: 1px solid #CBD8CE; padding-top: 8px; font-size: 12px; color: #1B4332; font-weight: 700;">
+                راهکار آینده: یادگیری چندوظیفه‌ای با گراف کامل جمله
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="layout-footer">
+        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
+        <span class="footer-badge">تحلیل کیفی خطاها: توالی‌های چنداسمی (۳۸٪) | رسم‌الخط واکه‌ها (۲۹٪) | ساختارهای ناپیوسته (۲۱٪)</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+    <div class="presenter-notes">
+        «ما خطاهای باقی‌مانده سیستم را به دقت بازبینی کیفی کردیم. ۳ دلیل اصلی برای خطاهای باقی‌مانده وجود دارد: نخست، توالی اسامی که یکی قید است اما مدل آن را مضاف‌الیه می‌گیرد (مثل کلمه «امروز»). دوم، ناهماهنگی در نوشتن «ی» میانجی برای کلماتی مثل «خانه» یا «دانشجو». و سوم، ساختارهایی که یک صفت طولانی بین مضاف و مضاف‌الیه فاصله انداخته است.»
+    </div>
+</div>
+
+            <div class="slide" id="slide_26" style="background: #FAF7EE; border: 3px solid #1B4332; padding: 44px 70px; display: flex; flex-direction: column; justify-content: space-between;">
+    <!-- Top Running Header -->
+    <div style="border-bottom: 2px solid #1B4332; padding-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <img src="images/university_tehran_logo.png" alt="University of Tehran" style="height: 84px; width: 84px; object-fit: contain;">
+            <div>
+                <p style="font-size: 24px; font-weight: 900; color: #0F2A1D; margin: 0;">دانشگاه تهران</p>
+                <p style="font-size: 15px; font-weight: 700; color: #2D5A43; margin: 2px 0 0;">دانشکدگان علوم و فناوری‌های میان‌رشته‌ای — دانشکده سامانه‌های هوشمند</p>
+            </div>
+        </div>
+        <div style="border: 1.5px solid #1B4332; padding: 8px 18px; text-align: center; background: #FFFFFF;">
+            <span style="font-size: 13px; font-weight: 800; color: #1B4332;">پایان جلسه دفاع</span>
+        </div>
+    </div>
+
+    <!-- Central Appreciation Block -->
+    <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 36px 48px; text-align: center;">
+        <h1 style="font-size: 42px; font-weight: 900; color: #0F2A1D; margin: 0 0 12px; letter-spacing: -0.5px;">
+            با سپاس و قدردانی صمیمانه از حسن توجه شما
+        </h1>
+        <p style="font-size: 17px; color: #4B5563; margin: 0 0 24px; line-height: 1.8;">
+            صمیمانه از هدایت علمی، ژرف‌اندیشی و شکیبایی استادان ارجمند و گرانقدر راهنما سپاسگزارم:
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto 24px;">
+            <div style="border: 1.5px solid #1B4332; background: #FAF7EE; padding: 18px 22px; text-align: center;">
+                <span style="font-size: 13px; font-weight: 800; color: #1B4332; display: block; margin-bottom: 4px;">استاد راهنمای اول</span>
+                <p style="font-size: 22px; font-weight: 900; color: #0F2A1D; margin: 0;">دکتر مصطفی صالحی</p>
+                <span style="font-size: 13px; color: #4B5563; display: block; margin-top: 3px;">دانشکده سامانه‌های هوشمند — گروه علوم داده</span>
+            </div>
+
+            <div style="border: 1.5px solid #1B4332; background: #FAF7EE; padding: 18px 22px; text-align: center;">
+                <span style="font-size: 13px; font-weight: 800; color: #1B4332; display: block; margin-bottom: 4px;">استاد راهنمای دوم</span>
+                <p style="font-size: 22px; font-weight: 900; color: #0F2A1D; margin: 0;">دکتر محمود بیجن‌خان</p>
+                <span style="font-size: 13px; color: #4B5563; display: block; margin-top: 3px;">دانشکده ادبیات و علوم انسانی — گروه زبان‌شناسی</span>
+            </div>
+        </div>
+
+        <div style="border: 1.5px solid #1B4332; background: #EBF3ED; padding: 10px 24px; display: inline-block;">
+            <span style="font-size: 15px; font-weight: 800; color: #1B4332;">
+                مشتاقانه آماده شنیدن نقدها، دیدگاه‌ها و پاسخگویی به پرسش‌های علمی هیئت محترم داوران هستم.
+            </span>
+        </div>
+    </div>
+
+    <!-- Formal Slide Footer -->
+    <div style="border-top: 2px solid #1B4332; padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 14px; font-weight: 700; color: #2D5A43;">سید محسن رضوی خسروشاهی | کارشناسی ارشد زبان‌شناسی رایانشی</span>
+        <span style="font-size: 14px; font-weight: 700; color: #2D5A43;">دانشگاه تهران — شهریور ۱۴۰۵</span>
+    </div>
+
+    <div class="presenter-notes">
+        «و در پایان، از صمیم قلب از راهنمایی‌های دلسوزانه و مستمر اساتید ارجمندم جناب آقای دکتر صالحی و جناب آقای دکتر بیجن‌خان که در تمام این مسیر راهنمای من بودند تشکر می‌کنم. همچنین از اساتید و داوران محترم برای وقتی که به ارزیابی این رساله اختصاص دادند سپاسگزارم. با کمال احترام آماده شنیدن دیدگاه‌ها و پاسخگویی به پرسش‌های شما بزرگواران هستم.»
+    </div>
+</div>
+        </div>
+    </div>
+
+    <!-- Role Switcher Hub: Audience | Presenter | Admin -->
+    <div id="role-switcher-bar">
+        <button class="role-tab-btn" data-role-target="audience" onclick="setRole('audience')" title="حالت مخاطب: تمام‌صفحه و متمرکز (کلید 1 یا A)">🎓 مخاطب</button>
+        <button class="role-tab-btn active" data-role-target="presenter" onclick="setRole('presenter')" title="حالت ارائه‌دهنده: شامل زمان‌سنج و یادداشت‌های دفاع (کلید 2 یا P)">🎙️ ارائه‌دهنده</button>
+        <button class="role-tab-btn" data-role-target="admin" onclick="setRole('admin')" title="حالت مدیر: نوار ابزار ویرایش و جابه‌جایی عناصر (کلید 3 یا E)">✏️ ویرایشگر</button>
+        <div class="role-divider"></div>
+        <span id="slide-counter-badge">1 / 26</span>
+        <div class="role-divider"></div>
+        <button class="role-tab-btn" onclick="toggleFullscreen()" title="تمام‌صفحه (کلید F)">⛶</button>
+        <button class="role-tab-btn" id="pdf-download-btn" onclick="openPdfOptions()" title="خروجی PDF">📥 PDF</button>
+    </div>
+
+    <!-- Presenter HUD (PowerPoint-style speaker view with timer & notes) -->
+    <div id="presenter-hud">
+        <div class="hud-header" onclick="toggleHudMinimize()">
+            <div class="hud-header-title">
+                <span>🎙️ یادداشت‌های ارائه‌دهنده و زمان‌سنج</span>
+                <span id="hud-slide-indicator" style="font-size: 12px; opacity: 0.85;">اسلاید ۱</span>
+            </div>
+            <div class="hud-timer-wrap" onclick="event.stopPropagation()">
+                <span id="hud-timer-digits">00:00</span>
+                <button class="hud-timer-btn" id="btn-timer-play" onclick="startTimer()" title="شروع / توقف زمان">⏸</button>
+                <button class="hud-timer-btn" onclick="resetTimer()" title="تنظیم مجدد">🔄</button>
+                <button class="hud-timer-btn" onclick="toggleHudMinimize()" title="کمینه‌سازی">−</button>
+            </div>
+        </div>
+        <div class="hud-body">
+            <div class="hud-next-preview">
+                <b>اسلاید بعدی: </b><span id="hud-next-title">...</span>
+            </div>
+            <div class="hud-notes-box" id="hud-notes-text">
+                در حال بارگذاری یادداشت‌ها...
+            </div>
+        </div>
+    </div>
+
+    <!-- Mini Options Popover for PDF Export -->
+    <div id="pdf-options" class="pdf-options-hidden">
+        <h4>تنظیمات خروجی PDF</h4>
+        <label class="pdf-toggle">
+            <input type="checkbox" id="includeNotes">
+            <span>شامل یادداشت‌های ارائه‌دهنده</span>
+        </label>
+        <div class="pdf-actions">
+            <button class="pdf-btn-cancel" onclick="closePdfOptions()">انصراف</button>
+            <button class="pdf-btn-export" onclick="exportToPdf()">📥 خروجی PDF</button>
+        </div>
+    </div>
+
+    <!-- Studio Edit Toolbar (Admin Mode) -->
+    <div id="editor-toolbar" class="">
+        <button class="editor-btn active" id="btn-edit" title="Edit Mode (Ctrl+E)" onclick="toggleEditMode()">✏️</button>
+        <div class="toolbar-divider"></div>
+        <button class="editor-btn" id="btn-undo" title="Undo (Ctrl+Z)" onclick="undo()">↩️</button>
+        <button class="editor-btn" id="btn-redo" title="Redo (Ctrl+Y)" onclick="redo()">↪️</button>
+        <div class="toolbar-divider"></div>
+        <button class="editor-btn" id="btn-magic" title="Magic Tidy (Snap & Align)" onclick="magicTidy()">✨</button>
+        <button class="editor-btn" id="btn-demo" title="Cinematic Demo Mode (10s)" onclick="runCinematicDemo()">🚀</button>
+        <div class="toolbar-divider"></div>
+        <button class="editor-btn" id="btn-timeline" title="Version History Sidebar" onclick="toggleSidebar()">🕒</button>
+        <button class="editor-btn" id="btn-save" title="Save Latest (Ctrl+S) | Named (Ctrl+Shift+S)" onclick="triggerSave()">💾</button>
+    </div>
+
+    <div id="history-sidebar" class="">
+        <div class="sidebar-header">
+            <h3>🕒 Timeline</h3>
+            <button onclick="toggleSidebar()">✕</button>
+        </div>
+        <div class="sidebar-content" id="sidebar-versions">
+            <div class="version-item">
+                <div class="v-time">Just now</div>
+                <div class="v-name">Auto-save</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="pdf-loading" class="pdf-loading-hidden">
+        <div class="pdf-spinner"></div>
+        <p>در حال آماده‌سازی PDF... <span id="pdf-progress">0%</span></p>
+    </div>
+
+    <!-- PDF & Canvas Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Modular Presentation & Studio Engine Scripts -->
+    <script src="js/presentation.js"></script>
+    <script src="js/pdf-export.js"></script>
+    <script src="js/editor.js"></script>
+</body>
+</html>
