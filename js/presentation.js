@@ -27,7 +27,67 @@ resizeStage();
 let currentIndex = 0;
 let slides = document.querySelectorAll('.slide');
 const progressBar = document.getElementById('progress');
-let currentRole = 'audience'; // پیش‌فرض: حالت ارائه‌دهنده برای راحتی کاربر
+let currentRole = 'audience'; // پیش‌فرض: حالت کاملاً تمیز مشاهده
+
+// === ۲.۵. سیستم امنیتی و قفل ادمین (۵ بار Enter + کد ۶۵۱۹) ===
+let enterCount = 0;
+let enterTimer = null;
+
+function openPasscodeModal() {
+    const modal = document.getElementById('passcode-modal');
+    const input = document.getElementById('passcode-input');
+    const err = document.getElementById('passcode-error');
+    if (err) err.classList.add('passcode-error-hidden');
+    if (input) input.value = '';
+    if (modal) {
+        modal.classList.remove('passcode-modal-hidden');
+        setTimeout(() => { if (input) input.focus(); }, 60);
+    }
+}
+
+function closePasscodeModal() {
+    const modal = document.getElementById('passcode-modal');
+    if (modal) modal.classList.add('passcode-modal-hidden');
+}
+
+function handlePasscodeSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const input = document.getElementById('passcode-input');
+    const err = document.getElementById('passcode-error');
+    const code = input ? input.value.trim() : '';
+
+    if (code === '6519') {
+        unlockAdminMode();
+        closePasscodeModal();
+    } else {
+        if (err) {
+            err.textContent = 'کد عبور نادرست است!';
+            err.classList.remove('passcode-error-hidden');
+        }
+        if (input) {
+            input.value = '';
+            input.focus();
+        }
+    }
+}
+
+function unlockAdminMode() {
+    document.body.classList.add('admin-unlocked');
+    setRole('admin');
+    console.log('🔓 [Security] Admin mode unlocked with passcode 6519');
+}
+
+function lockAdminMode() {
+    document.body.classList.remove('admin-unlocked');
+    setRole('audience');
+    console.log('🔒 [Security] Locked into pure view mode');
+}
+
+window.openPasscodeModal = openPasscodeModal;
+window.closePasscodeModal = closePasscodeModal;
+window.handlePasscodeSubmit = handlePasscodeSubmit;
+window.unlockAdminMode = unlockAdminMode;
+window.lockAdminMode = lockAdminMode;
 
 // === ۳. سیستم نقش‌ها (Role Switcher Engine) ===
 function setRole(role) {
@@ -240,8 +300,8 @@ Object.defineProperty(window, 'currentIndex', {
 
 // === ۷. تبدیل خودکار ارجاعات و لود اولیه ===
 document.addEventListener("DOMContentLoaded", () => {
-    // تنظیم خودکار نقش اولیه
-    setRole(currentRole);
+    // قفل پیش‌فرض: حالت کاملاً تمیز و بدون هیچ کنترل
+    lockAdminMode();
 
     // تبدیل ارجاعات علمی [cite: ...]
     const citeRegex = /\[cite:\s*([\d,\s]+)\]/g;
@@ -253,9 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     updateUI();
-
-    // شروع خودکار ملایم کرنومتر در حالت ارائه‌دهنده
-    startTimer();
 });
 
 // Initial call
@@ -263,29 +320,64 @@ updateUI();
 
 // === ۸. کلیدهای میانبر پیشرفته (Keyboard Navigation & Role Shortcuts) ===
 document.addEventListener('keydown', (e) => {
-    // جلوگیری از تداخل هنگام تایپ
+    // مودال رمز عبور
+    const modal = document.getElementById('passcode-modal');
+    const isModalOpen = modal && !modal.classList.contains('passcode-modal-hidden');
+
+    if (isModalOpen) {
+        if (e.key === 'Escape') {
+            closePasscodeModal();
+            return;
+        }
+        return; // وقتی مودال باز است سایر کلیدها غیرفعال باشند
+    }
+
+    // بررسی ۵ بار زدن متوالی کلید Enter برای باز کردن قفل
     const isTyping = e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName);
+    if (!isTyping) {
+        if (e.key === 'Enter') {
+            enterCount++;
+            clearTimeout(enterTimer);
+            enterTimer = setTimeout(() => {
+                enterCount = 0;
+            }, 2200);
+
+            if (enterCount >= 5) {
+                enterCount = 0;
+                openPasscodeModal();
+                return;
+            }
+        } else {
+            enterCount = 0;
+        }
+    }
+
     if (isTyping) return;
 
-    // تغییر نقش با کلیدهای میانبر
-    if (e.key === '1' || (e.key.toLowerCase() === 'a' && !e.ctrlKey && !e.metaKey)) {
-        setRole('audience');
-        return;
+    const isUnlocked = document.body.classList.contains('admin-unlocked');
+
+    // تغییر نقش با کلیدهای میانبر فقط و فقط پس از وارد کردن کد عبور فعال می‌شود
+    if (isUnlocked) {
+        if (e.key === '1' || (e.key.toLowerCase() === 'a' && !e.ctrlKey && !e.metaKey)) {
+            setRole('audience');
+            return;
+        }
+        if (e.key === '2' || (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.metaKey) || (e.key.toLowerCase() === 'n' && !e.ctrlKey && !e.metaKey)) {
+            setRole('presenter');
+            return;
+        }
+        if (e.key === '3' || (e.key.toLowerCase() === 'e' && !e.ctrlKey && !e.metaKey)) {
+            setRole('admin');
+            return;
+        }
     }
-    if (e.key === '2' || (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.metaKey) || (e.key.toLowerCase() === 'n' && !e.ctrlKey && !e.metaKey)) {
-        setRole('presenter');
-        return;
-    }
-    if (e.key === '3' || (e.key.toLowerCase() === 'e' && !e.ctrlKey && !e.metaKey)) {
-        setRole('admin');
-        return;
-    }
+
     if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey) {
         toggleFullscreen();
         return;
     }
 
-    // ناوبری اسلایدها
+    // ناوبری اسلایدها (همیشه فعال برای ارائه روان)
     if (e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault();
         nextSlide();

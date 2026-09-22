@@ -742,7 +742,150 @@ body[data-role="admin"] #editor-toolbar {
 sup.academic-cite {
     color: var(--color-pine-dark);
     font-weight: 800;
-    font-size: 12px;
+    font-size: 14px;
     padding: 0 2px;
     cursor: help;
+}
+
+/* ==================== حالت امنیتی و قفل پیش‌فرض (Strict Locked View Mode) ==================== */
+body:not(.admin-unlocked) #role-switcher-bar,
+body:not(.admin-unlocked) #editor-toolbar,
+body:not(.admin-unlocked) #presenter-hud,
+body:not(.admin-unlocked) #history-sidebar,
+body:not(.admin-unlocked) #pdf-options,
+body:not(.admin-unlocked) #pdf-download-btn {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* مودال کد عبور ۶۵۱۹ */
+#passcode-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 42, 29, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+#passcode-modal.passcode-modal-hidden {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.passcode-dialog {
+    background: #FAF7EE;
+    border: 3px solid #1B4332;
+    padding: 32px 36px;
+    width: 440px;
+    max-width: 90vw;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    direction: rtl;
+    text-align: right;
+}
+
+.passcode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1B4332;
+    padding-bottom: 12px;
+}
+
+.passcode-header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 900;
+    color: #0F2A1D;
+}
+
+.passcode-close-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #1B4332;
+    font-weight: 800;
+}
+
+.passcode-desc {
+    font-size: 16px;
+    color: #4B5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+#passcode-input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #1B4332;
+    background: #FFFFFF;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-align: center;
+    direction: ltr;
+    color: #0F2A1D;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#passcode-input:focus {
+    border-color: #2D5A43;
+    box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.2);
+}
+
+.passcode-error-hidden {
+    display: none;
+}
+
+#passcode-error {
+    color: #DC2626;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.passcode-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.passcode-btn-cancel {
+    padding: 10px 20px;
+    border: 1.5px solid #CBD8CE;
+    background: #FFFFFF;
+    color: #4B5563;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.passcode-btn-submit {
+    padding: 10px 24px;
+    border: 2px solid #1B4332;
+    background: #1B4332;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.passcode-btn-submit:hover {
+    background: #0F2A1D;
 }
