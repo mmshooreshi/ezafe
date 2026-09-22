@@ -27,7 +27,7 @@ resizeStage();
 let currentIndex = 0;
 let slides = document.querySelectorAll('.slide');
 const progressBar = document.getElementById('progress');
-let currentRole = 'admin'; // پیش‌فرض: حالت ارائه‌دهنده برای راحتی کاربر
+let currentRole = 'audience'; // پیش‌فرض: حالت ارائه‌دهنده برای راحتی کاربر
 
 // === ۳. سیستم نقش‌ها (Role Switcher Engine) ===
 function setRole(role) {

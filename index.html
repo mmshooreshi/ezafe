@@ -13,19 +13,23 @@
     <script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moveable/0.53.0/moveable.min.js" integrity="sha512-gFIuV9WCEJeWYkY1ZdJXugypot9ooEtwJf6U8In5JR6z5ZvV1xAvAQe9mQ7IYBXiF9ICXyiCeqgCJzqf64wh7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- MathJax 3 for Academic LaTeX Formulas -->
+    <!-- MathJax 3 for Academic LaTeX Formulas (Crisp SVG Rendering) -->
     <script>
     window.MathJax = {
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
         },
         options: {
             skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
         }
     };
     </script>
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
     <!-- Mermaid.js for Hand-Drawn Visuals -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
@@ -860,13 +864,13 @@
                     <span>■ مکانیزم خودتوجهی چندسره (Multi-Head Attention)</span>
                     <span style="font-size: 13px; font-weight: 700; color: #1B4332;">فرمولاسیون ریاضی</span>
                 </div>
-                <p style="font-size: 15px; color: #4B5563; line-height: 1.8; margin-bottom: 12px;">
+                <p style="font-size: 20px; color: #4B5563; line-height: 1.8; margin-bottom: 12px;">
                     در هر لایه، وزن توجه میان واژه $w_i$ و تمام واژگان جمله $w_j$ بر اساس ماتریس‌های پرس‌وجو ($Q$)، کلید ($K$) و مقدار ($V$) محاسبه می‌شود:
                 </p>
-                <div style="border: 1.5px solid #1B4332; background: #FAF7EE; padding: 14px; text-align: center; direction: ltr; font-family: monospace; font-size: 16px; font-weight: 800; color: #0F2A1D; margin-bottom: 14px;">
-                    \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+                <div class="academic-math-box">
+                    $$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V $$
                 </div>
-                <ul class="vintage-list" style="font-size: 13px;">
+                <ul class="vintage-list" style="font-size: 20px;">
                     <li>۱۲ سر توجه موازی در هر لایه امکان تمرکز هم‌زمان بر ویژگی‌های نحوی نزدیک و معانی دوربرد را فراهم می‌کند.</li>
                     <li>حل ریشه‌ای مشکل همنام‌ها و اشتراک لفظی کلمات در بافت جمله.</li>
                 </ul>
@@ -1072,9 +1076,9 @@
                 </div>
 
                 <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 18px 22px; margin-bottom: 12px;">
-                    <b style="font-size: 15px; color: #0F2A1D; display: block; margin-bottom: 8px;">فرمولاسیون بردار تطبیق چهارگانه (Matching Representation):</b>
-                    <div style="border: 1.5px solid #1B4332; background: #FAF7EE; padding: 10px; text-align: center; direction: ltr; font-family: monospace; font-size: 16px; font-weight: 900; color: #0F2A1D; margin-bottom: 8px;">
-                        \mathbf{h}_{(i, i+1)} = [ \mathbf{u} \; ; \; \mathbf{v} \; ; \; \mathbf{u} \odot \mathbf{v} \; ; \; |\mathbf{u} - \mathbf{v}| ] \in \mathbb{R}^{3072}
+                    <b style="font-size: 18px; color: #0F2A1D; display: block; margin-bottom: 8px;">فرمولاسیون بردار تطبیق چهارگانه (Matching Representation):</b>
+                    <div class="academic-math-box">
+                        $$ \mathbf{h}_{(i, i+1)} = [ \mathbf{u} \; ; \; \mathbf{v} \; ; \; \mathbf{u} \odot \mathbf{v} \; ; \; |\mathbf{u} - \mathbf{v}| ] \in \mathbb{R}^{3072} $$
                     </div>
                 </div>
             </div>
@@ -1112,15 +1116,15 @@
                 <div class="pres-col-title" style="margin-bottom: 14px;">
                     <span>■ لایه طبقه‌بندی باینری و بهینه‌سازی آستانه</span>
                 </div>
-                <p style="font-size: 14px; color: #4B5563; line-height: 1.8; margin-bottom: 14px;">
-                    بردار ۳۰۷۲ بعدی از یک لایه خطی با وزن‌های $mathbf{W}_e$ و بایاس $b_e$ عبور کرده و تابع سیگموئید احتمال وجود پیوند را تعیین می‌کند:
+                <p style="font-size: 19px; color: #4B5563; line-height: 1.8; margin-bottom: 14px;">
+                    بردار ۳۰۷۲ بعدی از یک لایه خطی با وزن‌های $\mathbf{W}_e$ و بایاس $b_e$ عبور کرده و تابع سیگموئید احتمال وجود پیوند را تعیین می‌کند:
                 </p>
-                <div style="border: 1px solid #1B4332; background: #EBF3ED; padding: 12px; text-align: center; direction: ltr; font-family: monospace; font-size: 15px; font-weight: 800; color: #0F2A1D; margin-bottom: 14px;">
-                    P(y_{(i, i+1)} = 1) = \sigma(\mathbf{W}_e \mathbf{h}_{(i, i+1)} + b_e)
+                <div class="academic-math-box">
+                    $$ P(y_{(i, i+1)} = 1) = \sigma(\mathbf{W}_e \mathbf{h}_{(i, i+1)} + b_e) $$
                 </div>
-                <ul class="vintage-list" style="font-size: 13px;">
+                <ul class="vintage-list" style="font-size: 19px;">
                     <li>تابع زیان: <b>Binary Cross-Entropy (BCE) Loss</b>.</li>
-                    <li>بهینه‌سازی آستانه تصمیم‌گیری: تعیین آستانه کالیبره‌شده <span class="sketch-hl-green">$	au = 0.65$</span> به جای احتمال صلب ۰٫۵.</li>
+                    <li>بهینه‌سازی آستانه تصمیم‌گیری: تعیین آستانه کالیبره‌شده <span class="sketch-hl-green">$\tau = 0.52$</span> به جای احتمال صلب ۰٫۵.</li>
                 </ul>
             </div>
 
@@ -1670,49 +1674,49 @@
     <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch;">
         <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-                <h4 style="font-size: 21px; font-weight: 900; color: #0F2A1D; margin: 0 0 10px;">
+                <h4 style="font-size: 26px; font-weight: 900; color: #0F2A1D; margin: 0 0 10px;">
                     ۱. دقت واژه‌به‌هسته (Word-to-Head Accuracy - WHA)
                 </h4>
-                <p style="font-size: 14px; color: #4B5563; line-height: 1.7; margin-bottom: 14px;">
+                <p style="font-size: 20px; color: #4B5563; line-height: 1.7; margin-bottom: 14px;">
                     نسبت کلماتی که اشاره‌گر هسته مستقیم نحوی آن‌ها در سازه اضافه به درستی توسط مدل تعیین شده است:
                 </p>
-                <div style="border: 1px solid #1B4332; background: #FAF7EE; padding: 10px; text-align: center; direction: ltr; font-family: monospace; font-size: 15px; font-weight: 800; color: #0F2A1D; margin-bottom: 16px;">
-                    \text{WHA} = \frac{1}{|V_{\text{dep}}|} \sum_{w \in V_{\text{dep}}} \mathbb{I}(\hat{\text{head}}(w) = \text{head}^*(w))
+                <div class="academic-math-box" id="el_ktg5v8crp">
+                    $$ \text{WHA} = \frac{1}{|V_{\text{dep}}|} \sum_{w \in V_{\text{dep}}} \mathbb{I}(\hat{\text{head}}(w) = \text{head}^*(w)) $$
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-                    <div style="border: 1px solid #CBD8CE; background: #FAF7EE; padding: 14px; text-align: center;">
-                        <span style="font-size: 13px; color: #4B5563; font-weight: 700;">مدل توالی BIO</span>
-                        <p style="font-size: 30px; font-weight: 900; color: #2D5A43; margin: 4px 0 0;">۹۳٫۶۱٪</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px;">
+                    <div style="border: 1.5px solid #CBD8CE; background: #FAF7EE; padding: 16px; text-align: center;">
+                        <span style="font-size: 18px; color: #4B5563; font-weight: 700;">مدل توالی BIO</span>
+                        <p style="font-size: 38px; font-weight: 900; color: #2D5A43; margin: 6px 0 0;">۹۳٫۶۱٪</p>
                     </div>
-                    <div style="border: 2px solid #1B4332; background: #EBF3ED; padding: 14px; text-align: center;">
-                        <span style="font-size: 13px; color: #1B4332; font-weight: 800;">مدل پیوند Edge</span>
-                        <p style="font-size: 30px; font-weight: 900; color: #1B4332; margin: 4px 0 0;"><span class="sketch-hl-green">۹۴٫۵۱٪</span></p>
+                    <div style="border: 2.5px solid #1B4332; background: #EBF3ED; padding: 16px; text-align: center;">
+                        <span style="font-size: 18px; color: #1B4332; font-weight: 800;">مدل پیوند Edge</span>
+                        <p style="font-size: 38px; font-weight: 900; color: #1B4332; margin: 6px 0 0;"><span class="sketch-hl-green">۹۴٫۵۱٪</span></p>
                     </div>
                 </div>
             </div>
 
-            <div style="border-top: 1px solid #CBD8CE; padding-top: 10px; font-size: 13px; color: #1B4332; font-weight: 700;">
+            <div style="border-top: 1.5px solid #CBD8CE; padding-top: 12px; font-size: 18px; color: #1B4332; font-weight: 800;">
                 شاخص WHA: تضمین صحت یال‌های نحوی برای موتورهای پارسر (بهبود +۰٫۹۰٪)
             </div>
         </div>
 
         <div style="border: 2px solid #1B4332; background: #FFFFFF; padding: 26px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-                <h4 style="font-size: 21px; font-weight: 900; color: #0F2A1D; margin: 0 0 10px;">
+                <h4 style="font-size: 26px; font-weight: 900; color: #0F2A1D; margin: 0 0 10px;">
                     ۲. دقت بازسازی کامل زنجیره (Complete Chain Accuracy - CCA)
                 </h4>
-                <p style="font-size: 14px; color: #4B5563; line-height: 1.7; margin-bottom: 14px;">
+                <p style="font-size: 20px; color: #4B5563; line-height: 1.7; margin-bottom: 14px;">
                     سخت‌گیرانه‌ترین معیار: یک سازه <b>تنها در صورتی درست شمرده می‌شود که ۱۰۰٪ اعضا و یال‌های آن بدون خطا</b> بازسازی شوند:
                 </p>
-                <div style="border: 1px solid #1B4332; background: #FAF7EE; padding: 10px; text-align: center; direction: ltr; font-family: monospace; font-size: 15px; font-weight: 800; color: #0F2A1D; margin-bottom: 16px;">
-                    \text{CCA} = \frac{1}{|C|} \sum_{c \in C} \prod_{e \in c} \mathbb{I}(\hat{e} = e^*)
+                <div class="academic-math-box">
+                    $$ \text{CCA} = \frac{1}{|C|} \sum_{c \in C} \prod_{e \in c} \mathbb{I}(\hat{e} = e^*) $$
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-                    <div style="border: 1px solid #CBD8CE; background: #FAF7EE; padding: 14px; text-align: center;">
-                        <span style="font-size: 13px; color: #4B5563; font-weight: 700;">مدل توالی BIO</span>
-                        <p style="font-size: 30px; font-weight: 900; color: #B45309; margin: 4px 0 0;">۸۹٫۴۴٪</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px;">
+                    <div style="border: 1.5px solid #CBD8CE; background: #FAF7EE; padding: 16px; text-align: center;">
+                        <span style="font-size: 18px; color: #4B5563; font-weight: 700;">مدل توالی BIO</span>
+                        <p style="font-size: 38px; font-weight: 900; color: #B45309; margin: 6px 0 0;">۸۹٫۴۴٪</p>
                     </div>
                     <div style="border: 2px solid #1B4332; background: #EBF3ED; padding: 14px; text-align: center;">
                         <span style="font-size: 13px; color: #1B4332; font-weight: 800;">مدل پیوند Edge</span>
