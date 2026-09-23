@@ -1113,25 +1113,25 @@ if (typeof window !== 'undefined') {
             flex-direction: column;
             flex: 1;
             gap: 12px;
-            min-height: 0; /* Prevents container from overflowing parent */
+            min-height: 0;
             overflow: hidden;
         }
 
+        /* STRICT SIDE-BY-SIDE GRID - WILL NEVER STACK */
         #slide_12b .pipeline-container {
-            display: flex;
-            flex-direction: row !important; /* Forces side-by-side and blocks stacking */
-            flex-wrap: nowrap !important;
-            gap: 16px;
-            width: 100%;
-            flex: 1; /* Adapts dynamically to available vertical space */
-            min-height: 0;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+            height: 360px !important; /* Fixed height boundary to guarantee caption space */
             direction: rtl;
+            box-sizing: border-box;
         }
 
         #slide_12b .pipeline-half-wrap {
-            flex: 1;
-            min-width: 0; /* Allows proper flex shrinking */
             position: relative;
+            height: 100%;
+            width: 100%;
             overflow: hidden;
             border: 2px solid #e2e8f0;
             border-radius: 12px;
@@ -1139,28 +1139,31 @@ if (typeof window !== 'undefined') {
             background: #ffffff;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
         }
 
         #slide_12b .pipeline-half-wrap:hover {
             transform: translateY(-2px);
             border-color: #3182ce;
-            box-shadow: 0 8px 20px rgba(49, 130, 206, 0.15);
+            box-shadow: 0 8px 24px rgba(49, 130, 206, 0.15);
         }
 
-        /* Crop configurations to show top/bottom 60% without warping */
-        #slide_12b .crop-container {
+        /* Frame container to isolate image dimensions from the grid calculations */
+        #slide_12b .crop-frame {
             position: relative;
             width: 100%;
             height: 100%;
             overflow: hidden;
         }
 
-        #slide_12b .crop-container img {
+        /* Displays image zoomed at roughly 60% vertical viewport while preserving aspect ratio */
+        #slide_12b .crop-frame img {
             position: absolute;
             width: 100%;
-            height: 160%; /* Scales image taller to focus on 60% vertical segments */
-            left: 0;
-            object-fit: contain; /* Keeps correct aspect ratio */
+            height: 160%; 
+            left: 50%;
+            transform: translateX(-50%);
+            object-fit: contain;
         }
 
         #slide_12b .crop-top {
@@ -1175,7 +1178,7 @@ if (typeof window !== 'undefined') {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(26, 32, 44, 0.85);
+            background: rgba(26, 32, 44, 0.88);
             color: #fff;
             padding: 6px 12px;
             border-radius: 20px;
@@ -1184,6 +1187,7 @@ if (typeof window !== 'undefined') {
             backdrop-filter: blur(4px);
             z-index: 10;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            pointer-events: none; /* Allows click-through to parent zoom trigger */
         }
     </style>
 
@@ -1198,34 +1202,34 @@ if (typeof window !== 'undefined') {
     </div>
 
     <div class="layout-content">
-        <!-- Side-by-Side Container -->
-        <div class="pipeline-container">
-            <!-- Right Panel: Top 60% of Image (Flow Start) -->
-            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')">
-                <span class="pipeline-badge">بخش اول: ورودی متن و لایه رمزگذار (Encoder)</span>
-                <div class="crop-container">
-                    <img class="crop-top" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش بالایی دیاگرام">
+        <!-- Strictly side-by-side columns -->
+        <div class="pipeline-container" id="el_zsd84qvl3">
+            <!-- Right Column: Top 60% (Pipeline Start) -->
+            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')" id="el_wa09tqvaf">
+                <span class="pipeline-badge" id="el_lg0clxzsz">بخش اول: ورودی متن و لایه رمزگذار (Encoder)</span>
+                <div class="crop-frame">
+                    <img class="crop-top" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش بالایی دیاگرام" id="el_0jh6kp386">
                 </div>
             </div>
 
-            <!-- Left Panel: Bottom 60% of Image (Flow End) -->
-            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')">
-                <span class="pipeline-badge">بخش دوم: برچسب‌گذاری موازی و رمزگشایی (Decoder)</span>
-                <div class="crop-container">
-                    <img class="crop-bottom" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش پایینی دیاگرام">
+            <!-- Left Column: Bottom 60% (Pipeline End) -->
+            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')" id="el_ol8b3e4aa">
+                <span class="pipeline-badge" id="el_5airi5hir">بخش دوم: برچسب‌گذاری موازی و رمزگشایی (Decoder)</span>
+                <div class="crop-frame">
+                    <img class="crop-bottom" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش پایینی دیاگرام" id="el_dno18maiu">
                 </div>
             </div>
         </div>
 
-        <!-- Single Clean Unified Caption -->
-        <div class="pres-image-caption" style="text-align: center; margin-top: 4px; padding: 6px; font-size: 13.5px; color: #4a5568; background: #f7fafc; border-radius: 8px; border: 1px dashed #e2e8f0;">
+        <!-- Single Unified Caption safely underneath -->
+        <div class="pres-image-caption" style="text-align: center; margin-top: 4px; padding: 8px; font-size: 13px; color: #4a5568; background: #f7fafc; border-radius: 8px; border: 1px dashed #e2e8f0; line-height: 1.6;">
             🔍 <strong>شکل ۳-۱: معماری کلان سیستم و پایپ‌لاین کامل داده</strong> (راست: نیمه اول جریان داده | چپ: نیمه دوم و خروجی نهایی). 
             <span style="color: #3182ce; font-weight: bold; margin-right: 8px;">برای مشاهده یکپارچه و تمام‌صفحه روی تصاویر کلیک کنید.</span>
         </div>
     </div>
 
     <!-- Fullscreen Interactive Lightbox Modal -->
-    <div id="pipeline-lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10, 17, 40, 0.95); z-index:9999; justify-content:center; align-items:center; cursor:zoom-out; transition: all 0.3s;">
+    <div id="pipeline-lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10, 17, 40, 0.95); z-index:9999; justify-content:center; align-items:center; cursor:zoom-out;">
         <img id="pipeline-lightbox-img" src="" style="max-width:92%; max-height:92%; object-fit:contain; border-radius:8px; box-shadow:0 10px 40px rgba(0,0,0,0.6); background: white; padding: 10px;">
         <div style="position: absolute; bottom: 20px; color: white; font-family: sans-serif; font-size: 14px; background: rgba(0,0,0,0.6); padding: 8px 16px; border-radius: 20px;">برای بازگشت کلیک کنید</div>
     </div>

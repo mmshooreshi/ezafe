@@ -433,21 +433,22 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-
-// === ۹. موتور لمسی پیشرفته: زوم دو-حالته (x1/x2) روی نقطه لمس انگشتان + پن آزاد (سوایپ غیرفعال) ===
+// === ۹. موتور لمسی پیوسته ریاضی: پینچ زوم دقیق روی انگشت + پن آزاد (سوایپ صفحه غیرفعال) ===
 (function initTouchEngine() {
-    // حذف کامل متغیرهای ناوبری سوایپ صفحه برای جلوگیری از تداخل با زوم و درگ
-    let isZoomed = false;
-    let baseScale = 1;
-    let currentScale = 1;
+    let scale = 1;
     let panX = 0;
     let panY = 0;
-    
+
     let isDragging = false;
     let isPinching = false;
+    
     let dragStartX = 0;
     let dragStartY = 0;
     let initialPinchDist = 0;
+    let startScale = 1;
+    let pinchMidX = 0;
+    let pinchMidY = 0;
+
     let lastTapTime = 0;
     const DOUBLE_TAP_DELAY = 300;
 
@@ -455,82 +456,75 @@ document.addEventListener('keydown', (e) => {
     const stageEl = document.getElementById('stage');
     const touchTarget = wrapperEl || document.body;
 
-    // محاسبه فاصله خطی بین دو نقطه لمس
     function getPinchDistance(touches) {
         const dx = touches[0].clientX - touches[1].clientX;
         const dy = touches[0].clientY - touches[1].clientY;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
-    // محاسبه اسکیل پایه جاری استیج
-    function captureBaseScale() {
-        if (!stageEl) return 1;
-        stageEl.style.transition = 'none';
-        const transformValue = window.getComputedStyle(stageEl).transform;
-        if (transformValue && transformValue !== 'none') {
-            const matrix = transformValue.replace(/[^0-9\-.,]/g, '').split(',');
-            if (matrix.length >= 6) return parseFloat(matrix[0]) || 1;
-        }
-        return 1;
-    }
-
-    // تنظیم نقطه تمرکز زوم (transform-origin) دقیقاً روی مختصات انگشتان کاربر
-    function lockTransformOrigin(clientX, clientY) {
-        if (!stageEl || clientX === undefined || clientY === undefined) return;
-        const rect = stageEl.getBoundingClientRect();
-        
-        // تبدیل مختصات کلیک/لمس به درصد نسبت به ابعاد واقعی استیج
-        const originX = ((clientX - rect.left) / rect.width) * 100;
-        const originY = ((clientY - rect.top) / rect.height) * 100;
-        
-        // قفل کردن محدوده برای جلوگیری از خروج مبدا زوم از اسلاید
-        const boundedX = Math.max(5, Math.min(95, originX));
-        const boundedY = Math.max(5, Math.min(95, originY));
-        
-        stageEl.style.transformOrigin = `${boundedX}% ${boundedY}%`;
-    }
-
-    // اعمال زوم دو-حالته به مبدأ قفل‌شده
-    function applyZoom(zoomIn, clientX, clientY) {
+    function applyTransform(animate = false) {
         if (!stageEl) return;
-        isZoomed = zoomIn;
-        stageEl.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        stageEl.style.transition = animate ? 'transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+        stageEl.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
         
-        if (zoomIn) {
-            baseScale = captureBaseScale();
-            currentScale = baseScale * 2;
-            
-            if (clientX !== undefined && clientY !== undefined) {
-                lockTransformOrigin(clientX, clientY);
-            }
-            
-            stageEl.style.transform = `translate(${panX}px, ${panY}px) scale(${currentScale})`;
+        if (scale > 1.05) {
             stageEl.classList.add('slide-zoomed');
         } else {
-            // ریست به حالت عادی
-            panX = 0;
-            panY = 0;
-            stageEl.style.transformOrigin = 'center center';
             stageEl.classList.remove('slide-zoomed');
-            if (typeof window.resizeStage === 'function') {
-                window.resizeStage();
-            }
         }
     }
 
-    // هندل کردن دابل‌تپ
-    function handleDoubleTap(e) {
-        if (e.target.closest('.slide img')) return; // تصاویر لایت‌باکس دارند
-        if (e.target.closest('#mobile-nav-bar, #presenter-hud, #editor-toolbar, #role-switcher-bar, #passcode-modal')) return;
+    // بازگرداندن اسلاید به مرکز و اسکیل ۱
+    function resetZoom(animate = true) {
+        scale = 1;
+        panX = 0;
+        panY = 0;
+        applyTransform(animate);
+        setTimeout(() => {
+            if (scale <= 1.05 && typeof window.resizeStage === 'function') {
+                window.resizeStage();
+            }
+        }, animate ? 300 : 0);
+    }
+
+    // محاسبات متمرکز زوم روی مفاصل لمس انگشتان یا تپ
+    function zoomToPoint(targetScale, clientX, clientY) {
+        if (!stageEl || !wrapperEl) return;
         
+        const wrapperRect = wrapperEl.getBoundingClientRect();
+        // یافتن مرکز استیج (پایدار و بدون تغییر ابعاد)
+        const centerX = wrapperRect.left + wrapperRect.width / 2;
+        const centerY = wrapperRect.top + wrapperRect.height / 2;
+
+        const s1 = scale;
+        const s2 = Math.max(1, Math.min(4, targetScale)); // کلمپ ابعاد زوم بین ۱ تا ۴ برابر
+
+        // محاسبه آفست نقطه کلیک شده نسبت به مرکز اسلاید در اسکیل فعلی
+        const offsetX = (clientX - centerX - panX) / s1;
+        const offsetY = (clientY - centerY - panY) / s1;
+
+        // مابه التفاوت اختلاف ابعاد اسکیل برای قفل کردن پیکسل زیر انگشت
+        panX = panX - offsetX * (s2 - s1);
+        panY = panY - offsetY * (s2 - s1);
+        scale = s2;
+
+        applyTransform(false);
+    }
+
+    // هندل دابل تپ
+    function handleDoubleTap(e) {
+        if (e.target.closest('.slide img')) return;
+        if (e.target.closest('#mobile-nav-bar, #presenter-hud, #editor-toolbar, #role-switcher-bar, #passcode-modal')) return;
+
         const now = Date.now();
         if (now - lastTapTime < DOUBLE_TAP_DELAY && now - lastTapTime > 50) {
             e.preventDefault();
-            const touch = e.changedTouches[0];
-            if (isZoomed) {
-                applyZoom(false);
+            if (scale > 1.05) {
+                resetZoom(true);
             } else {
-                applyZoom(true, touch.clientX, touch.clientY);
+                const touch = e.changedTouches[0];
+                zoomToPoint(2.2, touch.clientX, touch.clientY);
+                applyTransform(true);
             }
             lastTapTime = 0;
         } else {
@@ -541,25 +535,19 @@ document.addEventListener('keydown', (e) => {
     // === touchstart ===
     touchTarget.addEventListener('touchstart', (e) => {
         if (e.touches.length === 2) {
-            // شروع پینچ زوم (دو انگشتی)
             isPinching = true;
             isDragging = false;
             initialPinchDist = getPinchDistance(e.touches);
-            baseScale = captureBaseScale();
+            startScale = scale;
 
-            // قفل کردن آنی مبدا زوم درست در بین دو انگشت مانیتور شده
-            const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-            const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-            lockTransformOrigin(midX, midY);
-            stageEl.style.transition = 'none';
-
+            // ثبت دقیق نقطه مرکزی مابین دو انگشت در شروع پینچ
+            pinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+            pinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
         } else if (e.touches.length === 1) {
-            if (isZoomed) {
-                // شروع کشیدن آزاد اسلاید (در حالت زوم شده)
+            if (scale > 1.05) {
                 isDragging = true;
                 dragStartX = e.touches[0].clientX - panX;
                 dragStartY = e.touches[0].clientY - panY;
-                stageEl.style.transition = 'none';
             }
         }
     }, { passive: false });
@@ -569,27 +557,25 @@ document.addEventListener('keydown', (e) => {
         if (isPinching && e.touches.length === 2) {
             e.preventDefault();
             const currentDist = getPinchDistance(e.touches);
-            const delta = currentDist - initialPinchDist;
-
-            // اعمال زوم موقت و پویا روی محور قفل شده
-            if (Math.abs(delta) > 5) {
+            if (currentDist > 5 && initialPinchDist > 5) {
                 const ratio = currentDist / initialPinchDist;
-                const tempScale = baseScale * (isZoomed ? 2 : 1) * ratio;
-                const boundedScale = Math.max(baseScale * 0.7, Math.min(baseScale * 3.5, tempScale));
-                stageEl.style.transform = `translate(${panX}px, ${panY}px) scale(${boundedScale})`;
+                const targetScale = startScale * ratio;
+                
+                // پینچ زوم پویا، پیوسته و آنی روی نقطه مرکزی انگشتان
+                zoomToPoint(targetScale, pinchMidX, pinchMidY);
             }
-        } else if (isDragging && e.touches.length === 1 && isZoomed) {
+        } else if (isDragging && e.touches.length === 1 && scale > 1.05) {
             e.preventDefault();
-            // کشیدن اسلاید زوم‌شده در زوایای مختلف بدون لگ
+            // پن کردن و کشیدن آزاد صفحه در وضعیت زوم
             panX = e.touches[0].clientX - dragStartX;
             panY = e.touches[0].clientY - dragStartY;
             
-            // قفل کردن مرز درگ برای عدم خروج اسلاید از دید
-            const maxPanLimit = 450;
+            // قفل کردن محدوده پن برای جلوگیری از پرت شدن اسلاید از کادر صفحه
+            const maxPanLimit = (scale - 1) * (stageEl.clientWidth / 2);
             panX = Math.max(-maxPanLimit, Math.min(maxPanLimit, panX));
-            panY = Math.max(-maxPanLimit, Math.min(maxPanLimit, panY));
+            panY = Math.max(-maxPanLimit * 0.6, Math.min(maxPanLimit * 0.6, panY));
             
-            stageEl.style.transform = `translate(${panX}px, ${panY}px) scale(${currentScale})`;
+            applyTransform(false);
         }
     }, { passive: false });
 
@@ -597,34 +583,26 @@ document.addEventListener('keydown', (e) => {
     touchTarget.addEventListener('touchend', (e) => {
         if (isPinching) {
             isPinching = false;
-            
-            // شبیه‌سازی فاصله نهایی انگشتان
-            const finalDist = getPinchDistance(e.changedTouches.length === 2 ? e.changedTouches : [e.touches[0], e.changedTouches[0]]);
-            const delta = finalDist - initialPinchDist;
-            
-            // تصمیم زوم قطعی (بدون مقادیر میانه آزاردهنده): باز کردن انگشتان -> x2 / بستن انگشتان -> x1
-            if (delta > 25) {
-                applyZoom(true); // زوم کامل به x2 روی اوریجین قفل شده
-            } else if (delta < -25) {
-                applyZoom(false); // خروج کامل به x1
-            } else {
-                applyZoom(isZoomed); // بازگشت به وضعیت پایدار قبلی
-            }
             initialPinchDist = 0;
+            // اگر اسکیل به نزدیک ۱ بازگشت، ریست کامل شود
+            if (scale < 1.05) {
+                resetZoom(true);
+            } else {
+                applyTransform(true);
+            }
             return;
         }
 
         if (isDragging) {
             isDragging = false;
-            stageEl.style.transition = 'transform 0.22s ease-out';
+            applyTransform(true);
             return;
         }
 
-        // هندل کردن دابل‌تپ
         handleDoubleTap(e);
     }, { passive: false });
 
-    // مهار رفتارهای پیش‌فرض دابل‌تپ سیستم‌عامل موبایل
+    // غیرفعال کردن زوم سیستمی مرورگرها
     let lastPreventTap = 0;
     document.addEventListener('touchend', (e) => {
         const now = Date.now();
@@ -634,6 +612,5 @@ document.addEventListener('keydown', (e) => {
         lastPreventTap = now;
     }, { passive: false });
 
-    // مهار کامل زوم سیستمی سفاری/کروم روی iOS
     document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
 })();

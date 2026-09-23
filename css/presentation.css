@@ -1599,11 +1599,18 @@ html, body {
 }
 
 /* استیج فقط با pinch اجازه زوم دو-حالته دارد */
-#stage {
+/* #stage {
     transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center center;
     will-change: transform;
     touch-action: pan-x pan-y !important;
+} */
+
+#stage {
+    transition: none; /* ترنزیشن دستی در جاوااسکریپت کنترل می‌شود */
+    transform-origin: center center !important;
+    will-change: transform;
+    touch-action: none !important; /* مهار کامل رفتارهای ناخواسته مرورگر */
 }
 
 #stage.slide-zoomed {
