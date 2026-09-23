@@ -1025,7 +1025,7 @@ table.apa-table.apa-large { font-size: 20px !important; }
 
 @media (max-width: 1024px), (pointer: coarse) {
     .apa-table-container::after {
-        content: "🔍 برای بزرگ‌نمایی ضربه بزنید";
+        /* content: "🔍 برای بزرگ‌نمایی ضربه بزنید"; */
         display: block;
         text-align: center;
         font-size: 12px;

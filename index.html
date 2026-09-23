@@ -251,50 +251,71 @@
         <p class="title-sub">فاصله مفهومی و ساختاری میان «تشخیص موضعی اضافه» و «بازسازی کامل زنجیره»</p>
     </div>
 
-    <div class="layout-content" style="justify-content: center; gap: 26px;">
-        <div class="vs-grid" style="flex: 0 1 auto;">
-            <div class="vs-card losing">
-                <h4>❌ رویکرد غالب پیشین</h4>
-                <p style="font-style: italic; color: #7F1D1D; font-size: 22px !important;">
-                    «آیا واژه $w_i$ نشانگر اضافه دارد یا خیر؟»
-                </p>
-                <p style="font-size: 19px !important; color: #7F1D1D;">برچسب‌گذاری دودویی در سطح تک‌واژه</p>
-                <ul>
-                    <li>تصمیم‌گیری‌های موضعی و مستقل از ساختار کلان</li>
-                    <li>ناتوانی در تشخیص حدود، مرزها و طول زنجیره‌های چندواژه‌ای</li>
-                    <li>شکنندگی سازه‌ای: یک خطای محلی، بازسازی کل گروه را مخدوش می‌کند</li>
-                </ul>
-                <div style="background: #FEE2E2; border-top: 3px solid #DC2626; padding: 14px 20px; border-radius: 4px; margin-top: auto;">
-                    <div style="font-size: 18px; color: #991B1B; text-align: center; font-weight: 700;">
+    <!-- دو ستون هم‌تراز: مقایسه مفهومی در راست و دیاگرام ساختاری تمام‌قد در چپ -->
+    <div class="layout-content" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: stretch;">
+        
+        <!-- ستون راست: کارت‌های مقایسه رویکردها -->
+        <div style="display: flex; flex-direction: column; gap: 14px; justify-content: space-between;">
+            
+            <!-- رویکرد سنتی -->
+            <div class="vs-card losing" style="flex: 1; padding: 14px 18px; margin: 0; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h4 style="margin-bottom: 6px; font-size: 17px;">❌ رویکرد غالب پیشین (دودویی توکنی)</h4>
+                    <p style="font-style: italic; color: #7F1D1D; font-size: 17px !important; margin-bottom: 4px;">
+                        «آیا واژه $w_i$ نشانگر اضافه دارد یا خیر؟»
+                    </p>
+                    <ul class="vintage-list" style="gap: 6px; margin: 8px 0;">
+                        <li style="font-size: 14px; line-height: 1.5;">تصمیم‌گیری‌های موضعی و مستقل از ساختار کلان نحوی</li>
+                        <li style="font-size: 14px; line-height: 1.5;">ناتوانی در تشخیص حدود، مرزها و طول زنجیره‌های چندواژه‌ای</li>
+                        <li style="font-size: 14px; line-height: 1.5;">شکنندگی سازه‌ای: یک خطای محلی، بازسازی کل گروه را مخدوش می‌کند</li>
+                    </ul>
+                </div>
+                <div style="background: #FEE2E2; border-top: 2px solid #DC2626; padding: 6px 12px; margin-top: 6px;">
+                    <div style="font-size: 13.5px; color: #991B1B; text-align: center; font-weight: 700;">
                         دقت محلی بالا لزوماً به بازسازی کامل سازه منجر نمی‌شود
                     </div>
                 </div>
             </div>
 
-            <div class="vs-divider">←</div>
-
-            <div class="vs-card winning">
-                <h4>✅ رویکرد رساله حاضر</h4>
-                <p style="font-style: italic; color: #0F2A1D; font-size: 22px !important;">
-                    «کدام واژگان در یک <b>حوزه اضافه واحد</b> پیوند یافته‌اند؟»
-                </p>
-                <p style="font-size: 19px !important; color: var(--color-ut-green);">بازسازی زیرساختار نحوی از درخت وابستگی</p>
-                <ul>
-                    <li><b>مدل BIO:</b> تعیین مرز آغازین (B-EZ)، تداوم (I-EZ) و برون‌زنجیره (O)</li>
-                    <li><b>مدل Edge:</b> مدل‌سازی پیوند جفتیِ اضافه میان واژگان مجاور</li>
-                    <li>بازیابی دقیق روابط هسته و وابسته‌ها در سازه نحوی</li>
-                </ul>
-                <div style="background: var(--color-ut-light); border-top: 3px solid var(--color-ut-green); padding: 14px 20px; border-radius: 4px; margin-top: auto;">
-                    <div style="font-size: 18px; color: var(--color-ut-dark); text-align: center; font-weight: 700;">
-                        گذار از تشخیص مستقل واژه‌ها به سمت بازشناسی ساختاری حوزه اضافه
+            <!-- رویکرد پیشنهادی -->
+            <div class="vs-card winning" style="flex: 1; padding: 14px 18px; margin: 0; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h4 style="margin-bottom: 6px; font-size: 17px;">✅ رویکرد رساله حاضر (بازسازی حوزه نحوی)</h4>
+                    <p style="font-style: italic; color: #0F2A1D; font-size: 17px !important; margin-bottom: 4px;">
+                        «کدام واژگان در یک <b>حوزه اضافه واحد</b> پیوند یافته‌اند؟»
+                    </p>
+                    <ul class="vintage-list" style="gap: 6px; margin: 8px 0;">
+                        <li style="font-size: 14px; line-height: 1.5;"><b>مدل BIO:</b> تعیین مرز آغازین (B-EZ)، تداوم (I-EZ) و برون‌زنجیره (O)</li>
+                        <li style="font-size: 14px; line-height: 1.5;"><b>مدل Edge:</b> مدل‌سازی پیوند جفتیِ اضافه میان واژگان مجاور</li>
+                        <li style="font-size: 14px; line-height: 1.5;">بازیابی دقیق روابط هسته و وابسته‌ها در سازه نحوی وابستگی</li>
+                    </ul>
+                </div>
+                <div style="background: var(--color-ut-light); border-top: 2px solid var(--color-ut-green); padding: 6px 12px; margin-top: 6px;">
+                    <div style="font-size: 13.5px; color: var(--color-ut-dark); text-align: center; font-weight: 700;">
+                        گذار از برچسب‌گذاری مجزا به بازشناسی یکپارچه حوزه اضافه
                     </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ستون چپ: تصویر تمام‌قد و برجسته -->
+        <div style="background: var(--color-surface); border: 1px solid var(--color-ut-border); padding: 18px 20px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; box-shadow: 0 4px 16px rgba(15, 42, 29, 0.04);">
+            <div style="flex: 1; width: 100%; display: flex; align-items: center; justify-content: center; min-height: 0;">
+                <img src="images/fig_1_2_token_to_structural_redefinition.png" 
+                     alt="شکل ۱-۲: بازتعریف ساختاری حوزه اضافه" 
+                     style="width: 100%; height: 100%; max-height: 480px; object-fit: contain;">
+            </div>
+            <div style="border-top: 1px solid var(--color-ut-border); width: 100%; padding-top: 12px; margin-top: 12px; text-align: center;">
+                <div style="font-size: 14px; font-weight: 800; color: var(--color-ut-dark);">
+                    شکل ۱-۲: گذار از برچسب‌گذاری دودویی تک‌واژه‌ای به گروه‌بندی ساختاری حوزه‌های اضافه
+                </div>
+                <div style="font-size: 12.5px; color: var(--color-text-muted); margin-top: 4px; line-height: 1.4;">
+                    نمایش تفاوت تفکیک موضعی با استخراج مرزها و زیردرخت‌های نحوی متوالی
                 </div>
             </div>
         </div>
 
-        <div style="background: var(--color-ut-dark); color: #FFF; padding: 18px 30px; border-radius: 6px; text-align: center; font-size: 20px; font-weight: 700;">
-            💡 بازتعریف مسئله: از <b style="color: var(--color-gold);">برچسب‌گذاری دودویی تک‌واژه</b> به <b style="color: var(--color-gold);">گروه‌بندی ساختاری و تعیین دامنه اضافه</b>
-        </div>
     </div>
 
     <div class="presenter-notes">
@@ -589,35 +610,53 @@
 </div>
 
             <div class="slide" id="slide_09">
-    <div class="layout-header" style="margin-bottom: 10px;">
+    <div class="layout-header" style="margin-bottom: 12px;">
         <div class="header-top-bar">
             <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
             <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی</span>
-            <span>اسلاید ۸.۲ از ۳۰</span>
+            <span>اسلاید ۸.۲ از ۳۵</span>
         </div>
-        <div class="header-tag">فصل دوم: مبانی نظری | شکل ۱-۳</div>
-        <h2 class="title-main" style="font-size: 38px !important;">شکل ۱-۳: درخت وابستگی حوزه اضافه</h2>
+        <div class="header-tag">فصل دوم: مبانی نظری و چارچوب نحوی</div>
+        <h2 class="title-main" style="font-size: 34px !important; line-height: 1.3;">
+            ساختار نحوی حوزه اضافه و انطباق آن با نظریه سازه‌ای گروه اسمی
+        </h2>
+        <p class="title-sub" style="font-size: 17px; margin-top: 4px;">
+            مقایسه بازنمایی درختی در دستور وابستگی با تحلیل فرافکنی بیشینه در دستور زایشی
+        </p>
     </div>
 
-    <div class="layout-content" style="gap: 10px;">
-        <div class="pres-image-hero-wrap" style="flex: 1;">
-            <img src="images/fig_1_3_ezafe_syntactic_tree.png"
-                 alt="شکل ۱-۳: بازنمایی حوزه اضافه در درخت وابستگی نحوی"
-                 title="برای بزرگ‌نمایی کلیک/ضربه بزنید">
-            <div class="pres-image-caption">
-                🔍 شکل ۱-۳: بازنمایی حوزه اضافه در درخت وابستگی نحوی — برای بزرگ‌نمایی ضربه بزنید
+    <div class="layout-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch;">
+        <div class="pres-image-hero-wrap" style="flex: 1; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; background: var(--color-surface); border: 1px solid var(--color-ut-border);">
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 0;">
+                <img src="images/fig_1_3_ezafe_syntactic_tree.png"
+                     alt="شکل ۱-۳: بازنمایی حوزه اضافه در درخت وابستگی نحوی"
+                     style="max-height: 400px; width: 100%; object-fit: contain;">
+            </div>
+            <div class="pres-image-caption" style="font-size: 16px; font-weight: 700; color: var(--color-ut-dark); margin-top: 10px; line-height: 1.5; text-align: center; border-top: 1px solid var(--color-ut-border); padding-top: 8px;">
+                شکل ۱-۳: پیوند ساختاری اضافه در قالب زیردرخت وابستگی نحوی
+            </div>
+        </div>
+
+        <div class="pres-image-hero-wrap" style="flex: 1; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; background: var(--color-surface); border: 1px solid var(--color-ut-border);">
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 0;">
+                <img src="images/fig_2_2_np_structure_ezafe_continuity.png"
+                     alt="شکل ۲-۲: ساختمان گروه اسمی و نقش اضافه در تداوم آن [قمشی]"
+                     style="max-height: 400px; width: 100%; object-fit: contain;">
+            </div>
+            <div class="pres-image-caption" style="font-size: 16px; font-weight: 700; color: var(--color-ut-dark); margin-top: 10px; line-height: 1.5; text-align: center; border-top: 1px solid var(--color-ut-border); padding-top: 8px;">
+                شکل ۲-۲: تداوم سازه‌ای و مرزهای گروه اسمی در دستور زایشی [قمشی، ۱۹۹۷]
             </div>
         </div>
     </div>
 
     <div class="layout-footer" style="margin-top: 8px;">
         <span>سید محسن رضوی خسروشاهی</span>
-        <span class="footer-badge">شکل ۱-۳ رساله: انطباق تئوری زبان‌شناختی با مدل ریاضی گراف</span>
+        <span class="footer-badge">شکل ۱-۳ و ۲-۲ رساله: انطباق تئوری زبان‌شناختی با مدل ریاضی گراف</span>
         <span>دانشگاه تهران — مهر ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
-        «در این تصویر، بازنمایی گرافیکی تعریف نظری ما را می‌بینید. یال‌های سبز نشان‌دهنده وابستگی اضافی هستند و از هر وابسته به سمت هسته اسمی جهت دارند. نکته کلیدی این است که سازه پیوسته است و به محض رسیدن به فعل یا حرف اضافه، بسته می‌شود. لطفاً روی تصویر ضربه بزنید تا جزئیات یال‌ها را بزرگ‌تر ببینیم.»
+        «در این اسلاید، پیوند میان دو دیدگاه نظری را مشاهده می‌کنید: در سمت راست، اضافه به‌عنوان یال‌های هدایت‌شده در یک زیردرخت پیوسته وابستگی بازنمایی شده است؛ در سمت چپ، همان پدیده از منظر سازه‌ای و تحلیل هسته‌بنیاد قمشی نشان می‌دهد که اضافه ضامن تداوم گروه اسمی تا مرزهای سازه‌ای مجاز است.»
     </div>
 </div>
 
@@ -626,7 +665,7 @@
         <div class="header-top-bar">
             <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
             <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی</span>
-            <span>اسلاید ۸.۳ از ۳۰</span>
+            <span>اسلاید ۸.۳ از ۳۵</span>
         </div>
         <div class="header-tag">فصل دوم: مبانی نظری | تحلیل نمونه</div>
         <h2 class="title-main">پس از دیدن درخت: تجزیه یک نمونه واقعی</h2>
@@ -677,140 +716,188 @@
     </div>
 </div>
 
-            <div class="slide" id="slide_11">
-    <!-- هدر آکادمیک استاندارد -->
-    <div class="layout-header" style="margin-bottom: 12px; padding-bottom: 10px;">
+            <!-- ========================================== -->
+<!-- SLIDE 09: پیشینه پژوهش                       -->
+<!-- ========================================== -->
+<div class="slide" id="slide_11">
+    <div class="layout-header">
         <div class="header-top-bar">
             <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
-            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
-            <span style="font-family: 'Peyda', sans-serif; font-variant-numeric: tabular-nums;">اسلاید ۱۱ از ۳۴</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی</span>
+            <span>اسلاید ۱۱ از ۳۴</span>
         </div>
-        <div class="header-tag">فصل دوم: پیشینه پژوهش | جدول ۲-۴ (مرور نظام‌مند ادبیات)</div>
-        <h2 class="title-main" style="font-size: 34px !important; margin-bottom: 4px;">سیر تحول پژوهش‌های پیشین در بازشناسی کسره اضافه (۱۳۸۶ تا ۱۴۰۵)</h2>
-        <p class="title-sub" style="font-size: 17px !important;">تحلیل تطبیقی رویکردهای نمادین، آماری، یادگیری ماشین و ترنسفورمرهای زبانی</p>
+        <div class="header-tag">فصل دوم: پیشینه پژوهش | جدول ۲-۴ (مرور ادبیات کامل)</div>
+        <h2 class="title-main">سیر تحول پژوهش‌های داخلی (۱۳۸۶ تا ۱۴۰۳)</h2>
+        <p class="title-sub">مرور نظام‌مند ۹ مطالعه شاخص از قواعد دستوری تا ترنسفورمرهای پیشرفته</p>
     </div>
 
-    <!-- بدنه اصلی فشرده و فاقد اسکرول -->
-    <div class="layout-content" style="gap: 10px; overflow: hidden; justify-content: space-between;">
-        <div class="apa-table-container" style="padding: 6px 14px; border: none; background: #FFFFFF; overflow: hidden; flex: 1; display: flex; flex-direction: column; justify-content: center;">
-            <table class="apa-table" style="font-size: 13.5px !important; line-height: 1.35 !important; width: 100%;">
+    <div class="layout-content">
+        <div id="slide09-table-container" class="apa-table-container" style="padding: 12px 18px; flex: 1; overflow-y: auto; scroll-behavior: smooth;">
+            <table class="booktabs" style="font-size: 16px !important;">
                 <thead>
                     <tr>
-                        <th style="width: 17%; padding: 6px 8px !important;">پژوهشگر (سال)</th>
-                        <th style="width: 23%; padding: 6px 8px !important;">رویکرد / مدل</th>
-                        <th style="width: 17%; padding: 6px 8px !important;">پیکره ارزیابی</th>
-                        <th style="width: 16%; padding: 6px 8px !important;">معیار ارزیابی و دستاورد</th>
-                        <th style="padding: 6px 8px !important;">محدودیت ساختاری / ملاحظات</th>
+                        <th style="width: 15%;">پژوهشگر (سال)</th>
+                        <th style="width: 22%;">رویکرد / مدل</th>
+                        <th style="width: 15%;">پیکره</th>
+                        <th style="width: 18%;">نتیجه کلیدی</th>
+                        <th>نکات و محدودیت‌ها</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>عیسی‌پور و بیجن‌خان</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۰۷)</span></td>
-                        <td style="padding: 4.5px 8px !important;">دستور زبان احتمالی مستقل از بافت (PCFG)</td>
-                        <td style="padding: 4.5px 8px !important;">۱۰۰۰ جمله (پیکره ۱۰M)</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">Acc = ۹۳٫۲۹٪ (κ = 0.74)</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">وابستگی به قواعد واژگانی دست‌نویس؛ افت در جملات مرکب</td>
+                        <td><b>عیسی‌پور و بیجن‌خان</b><br><span style="color:#64748B;">(۲۰۰۷)</span></td>
+                        <td>PCFG + قواعد لغوی</td>
+                        <td>۱۰۰۰ جمله از پیکره ۱۰M پژوهشکده</td>
+                        <td>Accuracy = ۹۳٫۲۹٪<br>(κ = 0.74)</td>
+                        <td>وابستگی به قواعد دست‌نویس؛ افت در ساختارهای پیچیده</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>نوفرستی و شمس‌فرد</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۱۴)</span></td>
-                        <td style="padding: 4.5px 8px !important;">الگوریتم ژنتیک دومرحله‌ای بر پایه ۵۳ قاعده</td>
-                        <td style="padding: 4.5px 8px !important;">بیجن‌خان (۲٫۵M واژه)</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">F1 = ۹۵٫۲۶٪ | Rec = ۸۸٫۸۱٪</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">زمان استنتاج بالا؛ حساسیت شدید به تنظیم هایپرپارامترهای GA</td>
+                        <td><b>نوفرستی و شمس‌فرد</b><br><span style="color:#64748B;">(۲۰۱۴)</span></td>
+                        <td>الگوریتم ژنتیک دومرحله‌ای + بهینه‌سازی ۵۳ قاعده</td>
+                        <td>بیجن‌خان ۲٫۵M واژه</td>
+                        <td>F1 = ۹۵٫۲۶٪<br>Recall = ۸۸٫۸۱٪</td>
+                        <td>زمان اجرا بالا؛ وابسته به تنظیمات GA</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>کوچری و همکاران</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۱۵)</span></td>
-                        <td style="padding: 4.5px 8px !important;">درخت تصمیم و رگرسیون لجستیک (۹ ویژگی)</td>
-                        <td style="padding: 4.5px 8px !important;">MULTEXT-East (۱۰۰K)</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">Acc = ۹۷٫۳۶٪ (اضافه: ۸۸٫۸۵٪)</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">افت محسوس دقت در زنجیره‌های طویل و متون عامیانه</td>
+                        <td><b>کوچری و همکاران</b><br><span style="color:#64748B;">(۲۰۱۵)</span></td>
+                        <td>درخت تصمیم + رگرسیون با ۹ ویژگی صرفی-نحوی</td>
+                        <td>MULTEXT-East ≈ ۱۰۰K</td>
+                        <td>Acc = ۹۷٫۳۶٪<br>واژگان دارای اضافه: ۸۸٫۸۵٪</td>
+                        <td>افت محسوس در جملات غیررسمی و طولانی</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>خاتمی و معادی</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۱۵)</span></td>
-                        <td style="padding: 4.5px 8px !important;">شبکه عصبی ۴-گرامی تلفیق‌شده با SVM</td>
-                        <td style="padding: 4.5px 8px !important;">بیجن‌خان (۱۰M واژه)</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">F1 ≈ ۹۱٫۱۴٪</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">پیچیدگی محاسباتی لایه رأی‌گیری؛ افت در رده‌های نامتوازن</td>
+                        <td><b>خاتمی و معادی</b><br><span style="color:#64748B;">(۲۰۱۵)</span></td>
+                        <td>شبکه عصبی چهارواژه‌ای + رأی‌گیری SVM</td>
+                        <td>بیجن‌خان ۱۰M واژه</td>
+                        <td>F1 ≈ ۹۱٫۱۴٪</td>
+                        <td>نیاز پردازشی زیاد؛ حساس به کمبود داده</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>نوریان و همکاران</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۱۵)</span></td>
-                        <td style="padding: 4.5px 8px !important;">تزریق ویژگی اضافه به تجزیه‌گر نحوی وابسته</td>
-                        <td style="padding: 4.5px 8px !important;">پیکره وابستگی فارسی</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">+۴٫۶٪ LAS | +۹٪ Shallow</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">سنجش غیرمستقیم اثر بر پارسینگ، عدم گزارش خطای تفکیکی اضافه</td>
+                        <td><b>نوریان و همکاران</b><br><span style="color:#64748B;">(۲۰۱۵)</span></td>
+                        <td>تزریق برچسب اضافه در برچسب‌گذاری نحوی</td>
+                        <td>پیکره وابستگی فارسی ۱۰M</td>
+                        <td>+۴٫۶٪ بهبود L-DParser<br>+۹٪ در shallow parsing</td>
+                        <td>تمرکز روی تأثیر، نه دقت خودِ بازشناسی</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>دوست‌محمدی و همکاران</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۲۰)</span></td>
-                        <td style="padding: 4.5px 8px !important;">ترنسفورمر چندزبانه XLM-RoBERTa پایه</td>
-                        <td style="padding: 4.5px 8px !important;">بیجن‌خان (۸۰/۱۰/۱۰)</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">F1 = ۹۸٫۱۴٪ (Token-level)</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">هزینه حافظه بالا؛ عدم تمایز میان هسته و وابسته سازه</td>
+                        <td><b>دوست‌محمدی و همکاران</b><br><span style="color:#64748B;">(۲۰۲۰)</span></td>
+                        <td>ترنسفورمر XLM-R تک‌وظیفه‌ای</td>
+                        <td>بیجن‌خان (80/10/10)</td>
+                        <td>F1 = ۹۸٫۱۴٪ (SOTA)</td>
+                        <td>مصرف حافظه و GPU بالا؛ تبیین‌پذیری کم</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>انصاری و همکاران</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۲۳)</span></td>
-                        <td style="padding: 4.5px 8px !important;">ترنسفورمر بومی با پالایش پیکره ارزیابی</td>
-                        <td style="padding: 4.5px 8px !important;">۷۰K جمله بازچینی‌شده</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">F1 ≈ ۹۹٫۰٪ (Token-level)</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">وابستگی شدید به فرآیند پیش‌پردازش؛ عدم انتشار عمومی وزن‌ها</td>
+                        <td><b>انصاری و همکاران</b><br><span style="color:#64748B;">(۲۰۲۳)</span></td>
+                        <td>ترنسفورمر تک‌زبانه + پاکسازی داده</td>
+                        <td>۷۰K جمله بازچینی‌شده بیجن‌خان</td>
+                        <td>F1 ≈ ۹۹٫۰٪<br>(+۲٫۶۸٪ از XLM-R)</td>
+                        <td>وابسته به پیش‌پردازش سنگین؛ عدم انتشار وزن‌ها</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>اصغری و فیلی</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۲۴)</span></td>
-                        <td style="padding: 4.5px 8px !important;">برچسب‌گذاری توالی دوجهته تلفیقی با NMT</td>
-                        <td style="padding: 4.5px 8px !important;">بیجن‌خان + ویژگی صرفی</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">Seq-Label: F1 = ۹۶٫۲۹٪</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">تأخیر استنتاج در مدل مولد؛ وابستگی به استخراج دستی ویژگی‌ها</td>
+                        <td><b>اصغری و فیلی</b><br><span style="color:#64748B;">(۲۰۲۴)</span></td>
+                        <td>Seq-Label دوجهته + NMT</td>
+                        <td>بیجن‌خان + ویژگی‌های نحوی</td>
+                        <td>Seq-Label: F1 = ۹۶٫۲۹٪</td>
+                        <td>NMT کندتر و ضعیف‌تر؛ نیاز به مهندسی ویژگی</td>
                     </tr>
                     <tr>
-                        <td style="padding: 4.5px 8px !important;"><b>رحمتی و صامتی</b> <span style="color: var(--color-text-muted); font-size: 12px;">(۲۰۲۴)</span></td>
-                        <td style="padding: 4.5px 8px !important;">مدل سرتاسری تبدیل متن به واج (G2P)</td>
-                        <td style="padding: 4.5px 8px !important;">۱٫۳M توکن گفتاری</td>
-                        <td style="padding: 4.5px 8px !important;" class="numeric">کاهش ۱۸٪ خطای واجی TTS</td>
-                        <td style="padding: 4.5px 8px !important; color: var(--color-text-muted);">تمرکز بر کاربرد تلفظ؛ عدم مدل‌سازی مرزهای سلسله‌مراتبی سازه</td>
+                        <td><b>رحمتی و صامتی</b><br><span style="color:#64748B;">(۲۰۲۴)</span></td>
+                        <td>G2P End-to-End با ماژول اضافه</td>
+                        <td>۱٫۳M توکن گفتاری</td>
+                        <td>کاهش خطای واجی TTS تا ۱۸٪</td>
+                        <td>مسأله اصلی بازشناسی نیست؛ دسترسی محدود به کد</td>
                     </tr>
                     <tr style="background: var(--color-ut-light); border-top: 1.5px solid var(--color-ut-green);">
                         <td style="padding: 5px 8px !important;"><strong style="color: var(--color-ut-dark);">پژوهش حاضر</strong> <span style="color: var(--color-ut-green); font-weight: 800; font-size: 12px;">(۱۴۰۵)</span></td>
-                        <td style="padding: 5px 8px !important;"><strong style="color: var(--color-ut-green);">معماری تلفیقی BIO و Edge بر بستر ParsBERT</strong></td>
-                        <td style="padding: 5px 8px !important;">پیکره بیجن‌خان استاندارد</td>
-                        <td style="padding: 5px 8px !important;" class="numeric"><strong style="color: var(--color-ut-green); font-size: 15px;">WHA = ۹۶٫۲۴٪</strong></td>
-                        <td style="padding: 5px 8px !important;"><strong style="color: var(--color-ut-dark);">گذار به ارزیابی سازه‌محور کامل و پایداری در زنجیره‌های طویل</strong></td>
+                        <td style="padding: 5px 8px !important;"><b>مدل برچسب‌گذاری BIO</b></td>
+                        <td style="padding: 5px 8px !important;">بیجن‌خان کامل</td>
+                        <td style="padding: 5px 8px !important;" class="numeric"><b>F1 = ۹۶٫۵۸٪</b><br><span style="font-size: 11px; color:#475569;">WHA: ۹۳٫۶۱٪ | CCA: ۸۹٫۴۴٪</span></td>
+                        <td style="padding: 5px 8px !important;">بازسازی صریح مرزهای زنجیره اضافه با طرح سه کلاسه</td>
+                    </tr>
+                    <tr style="background: #EBF3ED; border-top: 1px solid var(--color-ut-green);">
+                        <td style="padding: 5px 8px !important;"><strong style="color: var(--color-ut-green);">پژوهش حاضر</strong> <span style="color: var(--color-ut-green); font-weight: 800; font-size: 12px;">(۱۴۰۵)</span></td>
+                        <td style="padding: 5px 8px !important;"><strong style="color: var(--color-ut-green);">مدل تشخیص یال (Edge)</strong></td>
+                        <td style="padding: 5px 8px !important;">بیجن‌خان کامل</td>
+                        <td style="padding: 5px 8px !important;" class="numeric"><strong style="color: var(--color-ut-green); font-size: 14px;">F1 = ۹۷٫۹۶٪</strong><br><span style="font-size: 11px; color: var(--color-ut-green);">WHA: ۹۴٫۵۱٪ | CCA: ۹۰٫۵۷٪</span></td>
+                        <td style="padding: 5px 8px !important;"><strong>الحاق چهارگانه جفتی، بالاترین دقت و بازسازی کامل سازه</strong></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- کادر نتیجه‌گیری و تمایز متدولوژیک -->
-        <div class="pres-split-col highlighted" style="flex: none; padding: 10px 20px !important;">
-            <div style="font-size: 16px; font-weight: 800; color: var(--color-ut-dark); display: flex; align-items: center; justify-content: space-between;">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <span style="color: var(--color-ut-green); font-size: 18px;">■</span>
-                    <span><strong>تمایز متدولوژیک رساله:</strong> گذار از پارادایم سطحی «برچسب‌گذاری مستقل توکن‌ها» به پارادایم ساختاری «بازشناسی و بازیابی یکپارچه مرز سازه‌ها».</span>
-                </div>
-                <span style="background: var(--color-ut-light); color: var(--color-ut-dark); border: 1px solid var(--color-ut-border); padding: 2px 10px; border-radius: 4px; font-size: 13px; font-weight: 800;">
-                    معیار WHA
-                </span>
-            </div>
+        <div style="border: 2.5px solid var(--color-ut-green); background: var(--color-cream-bg); padding: 14px 26px; border-radius: 6px; font-size: 19px; font-weight: 800; color: var(--color-ut-dark); text-align: center;">
+            🎯 نقطه تمایز رساله: خروج از پارادایم <b>«برچسب‌گذاری کلمه‌ای»</b> و ورود به پارادایم <b>«بازسازی ساختار سازه‌محور»</b>
         </div>
     </div>
 
-    <!-- فوتر آکادمیک -->
-    <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 10px; margin-top: 10px; font-size: 13px; color: var(--color-text-muted); font-weight: 600;">
-        <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
-        <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 3px 12px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 12px;">جدول ۲-۴: ماتریس جامع مرور پیشینه محاسباتی حوزه اضافه در زبان فارسی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
-    </div>
-
-    <!-- یادداشت ارائه‌دهنده -->
     <div class="presenter-notes">
-        «جدول ۲-۴ مرور نظام‌مند پیشینه تجربی این حوزه را در یک نگاه نشان می‌دهد. از نخستین پژوهش‌های مبتنی بر گرامرهای احتمالی مستقل از بافت توسط استاد بیجن‌خان و مهندس عیسی‌پور در سال ۱۳۸۶ با دقت ۹۳ درصد، تا الگوریتم‌های ژنتیک، درخت‌های تصمیم و سپس موج مدل‌های مبتنی بر ترنسفورمر نظیر کارهای دوست‌محمدی و انصاری با نمرات بالای ۹۸ درصد در سطح توکن. تفاوت کلیدی این رساله با تمامی مطالعات پیشین در این است که پژوهش‌های گذشته صرفاً مسئله را در سطح رده‌بندی مجزای کلمات ارزیابی کرده‌اند؛ در حالی که در این رساله برای نخستین بار، معیار Whole Head-Attachment یا WHA با نمره ۹۶٫۲۴٪ ثبت شده که صحت کل سازه و ارتباط هسته با تمام مضاف‌الیه‌ها را می‌سنجد.»
+        «جدول ۲-۴ مرور ادبیات کامل ما را نشان می‌دهد...»
     </div>
 </div>
+
+<script>
+function scrollTableToBottom() {
+    const container = document.getElementById('slide09-table-container');
+    if (!container) return;
+
+    const parentSlide = container.closest('.slide');
+    if (!parentSlide || !parentSlide.classList.contains('active')) {
+        return;
+    }
+
+    // Give the layout engine a frame to paint the non-zero height
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            const targetScroll = container.scrollHeight - container.clientHeight;
+            console.log(`[Table-Scroll] Dimensions -> clientHeight: ${container.clientHeight}, scrollHeight: ${container.scrollHeight}, target: ${targetScroll}`);
+
+            if (targetScroll > 0) {
+                container.scrollTo({
+                    top: container.scrollHeight,
+                    behavior: 'smooth'
+                });
+                // Backup direct assignment
+                setTimeout(() => {
+                    if (container.scrollTop === 0) {
+                        container.scrollTop = container.scrollHeight;
+                    }
+                }, 300);
+            }
+        }, 120);
+    });
+}
+
+// Observe all slides so it triggers regardless of whether the ID is slide_09, slide_11, or anything else
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.slide').forEach((slide) => {
+        new MutationObserver((mutations) => {
+            for (const m of mutations) {
+                if (m.attributeName === 'class' && slide.classList.contains('active')) {
+                    if (slide.querySelector('#slide09-table-container')) {
+                        scrollTableToBottom();
+                    }
+                }
+            }
+        }).observe(slide, { attributes: true, attributeFilter: ['class'] });
+    });
+});
+
+// Also hook into updateUI
+if (typeof window !== 'undefined') {
+    const originalUpdate = window.updateUI;
+    window.updateUI = function (...args) {
+        if (typeof originalUpdate === 'function') originalUpdate.apply(this, args);
+        scrollTableToBottom();
+    };
+}
+</script>
 
             <div class="slide" id="slide_12">
     <div class="layout-header">
         <div class="header-top-bar">
             <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
             <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
-            <span style="font-family: 'Peyda', sans-serif; font-variant-numeric: tabular-nums;">اسلاید ۱۲ از ۳۴</span>
+            <span style="font-family: 'Peyda', sans-serif; font-variant-numeric: tabular-nums;">اسلاید ۱۲ از ۳۴ص</span>
         </div>
         <div class="header-tag">فصل دوم: مبانی نظری و پیشینه پژوهش | بخش ۲-۳</div>
         <h2 class="title-main">مطالعه تطبیقی در زبان‌شناسی رایانشی: تحلیل سازه‌های موازی در سایر زبان‌ها</h2>
@@ -920,7 +1007,7 @@
                 <ul>
                     <li><b>بازتعریف به عنوان زیرگراف نحوی:</b> تعیین صریح مرزهای آغاز (B) و درون (I) و برون (O) سازه.</li>
                     <li><b>مصونیت از طول با مدل Edge:</b> دسته‌بندی جفت‌کلمات متوالی برای شکستن وابستگی آبشاری خطا.</li>
-                    <li><b>هم‌ترازی با UD:</b> تولید مستقیم یال‌های استاندارد Universal Dependencies.</li>
+                    <li><b>انطباق با دستور وابستگی:</b> بازیابی مستقیم زیردرخت‌های نحوی و پیوندهای هسته-وابسته.</li>
                     <li><b>معیارهای WHA و CCA:</b> ارزیابی دقت در سطح سازه و زنجیره کامل.</li>
                 </ul>
             </div>
@@ -961,26 +1048,26 @@
             </h3>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; flex: 1;">
-            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-border); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
-                <div style="font-size: 44px; font-weight: 900; color: var(--color-amber); line-height: 1;">۱</div>
-                <b style="color: var(--color-ut-dark); font-size: 19px;">پیش‌پردازش</b>
-                <p style="font-size: 15px; line-height: 1.6; color: var(--color-text-body);">نرمال‌سازی نویسه‌های فارسی، حذف اعراب زائد، توکنایز WordPiece</p>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; flex: 1;">
+            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-border); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-size: 38px; font-weight: 900; color: var(--color-amber); line-height: 1;">۱</div>
+                <b style="color: var(--color-ut-dark); font-size: 18px;">پیش‌پردازش و استخراج</b>
+                <p style="font-size: 14px; line-height: 1.5; color: var(--color-text-body);">پایش ۲,۹۹۰ فایل cp1256، جداسازی اسناد (#) و جملات بر پایه نشانه‌ها</p>
             </div>
-            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-border); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
-                <div style="font-size: 44px; font-weight: 900; color: var(--color-amber); line-height: 1;">۲</div>
-                <b style="color: var(--color-ut-dark); font-size: 19px;">کدگذاری بافت‌آگاه</b>
-                <p style="font-size: 15px; line-height: 1.6; color: var(--color-text-body);">۱۲ لایه خودتوجهی ParsBERT، بردار ۷۶۸ بعدی برای هر توکن</p>
+            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-border); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-size: 38px; font-weight: 900; color: var(--color-amber); line-height: 1;">۲</div>
+                <b style="color: var(--color-ut-dark); font-size: 18px;">تولید داده و برچسب</b>
+                <p style="font-size: 14px; line-height: 1.5; color: var(--color-text-body);">استخراج هم‌زمان برچسب‌های ۳ کلاسه BIO و برچسب‌های دودویی پیوند Edge</p>
             </div>
-            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-green); border-top: 5px solid var(--color-ut-green); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 14px rgba(27,67,50,0.1);">
-                <div style="font-size: 44px; font-weight: 900; color: var(--color-ut-green); line-height: 1;">۳</div>
-                <b style="color: var(--color-ut-dark); font-size: 19px;">دو شاخه موازی</b>
-                <p style="font-size: 15px; line-height: 1.6; color: var(--color-text-body);"><b>BIO</b> برچسب توکنی + <b>Edge</b> پیش‌بینی یال جفتی</p>
+            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-green); border-top: 5px solid var(--color-ut-green); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 14px rgba(27,67,50,0.1);">
+                <div style="font-size: 38px; font-weight: 900; color: var(--color-ut-green); line-height: 1;">۳</div>
+                <b style="color: var(--color-ut-dark); font-size: 18px;">آموزش مدل‌ها</b>
+                <p style="font-size: 14px; line-height: 1.5; color: var(--color-text-body);">ریزتنظیم ParsBERT: طبقه‌بندی خطی برای BIO و MLP جفتی چهارگانه برای Edge</p>
             </div>
-            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-border); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
-                <div style="font-size: 44px; font-weight: 900; color: var(--color-amber); line-height: 1;">۴</div>
-                <b style="color: var(--color-ut-dark); font-size: 19px;">رمزگشایی سازه</b>
-                <p style="font-size: 15px; line-height: 1.6; color: var(--color-text-body);">تجمیع ساختاری و ساخت گراف نهایی وابستگی اضافه</p>
+            <div style="background: #FFFFFF; border: 2px solid var(--color-ut-border); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-size: 38px; font-weight: 900; color: var(--color-amber); line-height: 1;">۴</div>
+                <b style="color: var(--color-ut-dark); font-size: 18px;">ارزیابی چندسطحی</b>
+                <p style="font-size: 14px; line-height: 1.5; color: var(--color-text-body);">محاسبه معیارهای توکنی (F1) و معیارهای ساختاری زنجیره کامل (WHA و CCA)</p>
             </div>
         </div>
 
@@ -1005,7 +1092,7 @@
         <div class="header-top-bar">
             <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
             <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
-            <span>اسلاید ۱۲.۲ از ۳۰</span>
+            <span>اسلاید ۱۲.۲ از ۳۵</span>
         </div>
         <div class="header-tag">فصل سوم: روش پژوهش و معماری سیستم | شکل ۳-۱</div>
         <h2 class="title-main" style="font-size: 34px;">شکل ۳-۱: دیاگرام گردش داده در سیستم پیشنهادی</h2>
@@ -2589,7 +2676,7 @@
     <div id="mobile-nav-bar">
         <button class="mobile-nav-btn" onclick="prevSlide()" aria-label="Previous Slide">❮</button>
         <span class="mobile-nav-counter" id="mobile-counter-badge">1 / 34</span>
-        <button class="mobile-nav-btn" onclick="nextSlide()" aria-label="Next Slide">❯</button>
+        <button class="mobile-nav-btn" onclick="nextSlide()" aria-label="Next Slide"></button>
     </div>
 
     <!-- Presenter HUD (PowerPoint-style speaker view with timer & notes) -->

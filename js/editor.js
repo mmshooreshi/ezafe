@@ -59,7 +59,7 @@ function toggleEditMode(forceState = null) {
     EditorState.isEditMode = forceState !== null ? forceState : !EditorState.isEditMode;
     document.body.style.cursor = EditorState.isEditMode ? 'crosshair' : 'default';
 
-    document.querySelectorAll('.slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide span, .slide div.text-body, .slide td, .slide tr, .slide th, .slide li, .slide img').forEach(el => {
+    document.querySelectorAll('.slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide span, .slide div.text-body, .slide td, .slide th, .slide li, .slide img').forEach(el => {
         if (el.tagName !== 'IMG') {
             el.contentEditable = EditorState.isEditMode;
         }
