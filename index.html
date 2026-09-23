@@ -1112,77 +1112,70 @@ if (typeof window !== 'undefined') {
             display: flex !important;
             flex-direction: column !important;
             flex: 1 1 auto !important;
-            gap: 10px !important;
+            gap: 16px !important;
             min-height: 0 !important;
             overflow: hidden !important;
             width: 100% !important;
             box-sizing: border-box !important;
         }
 
-        /* STRICT SIDE-BY-SIDE GRID - FORCED 2 COLUMNS */
+        /* رفع مشکل گرید: استفاده از 1fr به جای calc برای جلوگیری از شکستن ستون‌ها */
         #slide_12b .pipeline-container {
             display: grid !important;
-            grid-template-columns: calc(50% - 8px) calc(50% - 8px) !important; /* Hard lock to 50/50 */
-            grid-auto-flow: column !important;
-            gap: 16px !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px !important;
             width: 100% !important;
-            max-width: 100% !important;
-            height: 360px !important;
+            flex: 1 !important; /* پر کردن خودکار ارتفاع باقیمانده */
+            min-height: 380px !important; 
             direction: rtl !important;
-            box-sizing: border-box !important;
             align-items: stretch !important;
         }
 
         #slide_12b .pipeline-half-wrap {
             position: relative !important;
-            height: 100% !important;
             width: 100% !important;
-            min-width: 0 !important; /* CRITICAL: Prevents grid items from expanding to full width */
-            max-width: 100% !important;
-            overflow: hidden !important;
+            height: 100% !important;
             border: 2px solid #e2e8f0;
             border-radius: 12px;
             cursor: zoom-in;
             background: #ffffff;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden !important; /* برش قطعی اضافات تصویر */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            box-sizing: border-box !important;
             display: block !important;
         }
 
         #slide_12b .pipeline-half-wrap:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
             border-color: #3182ce;
             box-shadow: 0 8px 24px rgba(49, 130, 206, 0.15);
         }
 
-        /* Isolate image container strictly within 50% box */
         #slide_12b .crop-frame {
             position: relative !important;
             width: 100% !important;
             height: 100% !important;
-            overflow: hidden !important;
-            box-sizing: border-box !important;
-        }
-
-        #slide_12b .crop-frame img {
-            position: absolute !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            height: 175% !important;
-            max-height: none !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: auto !important;
-            object-fit: fill !important; /* Ensures the slice fills horizontal width accurately */
             display: block !important;
         }
 
+        /* رفع مشکل تصویر: مقیاس‌پذیری متناسب (Proportional Scaling) */
+        #slide_12b .crop-frame img {
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important; /* فیکس شدن عرض به اندازه کادر */
+            height: auto !important; /* ارتفاع متناسب با عرض تغییر میکند */
+            min-height: 100% !important; /* جلوگیری از خالی ماندن کادر */
+            object-fit: cover !important;
+            display: block !important;
+        }
+
+        /* تصویر اول به بالا می‌چسبد و ادامه‌اش مخفی می‌شود */
         #slide_12b .crop-top {
             top: 0 !important;
             bottom: auto !important;
         }
 
+        /* تصویر دوم به پایین می‌چسبد و بالایش مخفی می‌شود */
         #slide_12b .crop-bottom {
             bottom: 0 !important;
             top: auto !important;
@@ -1190,17 +1183,17 @@ if (typeof window !== 'undefined') {
 
         #slide_12b .pipeline-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(26, 32, 44, 0.88);
+            top: 14px;
+            right: 14px;
+            background: rgba(15, 42, 29, 0.92);
             color: #fff;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: bold;
             backdrop-filter: blur(4px);
             z-index: 10;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             pointer-events: none;
             white-space: nowrap;
         }
@@ -1217,27 +1210,27 @@ if (typeof window !== 'undefined') {
     </div>
 
     <div class="layout-content">
-        <!-- Strictly side-by-side columns -->
-        <div class="pipeline-container" id="el_zsd84qvl3">
-            <!-- Right Column: Top Half (Pipeline Start) -->
-            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')" id="el_wa09tqvaf">
-                <span class="pipeline-badge" id="el_lg0clxzsz">بخش اول: ورودی متن و لایه رمزگذار (Encoder)</span>
+        <!-- Strictly side-by-side columns using 1fr 1fr -->
+        <div class="pipeline-container">
+            <!-- Right Column: Top Half -->
+            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')">
+                <span class="pipeline-badge">بخش اول: ورودی متن و لایه رمزگذار (Encoder)</span>
                 <div class="crop-frame">
-                    <img class="crop-top" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش بالایی دیاگرام" id="el_0jh6kp386">
+                    <img class="crop-top" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش بالایی دیاگرام">
                 </div>
             </div>
 
-            <!-- Left Column: Bottom Half (Pipeline End) -->
-            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')" id="el_ol8b3e4aa">
-                <span class="pipeline-badge" id="el_5airi5hir">بخش دوم: برچسب‌گذاری موازی و رمزگشایی (Decoder)</span>
+            <!-- Left Column: Bottom Half -->
+            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')">
+                <span class="pipeline-badge">بخش دوم: برچسب‌گذاری موازی و رمزگشایی (Decoder)</span>
                 <div class="crop-frame">
-                    <img class="crop-bottom" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش پایینی دیاگرام" id="el_dno18maiu">
+                    <img class="crop-bottom" src="images/fig_3_1_system_dataflow_architecture.png" alt="بخش پایینی دیاگرام">
                 </div>
             </div>
         </div>
 
         <!-- Single Unified Caption safely underneath -->
-        <div class="pres-image-caption" style="text-align: center; margin-top: 4px; padding: 8px; font-size: 13px; color: #4a5568; background: #f7fafc; border-radius: 8px; border: 1px dashed #e2e8f0; line-height: 1.6;">
+        <div class="pres-image-caption" style="text-align: center; margin-top: 4px; padding: 10px; font-size: 14px; color: #4a5568; background: #f7fafc; border-radius: 8px; border: 1px dashed #cbd5e0; line-height: 1.6;">
             🔍 <strong>شکل ۳-۱: معماری کلان سیستم و پایپ‌لاین کامل داده</strong> (راست: نیمه اول جریان داده | چپ: نیمه دوم و خروجی نهایی). 
             <span style="color: #3182ce; font-weight: bold; margin-right: 8px;">برای مشاهده یکپارچه و تمام‌صفحه روی تصاویر کلیک کنید.</span>
         </div>
