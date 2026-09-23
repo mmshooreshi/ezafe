@@ -7,3 +7,5 @@ slides/
 templates/
 data/
 THESIS_ARCHITECTURE.md
+.bake_backups/
+*.bake.bak

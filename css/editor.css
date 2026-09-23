@@ -602,10 +602,10 @@
     /* ═══════ Editor Toolbar ═══════ */
     #editor-toolbar {
         position: fixed;
-        bottom: 24px;
+        /* bottom: 24px; */
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(15, 42, 29, 0.95);
+        /* background: rgba(15, 42, 29, 0.95); */
         border: 2px solid #1B4332;
         padding: 8px 16px;
         display: flex;
@@ -829,7 +829,7 @@
 #role-switcher-bar {
     top: 24px !important;
     padding: 10px 24px !important;
-    background: #0F2A1D !important; /* Rich solid dark green */
+    /* background: #0F2A1D !important; Rich solid dark green */
     border: 3px solid #C58F47 !important; /* Gold border */
     border-radius: 40px !important;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6) !important;
@@ -837,8 +837,8 @@
 }
 
 .role-tab-btn {
-    font-size: 16px !important;
-    font-weight: 800 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
     padding: 8px 18px !important;
     color: #FFFFFF !important;
     opacity: 1.0 !important;
@@ -855,8 +855,8 @@
 }
 
 #slide-counter-badge {
-    font-size: 18px !important;
-    font-weight: 900 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
     color: #FFFFFF !important;
 }
 
@@ -866,9 +866,9 @@
     top: 50% !important;
     transform: translateY(-50%) !important;
     width: 76px !important;
-    padding: 16px 0 !important;
-    background: #0F2A1D !important; /* Solid background */
-    border: 3px solid #C58F47 !important; /* Gold outline */
+    padding: 8px 0 !important;
+    /* background: #0F2A1D !important; Solid background */
+    border: 1px solid #C58F47 !important; /* Gold outline */
     border-radius: 16px !important;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
     display: flex !important;
@@ -880,10 +880,10 @@
 }
 
 .editor-btn {
-    width: 54px !important;
-    height: 54px !important;
+    width: 44px !important;
+    height: 44px !important;
     border-radius: 12px !important;
-    font-size: 24px !important;
+    font-size: 16px !important;
     background: rgba(255, 255, 255, 0.1) !important;
     color: #FFFFFF !important;
     border: 2px solid transparent !important;
