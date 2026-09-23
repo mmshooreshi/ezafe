@@ -60,12 +60,15 @@
 
             <div class="slide active" id="slide_01">
     <div class="layout-header" style="border-bottom: none; margin-bottom: 28px;">
-        <div class="header-top-bar" style="font-size: 20px; color: #1B4332; font-weight: 800; border-bottom: 2px solid #1B4332; padding-bottom: 12px;">
+        <div class="header-top-bar-remain" style="display: flex; justify-content: space-between; align-items: center; font-size: 20px; color: #1B4332; font-weight: 800; border-bottom: 2px solid #1B4332; padding-bottom: 12px;">
+            <!-- سمت راست: لوگو و نام دانشگاه -->
             <div style="display: flex; align-items: center; gap: 14px;">
                 <img src="images/university_tehran_logo.png" alt="University of Tehran" style="height: 72px; width: 72px; object-fit: contain;">
                 <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
             </div>
-            <span>جلسه دفاع از رساله کارشناسی ارشد</span>
+
+            <!-- سمت چپ: عنوان جلسه دفاع -->
+            <span style="font-weight: 800;">جلسه دفاع از رساله کارشناسی ارشد</span>
         </div>
     </div>
 
@@ -100,9 +103,7 @@
     </div>
 
     <div class="layout-footer" style="margin-top: 14px;">
-        <span>دانشکده مهندسی و علوم رایانش دانشگاه تهران</span>
-        <span class="footer-badge">نسخه نهایی اسلایدهای دفاع رساله</span>
-        <span>سال تحصیلی ۱۴۰۱-۱۴۰۵</span>
+        <span>دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
     </div>
     <div class="presenter-notes">
         «بسم‌الله الرحمن الرحیم. عرض سلام و ادب و احترام دارم خدمت اساتید و داوران گرامی و حضار محترم. موضوع رساله حاضر، شناسایی حوزه اضافه در زبان فارسی با رویکرد ترکیبی است که تحت راهنمایی اساتید بزرگوار، جناب آقای دکتر مصطفی صالحی و جناب آقای دکتر محمود بیجن‌خان در دانشگاه تهران به انجام رسیده است.»
@@ -163,7 +164,7 @@
     <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">بیان مسئله: عدم ثبت املایی واکه /e/ و چالش ابهام‌زدایی در بیش از ۳۰٪ توکن‌های متنی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <!-- یادداشت ارائه‌دهنده با لحن مسلط و دانشگاهی -->
@@ -185,45 +186,48 @@
         <p class="title-sub">تحلیل تزاید نمایی درخت‌های اشتقاق نحوی (۲<sup>n−۱</sup>) در شرایط عدم درج نشانگر کسره اضافه</p>
     </div>
 
-    <div class="layout-content" style="gap: 16px;">
+    <!-- بدنه اصلی با کنترل دقیق فضای عمودی و جلوگیری از سرریز -->
+    <div class="layout-content" style="gap: 12px; display: flex; flex-direction: column; min-height: 0; flex: 1;">
+        
         <!-- باکس نمایش مثال و فرمول ساختاری -->
-        <div class="pres-hero-box" style="padding: 18px 28px !important;">
-            <p dir="rtl" style="font-size: 22px !important; font-weight: 700; color: var(--color-ut-dark); margin: 0; line-height: 1.6;">
+        <div class="pres-hero-box" style="padding: 14px 24px !important; flex-shrink: 0;">
+            <p dir="rtl" style="font-size: 21px !important; font-weight: 700; color: var(--color-ut-dark); margin: 0; line-height: 1.5;">
                 نمونه مورد بررسی: «شاگرد شیفته علم استاد است»
                 <span style="color: var(--color-ut-accent); margin: 0 10px;">←</span>
                 ۳ جایگاه بالقوه برای پیوند اضافه
                 <span style="color: var(--color-ut-accent); margin: 0 10px;">←</span>
-                <span class="sketch-hl" style="font-size: 21px;">تولید دقیقاً ۲<sup>۳</sup> = ۸ ساختار سازه‌ای معتبر با تعابیر معنایی مستقل</span>
+                <span class="sketch-hl" style="font-size: 20px;">تولید دقیقاً ۲<sup>۳</sup> = ۸ ساختار سازه‌ای معتبر با تعابیر معنایی مستقل</span>
             </p>
         </div>
 
-        <!-- قاب تصویر درخت‌های اشتقاق -->
-        <div class="pres-image-hero-wrap" style="padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--color-surface); border: 1px solid var(--color-ut-border);">
+        <!-- قاب تصویر که متناسب با فضای باقی‌مانده کشیده می‌شود و هیچ برشی ندارد -->
+        <div class="pres-image-hero-wrap" style="flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--color-surface); border: 1px solid var(--color-ut-border); padding: 8px 16px;">
             <img src="images/fig_1_1_structural_ambiguity.png" 
                  alt="شکل ۱-۱: درخت‌های اشتقاق نحوی ناشی از ابهام زنجیره اضافه"
-                 style=" width: auto; object-fit: contain;" 
+                 style="max-width: 100%; max-height: calc(100% - 32px); height: auto; width: auto; object-fit: contain; display: block;" 
                  id="img_fig_1_1">
-            <div class="pres-image-caption" style="font-size: 16px; font-weight: 700; color: var(--color-ut-dark); margin-top: 10px;">
+            <div class="pres-image-caption" style="font-size: 15px; font-weight: 700; color: var(--color-ut-dark); margin-top: 6px; flex-shrink: 0; text-align: center;">
                 شکل ۱-۱: ماتریس اشتقاق نحوی و ۸ خوانش مجاز جمله بر پایه حضور یا عدم حضور نشانگر اضافه
             </div>
         </div>
 
-        <!-- کادر نتیجه‌گیری با لحن علمی و دقیق -->
-        <div class="pres-split-col highlighted" style="padding: 16px 24px !important; flex: none;">
-            <div style="font-size: 19px; font-weight: 800; color: var(--color-ut-dark); line-height: 1.7; display: flex; align-items: flex-start; gap: 10px;">
-                <span style="color: var(--color-ut-green); font-size: 22px; line-height: 1;">■</span>
+        <!-- کادر نتیجه‌گیری ساختاری -->
+        <div class="pres-split-col highlighted" style="padding: 14px 22px !important; flex-shrink: 0;">
+            <div style="font-size: 17px; font-weight: 800; color: var(--color-ut-dark); line-height: 1.6; display: flex; align-items: flex-start; gap: 10px;">
+                <span style="color: var(--color-ut-green); font-size: 20px; line-height: 1;">■</span>
                 <span>
                     <strong>نتیجه‌گیری ساختاری:</strong> پیوند اضافه صرفاً یک پدیده واژ‌بستی یا برچسب‌گذاری موضعی نیست؛ بلکه تعیین‌کننده مرز گروه‌های اسمی، نوع فراکنی هسته و در نتیجه تعیین‌کننده مستقیم نقش‌های دستوری (نهاد، مسند و متمم) در روساخت جمله است.
                 </span>
             </div>
         </div>
+
     </div>
 
     <!-- فوتر رسمی -->
-    <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
+    <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 12px; font-size: 14px; color: var(--color-text-muted); font-weight: 600; flex-shrink: 0;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">شکل ۱-۱ مستخرج از رساله: تحلیل کمی ابهام ساختاری در خط فارسی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <!-- متن سخنران متناسب با جلسه دفاع آکادمیک -->
@@ -355,7 +359,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">اهمیت کاربردی: تبدیل صوت و متن هوشمند در صنایع فناوری زبان فارسی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -418,7 +422,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">اهداف پژوهش: بازنمایی بافت‌آگاه | نوآوری مدل‌سازی پیوند جفتی | سنجه‌های ارزیابی سازه‌ای</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «اهداف این رساله در سه محور اصلی مهندسی و تعریف شدند: نخست، انتقال قدرت مدل‌های ترنسفورمر به حوزه نحو فارسی. دوم، نوآوری در معماری با ابداع مدل Edge که با بردار ۳۰۷۲ بعدی روابط بین واژه‌ها را مستقیم تحلیل می‌کند. و سوم، معرفی معیارهای ارزیابی سخت‌گیرانه‌ای مانند Complete Chain Accuracy تا دیگر با نمرات کاذب ۹۸ درصدی خود را فریب ندهیم و بازسازی کامل سازه را بسنجیم.»
@@ -490,7 +494,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">سه فرضیه تجربی ابطال‌پذیر تدوین‌شده در طرح پیشنهاده رساله</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۲</span>
     </div>
     <div class="presenter-notes">
         «این رساله بر پایه سه فرضیه کاملاً شفاف و ابطال‌پذیر طراحی شد: فرضیه اول اثبات کرد که بازنمایی ترنسفورمر جهش بزرگی نسبت به مدل‌های کلاسیک مانند CRF ایجاد می‌کند؛ فرضیه دوم نشان داد که نگاه جفتی به پیوندها (Edge) از نگاه کلمه‌ای (BIO) در سطح سازه برتر است؛ و فرضیه سوم پایداری این رویکرد را در زنجیره‌های طولانی که نقطه ضعف اصلی سامانه‌های پیشین بود اثبات نمود.»
@@ -548,7 +552,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | راهنما: دکتر صالحی، دکتر بیجن‌خان</span>
         <span class="footer-badge">تعریف ریاضی حوزه اضافه: سه شرط تخطی‌ناپذیر</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -581,7 +585,7 @@
     <div class="layout-footer" style="margin-top: 8px;">
         <span>سید محسن رضوی خسروشاهی</span>
         <span class="footer-badge">شکل ۱-۳ رساله: انطباق تئوری زبان‌شناختی با مدل ریاضی گراف</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -825,7 +829,7 @@
     <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">تحلیل تطبیقی: مبانی نظری حاکم بر ساخت‌های هسته‌آغازی و هسته‌پایانی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -884,7 +888,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">شکاف پژوهشی شناسایی‌شده در فصل دوم و راه‌حل ارائه‌شده در رساله</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -942,7 +946,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">چهار رکن معماری: پیش‌پردازش، کدگذاری، دو شاخه موازی BIO/Edge، رمزگشایی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -975,7 +979,7 @@
     <div class="layout-footer" style="margin-top: 6px;">
         <span>سید محسن رضوی خسروشاهی</span>
         <span class="footer-badge">شکل ۳-۱ مستخرج از فصل سوم رساله</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -1031,7 +1035,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">نوآوری معماری: End-to-End، دو شاخه‌ای، بدون Feature Engineering</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -1155,7 +1159,7 @@
     <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">ParsBERT v2.0: پیکربندی معماری پایه با ۱۱۰ میلیون پارامتر و ۱۲ لایه ترنسفورمر</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <!-- یادداشت ارائه‌دهنده -->
@@ -1294,7 +1298,7 @@
     <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">طرحواره برچسب‌گذاری BIO: تفکیک هسته (B-EZ) از وابسته‌ها (I-EZ) و واژگان آزاد (O)</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <div class="presenter-notes">
@@ -1390,7 +1394,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">مدل پیوند جفتی (Edge Model): بازنمایی ۳۰۷۲ بعدی [u; v; u⊙v; |u-v|] | آستانه بهینه τ=0.65</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «رویکرد دوم که نوآوری اصلی این پایان‌نامه است، مدل Edge نام دارد. به جای پرسش از تک‌تک کلمات، ما دو کلمه مجاور را با هم در نظر می‌گیریم و یک بردار ویژگی فوق‌العاده غنی ۳۰۷۲ بعدی می‌سازیم. ضرب هادامارد تعامل و همبستگی ویژگی‌ها را می‌سنجد و تفاضل قدرمطلقی فاصله دستوری را نشان می‌دهد. با تابع سیگموئید و آستانه ۰.۶۵، مستقیماً پیش‌بینی می‌کنیم که آیا بین این دو کلمه یال اضافه برقرار است یا خیر.»
@@ -1453,7 +1457,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">تحلیل تطبیقی معماری‌ها: تصمیم‌گیری مستقل تک‌توکنی در برابر تصمیم‌گیری توأم پیوند جفتی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «چرا ما اصرار داریم که مدل Edge از نظر تئوریک برتر است؟ چون اضافه ذاتاً یک رابطه بین دو کلمه است، نه یک ویژگی متعلق به یک کلمه! در BIO شما به کلمه اول می‌گویید تو B-EZ هستی و به دومی می‌گویید I-EZ، بدون اینکه این دو با هم حرف بزنند. اما در مدل Edge، ما وضعیت رابطه را مستقیماً از تعامل دو کلمه می‌پرسیم. خروجی مدل Edge مستقیماً درخت وابستگی را می‌سازد و هیچ نیازی به دستکاری پس‌پردازشی ندارد.»
@@ -1547,7 +1551,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">پیکره بیجن‌خان: ۲٫۵۸ میلیون توکن | آزمون مستقل: ۶۳٬۹۱۹ توکن و ۴۸٬۲۹۶ جفت‌واژه</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «برای ارزیابی تجربی، پیکره استاندارد بیجن‌خان را به کار گرفتیم. در مجموعه آزمون مستقل ۶۳,۹۱۹ توکن و در مدل Edge دقیقاً ۴۸,۲۹۶ جفت‌واژه ارزیابی شدند. یک چالش بزرگ در این دادگان، عدم تعادل طبقات است: بیش از ۷۰ درصد کلمات خارج از حوزه اضافه هستند و تنها ۳۰ درصد درگیر ساختارند. اگر مدل مراقبت نشود، تمایل پیدا می‌کند همه چیز را O پیش‌بینی کند تا دقت کاذب بگیرد؛ ما با وزن‌دهی به زیان این چالش را مهار کردیم.»
@@ -1637,7 +1641,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">پیکربندی تجربی: بهینه‌ساز AdamW با نرخ یادگیری 2e-5 | کارت گرافیک NVIDIA V100 | آموزش در ۳ دوره</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «تنظیم ابرپارامترها با وسواس علمی انجام شد. نرخ یادگیری ۲ در ۱۰ به توان منفی ۵ بهترین نرخ برای تیون کردن پارس‌برت بدون تخریب وزن‌های پایه بود. اندازه دسته ۳۲ با بهینه‌ساز AdamW و ضریب زوال وزن ۰.۰۱ پایداری فوق‌العاده‌ای نشان دادند. کل آموزش روی کارت گرافیک قدرتمند تسلا V100 حدود ۴ ساعت به طول انجامید.»
@@ -1715,7 +1719,7 @@
     <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">شکل‌های ۴-۱ و ۴-۲ مستخرج از رساله: تحلیل تجربی پایداری بهینه‌سازی و انطباق تعمیم</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <!-- یادداشت ارائه‌دهنده با ادبیات استاندارد و مستند -->
@@ -1819,7 +1823,7 @@
     <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">نتایج تجربی سطح نخست: نمره ۹۷٫۹۶٪ مدل Edge در مقایسه با ۹۶٫۵۸٪ مدل BIO (p &lt; 0.001)</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <!-- یادداشت ارائه‌دهنده با ادبیات دانشگاهی -->
@@ -1877,7 +1881,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">کالیبراسیون تصمیم: نقطه بیشینه F1 در τ=0.65 با توازن کم‌نظیر میان Precision و Recall</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «چرا مدل Edge این‌قدر خوب کار کرد؟ یکی از رازهای آن کالیبراسیون آستانه بود. در مدل‌های استاندارد معمولاً احتمال بالای نیم را مثبت می‌گیرند. اما در نمودار این اسلاید می‌بینید که در آستانه ۰.۵۰ مدل دچار مثبت کاذب می‌شود. ما آستانه را بین ۰.۵۰ تا ۰.۸۰ پویش کردیم و دیدیم که در نقطه ۰.۶۵ منحنی Precision و Recall در بالاترین نقطه ممکن با هم تلاقی می‌کنند و نمره ۹۷.۹۶ درصد را خلق می‌نمایند.»
@@ -1968,7 +1972,7 @@
     <div class="layout-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-ut-border); padding-top: 12px; margin-top: 14px; font-size: 14px; color: var(--color-text-muted); font-weight: 600;">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge" style="background: var(--color-surface-soft); color: var(--color-ut-dark); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--color-ut-border); font-weight: 700; font-size: 13px;">تحلیل خطای ماتریس‌ها: کاهش ۴۲ درصدی مثبت‌های کاذب در معماری پیوند نسبت به رویکرد توالی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
 
     <!-- متن سخنران با ادبیات شایسته جلسه دفاع -->
@@ -2054,7 +2058,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">نوآوری ارزیابی سازه‌ای: Word-to-Head Accuracy (WHA) | Complete Chain Accuracy (CCA)</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «این اسلاید قلب نوآوری تئوریک این رساله است. تا امروز تمام مقالات به داشتن نمره F1 برابر ۹۸ درصد افتخار می‌کردند. ما گفتیم بیایید یک سنجه سخت‌گیرانه به نام Complete Chain Accuracy تعریف کنیم: اگر در یک زنجیره ۴ کلمه‌ای، ۳ کلمه درست باشد و یکی اشتباه، کل آن عبارت برای سامانه ترجمه یا صدا نامفهوم است. در این سنجه سخت‌گیرانه، دقت BIO به ۸۹.۴۴ درصد و مدل Edge به ۹۰.۵۷ درصد می‌رسد. این شکاف ۸ درصدی اثبات می‌کند که ارزیابی‌های پیشین گمراه‌کننده بوده‌اند.»
@@ -2145,7 +2149,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">تحلیل حساسیت طول زنجیره: اثبات قطعی فرضیه ۳ رساله و کشف قانون انتشار خطای ضربی</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div>
     <div class="presenter-notes">
         «شکل ۴-۳ و جدول این اسلاید، فرضیه سوم رساله را اثبات می‌کند. در طول ۱ هر دو مدل بالای ۹۴ درصد دقت دارند. اما وقتی به ۵ کلمه می‌رسیم، دقت به ۵۰ درصد سقوط می‌کند! چرا؟ چون طبق قانون انتشار خطای ضربی، کوچک‌ترین اشتباه در کلمه چهارم کل سازه را تخریب می‌کند. با این حال مدل Edge در زنجیره‌های طویل هم ۵.۵ درصد از BIO مقاوم‌تر عمل کرده است.»
@@ -2204,7 +2208,7 @@
     <div class="layout-footer">
         <span>سید محسن رضوی خسروشاهی | استادان راهنما: دکتر مصطفی صالحی، دکتر محمود بیجن‌خان</span>
         <span class="footer-badge">فصل چهارم: کالبدشکافی زبان‌شناختی دادگان آزمون رساله [cite: 10, 11]</span>
-        <span>دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span>دانشگاه تهران — شهریور ۱۴۰۲</span>
     </div>
     <div class="presenter-notes">
         «در این اسلاید خطاهای باقیمانده را تحلیل کرده‌ایم. بزرگترین چالش، توالی اسم‌هایی است که اسم دوم قید است، مثل "هیئت دولت امروز". مدل چون دو اسم را پشت سر هم می‌بیند وسوسه می‌شود اضافه بگذارد. چالش دوم رسم‌الخط کلمات مختوم به واکه است و چالش سوم وجود عبارات معترضه است که فاصله می‌اندازند. این تحلیل نقشه راه بسیار روشنی برای پژوهش‌های آینده فراهم می‌کند.»
@@ -2451,7 +2455,7 @@
             <img src="images/university_tehran_logo.png" alt="University of Tehran" style="height: 84px; width: 84px; object-fit: contain;">
             <div>
                 <p style="font-size: 24px; font-weight: 900; color: #0F2A1D; margin: 0;">دانشگاه تهران</p>
-                <p style="font-size: 15px; font-weight: 700; color: #2D5A43; margin: 2px 0 0;">دانشکدگان علوم و فناوری‌های میان‌رشته‌ای — دانشکده سامانه‌های هوشمند</p>
+                <p style="font-size: 15px; font-weight: 700; color: #2D5A43; margin: 2px 0 0;">دانشکدگان علوم و فناوری‌های میان‌رش</p>
             </div>
         </div>
         <div style="border: 1.5px solid #1B4332; padding: 8px 18px; text-align: center; background: #FFFFFF;">
@@ -2492,7 +2496,7 @@
     <!-- Formal Slide Footer -->
     <!-- <div style="border-top: 2px solid #1B4332; padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
         <span style="font-size: 14px; font-weight: 700; color: #2D5A43;">سید محسن رضوی خسروشاهی | کارشناسی ارشد زبان‌شناسی رایانشی</span>
-        <span style="font-size: 14px; font-weight: 700; color: #2D5A43;">دانشگاه تهران — مهر ۱۴۰۵</span>
+        <span style="font-size: 14px; font-weight: 700; color: #2D5A43;">دانشگاه تهران — شهریور ۱۴۰۵</span>
     </div> -->
 
     <div class="presenter-notes">
