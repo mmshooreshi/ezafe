@@ -1106,6 +1106,57 @@ if (typeof window !== 'undefined') {
 </div>
 
             <div class="slide" id="slide_15">
+    <!-- Slide Specific Styling -->
+    <style>
+        #slide_12b .pipeline-container {
+            display: flex;
+            gap: 16px;
+            width: 100%;
+            height: 350px;
+            direction: rtl;
+            margin-top: 8px;
+        }
+        #slide_12b .pipeline-half-wrap {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: zoom-in;
+            background: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        #slide_12b .pipeline-half-wrap:hover {
+            transform: translateY(-4px);
+            border-color: #3182ce;
+            box-shadow: 0 12px 24px rgba(49, 130, 206, 0.15);
+        }
+        #slide_12b .pipeline-half-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        #slide_12b .pipeline-half-wrap:hover img {
+            transform: scale(1.03);
+        }
+        #slide_12b .pipeline-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(26, 32, 44, 0.85);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            backdrop-filter: blur(4px);
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+    </style>
+
     <div class="layout-header" style="margin-bottom: 8px;">
         <div class="header-top-bar">
             <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
@@ -1116,16 +1167,47 @@ if (typeof window !== 'undefined') {
         <h2 class="title-main" style="font-size: 34px;">شکل ۳-۱: دیاگرام گردش داده در سیستم پیشنهادی</h2>
     </div>
 
-    <div class="layout-content" style="gap: 8px;">
-        <div class="pres-image-hero-wrap" style="flex: 1;">
-            <img src="images/fig_3_1_system_dataflow_architecture.png"
-                 alt="شکل ۳-۱: معماری کلان سیستم — پایپ‌لاین کامل"
-                 title="برای بزرگ‌نمایی کلیک/ضربه بزنید">
-            <!-- <div class="pres-image-caption">
-                🔍 برای بزرگ‌نمایی و بررسی جزئیات، روی تصویر کلیک کنید
-            </div> -->
+    <div class="layout-content" style="gap: 8px; flex-direction: column;">
+        <!-- Side-by-Side Zoomed Visualizer -->
+        <div class="pipeline-container">
+            <!-- Right Panel: Top 60% (Pipeline Start) -->
+            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')">
+                <span class="pipeline-badge">نیمه بالایی: ورودی متن و لایه رمزگذار (Encoder)</span>
+                <img src="images/fig_3_1_system_dataflow_architecture.png" 
+                     alt="بخش بالایی دیاگرام" 
+                     style="object-position: top center;">
+            </div>
+
+            <!-- Left Panel: Bottom 60% (Pipeline End) -->
+            <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')">
+                <span class="pipeline-badge">نیمه پایینی: برچسب‌گذاری موازی و رمزگشایی (Decoder)</span>
+                <img src="images/fig_3_1_system_dataflow_architecture.png" 
+                     alt="بخش پایینی دیاگرام" 
+                     style="object-position: bottom center;">
+            </div>
+        </div>
+
+        <!-- Single Unified Caption -->
+        <div class="pres-image-caption" style="text-align: center; margin-top: 8px; font-size: 13.5px; color: #4a5568; line-height: 1.6;">
+            🔍 <strong>شکل ۳-۱: معماری کلان سیستم و پایپ‌لاین کامل داده</strong> (راست: نیمه اول جریان داده | چپ: نیمه دوم و خروجی نهایی). 
+            <span style="color: #3182ce; font-weight: bold;">برای مشاهده یکپارچه و تمام‌صفحه کلیک کنید.</span>
         </div>
     </div>
+
+    <!-- Fullscreen Interactive Lightbox Modal -->
+    <div id="pipeline-lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10, 17, 40, 0.95); z-index:9999; justify-content:center; align-items:center; cursor:zoom-out; transition: all 0.3s;">
+        <img id="pipeline-lightbox-img" src="" style="max-width:90%; max-height:92%; object-fit:contain; border-radius:8px; box-shadow:0 10px 40px rgba(0,0,0,0.6); background: white; padding: 10px;">
+        <div style="position: absolute; bottom: 20px; color: white; font-family: sans-serif; font-size: 14px; background: rgba(0,0,0,0.6); padding: 8px 16px; border-radius: 20px;">برای بازگشت کلیک کنید</div>
+    </div>
+
+    <script>
+        function openPipelineLightbox(imageSrc) {
+            const lb = document.getElementById('pipeline-lightbox');
+            const lbImg = document.getElementById('pipeline-lightbox-img');
+            lbImg.src = imageSrc;
+            lb.style.display = 'flex';
+        }
+    </script>
 
     <div class="layout-footer" style="margin-top: 6px;">
         <span>سید محسن رضوی خسروشاهی</span>
@@ -1134,7 +1216,7 @@ if (typeof window !== 'undefined') {
     </div>
 
     <div class="presenter-notes">
-        «این نمودار قلب معماری ماست. متن از بالا وارد می‌شود، بدون نیاز به برچسب‌زن‌های نحوی شکننده. پارس‌برت متن را کدگذاری می‌کند و دو شاخه موازی به کار می‌افتند: یکی برچسب BIO می‌زند و دیگری پیوند کلمات مجاور را پیش‌بینی می‌کند. در نهایت بخش رمزگشایی این دو را تلفیق کرده و خروجی یکپارچه تولید می‌کند. لطفاً روی تصویر ضربه بزنید تا بتوانم جزئیات هر لایه را نشان دهم.»
+        «این نمودار قلب معماری ماست. برای اینکه بتوانیم کل پایپ‌لاین طولانی سیستم را در یک نگاه بدون کوچک شدن فونت‌ها بررسی کنیم، آن را به دو بخش بالا و پایین تقسیم کرده‌ام. در سمت راست، لایه‌های ورودی و مدل زبانی پارس‌برت را می‌بینید که متن را بدون نیاز به پارسرهای سنتی رمزگذاری می‌کنند. در سمت چپ، خروجی این لایه وارد دو شاخه موازی برای شناسایی تگ‌های مرز کلمات (BIO) و پیوند کلمات اضافه می‌شود. با کلیک بر روی هر بخش، می‌توانید کل نمودار را به صورت یکپارچه و با کیفیت بالا مشاهده کنید.»
     </div>
 </div>
 
@@ -2455,27 +2537,31 @@ if (typeof window !== 'undefined') {
 </div>
 
             <div class="slide" id="slide_29">
+    <!-- هدر رسمی با فرمت آکادمیک دانشگاه تهران -->
     <div class="layout-header">
         <div class="header-top-bar">
             <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
-            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی</span>
-            <span>اسلاید ۲۹ از ۳۴</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span style="font-family: 'Peyda', sans-serif; font-variant-numeric: tabular-nums;">اسلاید ۲۹ از ۳۴</span>
         </div>
         <div class="header-tag">فصل چهارم: ارزیابی سازه‌ای | جدول ۴-۹</div>
         <h2 class="title-main">مقایسه عملکرد ساختاری: دقت سر-به‌کلمه (WHA) و دقت کامل زنجیره (CCA)</h2>
-        <p class="title-sub">ارزیابی فراتر از سطح توکن: آیا مدل ساختار کامل زنجیره را بازسازی می‌کند؟</p>
+        <p class="title-sub" style="font-size: 18px !important;">ارزیابی فراتر از سطح توکن: آیا مدل ساختار کامل زنجیره را بدون خطای مرزی بازسازی می‌کند؟</p>
     </div>
 
+    <!-- بدنه اصلی اسلاید -->
     <div class="layout-content" style="gap: 16px;">
+        
+        <!-- جدول ارزیابی ساختاری ۴-۹ -->
         <div class="apa-table-container" style="padding: 0; border: none;">
             <table class="apa-table" style="font-size: 18px !important;">
                 <thead>
                     <tr>
-                        <th style="width: 25%;">شاخص ارزیابی</th>
+                        <th style="width: 25%;">شاخص ارزیابی ساختاری</th>
                         <th style="width: 25%;">مدل BIO (صحیح / کل)</th>
-                        <th style="width: 15%;">دقت BIO</th>
+                        <th style="width: 15%;">دقت مدل BIO</th>
                         <th style="width: 20%;">مدل Edge (صحیح / کل)</th>
-                        <th style="width: 15%;">دقت Edge</th>
+                        <th style="width: 15%;">دقت مدل Edge</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -2484,32 +2570,53 @@ if (typeof window !== 'undefined') {
                         <td class="numeric">۶۹٬۷۶۴ / ۷۴٬۵۲۳</td>
                         <td class="numeric"><b>۹۳٫۶۱٪</b></td>
                         <td class="numeric" style="color:var(--color-ut-green);">۷۰٬۴۳۲ / ۷۴٬۵۲۳</td>
-                        <td class="numeric" style="color:var(--color-ut-green);"><b>۹۴٫۵۱٪</b></td>
+                        <td class="numeric" style="color:var(--color-ut-green); font-weight: 800;"><b>۹۴٫۵۱٪</b></td>
                     </tr>
                     <tr style="background: var(--color-surface-soft);">
                         <td><b>CCA (دقت کامل زنجیره)</b></td>
                         <td class="numeric">۲۵٬۷۵۹ / ۲۸٬۸۰۱</td>
                         <td class="numeric"><b>۸۹٫۴۴٪</b></td>
                         <td class="numeric" style="color:var(--color-ut-green);">۲۶٬۰۸۶ / ۲۸٬۸۰۱</td>
-                        <td class="numeric" style="color:var(--color-ut-green);"><b>۹۰٫۵۷٪</b></td>
+                        <td class="numeric" style="color:var(--color-ut-green); font-weight: 800;"><b>۹۰٫۵۷٪</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="pres-split-narrative" style="gap: 16px;">
-            <div class="pres-split-col" style="padding: 12px 16px;">
-                <b style="color: var(--color-ut-dark);">■ WHA (Word-to-Head Accuracy):</b>
-                <p style="font-size: 18px; margin: 4px 0 0; line-height: 1.6;">نسبت توکن‌هایی که سر منتسب‌شده از خروجی مدل با سر واقعی زنجیره یکسان است. مخرج: ۷۴٬۵۲۳ توکن درون زنجیره‌ها.</p>
+        <!-- ستون‌های تفکیکی محاسباتی فرمول‌ها -->
+        <div class="pres-split-narrative" style="gap: 16px; flex: 1; min-height: 0;">
+            
+            <!-- ستون WHA -->
+            <div class="pres-split-col" style="padding: 14px 20px !important; justify-content: space-between;">
+                <div>
+                    <b style="color: var(--color-ut-dark); font-size: 18px; display: block; margin-bottom: 6px;">■ فرمول دقت سر-به‌کلمه (WHA):</b>
+                    <p style="font-size: 15.5px; line-height: 1.6; color: var(--color-text-body); margin-bottom: 8px;">
+                        سنجش هم‌راستایی ساختاری هسته؛ مشخص می‌کند مدل تا چه اندازه توانسته سرِ آغازگر هر زنجیره را برای واژه‌های درون آن حوزه به‌درستی تشخیص دهد:
+                    </p>
+                </div>
+                <div style="direction: ltr; text-align: center; padding: 8px; background: #FAF7EE; border: 1.5px solid #CBD8CE; border-radius: 4px; margin-top: auto;">
+                    $$\text{WHA} = \frac{\sum_{i=1}^{N} \mathbb{I}(\text{PredictedHead}(w_i) == \text{TrueHead}(w_i))}{\text{Total Tokens inside Ezafe Chains}}$$
+                </div>
             </div>
-            <div class="pres-split-col highlighted" style="padding: 12px 16px;">
-                <b style="color: var(--color-ut-dark);">■ CCA (Complete Chain Accuracy):</b>
-                <p style="font-size: 18px; margin: 4px 0 0; line-height: 1.6;">سخت‌گیرانه‌ترین معیار: زنجیره فقط زمانی صحیح است که آغاز، پایان و همه اعضا بدون خطا باشند. مخرج: ۲۸٬۸۰۱ زنجیره.</p>
+
+            <!-- ستون CCA -->
+            <div class="pres-split-col highlighted" style="padding: 14px 20px !important; justify-content: space-between;">
+                <div>
+                    <b style="color: var(--color-ut-dark); font-size: 18px; display: block; margin-bottom: 6px;">■ فرمول دقت کامل زنجیره (CCA):</b>
+                    <p style="font-size: 15.5px; line-height: 1.6; color: var(--color-text-body); margin-bottom: 8px;">
+                        سخت‌گیرانه‌ترین شاخص معادل اتصال برچسب‌خورده (LAS)؛ یک حوزه اضافه را تنها زمانی صحیح فرض می‌کند که آغاز، پایان و تمامی اعضای آن بدون حتی یک خطا بازسازی شوند:
+                    </p>
+                </div>
+                <div style="direction: ltr; text-align: center; padding: 8px; background: #FAF7EE; border: 1.5px solid #CBD8CE; border-radius: 4px; margin-top: auto;">
+                    $$\text{CCA} = \frac{\text{Perfect Reconstructed Chains}}{\text{Total Gold Standard Chains}}$$
+                </div>
             </div>
+            
         </div>
 
-        <div style="background: #FEF3C7; border: 1.5px solid #F59E0B; padding: 10px 18px; font-size: 14px; color: #92400E; font-weight: 700; border-radius: 4px;">
-            💡 شکاف ≈۴٪ میان WHA و CCA نشان می‌دهد بازسازی کامل سازه دشوارتر از تشخیص اجزاست؛ یک خطای مرزی برای نادرست‌شدن کل زنجیره کافی است.
+        <!-- هشدار و تبیین خطای انباشتی -->
+        <div style="background: #FEF3C7; border: 1.5px solid #F59E0B; padding: 10px 18px; font-size: 15px; color: #92400E; font-weight: 700; border-radius: 4px; line-height: 1.6;">
+            💡 <b>تبیین علمی اختلاف آماری:</b> شکاف حدوداً ۴ درصدی میان نتایج WHA و CCA (۹۴٫۵۱٪ در مقابل ۹۰٫۵۷٪ برای مدل Edge) نشان می‌دهد که بخش عمده‌ای از خطاهای ساختاری مدل، ناشی از تعیین ناموفق کامل مرزهای دقیق زنجیره است و نه انحراف در تشخیص هسته‌های گروه.
         </div>
     </div>
 </div>
