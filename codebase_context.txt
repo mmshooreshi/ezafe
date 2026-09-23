@@ -1,0 +1,1493 @@
+=== [1] REPO OVERVIEW & SLIDE COUNT ===
+Slide files in slides/:
+total 376
+drwxr-xr-x@ 28 mamthenebo  staff   896 Sep 22 23:02 .
+drwxr-xr-x  24 mamthenebo  staff   768 Sep 22 23:02 ..
+-rw-r--r--@  1 mamthenebo  staff  4093 Sep 22 08:57 01-cover.html
+-rw-r--r--@  1 mamthenebo  staff  4992 Sep 22 08:28 02-the-enigma.html
+-rw-r--r--@  1 mamthenebo  staff  3498 Sep 22 08:57 03-combinatorial-explosion.html
+-rw-r--r--@  1 mamthenebo  staff  5733 Sep 22 08:28 04-token-vs-constituent.html
+-rw-r--r--@  1 mamthenebo  staff  4982 Sep 22 08:57 05-industrial-applications.html
+-rw-r--r--@  1 mamthenebo  staff  5216 Sep 22 08:28 06-research-objectives.html
+-rw-r--r--@  1 mamthenebo  staff  6500 Sep 22 08:57 07-three-hypotheses.html
+-rw-r--r--@  1 mamthenebo  staff  3646 Sep 22 08:57 08-theoretical-definitions.html
+-rw-r--r--@  1 mamthenebo  staff  4852 Sep 22 08:57 09-domestic-literature-evolution.html
+-rw-r--r--@  1 mamthenebo  staff  5283 Sep 22 08:28 10-international-parallels.html
+-rw-r--r--@  1 mamthenebo  staff  5042 Sep 22 08:57 11-literature-gap.html
+-rw-r--r--@  1 mamthenebo  staff  3977 Sep 22 08:57 12-system-architecture-overview.html
+-rw-r--r--@  1 mamthenebo  staff  5715 Sep 22 08:52 13-contextual-embeddings-parsbert.html
+-rw-r--r--@  1 mamthenebo  staff  7407 Sep 22 08:28 14-approach-bio-sequence.html
+-rw-r--r--@  1 mamthenebo  staff  6650 Sep 22 08:53 15-approach-edge-formulation.html
+-rw-r--r--@  1 mamthenebo  staff  5273 Sep 22 08:25 16-bio-vs-edge-confrontation.html
+-rw-r--r--@  1 mamthenebo  staff  6520 Sep 22 08:25 17-benchmark-corpus-bijankhan.html
+-rw-r--r--@  1 mamthenebo  staff  6190 Sep 22 08:25 18-hyperparameters-optimization.html
+-rw-r--r--@  1 mamthenebo  staff  3887 Sep 22 08:25 19-training-convergence-stability.html
+-rw-r--r--@  1 mamthenebo  staff  5910 Sep 22 08:25 20-hero-findings-token-level.html
+-rw-r--r--@  1 mamthenebo  staff  4546 Sep 22 08:25 21-threshold-tuning-calibration.html
+-rw-r--r--@  1 mamthenebo  staff  5840 Sep 22 08:25 22-confusion-matrix-forensics.html
+-rw-r--r--@  1 mamthenebo  staff  6811 Sep 22 08:52 23-structural-innovation-wha-cca.html
+-rw-r--r--@  1 mamthenebo  staff  5905 Sep 22 08:25 24-multiplicative-error-propagation.html
+-rw-r--r--@  1 mamthenebo  staff  4655 Sep 22 08:57 25-linguistic-error-taxonomy.html
+-rw-r--r--@  1 mamthenebo  staff  4813 Sep 22 08:25 26-conclusion-acknowledgments.html
+
+=== [2] PRESENTATION.JSON METADATA & SCHEMA ===
+{
+  "metadata": {
+    "title": "شناسایی حوزه اضافه در زبان فارسی با رویکرد ترکیبی",
+    "student": "سید محسن رضوی خسروشاهی",
+    "supervisor": "دکتر مصطفی صالحی و دکتر محمود بیجن‌خان",
+    "advisor": "دکتر مصطفی صالحی",
+    "referee": "هیئت محترم داوران دانشکده سامانه‌های هوشمند",
+    "university": "دانشگاه تهران",
+    "faculty": "دانشکدگان علوم و فناوری‌های میان‌رشته‌ای — دانشکده سامانه‌های هوشمند",
+    "department": "گروه علوم داده",
+    "degree": "پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی",
+    "date": "شهریور ۱۴۰۵",
+    "theme": {
+      "primary": "#0F172A",
+      "accent": "#1D4ED8",
+      "highlight": "#D97706",
+      "bg": "#F8FAFC"
+    }
+  },
+  "slidesCount": 26,
+  "slides": [
+    {
+      "id": "01-cover",
+      "slideNumber": 1,
+      "title": "شناسایی حوزه اضافه در زبان فارسی با رویکرد ترکیبی",
+      "tag": "",
+      "subtitle": "",
+      "presenterNotes": "«بسم‌الله‌الرحمن‌الرحیم. با عرض سلام و درود خدمت داوران گرامی، اساتید ارجمندم جناب آقای دکتر صالحی و جناب آقای دکتر بیجن‌خان، و همه حاضرین ارجمند در این جلسه. امروز با ارائه رساله کارشناسی ارشد خود با عنوان <b>«شناسایی حوزه اضافه در زبان فارسی با رویکرد ترکیبی»</b> در خدمت شما هستم. هدف این پژوهش، گذار از برچسب‌گذاری سطحی کلمه‌ای و ارتقای مسئله اضافه به یک بازسازی ساختارمند سازه‌ای در نحو زبان فارسی است.»",
+      "file": "slides/01-cover.html"
+    },
+    {
+      "id": "02-the-enigma",
+      "slideNumber": 2,
+      "title": "معمای کسره اضافه در خط فارسی: غیاب نشانه و انفجار ابهام",
+      "tag": "فصل اول: کلیات و بیان مسئله | بخش ۱-۱",
+      "subtitle": "چرا عدم درج واکه کوتاه /e/ در متون رسمی، پردازش خودکار متن را با بحران مواجه می‌کند؟",
+      "presenterNotes": "«حضار گرامی، در گام اول باید این پرسش را مطرح کنیم که چرا کسره اضافه یک معمای بزرگ است؟ ما فارسی‌زبانان به سادگی متن را می‌خوانیم و متوجه می‌شویم کدام کلمه مضاف است و کدام صفت. اما برای کامپیوتر، چون هیچ حرف یا اعرابی در خط رسمی نوشته نمی‌شود، کلمات به صورت خامی پشت سر هم می‌آیند. بیش از ۳۰ درصد کل متن‌های فارسی اضافه دارند! اگر کامپیوتر این پیوندها را نفهمد، نه می‌تواند به درستی متن را به گفتار بخواند و نه می‌تواند آن را به انگلیسی یا زبان دیگری ترجمه کند.»",
+      "file": "slides/02-the-enigma.html"
+    },
+    {
+      "id": "03-combinatorial-explosion",
+      "slideNumber": 3,
+      "title": "انفجار ترکیبیاتی ابهام: یک جمله، هشت خوانش ساختاری متمایز!",
+      "tag": "فصل اول: کلیات و بیان مسئله | بخش ۱-۲",
+      "subtitle": "بررسی تجربی اثر حذف نشانه اضافه در ایجاد ابهام چندگانه نحوی",
+      "presenterNotes": "«در شکل ۱-۱ این اسلاید، عمق فاجعه محاسباتی را به تصویر کشیده‌ایم. به این جمله کوتاه نگاه کنید: «شاگرد شیفته علم استاد است». اگر کسره اضافه را مشخص نکنیم، این جمله دقیقاً ۸ معنا و ۸ درخت گرامری متفاوت تولید می‌کند! در یک خوانش، «شاگرد شیفته علم» است و خودش استاد است؛ در خوانش دیگر، شاگرد شیفته «علم استاد» است. این آزمایش عملی ثابت می‌کند که ماشین بدون درک روابط سازه‌ای، در فهم ساده‌ترین متون نیز سردرگم خواهد شد.»",
+      "file": "slides/03-combinatorial-explosion.html"
+    },
+    {
+      "id": "04-token-vs-constituent",
+      "slideNumber": 4,
+      "title": "تغییر پارادایم: گذار از برچسب‌گذاری سطحی به بازسازی سازه‌ای",
+      "tag": "فصل اول: کلیات و بیان مسئله | بخش ۱-۳",
+      "subtitle": "چرا نگاه نقطه‌ای به کسره اضافه ناقص است و باید به سطح «حوزه اضافه» ارتقا یابد؟",
+      "presenterNotes": "«تا پیش از این رساله، عموم مقالات مسئله را بسیار ساده می‌دیدند: برای هر کلمه یک صفر یا یک پیش‌بینی می‌کردند که آیا کسره دارد یا ندارد. ما در این رساله نشان دادیم که این نگاه به شدت خطاست! شما ممکن است ۹۸ درصد کلمات را درست بگویید، اما اگر در یک زنجیره ۴ کلمه‌ای، یکی را اشتباه کنید، کل سازه نحوی فرو می‌ریزد. ما مسئله را ارتقا دادیم به شناسایی «حوزه اضافه» یعنی مشخص کردن هسته، اعضای وابسته، و مرز پایانی گروه اسمی.»",
+      "file": "slides/04-token-vs-constituent.html"
+    },
+    {
+      "id": "05-industrial-applications",
+      "slideNumber": 5,
+
+=== [3] JS/PRESENTATION.JS (NAV, SCALING, STAGE) ===
+// ==========================================================================
+// Master Presentation Runtime: Canvas Scaler, Navigation, Roles & Presenter HUD
+// ==========================================================================
+
+// === ۱. سیستم مقیاس‌پذیری حرفه‌ای استیج (Responsive FHD Canvas Scaler) ===
+const wrapper = document.getElementById('presentation-wrapper');
+const stage = document.getElementById('stage');
+const STAGE_WIDTH = 1920;
+const STAGE_HEIGHT = 1080;
+
+function resizeStage() {
+    if (!wrapper || !stage) return;
+    const wrapperWidth = window.innerWidth;
+    const wrapperHeight = window.innerHeight;
+    
+    // Scale smoothly with padding buffer on mobile screens
+    const isMobile = wrapperWidth <= 1024;
+    const horizontalMargin = isMobile ? 12 : 0;
+    const verticalMargin = isMobile ? 70 : 0; // leaves space for bottom touch bar
+
+    const availableW = Math.max(wrapperWidth - horizontalMargin, 320);
+    const availableH = Math.max(wrapperHeight - verticalMargin, 240);
+
+    const scale = Math.min(availableW / STAGE_WIDTH, availableH / STAGE_HEIGHT);
+    stage.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener('resize', resizeStage);
+window.addEventListener('orientationchange', () => setTimeout(resizeStage, 100));
+const resizeObserver = new ResizeObserver(() => resizeStage());
+if (wrapper) {
+    resizeObserver.observe(wrapper);
+}
+resizeStage();
+
+// === ۲. متغیرهای ناوبری و وضعیت ===
+let currentIndex = 0;
+let slides = document.querySelectorAll('.slide');
+const progressBar = document.getElementById('progress');
+let currentRole = 'audience'; // پیش‌فرض: حالت کاملاً تمیز مشاهده
+
+// === ۲.۵. سیستم امنیتی و قفل ادمین (۵ بار Enter + کد ۶۵۱۹) ===
+let enterCount = 0;
+let enterTimer = null;
+
+function openPasscodeModal() {
+    const modal = document.getElementById('passcode-modal');
+    const input = document.getElementById('passcode-input');
+    const err = document.getElementById('passcode-error');
+    if (err) err.classList.add('passcode-error-hidden');
+    if (input) input.value = '';
+    if (modal) {
+        modal.classList.remove('passcode-modal-hidden');
+        setTimeout(() => { if (input) input.focus(); }, 60);
+    }
+}
+
+function closePasscodeModal() {
+    const modal = document.getElementById('passcode-modal');
+    if (modal) modal.classList.add('passcode-modal-hidden');
+}
+
+function handlePasscodeSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const input = document.getElementById('passcode-input');
+    const err = document.getElementById('passcode-error');
+    const code = input ? input.value.trim() : '';
+
+    if (code === '6519') {
+        unlockAdminMode();
+        closePasscodeModal();
+    } else {
+        if (err) {
+            err.textContent = 'کد عبور نادرست است!';
+            err.classList.remove('passcode-error-hidden');
+        }
+        if (input) {
+            input.value = '';
+            input.focus();
+        }
+    }
+}
+
+function unlockAdminMode() {
+    localStorage.setItem('admin_unlocked', 'true');
+    document.body.classList.add('admin-unlocked');
+    setRole('admin');
+    console.log('🔓 [Security] Admin mode unlocked and saved to session');
+}
+
+function lockAdminMode() {
+    localStorage.removeItem('admin_unlocked');
+    document.body.classList.remove('admin-unlocked');
+    setRole('audience');
+    console.log('🔒 [Security] Admin mode logged out');
+}
+
+window.openPasscodeModal = openPasscodeModal;
+window.closePasscodeModal = closePasscodeModal;
+window.handlePasscodeSubmit = handlePasscodeSubmit;
+window.unlockAdminMode = unlockAdminMode;
+window.lockAdminMode = lockAdminMode;
+
+// === ۳. سیستم نقش‌ها (Role Switcher Engine) ===
+function setRole(role) {
+    currentRole = role;
+    document.body.setAttribute('data-role', role);
+
+    // به‌روزرسانی تب‌های نوار نقش
+    document.querySelectorAll('.role-tab-btn').forEach(btn => {
+        const targetRole = btn.getAttribute('data-role-target');
+        btn.classList.toggle('active', targetRole === role);
+    });
+
+    // در حالت ادمین ادیتور را فعال یا غیرفعال کن
+    if (typeof toggleEditMode === 'function') {
+        if (role === 'admin') {
+            toggleEditMode(true);
+        } else {
+            toggleEditMode(false);
+        }
+    }
+
+    console.log(`[Role Engine] Active role set to: ${role}`);
+    updateUI();
+}
+
+// === ۴. کرنومتر دفاع زنده (Presenter Defense Stopwatch) ===
+let timerSeconds = 0;
+let timerInterval = null;
+let isTimerRunning = false;
+
+function formatTime(totalSeconds) {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    if (hours > 0) {
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+function updateTimerDisplay() {
+    const timerEl = document.getElementById('hud-timer-digits');
+    if (timerEl) {
+        timerEl.textContent = formatTime(timerSeconds);
+    }
+}
+
+function startTimer() {
+    if (!isTimerRunning) {
+        isTimerRunning = true;
+        timerInterval = setInterval(() => {
+            timerSeconds++;
+            updateTimerDisplay();
+        }, 1000);
+        const playBtn = document.getElementById('btn-timer-play');
+        if (playBtn) playBtn.textContent = '⏸';
+    } else {
+        pauseTimer();
+    }
+}
+
+function pauseTimer() {
+    isTimerRunning = false;
+    if (timerInterval) clearInterval(timerInterval);
+    const playBtn = document.getElementById('btn-timer-play');
+    if (playBtn) playBtn.textContent = '▶';
+}
+
+function resetTimer() {
+    pauseTimer();
+    timerSeconds = 0;
+    updateTimerDisplay();
+}
+
+function toggleHudMinimize() {
+    const hud = document.getElementById('presenter-hud');
+    if (hud) {
+        hud.classList.toggle('hud-minimized');
+    }
+}
+
+// === ۵. به‌روزرسانی رابط کاربری، اسلایدها و پنل ارائه‌دهنده ===
+function updateUI() {
+    slides = document.querySelectorAll('.slide');
+    if (!slides.length) return;
+
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= slides.length) currentIndex = slides.length - 1;
+
+    // فعال‌سازی اسلاید جاری
+    slides.forEach((slide, index) => {
+        if (index === currentIndex) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+
+    // نوار پیشرفت
+    if (progressBar && slides.length > 1) {
+        const progressPercent = (currentIndex / (slides.length - 1)) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+    }
+
+    // نشانگر اسلاید در نوار نقش و کنترل لمسی موبایل
+    const badge = document.getElementById('slide-counter-badge');
+    if (badge) {
+        badge.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+    const mobileCounter = document.getElementById('mobile-counter-badge');
+    if (mobileCounter) {
+        mobileCounter.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+
+    // همگام‌سازی پنل ارائه‌دهنده (Presenter HUD)
+    syncPresenterHud();
+
+    // رندر مجدد فرمول‌های ریاضی MathJax ۳
+    if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+        window.MathJax.typesetPromise().catch(err => console.debug('MathJax typeset:', err));
+    }
+}
+
+function syncPresenterHud() {
+    const activeSlide = slides[currentIndex];
+    if (!activeSlide) return;
+
+    // یادداشت‌های ارائه‌دهنده
+    const notesBox = document.getElementById('hud-notes-text');
+    const noteEl = activeSlide.querySelector('.presenter-notes');
+    if (notesBox) {
+        if (noteEl && noteEl.innerHTML.trim()) {
+            notesBox.innerHTML = noteEl.innerHTML;
+        } else {
+            notesBox.innerHTML = '<em>یادداشتی برای این اسلاید ثبت نشده است.</em>';
+        }
+    }
+
+    // پیش‌نمایش اسلاید بعدی
+    const nextPreview = document.getElementById('hud-next-title');
+    if (nextPreview) {
+        if (currentIndex < slides.length - 1) {
+            const nextSlide = slides[currentIndex + 1];
+            const nextTitle = nextSlide.querySelector('.title-main');
+            nextPreview.textContent = nextTitle ? nextTitle.textContent : `اسلاید ${currentIndex + 2}`;
+        } else {
+            nextPreview.textContent = '— پایان ارائه رساله —';
+        }
+    }
+
+    // عنوان اسلاید فعلی در هدر HUD
+    const hudSlideNum = document.getElementById('hud-slide-indicator');
+    if (hudSlideNum) {
+        hudSlideNum.textContent = `اسلاید ${currentIndex + 1} از ${slides.length}`;
+    }
+}
+
+function nextSlide() {
+    slides = document.querySelectorAll('.slide');
+    if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateUI();
+    }
+}
+
+function prevSlide() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateUI();
+    }
+}
+
+function goToSlide(index) {
+    slides = document.querySelectorAll('.slide');
+    if (index >= 0 && index < slides.length) {
+        currentIndex = index;
+        updateUI();
+    }
+}
+
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.warn(`Fullscreen error: ${err.message}`);
+        });
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}
+
+// === ۶. متغیرها و توابع عمومی در پنجره ویندوز ===
+window.updateUI = updateUI;
+window.nextSlide = nextSlide;
+window.prevSlide = prevSlide;
+window.goToSlide = goToSlide;
+window.setRole = setRole;
+window.startTimer = startTimer;
+window.pauseTimer = pauseTimer;
+window.resetTimer = resetTimer;
+window.toggleHudMinimize = toggleHudMinimize;
+window.toggleFullscreen = toggleFullscreen;
+window.resizeStage = resizeStage;
+window.slides = slides;
+
+Object.defineProperty(window, 'currentIndex', {
+    get: () => currentIndex,
+    set: (val) => {
+        currentIndex = val;
+        updateUI();
+    }
+});
+
+// === ۷. تبدیل خودکار ارجاعات و لود اولیه ===
+document.addEventListener("DOMContentLoaded", () => {
+    // Restore admin state if previously logged in
+    const wasAdmin = localStorage.getItem('admin_unlocked') === 'true';
+    if (wasAdmin) {
+        document.body.classList.add('admin-unlocked');
+        setRole('admin');
+    } else {
+        lockAdminMode();
+    }
+
+    // تبدیل ارجاعات علمی [cite: ...]
+    const citeRegex = /\[cite:\s*([\d,\s]+)\]/g;
+    document.querySelectorAll('.layout-content').forEach(container => {
+        container.innerHTML = container.innerHTML.replace(
+            citeRegex,
+            (_, refs) => `<sup class="academic-cite" title="ارجاع به منبع ${refs}">[${refs}]</sup>`
+        );
+    });
+
+    updateUI();
+});
+
+// Initial call
+updateUI();
+
+// === ۸. کلیدهای میانبر پیشرفته (Keyboard Navigation & Role Shortcuts) ===
+document.addEventListener('keydown', (e) => {
+    // مودال رمز عبور
+    const modal = document.getElementById('passcode-modal');
+    const isModalOpen = modal && !modal.classList.contains('passcode-modal-hidden');
+
+    if (isModalOpen) {
+        if (e.key === 'Escape') {
+            closePasscodeModal();
+            return;
+        }
+        return; // وقتی مودال باز است سایر کلیدها غیرفعال باشند
+    }
+
+    // بررسی ۵ بار زدن متوالی کلید Enter برای باز کردن قفل
+    const isTyping = e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName);
+    if (!isTyping) {
+        if (e.key === 'Enter') {
+            enterCount++;
+            clearTimeout(enterTimer);
+            enterTimer = setTimeout(() => {
+                enterCount = 0;
+            }, 2200);
+
+            if (enterCount >= 5) {
+                enterCount = 0;
+                const isCurrentlyUnlocked = document.body.classList.contains('admin-unlocked');
+                if (isCurrentlyUnlocked) {
+                    lockAdminMode();
+                    alert('🔒 از حالت مدیریت خارج شدید.');
+                } else {
+                    openPasscodeModal();
+                }
+                return;
+            }
+        } else {
+            enterCount = 0;
+        }
+    }
+
+    if (isTyping) return;
+
+    const isUnlocked = document.body.classList.contains('admin-unlocked');
+
+    // تغییر نقش با کلیدهای میانبر فقط و فقط پس از وارد کردن کد عبور فعال می‌شود
+    if (isUnlocked) {
+        if (e.key === '1' || (e.key.toLowerCase() === 'a' && !e.ctrlKey && !e.metaKey)) {
+            setRole('audience');
+            return;
+        }
+        if (e.key === '2' || (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.metaKey) || (e.key.toLowerCase() === 'n' && !e.ctrlKey && !e.metaKey)) {
+            setRole('presenter');
+            return;
+        }
+        if (e.key === '3' || (e.key.toLowerCase() === 'e' && !e.ctrlKey && !e.metaKey)) {
+            setRole('admin');
+            return;
+        }
+    }
+
+    if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey) {
+        toggleFullscreen();
+        return;
+    }
+
+    // ناوبری اسلایدها (همیشه فعال برای ارائه روان)
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+    } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'PageUp' || e.key === 'Backspace') {
+        e.preventDefault();
+        prevSlide();
+    } else if (e.key === 'Home') {
+        e.preventDefault();
+        currentIndex = 0;
+        updateUI();
+    } else if (e.key === 'End') {
+        e.preventDefault();
+        slides = document.querySelectorAll('.slide');
+        currentIndex = slides.length - 1;
+        updateUI();
+    }
+});
+
+
+
+// === ۹. موتور لمسی و سوایپ موبایل (Mobile Touch Swipe & Pinch Gesture Engine) ===
+(function initTouchEngine() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    const MIN_SWIPE_DISTANCE = 45; // Minimum px to register as swipe
+
+    const touchTarget = document.getElementById('presentation-wrapper') || document.body;
+
+    touchTarget.addEventListener('touchstart', (e) => {
+        // Ignore multi-touch (e.g. pinch zoom on diagram)
+        if (e.touches.length === 1) {
+            touchStartX = e.touches[0].screenX;
+            touchStartY = e.touches[0].screenY;
+        }
+    }, { passive: true });
+
+    touchTarget.addEventListener('touchend', (e) => {
+        // Prevent swipe triggers if user was actively typing or editing text
+        if (e.target.isContentEditable || ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+        // Don't trigger if swiping inside interactive modals or HUD
+        if (e.target.closest('#presenter-hud') || e.target.closest('#pdf-options') || e.target.closest('#editor-toolbar') || e.target.closest('#mobile-nav-bar')) return;
+
+        if (e.changedTouches.length === 1) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipeGesture();
+        }
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        // Ensure swipe was primarily horizontal, not vertical scroll
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) >= MIN_SWIPE_DISTANCE) {
+            if (deltaX < 0) {
+                // Swiped Left in RTL -> Forward / Next Slide
+                nextSlide();
+            } else {
+                // Swiped Right in RTL -> Backward / Prev Slide
+                prevSlide();
+            }
+        }
+    }
+})();
+=== [4] JS/PDF-EXPORT.JS (CURRENT PRINT/EXPORT LOGIC) ===
+// ==========================================================================
+// High-Fidelity PDF Engine:
+// 1. Instant True Vector Print (Zero Quality Loss, Zero Stretch)
+// 2. Proportional High-DPI Canvas Fallback (16:9 Aspect Preserved)
+// ==========================================================================
+
+function openPdfOptions() {
+    const opts = document.getElementById('pdf-options');
+    if (opts) opts.classList.remove('pdf-options-hidden');
+}
+
+function closePdfOptions() {
+    const opts = document.getElementById('pdf-options');
+    if (opts) opts.classList.add('pdf-options-hidden');
+}
+
+document.addEventListener('click', function (e) {
+    const opts = document.getElementById('pdf-options');
+    const btn = document.getElementById('pdf-download-btn');
+    if (opts && !opts.classList.contains('pdf-options-hidden')) {
+        if (!opts.contains(e.target) && (!btn || !btn.contains(e.target))) {
+            closePdfOptions();
+        }
+    }
+});
+
+/**
+ * 1. Vector Direct Print (Crispest Possible, 100% Vector Quality, Instant)
+ */
+function printDeckToPdf() {
+    closePdfOptions();
+
+    const includeNotes = document.getElementById('includeNotes')?.checked ?? false;
+    if (includeNotes) {
+        document.body.classList.add('print-with-notes');
+    } else {
+        document.body.classList.remove('print-with-notes');
+    }
+
+    if (typeof clearEditorSelection === 'function') {
+        clearEditorSelection();
+    }
+
+    const stage = document.getElementById('stage');
+    let origTransform = '';
+    if (stage) {
+        origTransform = stage.style.transform;
+        stage.style.transform = 'none';
+    }
+
+    setTimeout(() => {
+        try {
+            window.focus();
+            window.print();
+        } catch (err) {
+            console.error('Print Error:', err);
+            alert('لطفاً کلید میانبر Ctrl + P (یا Cmd + P) را جهت ذخیره PDF انتخاب کنید.');
+        } finally {
+            if (stage && origTransform) {
+                stage.style.transform = origTransform;
+            }
+            document.body.classList.remove('print-with-notes');
+        }
+    }, 100);
+}
+
+/**
+ * 2. High-DPI 16:9 Proportional Rasterizer (No Stretch, High Sharpness)
+ */
+async function exportToPdfRaster() {
+    closePdfOptions();
+
+    const includeNotes = document.getElementById('includeNotes')?.checked ?? false;
+    const loading = document.getElementById('pdf-loading');
+    const progress = document.getElementById('pdf-progress');
+
+    if (loading) loading.classList.remove('pdf-loading-hidden');
+    if (progress) progress.textContent = 'شروع ساخت PDF شفاف (0%)';
+    document.body.classList.add('pdf-exporting');
+
+    let isAborted = false;
+    const timeoutHandle = setTimeout(() => {
+        isAborted = true;
+        if (loading) loading.classList.add('pdf-loading-hidden');
+        document.body.classList.remove('pdf-exporting');
+        alert('زمان پردازش طولانی شد. پیشنهاد می‌شود از دکمه «چاپ مستقیم (برداری/سریع)» استفاده فرمایید.');
+    }, 120000);
+
+    try {
+        if (!window.jspdf || !window.html2canvas) {
+            throw new Error('کتابخانه‌های jsPDF یا html2canvas در دسترس نیستند.');
+        }
+
+        const { jsPDF } = window.jspdf;
+        // Landscape A4 Page: 297mm x 210mm
+        const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4', compress: true });
+        const a4W = 297;
+        const a4H = 210;
+
+        // Strict 16:9 Aspect Calculation:
+        // Height for 297mm width at 16:9 is 297 / (16/9) = 167.0625mm
+        const slideW = a4W;
+        const slideH = (a4W * 9) / 16; // 167.0625mm
+        const offsetY = (a4H - slideH) / 2; // 21.46875mm top/bottom margin for clean centering
+
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const stage = document.getElementById('stage');
+        const origTransform = stage ? stage.style.transform : '';
+
+        if (stage) stage.style.transform = 'none';
+
+        for (let i = 0; i < slides.length; i++) {
+            if (isAborted) break;
+
+            const slide = slides[i];
+            slides.forEach(s => {
+                s.style.display = 'none';
+                s.classList.remove('active');
+            });
+            slide.style.display = 'flex';
+            slide.classList.add('active');
+
+            const notes = slide.querySelector('.presenter-notes');
+            if (notes && !includeNotes) {
+                notes.style.display = 'none';
+            }
+
+            await new Promise(r => setTimeout(r, 20));
+
+            // scale: 1.5 provides high DPI sharpness without killing browser memory
+            const canvas = await window.html2canvas(slide, {
+                width: 1920,
+                height: 1080,
+                scale: 1.5,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#FAF7EE',
+                logging: false,
+                imageTimeout: 0
+            });
+
+            if (i > 0) pdf.addPage('a4', 'landscape');
+
+            // High-quality JPEG 0.95 (crisp text, no compression blur)
+            const imgData = canvas.toDataURL('image/jpeg', 0.95);
+
+            // Exactly placed with letterboxing to prevent ANY vertical stretching
+            pdf.addImage(imgData, 'JPEG', 0, offsetY, slideW, slideH, undefined, 'FAST');
+
+            if (notes) notes.style.display = '';
+
+            const pct = Math.round(((i + 1) / slides.length) * 100);
+            if (progress) progress.textContent = `${pct}٪ (${i + 1} از ${slides.length})`;
+        }
+
+        clearTimeout(timeoutHandle);
+
+        if (!isAborted) {
+            pdf.save('Defense_Presentation_Ezafe_Razavi.pdf');
+        }
+
+        if (stage) stage.style.transform = origTransform;
+        if (typeof updateUI === 'function') updateUI();
+
+    } catch (err) {
+        clearTimeout(timeoutHandle);
+        console.error('PDF Export Error:', err);
+        alert('خطا در صدور فایل: ' + err.message);
+    } finally {
+        document.body.classList.remove('pdf-exporting');
+        if (loading) loading.classList.add('pdf-loading-hidden');
+    }
+}
+
+window.exportToPdf = printDeckToPdf;
+window.printDeckToPdf = printDeckToPdf;
+window.exportToPdfRaster = exportToPdfRaster;
+window.openPdfOptions = openPdfOptions;
+window.closePdfOptions = closePdfOptions;
+=== [5] JS/EDITOR.JS (RESIZE, DRAG, STATE) ===
+// ==========================================================================
+// Studio Visual Editor Engine v3: Moveable, Rough.js, History, Demo
+// ==========================================================================
+
+// ==========================================
+        // 🪄 MAX-LEVEL STUDIO ENGINE v3
+        // ==========================================
+
+        const EditorState = {
+            isEditMode: false,
+            moveableInstance: null,
+            selectedTargets: [], // Array for Multi-select
+            timeline: [],
+            historyIndex: -1,
+            savedVersions: [] // For Sidebar
+        };
+
+        // --- 0. SHORTCUT DIRECTORY ---
+        console.table({
+            "Ctrl + E": "Toggle Edit Mode",
+            "Ctrl + S": "Save Latest",
+            "Ctrl + Shift + S": "Save Named Version",
+            "Ctrl + Z": "Undo",
+            "Ctrl + Y": "Redo",
+            "Ctrl + H": "Cycle Magic Highlighters",
+            "Ctrl + Click": "Multi-select elements",
+            "Ctrl + A": "Select All in Slide",
+            "Magic Wand": "Tidy Alignments (UI)",
+            "Rocket": "Cinematic Auto-Demo (UI)"
+        });
+
+        // --- 1. TOOLBAR & SIDEBAR ---
+        function updateToolbarUI() {
+            const toolbar = document.getElementById('editor-toolbar');
+            if (toolbar) toolbar.classList.remove('editor-toolbar-hidden');
+            const btnEdit = document.getElementById('btn-edit');
+            if (btnEdit) btnEdit.classList.toggle('active', EditorState.isEditMode);
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('history-sidebar');
+            if (sidebar) sidebar.classList.toggle('open');
+        }
+
+        // --- 2. PERSISTENCE & CLEANUP ---
+        function clearEditorSelection() {
+            if (EditorState.moveableInstance) {
+                EditorState.moveableInstance.destroy();
+                EditorState.moveableInstance = null;
+            }
+            EditorState.selectedTargets = [];
+        }
+
+        const originalUpdateUI = typeof updateUI === 'function' ? updateUI : (typeof window !== 'undefined' && window.updateUI ? window.updateUI : function () { });
+        updateUI = function () {
+            clearEditorSelection();
+            if (typeof originalUpdateUI === 'function') {
+                originalUpdateUI();
+            }
+        };
+        if (typeof window !== 'undefined') window.updateUI = updateUI;
+
+        // --- 3. EDIT MODE ---
+        function toggleEditMode(forceState = null) {
+            EditorState.isEditMode = forceState !== null ? forceState : !EditorState.isEditMode;
+            document.body.style.cursor = EditorState.isEditMode ? 'crosshair' : 'default';
+
+            document.querySelectorAll('.slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide span, .slide div.text-body, .slide td, .slide tr, .slide th, .slide li').forEach(el => {
+                el.contentEditable = EditorState.isEditMode;
+                el.style.outline = EditorState.isEditMode ? '1px dashed rgba(220, 38, 38, 0.3)' : 'none';
+            });
+
+            if (!EditorState.isEditMode) clearEditorSelection();
+            updateToolbarUI();
+        }
+
+        // --- 4. TIMELINE & UNDO (FIXED) ---
+        function recordAction(actionType, targets, beforeDataList, afterDataList) {
+            if (EditorState.historyIndex < EditorState.timeline.length - 1) {
+                EditorState.timeline = EditorState.timeline.slice(0, EditorState.historyIndex + 1);
+            }
+            EditorState.timeline.push({ id: Date.now(), type: actionType, targets: targets.map(t => t.id), before: beforeDataList, after: afterDataList });
+            EditorState.historyIndex++;
+        }
+
+        function undo() {
+            if (EditorState.historyIndex >= 0) {
+                const action = EditorState.timeline[EditorState.historyIndex];
+                applyState(action.targets, action.before, action.type);
+                EditorState.historyIndex--;
+            }
+        }
+
+        function redo() {
+            if (EditorState.historyIndex < EditorState.timeline.length - 1) {
+                EditorState.historyIndex++;
+                const action = EditorState.timeline[EditorState.historyIndex];
+                applyState(action.targets, action.after, action.type);
+            }
+        }
+
+        function applyState(targetIds, dataList, type) {
+            targetIds.forEach((id, index) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const data = dataList[index];
+
+                el.style.transition = 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)';
+
+                // Fix: Wait for transition to end before updating Moveable skeleton
+                el.addEventListener('transitionend', () => {
+                    if (EditorState.moveableInstance) EditorState.moveableInstance.updateRect();
+                }, { once: true });
+
+                if (type === 'transform') {
+                    el.style.transform = data.transform;
+                    el.style.width = data.width;
+                    el.style.height = data.height;
+                } else if (type === 'textEdit') {
+                    el.innerHTML = data.html;
+                }
+                setTimeout(() => { el.style.transition = 'none'; }, 350);
+            });
+        }
+
+        // --- 5. MOVEABLE (MULTI-SELECT & SNAPPING) ---
+        // --- 5. MOVEABLE (MULTI-SELECT & SNAPPING) ---
+        function attachMoveable(targets) {
+            if (targets.length === 0) return;
+            clearEditorSelection();
+            EditorState.selectedTargets = targets;
+
+            const guidelines = Array.from(document.querySelectorAll('.slide.active *:not(#stage):not(.moveable-control-box)'));
+
+            EditorState.moveableInstance = new Moveable(document.body, {
+                target: targets,
+                draggable: true, resizable: true, rotatable: true,
+                snappable: true, snapCenter: true,
+                elementGuidelines: guidelines, snapGap: true, isDisplaySnapDigit: true,
+                checkInput: false // 🔥 THIS FIXES THE "CANNOT DRAG EDITABLE TEXT" BUG
+            });
+
+            const controlBox = document.querySelector('.moveable-control-box');
+            if (controlBox) {
+                controlBox.classList.add('active');
+                if (targets.length > 1) controlBox.dataset.type = 'group';
+                else if (targets.tagName === 'IMG') controlBox.dataset.type = 'image';
+                else if (targets.tagName === 'svg') controlBox.dataset.type = 'svg';
+                else controlBox.dataset.type = 'text';
+            }
+
+            let initialStates = [];
+
+            // 🔥 FIXED: Handle both single target and group targets safely
+            const onStart = (e) => {
+                const evTargets = e.targets || [e.target];
+                initialStates = evTargets.map(t => ({ transform: t.style.transform || 'none', width: t.style.width, height: t.style.height }));
+            };
+            const onDrag = ({ target, transform }) => { target.style.transform = transform; };
+            const onDragGroup = ({ events }) => { events.forEach(ev => { ev.target.style.transform = ev.transform; }); };
+            const onEnd = (e) => {
+                const evTargets = e.targets || [e.target];
+                const finalStates = evTargets.map(t => ({ transform: t.style.transform, width: t.style.width, height: t.style.height }));
+                recordAction('transform', evTargets, initialStates, finalStates);
+            };
+
+            // Bind events
+            EditorState.moveableInstance.on("dragStart", onStart).on("dragGroupStart", onStart);
+            EditorState.moveableInstance.on("drag", onDrag).on("dragGroup", onDragGroup);
+            EditorState.moveableInstance.on("dragEnd", onEnd).on("dragGroupEnd", onEnd);
+
+            EditorState.moveableInstance.on("rotateStart", onStart).on("rotateGroupStart", onStart);
+            EditorState.moveableInstance.on("rotate", onDrag).on("rotateGroup", onDragGroup);
+            EditorState.moveableInstance.on("rotateEnd", onEnd).on("rotateGroupEnd", onEnd);
+        }
+        document.addEventListener('mousedown', (e) => {
+            if (!EditorState.isEditMode) return;
+
+            // Prevent deselecting if clicking on toolbar or sidebar
+            if (e.target.closest('#editor-toolbar') || e.target.closest('#history-sidebar')) return;
+
+            // Clicked the background -> Deselect everything
+            if (e.target.id === 'stage' || e.target.id === 'presentation-wrapper') {
+                clearEditorSelection();
+                return;
+            }
+
+            // 🔥 FIXED: Ignore clicks ON the moveable skeleton itself so it doesn't ghost
+            if (e.target.closest('.moveable-control-box')) return;
+
+            if (e.target.id) {
+                // Check if clicking a NEW element
+                if (!EditorState.selectedTargets.includes(e.target)) {
+                    let newSelection = [...EditorState.selectedTargets];
+                    if (e.ctrlKey || e.metaKey || e.shiftKey) {
+                        newSelection.push(e.target); // Add to multi-select
+                    } else {
+                        newSelection = [e.target]; // Fresh single select
+                    }
+                    attachMoveable(newSelection);
+                }
+            }
+        });
+
+        // --- 6. MAGIC TIDY ---
+        function magicTidy() {
+            if (EditorState.selectedTargets.length === 0) { alert("🪄 Select elements to tidy!"); return; }
+
+            let initialStates = [];
+            let finalStates = [];
+
+            EditorState.selectedTargets.forEach(target => {
+                initialStates.push({ transform: target.style.transform || 'none', width: target.style.width, height: target.style.height });
+
+                let newTransform = target.style.transform || '';
+                const rotMatch = newTransform.match(/rotate\(([-0-9.]+)deg\)/);
+                if (rotMatch) {
+                    let angle = parseFloat(rotMatch);
+                    let snappedAngle = Math.round(angle / 45) * 45;
+                    newTransform = newTransform.replace(`rotate(${angle}deg)`, `rotate(${snappedAngle}deg)`);
+                }
+                target.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                target.style.transform = newTransform;
+
+                finalStates.push({ transform: newTransform, width: target.style.width, height: target.style.height });
+                setTimeout(() => { target.style.transition = 'none'; }, 500);
+            });
+
+            recordAction('transform', EditorState.selectedTargets, initialStates, finalStates);
+            setTimeout(() => { if (EditorState.moveableInstance) EditorState.moveableInstance.updateRect(); }, 520);
+        }
+
+
+
+        // --- 7. BACKEND SAVE & HTML SANITIZER ---
+        function timeAgo(date) {
+            const seconds = Math.floor((new Date() - date) / 1000);
+            if (seconds < 60) return "Just now";
+            const minutes = Math.floor(seconds / 60);
+            if (minutes < 60) return `${minutes}m ago`;
+            return `${Math.floor(minutes / 60)}h ago`;
+        }
+
+        // 🔥 This function strips out dev-tools and skeletons before saving
+        function getCleanHTML() {
+            // Clone the document so we don't mess up the live view
+            const clone = document.documentElement.cloneNode(true);
+
+            // 1. Remove BrowserSync injected scripts (Fixes the loop/flicker)
+            clone.querySelectorAll('script[id="__bs_script__"]').forEach(el => el.remove());
+            clone.querySelectorAll('script[src*="browser-sync"]').forEach(el => el.remove());
+
+            // 2. Remove Moveable ghost skeletons
+            clone.querySelectorAll('.moveable-control-box').forEach(el => el.remove());
+
+            // 3. Remove highlight SVGs (unless you want them saved permanently)
+            // clone.querySelectorAll('.hl-svg').forEach(el => el.remove());
+
+            // 4. Strip contenteditable attributes so the raw HTML is clean
+            clone.querySelectorAll('[contenteditable]').forEach(el => {
+                el.removeAttribute('contenteditable');
+                el.style.outline = '';
+            });
+
+            // 5. Clean up any leftover cinematic effects
+            clone.querySelectorAll('.cinematic-focus').forEach(el => el.classList.remove('cinematic-focus'));
+
+            return "<!DOCTYPE html>\n" + clone.outerHTML;
+        }
+
+        async function triggerSave(forceNamed = false) {
+            let vName = "Auto-save";
+            if (forceNamed) {
+                vName = prompt("Enter a name for this version (e.g. 'Fixed Titles'):", "");
+                if (!vName) return; // User cancelled
+            }
+
+            // Get the sanitized HTML instead of the raw live DOM
+            const cleanHTML = getCleanHTML();
+
+            try {
+                const res = await fetch('http://127.0.0.1:8080/save', {
+                    method: 'POST',
+                    body: JSON.stringify({ html: cleanHTML, versionName: vName }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (res.ok) {
+                    EditorState.savedVersions.unshift({ name: vName, time: new Date() });
+                    renderSidebar();
+                    console.log(`💾 Saved: ${vName}`);
+
+                    // Optional visual feedback
+                    const saveBtn = document.getElementById('btn-save');
+                    if (saveBtn) {
+                        saveBtn.style.background = '#10B981';
+                        setTimeout(() => saveBtn.style.background = '', 1000);
+                    }
+                }
+            } catch (err) {
+                console.error(err);
+                alert("❌ Backend Save Failed");
+            }
+        }
+
+        function renderSidebar() {
+            const container = document.getElementById('sidebar-versions');
+            if (!container) return;
+            container.innerHTML = EditorState.savedVersions.map(v => `
+            <div class="version-item">
+                <div class="v-time">${timeAgo(v.time)}</div>
+                <div class="v-name">${v.name}</div>
+            </div>
+        `).join('');
+        }
+        // --- 8. KEYBOARD BINDINGS ---
+        document.removeEventListener('keydown', window._globalKeydownHandler);
+
+
+        let typingTimer = null;
+        const TYPING_TIMEOUT_MS = 2000; // 2 seconds
+
+        // Helper: Restart the 2-second timer when typing
+        function resetTypingTimer(target) {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(() => {
+                // After 2 seconds of no typing, blur the element so Moveable can take over
+                if (target && typeof target.blur === 'function') {
+                    console.log("⏱️ 2 seconds idle. Auto-blurring to enable drag.");
+                    target.blur();
+
+                    // Re-attach moveable to update the skeleton size after editing
+                    if (EditorState.selectedTargets.includes(target)) {
+                        attachMoveable(EditorState.selectedTargets);
+                    }
+                }
+            }, TYPING_TIMEOUT_MS);
+        }
+
+        // Input event fires on actual content changes (typing)
+        document.addEventListener('input', (e) => {
+            if (EditorState.isEditMode && e.target.isContentEditable) {
+                resetTypingTimer(e.target);
+                // Optional: Update moveable rect immediately while typing so it grows
+                if (EditorState.moveableInstance) EditorState.moveableInstance.updateRect();
+            }
+        });
+
+        // Clear timer if user manually clicks away
+        document.addEventListener('focusout', (e) => {
+            clearTimeout(typingTimer);
+        });
+
+        // Main Keyboard Handler
+        document.addEventListener('keydown', (e) => {
+            const isTyping = e.target.isContentEditable || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+
+            // If they press a key while focused, reset the 2-second timer
+            if (isTyping) {
+                resetTypingTimer(e.target);
+            }
+
+            // Slide Nav (Disabled if typing)
+            if (!isTyping) {
+                if (e.key === 'ArrowLeft' || e.key === 'PageDown') { e.preventDefault(); nextSlide(); return; }
+                if (e.key === 'ArrowRight' || e.key === 'PageUp') { e.preventDefault(); prevSlide(); return; }
+            }
+
+            // Select All (Ctrl+A)
+            if ((e.ctrlKey || e.metaKey) && e.key === 'a' && EditorState.isEditMode && !isTyping) {
+                e.preventDefault();
+                const allElements = Array.from(document.querySelectorAll('.slide.active *:not(#stage):not(.moveable-control-box):not(.layout-header):not(.layout-content)'));
+                if (allElements.length > 0) attachMoveable(allElements);
+            }
+
+            // Saves (Ctrl+S / Ctrl+Shift+S)
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                // If Shift is held, force named save. Otherwise standard auto-save.
+                triggerSave(e.shiftKey);
+            }
+
+            // Toggles & History
+            if ((e.ctrlKey || e.metaKey) && e.key === 'e') { e.preventDefault(); toggleEditMode(); }
+            if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey && !isTyping) { e.preventDefault(); undo(); }
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'y' || (e.key === 'z' && e.shiftKey)) && !isTyping) { e.preventDefault(); redo(); }
+
+            // Highlight
+            if ((e.ctrlKey || e.metaKey) && e.key === 'h' && EditorState.selectedTargets.length > 0 && !isTyping) {
+                e.preventDefault();
+                const styleName = highlightKeys[highlightTypeIndex];
+                highlightTypeIndex = (highlightTypeIndex + 1) % highlightKeys.length;
+                EditorState.selectedTargets.forEach(target => {
+                    renderHighlight(target, { id: Date.now().toString() + Math.random(), style: HighlightStyles[styleName], active: true });
+                });
+            }
+        });
+        // --- 8.5. QUICK EDIT OVERRIDE ---
+        // If an element is selected (skeleton is on it) and you press a normal character or Enter, 
+        // force focus onto the text so you can start typing immediately without double clicking.
+        document.addEventListener('keydown', (e) => {
+            if (!EditorState.isEditMode || EditorState.selectedTargets.length !== 1) return;
+
+            const target = EditorState.selectedTargets;
+            const isTyping = e.target.isContentEditable || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+
+            // If we are NOT currently typing, and the target is editable, and it's a valid key
+            if (!isTyping && target.isContentEditable) {
+                // Ignore modifiers, arrows, and function keys
+                if (e.ctrlKey || e.metaKey || e.altKey) return;
+                if (e.key.length > 1 && e.key !== 'Enter' && e.key !== 'Backspace' && e.key !== 'Delete') return;
+
+                // Prevent default if it's Enter so it doesn't immediately add a newline before focus
+                if (e.key === 'Enter') e.preventDefault();
+
+                target.focus();
+                resetTypingTimer(target);
+            }
+        });
+        // --- 9. CINEMATIC DEMO MODE (10s of Madness) ---
+        async function runCinematicDemo() {
+            if (EditorState.isEditMode) toggleEditMode(false);
+            const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+            // Go to a random slide to start the show
+            currentIndex = Math.floor(Math.random() * slides.length);
+            updateUI();
+            await sleep(1000);
+
+            const activeSlide = slides[currentIndex];
+
+            // 1. Gather all meaningful content
+            let elements = Array.from(activeSlide.querySelectorAll('h1, h2, h3, p, li, img, .insight-box, .reg-stat-box'));
+
+            // 2. Filter out tiny or invisible elements
+            elements = elements.filter(el => {
+                const rect = el.getBoundingClientRect();
+                return rect.width > 30 && rect.height > 20 && el.offsetParent !== null;
+            });
+
+            if (elements.length === 0) return;
+
+            // 3. SPATIAL SORTING (The Magic Proximity Flow)
+            // Sorts Top-to-Bottom. If elements are on the same line, sorts Right-to-Left (Persian reading order)
+            elements.sort((a, b) => {
+                const rectA = a.getBoundingClientRect();
+                const rectB = b.getBoundingClientRect();
+
+                // If they are within 40px vertically, treat them as the same row
+                if (Math.abs(rectA.top - rectB.top) < 40) {
+                    return rectB.right - rectA.right; // Right to Left
+                }
+                return rectA.top - rectB.top; // Top to Bottom
+            });
+
+            // Limit the demo to 5 elements so it doesn't drag on
+            const targetElements = elements.slice(0, 5);
+
+            for (let i = 0; i < targetElements.length; i++) {
+                const target = targetElements[i];
+                const tagName = target.tagName.toUpperCase();
+
+                // 4. Smooth Focus
+                target.classList.add('cinematic-focus');
+                await sleep(700); // Wait for the camera to 'focus'
+
+                // 5. Smart Style Selection based on Element Type
+                let styleName = "box-yellow";
+                if (tagName === 'P' || tagName === 'LI') styleName = "underline-red"; // Underline text
+                else if (tagName === 'H1' || tagName === 'H2' || tagName === 'H3') styleName = "circle-blue"; // Circle headers
+                else if (tagName === 'IMG' || target.classList.contains('insight-box')) styleName = "fade-purple"; // Ghost box for large items
+
+                renderHighlight(target, { id: `demo_${i}`, style: HighlightStyles[styleName], active: true });
+
+                await sleep(2000); // Absorb the information
+
+                // Unfocus, but leave the highlight
+                target.classList.remove('cinematic-focus');
+                await sleep(400); // Small breath before moving to the next item
+            }
+
+            // 6. Grand Finale Cleanup
+            await sleep(2000);
+            document.querySelectorAll('.hl-svg').forEach(el => {
+                el.style.transition = 'opacity 1s ease, filter 1s ease';
+                el.style.opacity = '0';
+                el.style.filter = 'blur(4px)';
+                setTimeout(() => el.remove(), 1000);
+            });
+        }
+        // --- 10. HIGHLIGHTER RENDERER (ULTRA-SMOOTH & HUMAN-LIKE) ---
+        const HighlightStyles = {
+            // Thin, elegant box
+            "box-yellow": { type: 'rectangle', color: '#FCD34D', strokeWidth: 1.5, roughness: 0.6, bowing: 0.5, class: 'hl-draw', duration: '1.2s' },
+            // Smooth, slightly curved underline
+            "underline-red": { type: 'line', color: '#DC2626', strokeWidth: 2, roughness: 0.4, bowing: 1.2, class: 'hl-draw', duration: '0.8s' },
+            // Steady hand-drawn circle
+            "circle-blue": { type: 'ellipse', color: '#3B82F6', strokeWidth: 1.5, roughness: 0.8, bowing: 1, class: 'hl-draw', duration: '1.5s' },
+            // Slithering thin snake
+            "snake-green": { type: 'rectangle', color: '#10B981', strokeWidth: 1.5, roughness: 0.5, bowing: 0, class: 'hl-snake', duration: '3s' },
+            // Ghostly thin box that fades
+            "fade-purple": { type: 'rectangle', color: '#8B5CF6', strokeWidth: 1.5, roughness: 0.5, bowing: 0.5, class: 'hl-fade', duration: '1s' },
+        };
+
+        let highlightTypeIndex = 0;
+        const highlightKeys = Object.keys(HighlightStyles);
+
+        function renderHighlight(targetEl, config) {
+            const rc = rough.svg(document.body);
+            const rect = targetEl.getBoundingClientRect();
+            const svgNode = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svgNode.id = `hl_${config.id}`;
+            svgNode.setAttribute("class", `hl-svg ${config.style.class}`);
+
+            // Add a little extra padding so it breathes around the text
+            const padX = 10;
+            const padY = 8;
+
+            svgNode.style.top = `${rect.top + window.scrollY - padY}px`;
+            svgNode.style.left = `${rect.left + window.scrollX - padX}px`;
+            svgNode.style.width = `${rect.width + (padX * 2)}px`;
+            svgNode.style.height = `${rect.height + (padY * 2)}px`;
+            svgNode.style.setProperty('--dur', config.style.duration);
+
+            // 🔥 THE SECRET SAUCE: disableMultiStroke makes it a single, clean, thin line
+            const opts = {
+                roughness: config.style.roughness,
+                stroke: config.style.color,
+                strokeWidth: config.style.strokeWidth,
+                bowing: config.style.bowing,
+                disableMultiStroke: true,
+                preserveVertices: true
+            };
+
+            let shape;
+            const w = rect.width + (padX * 2);
+            const h = rect.height + (padY * 2);
+
+            if (config.style.type === 'rectangle') {
+                shape = rc.rectangle(2, 2, w - 4, h - 4, opts);
+            } else if (config.style.type === 'line') {
+                // Draw slightly tilted underline right at the bottom edge
+                shape = rc.line(4, h - 2, w - 4, h - 6, opts);
+            } else if (config.style.type === 'ellipse') {
+                shape = rc.ellipse(w / 2, h / 2, w - 4, h - 4, opts);
+            }
+
+            svgNode.appendChild(shape);
+            document.body.appendChild(svgNode);
+        }
+
+        // Ensure IDs exist on boot
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('h1, h2, h3, h4, p, span, div, img, svg').forEach((el) => {
+                if (!el.id) el.id = `el_${Math.random().toString(36).substr(2, 9)}`;
+            });
+            updateToolbarUI();
+        });
+
+=== [6] CSS PRINT & RESPONSIVE RULES ===
+--- presentation.css @media print / stage ---
+753-    cursor: pointer;
+754-    font-weight: 700;
+755-}
+756-
+757-/* ==================== ۱۴. موتور چاپ برداری دقیق ۱۶:۹ (Strict Print Engine) ==================== */
+758:@media print {
+759-    @page {
+760-        size: 297mm 167.0625mm; /* تناسب دقیق ۱۶:۹ در عرض برگه A4 */
+761-        margin: 0 !important;
+762-    }
+763-
+142-        background: #0B0F19;
+143-        touch-action: pan-y pinch-zoom;
+144-        position: relative;
+145-    }
+146-
+147:    #stage {
+148-        width: var(--stage-width);
+149-        height: var(--stage-height);
+150-        flex-shrink: 0;
+151-        position: relative;
+152-        transform-origin: center center;
+--
+453-
+454-@media (max-width: 1024px), (pointer: coarse) {
+455-    #mobile-nav-bar {
+456-        display: flex;
+457-    }
+458:    #stage {
+459-        box-shadow: none;
+460-    }
+461-}
+462-
+463-.mobile-nav-btn {
+--
+800-        background: transparent !important;
+801-        padding: 0 !important;
+802-        margin: 0 !important;
+803-    }
+804-
+805:    #stage {
+806-        display: block !important;
+807-        position: static !important;
+808-        transform: none !important;
+809-        width: 297mm !important;
+810-        height: auto !important;
+--- editor.css print / responsive ---
+
+=== [7] SAMPLE SLIDE STRUCTURE (SLIDE 01 & 02) ===
+<div class="slide active" id="slide_01">
+    <div class="layout-header" style="border-bottom: none; margin-bottom: 28px;">
+        <div class="header-top-bar" style="font-size: 20px; color: #1B4332; font-weight: 800; border-bottom: 2px solid #1B4332; padding-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <img src="images/university_tehran_logo.png" alt="University of Tehran" style="height: 72px; width: 72px; object-fit: contain;">
+                <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            </div>
+            <span>جلسه دفاع از رساله کارشناسی ارشد</span>
+        </div>
+    </div>
+
+    <div class="layout-content" style="display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+        <div style="text-align: right; padding: 20px 0 30px;">
+            <div style="display: inline-block; background: #1B4332; color: #FFFFFF; font-size: 18px; font-weight: 800; padding: 6px 20px; margin-bottom: 20px;">
+                پایان‌نامه کارشناسی ارشد در رشته زبان‌شناسی رایانشی
+            </div>
+            <h1 style="font-size: 50px; font-weight: 900; color: #0F2A1D; line-height: 1.35; margin: 0 0 20px; letter-spacing: -1px;">
+                شناسایی حوزه اضافه در زبان فارسی<br>با رویکرد ترکیبی مبتنی بر ترنسفورمرها
+            </h1>
+            <p style="font-size: 26px; font-weight: 600; color: #2D5A43; margin: 0; line-height: 1.6;">
+                Identification of Ezafe Scope in Persian using a Hybrid Transformer-Based Approach
+            </p>
+        </div>
+
+        <div style="border-top: 3px solid #1B4332; background: #FFFFFF; padding: 28px 36px; display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 30px; align-items: center;">
+            <div>
+                <span style="font-size: 16px; color: #4B5563; font-weight: 700; display: block; margin-bottom: 6px;">نگارنده و پژوهشگر:</span>
+                <b style="font-size: 26px; color: #0F2A1D;">سید محسن رضوی خسروشاهی</b>
+            </div>
+            <div style="border-right: 2px solid #CBD8CE; padding-right: 28px;">
+                <span style="font-size: 16px; color: #4B5563; font-weight: 700; display: block; margin-bottom: 6px;">استادان راهنما:</span>
+                <b style="font-size: 24px; color: #0F2A1D; display: block;">جناب آقای دکتر مصطفی صالحی</b>
+                <b style="font-size: 24px; color: #0F2A1D; display: block; margin-top: 4px;">جناب آقای دکتر محمود بیجن‌خان</b>
+            </div>
+            <div style="border-right: 2px solid #CBD8CE; padding-right: 28px; text-align: left;">
+                <span style="font-size: 16px; color: #4B5563; font-weight: 700; display: block; margin-bottom: 6px;">زمان دفاع:</span>
+                <b style="font-size: 24px; color: #1B4332;">شهریور ۱۴۰۲</b>
+            </div>
+        </div>
+    </div>
+---
+<div class="slide" id="slide_02">
+    
+    <div class="layout-header">
+        <div class="header-top-bar">
+            <span>دانشگاه تهران — دانشکدگان علوم و فناوری‌های میان‌رشته‌ای</span>
+            <span>پایان‌نامه کارشناسی ارشد زبان‌شناسی رایانشی: شناسایی حوزه اضافه</span>
+            <span>اسلاید 2 از ۲۶</span>
+        </div>
+        <div class="header-tag">فصل اول: کلیات و بیان مسئله | بخش ۱-۱</div>
+        <h2 class="title-main">معمای کسره اضافه در خط فارسی: غیاب نشانه و انفجار ابهام</h2>
+        <p class="title-sub">چرا عدم درج واکه کوتاه /e/ در متون رسمی، پردازش خودکار متن را با بحران مواجه می‌کند؟</p>
+    </div>
+
+    <div class="layout-content">
+        <!-- Big Hero Proclamation -->
+        <div class="pres-hero-box">
+            <h3>اضافه برای انسان امری شهودی و آنی است، اما برای ماشین یک گره کور محاسباتی است!</h3>
+            <p>
+                در خط فارسی، کسره اضافه (<span class="sketch-hl">واکه کوتاه /e/</span>) در نگارش رسمی حذف می‌شود. این غیاب ظاهری، ابهام نحوی را به صورت نمایی در سطح جمله تشدید می‌کند، زیرا مرز میان گروه‌های اسمی، صفت‌ها و روابط متممی مخدوش می‌گردد [cite: 1, 2].
+            </p>
+        </div>
+
+        <div class="pres-split-narrative">
+            <div class="pres-split-col">
+                <div class="pres-col-title">
+                    <span>■ ۱. پدیده واج‌شناختی و خطی</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #B45309;">سطح کلمه</span>
+                </div>
+                <ul class="vintage-list">
+                    <li>بیش از <b>۳۰ درصد از کل کلمات متون رسمی فارسی</b> درگیر رابطه اضافه هستند.</li>
+                    <li>خواننده بومی بر پایه درک شهودی و بافت معنایی کسره را تلفظ می‌کند، اما سیستم ماشینی هیچ نشانه خطی آشکاری دریافت نمی‌کند.</li>
+                    <li>حذف این نشانه باعث هم‌شکل‌شدن واژگان ساده و زنجیره‌های مضاف‌الیهی پیچیده می‌شود.</li>
+                </ul>
+            </div>
+
+            <div class="pres-split-col highlighted">
+                <div class="pres-col-title">
+                    <span>■ ۲. چالش بنیادین سامانه‌های هوشمند</span>
+                    <span style="font-size: 13px; font-weight: 700; color: #1B4332;">سطح جمله</span>
+                </div>
+
+=== [8] CHAPTER 5 EXTRACTED CONTENT STATUS ===
+# **[فصل پنجم- جمع‌بندی و پیشنهادهای علمی]{dir="rtl"}**
+
+## [1-5-]{dir="rtl"} [مقدمه]{dir="rtl"}
+
+[پژوهش حاضر از یک مسئله نسبتاً ساده اما از نظر ساختاری مهم آغاز شد: آیا بازشناسی اضافه در زبان فارسی را می‌توان صرفاً به تشخیص واژه‌هایی که دارای اضافه‌اند محدود کرد، یا اینکه برای رسیدن به تصویری دقیق‌تر از این پدیده، باید روابط میان واژه‌ها و حوزه کامل زنجیره نیز بازسازی شود؟]{dir="rtl"}
+
+[اهمیت این پرسش از آنجا ناشی می‌شود که اضافه در زبان فارسی در بسیاری از موارد به یک رابطه میان دو واژه محدود نمی‌ماند و می‌تواند در قالب زنجیره‌هایی چندواژه‌ای ظاهر شود. در چنین ساخت‌هایی، تشخیص اینکه یک واژه دارای اضافه است، تنها بخشی از مسئله است. سامانه باید بتواند مشخص کند که این واژه در چه ساختی قرار گرفته، زنجیره از کجا آغاز شده و تا کجا ادامه پیدا کرده است و عناصر آن چگونه به یکدیگر وابسته‌اند]{dir="rtl"}.
+
+[بر همین اساس، در این پژوهش دو صورت‌بندی متفاوت برای بازشناسی ساخت اضافه بررسی شد. در صورت‌بندی نخست، یعنی مدل]{dir="rtl"} []{dir="rtl"}BIO[، ساخت زنجیره از طریق وضعیت هر واژه در توالی بازسازی می‌شود. در صورت‌بندی دوم، یعنی مدل]{dir="rtl"} Edge[، رابطه میان دو واژه مجاور مستقیماً به‌عنوان واحد تصمیم در نظر گرفته می‌شود. بنابراین، تفاوت دو مدل تنها در معماری محاسباتی آن‌ها نیست؛ بلکه هر یک جنبه متفاوتی از ساخت اضافه را هدف قرار می‌دهد]{dir="rtl"}.
+
+[فصل چهارم عملکرد مدل‌ها را بر اساس معیارهای تعریف‌شده گزارش کرد. در این فصل، تمرکز از گزارش عددی فاصله می‌گیرد و بر تفسیر یافته‌ها قرار می‌گیرد. هدف آن است که مشخص شود نتایج به‌دست‌آمده چه تصویری از مسئله بازشناسی اضافه ارائه می‌کنند، تفاوت دو رویکرد چه معنایی دارد، محدودیت‌های روش حاضر در کجا قرار دارند و چه مسیرهایی برای ادامه این پژوهش قابل پیشنهاد است]{dir="rtl"}.
+
+## [2-5-]{dir="rtl"} [بحث و تفسیر یافته‌ها]{dir="rtl"}
+
+[مهم‌ترین نتیجه مفهومی این پژوهش را می‌توان در تغییر سطح نگاه به مسئله بازشناسی اضافه خلاصه کرد. در بسیاری از صورت‌بندی‌های رایج، مسئله این است که مشخص شود آیا یک واژه در رابطه اضافه قرار دارد یا خیر. این تعریف برای بسیاری از کاربردها مفید است، اما زمانی که هدف تحلیل ساختار نحوی باشد، پاسخ به این پرسش به‌تنهایی کافی نیست]{dir="rtl"}.
+
+[نتایج پژوهش حاضر نشان داد که مدل‌های مبتنی بر پارس‌برت می‌توانند عناصر درگیر در ساخت اضافه را با دقت بالایی شناسایی کنند؛ اما هنگامی که همان خروجی در سطح ساختار ارزیابی می‌شود، بخشی از خطاها آشکار می‌شود که در ارزیابی توکنی دیده نمی‌شوند. این تفاوت اهمیت زیادی دارد، زیرا نشان می‌دهد «تشخیص درست اجزا» و «بازسازی درست ساخت» دو مسئله کاملاً یکسان نیستند]{dir="rtl"}.
+
+[این یافته نشان می‌دهد که برای ارزیابی سامانه‌های بازشناسی اضافه، بهتر است دو سطح از عملکرد از یکدیگر تفکیک شوند. سطح نخست مربوط به تشخیص عناصر محلی و سطح دوم مربوط به بازسازی ساختار است. چارچوب پژوهش حاضر با استفاده از معیارهای توکنی و ساختاری تلاش کرد این دو سطح را از یکدیگر جدا کند]{dir="rtl"}.
+
+[از این منظر، ارزش اصلی نتایج فقط در بالا بودن مقادیر عملکرد نیست؛ بلکه در نشان دادن این نکته است که **مسئله اضافه یک مسئله صرفاً واژه‌ای نیست**]{dir="rtl"}. [هرچه هدف پژوهش از تشخیص موضع اضافه به سمت بازسازی ساخت حرکت کند، اهمیت اطلاعات رابطه‌ای و مرزبندی نیز بیشتر می‌شود]{dir="rtl"}.
+
+[مدل]{dir="rtl"} BIO [مسئله را در قالب یک توالی از برچسب‌های]{dir="rtl"} O[،]{dir="rtl"} B-EZ []{dir="rtl"} [و]{dir="rtl"} I-EZ [صورت‌بندی می‌کند. مزیت اصلی این صورت‌بندی آن است که مدل علاوه بر تشخیص عضویت واژه در ساخت اضافه، اطلاعاتی درباره موقعیت آن واژه در زنجیره نیز دریافت و پیش‌بینی می‌کند]{dir="rtl"}.
+
+[از این نظر،]{dir="rtl"} BIO [با ماهیت زنجیره‌ای ساخت اضافه سازگاری قابل توجهی دارد. وجود برچسب آغاز و ادامه باعث می‌شود خروجی مدل مستقیماً قابل تبدیل به یک زنجیره باشد و مرزهای ساخت از روی توالی برچسب‌ها استخراج شود]{dir="rtl"}.
+
+[بااین‌حال، همین ویژگی می‌تواند منشأ بخشی از خطاهای مدل نیز باشد. در این روش، تصمیم درباره هر واژه بخشی از یک ساخت پیوسته را تشکیل می‌دهد. بنابراین، اشتباه در یک نقطه از زنجیره می‌تواند بر بازسازی کل آن اثر بگذارد. برای مثال، اگر یک واژه میانی به‌اشتباه خارج از زنجیره تشخیص داده شود، پیوستگی زنجیره در همان نقطه از بین می‌رود. از سوی دیگر، اگر مدل یک واژه خارج از زنجیره را به‌عنوان ادامه زنجیره در نظر بگیرد، مرز ساخت بیش از اندازه گسترش پیدا می‌کند]{dir="rtl"}.
+
+[در نتیجه، عملکرد مدل]{dir="rtl"} BIO [نشان می‌دهد که این صورت‌بندی برای **بازنمایی صریح ساخت زنجیره‌ای** مناسب است، اما حساسیت آن به خطاهای مرزی را نیز باید در نظر گرفت]{dir="rtl"}.
+
+[این نکته به‌ویژه در تفسیر فاصله میان عملکرد توکنی و عملکرد ساختاری اهمیت دارد. عملکرد بالای بنابراین، مدل]{dir="rtl"} BIO [را می‌توان رویکردی دانست که مزیت اصلی آن صراحت در نمایش ساخت زنجیره‌ای است، در حالی که محدودیت اصلی آن وابستگی بازسازی کل ساخت به صحت مجموعه‌ای از تصمیم‌های متوالی است]{dir="rtl"}.
+
+[مدل در سطح توکن نشان می‌دهد که بازنمایی بافت‌آگاه پارس‌برت اطلاعات مناسبی برای تشخیص وضعیت واژه در اختیار مدل قرار داده است؛ اما کاهش عملکرد در سطح زنجیره نشان می‌دهد که بازسازی یک ساخت کامل نیازمند تصمیم‌های سازگار در چند نقطه است]{dir="rtl"}.
+
+[در مدل]{dir="rtl"} Edge[، نقطه شروع متفاوت است. در اینجا به‌جای آنکه ابتدا وضعیت هر واژه مشخص شود، رابطه میان دو واژه مجاور مستقیماً موضوع پیش‌بینی قرار می‌گیرد]{dir="rtl"}.
+
+[این تغییر از نظر مفهومی اهمیت دارد. ساخت اضافه اساساً با رابطه میان عناصر شکل می‌گیرد و بنابراین، قرار دادن خودِ رابطه در مرکز مسئله می‌تواند با ماهیت زبانی پدیده سازگارتر باشد]{dir="rtl"}.
+
+[استفاده از بازنمایی چهارگانه شامل بردارهای دو واژه، تفاوت آن‌ها و حاصل‌ضرب عنصربه‌عنصر نیز باعث می‌شود طبقه‌بندی‌کننده صرفاً به بازنمایی مستقل هر واژه متکی نباشد. در واقع، اطلاعاتی درباره شباهت و تفاوت دو واژه و نحوه تعامل بازنمایی‌های آن‌ها در اختیار شبکه قرار می‌گیرد]{dir="rtl"}.
+
+[نتایج به‌دست‌آمده نشان داد که مدل]{dir="rtl"} Edge [در شرایط آزمایشی این پژوهش در سطح توکن و همچنین در معیارهای ساختاری عملکرد بالایی دارد. اهمیت این نتیجه را نباید تنها در این موضوع خلاصه کرد که مقدار]{dir="rtl"} F1 [آن از]{dir="rtl"} BIO [بیشتر بوده است. نکته مهم‌تر این است که مدل]{dir="rtl"} Edge [نشان داد مدل‌سازی مستقیم رابطه می‌تواند برای بازشناسی ساخت اضافه مفید باشد]{dir="rtl"}**.**
+
+[البته این صورت‌بندی نیز محدودیت‌هایی دارد. از آنجا که رابطه‌ها به‌صورت محلی و میان واژه‌های مجاور بررسی می‌شوند، بخشی از اطلاعات ساختاری کل جمله به‌صورت مستقیم در واحد تصمیم مدل حضور ندارد. مدل از بافت جمله در بازنمایی‌های پارس‌برت استفاده می‌کند، اما خروجی نهایی آن همچنان بر اساس رابطه‌های زوجی ساخته می‌شود]{dir="rtl"}.
+
+[ازاین‌رو، مدل]{dir="rtl"} Edge [را نمی‌توان راه‌حلی دانست که همه دشواری‌های ساخت اضافه را برطرف می‌کند. مزیت آن در این است که مسئله رابطه را مستقیماً هدف قرار می‌دهد و در نتیجه، برای بازسازی پیوندهای سازنده زنجیره چارچوب طبیعی‌تری فراهم می‌کند]{dir="rtl"}.
+
+[مقایسه]{dir="rtl"} BIO [و]{dir="rtl"} Edge [زمانی معنا پیدا می‌کند که این دو مدل را صرفاً به‌عنوان دو طبقه‌بندی‌کننده با اعداد متفاوت در نظر نگیریم]{dir="rtl"}.
+
+[در]{dir="rtl"} BIO[، مدل از مسیر «واژه ← برچسب ← زنجیره» به ساخت می‌رسد. ابتدا مشخص می‌شود هر واژه چه وضعیتی دارد و سپس از کنار هم قرار گرفتن این وضعیت‌ها، زنجیره بازسازی می‌شود]{dir="rtl"}.
+

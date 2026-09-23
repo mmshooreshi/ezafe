@@ -2,7 +2,7 @@
 // Master Presentation Runtime: Canvas Scaler, Navigation, Roles & Presenter HUD
 // ==========================================================================
 
-// === ۱. سیستم مقیاس‌پذیری حرفه‌ای استیج (FHD Canvas Scaler) ===
+// === ۱. سیستم مقیاس‌پذیری حرفه‌ای استیج (Responsive FHD Canvas Scaler) ===
 const wrapper = document.getElementById('presentation-wrapper');
 const stage = document.getElementById('stage');
 const STAGE_WIDTH = 1920;
@@ -10,13 +10,23 @@ const STAGE_HEIGHT = 1080;
 
 function resizeStage() {
     if (!wrapper || !stage) return;
-    const wrapperWidth = wrapper.clientWidth;
-    const wrapperHeight = wrapper.clientHeight;
-    const scale = Math.min(wrapperWidth / STAGE_WIDTH, wrapperHeight / STAGE_HEIGHT);
+    const wrapperWidth = window.innerWidth;
+    const wrapperHeight = window.innerHeight;
+    
+    // Scale smoothly with padding buffer on mobile screens
+    const isMobile = wrapperWidth <= 1024;
+    const horizontalMargin = isMobile ? 12 : 0;
+    const verticalMargin = isMobile ? 70 : 0; // leaves space for bottom touch bar
+
+    const availableW = Math.max(wrapperWidth - horizontalMargin, 320);
+    const availableH = Math.max(wrapperHeight - verticalMargin, 240);
+
+    const scale = Math.min(availableW / STAGE_WIDTH, availableH / STAGE_HEIGHT);
     stage.style.transform = `scale(${scale})`;
 }
 
 window.addEventListener('resize', resizeStage);
+window.addEventListener('orientationchange', () => setTimeout(resizeStage, 100));
 const resizeObserver = new ResizeObserver(() => resizeStage());
 if (wrapper) {
     resizeObserver.observe(wrapper);
@@ -72,15 +82,17 @@ function handlePasscodeSubmit(e) {
 }
 
 function unlockAdminMode() {
+    localStorage.setItem('admin_unlocked', 'true');
     document.body.classList.add('admin-unlocked');
     setRole('admin');
-    console.log('🔓 [Security] Admin mode unlocked with passcode 6519');
+    console.log('🔓 [Security] Admin mode unlocked and saved to session');
 }
 
 function lockAdminMode() {
+    localStorage.removeItem('admin_unlocked');
     document.body.classList.remove('admin-unlocked');
     setRole('audience');
-    console.log('🔒 [Security] Locked into pure view mode');
+    console.log('🔒 [Security] Admin mode logged out');
 }
 
 window.openPasscodeModal = openPasscodeModal;
@@ -192,10 +204,14 @@ function updateUI() {
         progressBar.style.width = `${progressPercent}%`;
     }
 
-    // نشانگر اسلاید در نوار نقش
+    // نشانگر اسلاید در نوار نقش و کنترل لمسی موبایل
     const badge = document.getElementById('slide-counter-badge');
     if (badge) {
         badge.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+    const mobileCounter = document.getElementById('mobile-counter-badge');
+    if (mobileCounter) {
+        mobileCounter.textContent = `${currentIndex + 1} / ${slides.length}`;
     }
 
     // همگام‌سازی پنل ارائه‌دهنده (Presenter HUD)
@@ -205,6 +221,11 @@ function updateUI() {
     if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
         window.MathJax.typesetPromise().catch(err => console.debug('MathJax typeset:', err));
     }
+}
+
+function toPersianDigits(str) {
+    const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    return String(str).replace(/[0-9]/g, (w) => persianDigits[+w]);
 }
 
 function syncPresenterHud() {
@@ -222,22 +243,25 @@ function syncPresenterHud() {
         }
     }
 
-    // پیش‌نمایش اسلاید بعدی
+    // پیش‌نمایش اسلاید بعدی با شماره اسلاید فارسی
     const nextPreview = document.getElementById('hud-next-title');
     if (nextPreview) {
         if (currentIndex < slides.length - 1) {
             const nextSlide = slides[currentIndex + 1];
             const nextTitle = nextSlide.querySelector('.title-main');
-            nextPreview.textContent = nextTitle ? nextTitle.textContent : `اسلاید ${currentIndex + 2}`;
+            const faNextNum = toPersianDigits(currentIndex + 2);
+            nextPreview.textContent = nextTitle ? nextTitle.textContent : `اسلاید ${faNextNum}`;
         } else {
             nextPreview.textContent = '— پایان ارائه رساله —';
         }
     }
 
-    // عنوان اسلاید فعلی در هدر HUD
+    // عنوان اسلاید فعلی در هدر HUD با ارقام کاملاً فارسی
     const hudSlideNum = document.getElementById('hud-slide-indicator');
     if (hudSlideNum) {
-        hudSlideNum.textContent = `اسلاید ${currentIndex + 1} از ${slides.length}`;
+        const curFa = toPersianDigits(currentIndex + 1);
+        const totalFa = toPersianDigits(slides.length);
+        hudSlideNum.textContent = `اسلاید ${curFa} از ${totalFa}`;
     }
 }
 
@@ -300,8 +324,14 @@ Object.defineProperty(window, 'currentIndex', {
 
 // === ۷. تبدیل خودکار ارجاعات و لود اولیه ===
 document.addEventListener("DOMContentLoaded", () => {
-    // قفل پیش‌فرض: حالت کاملاً تمیز و بدون هیچ کنترل
-    lockAdminMode();
+    // Restore admin state if previously logged in
+    const wasAdmin = localStorage.getItem('admin_unlocked') === 'true';
+    if (wasAdmin) {
+        document.body.classList.add('admin-unlocked');
+        setRole('admin');
+    } else {
+        lockAdminMode();
+    }
 
     // تبدیل ارجاعات علمی [cite: ...]
     const citeRegex = /\[cite:\s*([\d,\s]+)\]/g;
@@ -344,7 +374,13 @@ document.addEventListener('keydown', (e) => {
 
             if (enterCount >= 5) {
                 enterCount = 0;
-                openPasscodeModal();
+                const isCurrentlyUnlocked = document.body.classList.contains('admin-unlocked');
+                if (isCurrentlyUnlocked) {
+                    lockAdminMode();
+                    alert('🔒 از حالت مدیریت خارج شدید.');
+                } else {
+                    openPasscodeModal();
+                }
                 return;
             }
         } else {
@@ -395,3 +431,53 @@ document.addEventListener('keydown', (e) => {
         updateUI();
     }
 });
+
+
+
+// === ۹. موتور لمسی و سوایپ موبایل (Mobile Touch Swipe & Pinch Gesture Engine) ===
+(function initTouchEngine() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    const MIN_SWIPE_DISTANCE = 45; // Minimum px to register as swipe
+
+    const touchTarget = document.getElementById('presentation-wrapper') || document.body;
+
+    touchTarget.addEventListener('touchstart', (e) => {
+        // Ignore multi-touch (e.g. pinch zoom on diagram)
+        if (e.touches.length === 1) {
+            touchStartX = e.touches[0].screenX;
+            touchStartY = e.touches[0].screenY;
+        }
+    }, { passive: true });
+
+    touchTarget.addEventListener('touchend', (e) => {
+        // Prevent swipe triggers if user was actively typing or editing text
+        if (e.target.isContentEditable || ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+        // Don't trigger if swiping inside interactive modals or HUD
+        if (e.target.closest('#presenter-hud') || e.target.closest('#pdf-options') || e.target.closest('#editor-toolbar') || e.target.closest('#mobile-nav-bar')) return;
+
+        if (e.changedTouches.length === 1) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipeGesture();
+        }
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        // Ensure swipe was primarily horizontal, not vertical scroll
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) >= MIN_SWIPE_DISTANCE) {
+            if (deltaX < 0) {
+                // Swiped Left in RTL -> Forward / Next Slide
+                nextSlide();
+            } else {
+                // Swiped Right in RTL -> Backward / Prev Slide
+                prevSlide();
+            }
+        }
+    }
+})();

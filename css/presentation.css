@@ -1,16 +1,36 @@
 /* ==========================================================================
-   Master Academic Defense Presentation Stylesheet
-   1920x1080 FHD Design System — Iranian Academic Monograph & LaTeX Beamer
-   Theme: Warm Cream (#FAF7EE) + Unique Semi-Dark Pine Green (#1B4332)
-   Font Family: Peyda (پیدا) — Pure Typography & Fluid Academic Layouts
-   Roles: Audience (مخاطب) | Presenter (ارائه‌دهنده) | Admin (مدیر و استودیو)
+   Master Academic Presentation Design System (1920x1080 FHD)
+   University of Tehran — Persian NLP & Computational Linguistics
    ========================================================================== */
 
-/* ==================== فونت اختصاصی پـیــدا (Peyda Web Fonts) ==================== */
+/* ==================== ۱. بارگذاری فونت‌های استاندارد فارسی ==================== */
 @font-face {
     font-family: 'Peyda';
-    src: url('fonts/PeydaWeb-Regular.woff2') format('woff2'),
-         url('css/fonts/PeydaWeb-Regular.woff2') format('woff2');
+    src: url('../fonts/PeydaWeb-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('../fonts/peydaWeb-extralight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('../fonts/peydaWeb-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Peyda';
+    src: url('../fonts/PeydaWeb-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -18,8 +38,7 @@
 
 @font-face {
     font-family: 'Peyda';
-    src: url('fonts/PeydaWeb-Medium.woff2') format('woff2'),
-         url('css/fonts/PeydaWeb-Medium.woff2') format('woff2');
+    src: url('../fonts/PeydaWeb-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -27,8 +46,7 @@
 
 @font-face {
     font-family: 'Peyda';
-    src: url('fonts/PeydaWeb-SemiBold.woff2') format('woff2'),
-         url('css/fonts/PeydaWeb-SemiBold.woff2') format('woff2');
+    src: url('../fonts/PeydaWeb-SemiBold.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -36,8 +54,7 @@
 
 @font-face {
     font-family: 'Peyda';
-    src: url('fonts/PeydaWeb-Bold.woff2') format('woff2'),
-         url('css/fonts/PeydaWeb-Bold.woff2') format('woff2');
+    src: url('../fonts/PeydaWeb-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -45,8 +62,7 @@
 
 @font-face {
     font-family: 'Peyda';
-    src: url('fonts/PeydaWeb-ExtraBold.woff2') format('woff2'),
-         url('css/fonts/PeydaWeb-ExtraBold.woff2') format('woff2');
+    src: url('../fonts/PeydaWeb-ExtraBold.woff2') format('woff2');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -54,109 +70,147 @@
 
 @font-face {
     font-family: 'Peyda';
-    src: url('fonts/PeydaWeb-Black.woff2') format('woff2'),
-         url('css/fonts/PeydaWeb-Black.woff2') format('woff2');
+    src: url('../fonts/PeydaWeb-Black.woff2') format('woff2');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 
-/* ==================== متغیرهای رنگی: کرم گرم + سبز تیره کاج ایرانی ==================== */
+/* ==================== ۲. متغیرها و تم رنگی دانشگاه تهران ==================== */
 :root {
-    --color-cream-bg: #FAF7EE;          /* رنگ پایه کرم عاجی و اصیل */
-    --color-cream-surface: #FFFFFF;     /* سطح سفید کاغذ اعلا */
-    --color-cream-tint: #F4EFE3;        /* کرم پررنگ‌تر برای بخش‌های تمایزیافته */
-    --color-pine-dark: #1B4332;         /* سبز کاج تیره اختصاصی (رنگ هویت بصری) */
-    --color-pine-deepest: #0F2A1D;      /* سبز-مشکی زغالی برای تیترهای اصلی */
-    --color-pine-medium: #2D5A43;       /* سبز زیتونی/جنگلی ملایم برای متن فرعی */
-    --color-pine-light: #406A52;        /* سبز کاج باز */
-    --color-sage-tint: #EBF3ED;         /* پس‌زمینه بسیار ملایم مریم‌گلی */
-    --color-accent-gold: #C58F47;       /* طلایی/کهربایی آکادمیک برای نکات راهبردی */
-    --color-accent-gold-soft: #F9F1E4;  /* کرم-طلایی محو */
-    --color-text-title: #0F2A1D;        /* تیترهای عمیق و پرکنتراست */
-    --color-text-body: #1F2937;         /* بدنه متن با خوانایی حداکثری */
-    --color-text-muted: #4B5563;        /* توضیحات ثانویه */
-    --color-border-dark: #1B4332;       /* خطوط مرزی مستحکم */
-    --color-border-subtle: #CBD8CE;     /* خطوط تفکیک‌کننده لطیف */
-    --color-grid-dots: rgba(27, 67, 50, 0.08); /* شبکه نقطه‌ای با شفافیت ملایم */
+    --color-cream-bg: #FAF7EE;
+    --color-grid-dots: #D5CEBE;
+    --color-surface: #FFFFFF;
+    --color-surface-soft: #F4EFE6;
+    
+    /* هویت بصری سبز دانشگاهی */
+    --color-ut-dark: #0F2A1D;
+    --color-ut-green: #1B4332;
+    --color-ut-accent: #2D5A43;
+    --color-ut-light: #EBF3ED;
+    --color-ut-border: #CBD8CE;
+
+    /* رنگ‌های نشانگر و آکسان */
+    --color-amber: #D97706;
+    --color-amber-dark: #B45309;
+    --color-gold: #C58F47;
+    --color-blue-accent: #1D4ED8;
+    --color-crimson: #DC2626;
+
+    /* تایپوگرافی و متون */
+    --color-text-title: #0F2A1D;
+    --color-text-body: #1E293B;
+    --color-text-muted: #64748B;
+    
+    --font-primary: 'Peyda', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --stage-width: 1920px;
+    --stage-height: 1080px;
 }
 
-/* ==================== ریست ساختاری: بدون هیچ گوشه گرد و سایه ==================== */
+/* ==================== ۳. تنظیمات پایه و ریست ==================== */
 *, *::before, *::after {
     box-sizing: border-box;
-    border-radius: 0 !important;       /* به دستور صریح کاربر: بدون گردی گوشه‌ها */
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #121815;          /* محیط بیرونی پروژکتور / نمایشگر */
-    font-family: 'Peyda', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    overflow: hidden;
-    color: var(--color-text-body);
     direction: rtl;
     text-align: right;
+    font-family: var(--font-primary);
+    background-color: #0B0F19;
+    color: var(--color-text-body);
+    overflow: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
-#presentation-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+/* ==================== ۴. ساختار استیج و مقیاس‌پذیری (Screen Mode) ==================== */
+@media screen {
+    #presentation-wrapper {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #0B0F19;
+        touch-action: pan-y pinch-zoom;
+        position: relative;
+    }
+
+    #stage {
+        width: var(--stage-width);
+        height: var(--stage-height);
+        flex-shrink: 0;
+        position: relative;
+        transform-origin: center center;
+        background-color: var(--color-cream-bg);
+        background-image: radial-gradient(var(--color-grid-dots) 1.3px, transparent 1.3px);
+        background-size: 32px 32px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* مدیریت نمایش اسلاید منفرد */
+    .slide {
+        display: none !important;
+        width: 100%;
+        height: 100%;
+        /* padding: 56px 72px; */
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent;
+        overflow: hidden;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+        padding-left: 72px;
+        padding-right: 72px;
+    }
+
+    .slide.active {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* پنهان‌سازی پیش‌فرض یادداشت‌های گوینده در استیج اصلی */
+    .presenter-notes {
+        display: none;
+    }
 }
 
-/* ==================== استیج اصلی FHD (1920x1080) ==================== */
-#stage {
-    width: 1920px;
-    height: 1080px;
-    background-color: var(--color-cream-bg);
-    background-image: radial-gradient(var(--color-grid-dots) 1.3px, transparent 1.3px);
-    background-size: 32px 32px;
-    position: absolute;
-    transform-origin: center center;
-    display: flex;
-    overflow: hidden;
-    margin: 0 !important;              /* رفع مشکل بریدگی بالای کادر */
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5) !important; /* فریم نمایشگر بیرونی */
-    border: 2px solid var(--color-pine-dark);
-}
-
-/* ==================== اسلایدها ==================== */
-.slide {
+/* ==================== ۵. نوار پیشرفت بالا ==================== */
+.progress-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 5px;
+    background: rgba(27, 67, 50, 0.15);
+    z-index: 50;
+}
+
+.progress-bar {
     height: 100%;
-    background-color: transparent;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.28s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 44px 80px 36px;
-    box-sizing: border-box;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-ut-green), var(--color-amber));
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.slide.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-}
-
-/* ==================== هدر رسمی کلاسیک مونوگراف ==================== */
+/* ==================== ۶. هدر و تایپوگرافی ساختاریافته اسلایدها ==================== */
 .layout-header {
+    border-bottom: 2px solid var(--color-ut-border);
+    padding-bottom: 16px;
     margin-bottom: 20px;
-    border-bottom: 2.5px solid var(--color-pine-dark);
-    padding-bottom: 14px;
-    position: relative;
     flex-shrink: 0;
 }
 
@@ -164,65 +218,46 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
-    color: var(--color-pine-medium);
+    color: var(--color-text-muted);
     margin-bottom: 10px;
-    letter-spacing: -0.2px;
+}
+
+.header-top-bar img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
 }
 
 .header-tag {
     display: inline-block;
-    background: var(--color-pine-dark);
+    background: var(--color-ut-green);
     color: #FFFFFF;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 800;
-    padding: 4px 16px;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+    padding: 3px 12px;
+    /* border-radius: 4px; */
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
 }
 
 .title-main {
-    font-size: 46px;
+    font-size: 34px;
     font-weight: 900;
-    color: var(--color-pine-deepest);
-    line-height: 1.3;
-    margin: 0 0 8px 0;
+    color: var(--color-text-title);
+    line-height: 1.35;
+    margin-bottom: 6px;
     letter-spacing: -0.8px;
 }
 
 .title-sub {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
-    color: var(--color-pine-medium);
-    margin: 0;
+    color: var(--color-ut-accent);
     line-height: 1.5;
 }
 
-/* ==================== فوتر رسمی ==================== */
-.layout-footer {
-    border-top: 1.5px solid var(--color-border-subtle);
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    flex-shrink: 0;
-    margin-top: auto;
-}
-
-.layout-footer .footer-badge {
-    background: var(--color-sage-tint);
-    border: 1.5px solid var(--color-border-subtle);
-    color: var(--color-pine-dark);
-    padding: 3px 12px;
-    font-weight: 800;
-    font-size: 14px;
-}
-
-/* ==================== بدنه محتوا (Layout Content) ==================== */
 .layout-content {
     flex: 1;
     display: flex;
@@ -230,569 +265,415 @@ html, body {
     justify-content: flex-start;
     gap: 20px;
     min-height: 0;
-    position: relative;
-    padding-top: 4px;
+    overflow: hidden;
 }
 
-/* ==================== هایلایت‌های ماژیکی کلاسیک (Sketchy Highlights) ==================== */
-.sketch-hl {
-    background: linear-gradient(104deg, rgba(245, 222, 179, 0) 0.9%, rgba(254, 240, 138, 0.85) 2.4%, rgba(254, 240, 138, 0.6) 93%, rgba(245, 222, 179, 0) 98%);
-    padding: 2px 10px;
-    display: inline;
+/* ==================== ۷. کامپوننت‌های روایی و باکس‌های تحلیلی ==================== */
+.pres-hero-box {
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-ut-border);
+    border-top: 1px solid var(--color-ut-border);
+    border-bottom: 1px solid var(--color-ut-border);
+    border-left: 1px solid var(--color-ut-border);
+    padding: 22px 30px;
+    box-shadow: 0 4px 16px rgba(15, 42, 29, 0.04);
+}
+
+.pres-hero-box h3 {
+    font-size: 22px;
     font-weight: 800;
-    color: #0F2A1D;
+    color: var(--color-ut-dark);
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
-.sketch-hl-green {
-    background: linear-gradient(104deg, rgba(209, 250, 229, 0) 0.9%, rgba(167, 243, 208, 0.9) 2.4%, rgba(167, 243, 208, 0.65) 93%, rgba(209, 250, 229, 0) 98%);
-    padding: 2px 10px;
-    display: inline;
-    font-weight: 800;
-    color: var(--color-pine-dark);
-}
-
-.sketch-hl-gold {
-    background: linear-gradient(104deg, rgba(254, 243, 199, 0) 0.9%, rgba(253, 230, 138, 0.95) 2.4%, rgba(253, 230, 138, 0.7) 93%, rgba(254, 243, 199, 0) 98%);
-    padding: 2px 10px;
-    display: inline;
-    font-weight: 800;
-    color: #854D0E;
-}
-
-/* ==================== بالت‌های مربعی کلاسیک (Square Bullets) ==================== */
-ul.vintage-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-ul.vintage-list li {
-    position: relative;
-    padding-right: 32px;
-    margin-bottom: 16px;
-    font-size: 24px;
+.pres-hero-box p {
+    font-size: 17px;
     line-height: 1.8;
     color: var(--color-text-body);
 }
 
-ul.vintage-list li::before {
+.sketch-hl {
+    background: #FEF08A;
+    padding: 2px 8px;
+    /* border-radius: 4px; */
+    font-weight: 700;
+    color: #854D0E;
+}
+
+/* طرح‌بندی‌های چندستونه */
+.pres-split-narrative {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    flex: 1;
+    min-height: 0;
+}
+
+.pres-split-narrative.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pres-split-col {
+    background: var(--color-surface);
+    border: 1px solid var(--color-ut-border);
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pres-split-col.highlighted {
+    background: #FFFFFF;
+    border: 2px solid var(--color-ut-green);
+    box-shadow: 0 6px 20px rgba(27, 67, 50, 0.08);
+}
+
+.pres-col-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-surface-soft);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-ut-dark);
+}
+
+/* لیست‌های کلاسیک دانشگاهی */
+.vintage-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.vintage-list li {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--color-text-body);
+    position: relative;
+    padding-right: 22px;
+}
+
+.vintage-list li::before {
     content: "■";
     position: absolute;
     right: 0;
     top: 2px;
-    color: var(--color-pine-dark);
-    font-size: 17px;
+    font-size: 11px;
+    color: var(--color-ut-green);
 }
 
-ul.vintage-list li b {
-    color: var(--color-pine-deepest);
-    font-weight: 800;
+.vintage-list li b {
+    color: var(--color-ut-dark);
 }
 
-/* ==================== الگوهای متنوع و غیرکارتی (Bespoke Editorial Layouts) ==================== */
-
-/* ۱. استایل تک‌ستونه تمیز و منسجم (Single-Column Academic Narrative) */
-.pres-single-col {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+/* ==================== ۸. جدول‌های استاندارد آکادمیک (APA Strict Style) ==================== */
+.apa-table-container {
     width: 100%;
-}
-
-/* ۲. استایل بیانیه بزرگ (Hero Statement) */
-.pres-hero-box {
-    border-right: 8px solid var(--color-pine-dark);
-    background: var(--color-sage-tint);
-    padding: 24px 34px;
-    margin-bottom: 16px;
-}
-.pres-hero-box h3 {
-    font-size: 30px;
-    font-weight: 900;
-    color: var(--color-pine-deepest);
-    margin: 0 0 10px;
-    line-height: 1.4;
-}
-.pres-hero-box p {
-    font-size: 24px;
-    line-height: 1.8;
-    color: var(--color-pine-medium);
-    margin: 0;
-}
-
-/* ۳. مقایسه روایی دوقلو (حداکثر ۲ بخش، بدون ستون‌های ریز) */
-.pres-split-narrative {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-    align-items: stretch;
-}
-.pres-split-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background: #FFFFFF;
-    border: 1.5px solid var(--color-border-subtle);
-    padding: 26px 30px;
-}
-.pres-split-col.highlighted {
-    border: 2px solid var(--color-pine-dark);
-    background: #FFFFFF;
-}
-.pres-col-title {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--color-pine-dark);
-    border-bottom: 2px solid var(--color-border-subtle);
-    padding-bottom: 10px;
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* ۴. جعبه فرمول ریاضی آکادمیک (MathJax Display Box) */
-.academic-math-box {
-    border: 2px solid var(--color-pine-dark);
-    background: #FAF7EE;
+    overflow-x: auto;
+    background: var(--color-surface);
+    border: 1px solid var(--color-ut-border);
     padding: 16px 24px;
-    text-align: center;
-    direction: ltr;
-    font-size: 26px;
-    font-weight: 700;
-    color: #0F2A1D;
-    margin: 12px 0 16px;
-    box-sizing: border-box;
 }
 
-/* ۵. نمایش بزرگ و قهرمانانه تصویر (Maximized Image Hero) */
-.pres-image-hero-wrap {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #FFFFFF;
-    border: 2px solid var(--color-pine-dark);
-    padding: 14px 20px;
-    box-sizing: border-box;
-}
-.pres-image-hero-wrap img {
-    max-width: 100%;
-    max-height: 540px;
-    object-fit: contain;
-    display: block;
-}
-.pres-image-caption {
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-pine-dark);
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1.5px solid var(--color-border-subtle);
-}
-
-/* ۴. آمار و یافته غول‌آسا (Big Stat Showcase) */
-.pres-stat-block {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 12px;
-}
-.pres-stat-num {
-    font-size: 72px;
-    font-weight: 900;
-    color: var(--color-pine-dark);
-    line-height: 1;
-    font-family: 'Peyda', monospace;
-    letter-spacing: -2px;
-}
-.pres-stat-label {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--color-pine-medium);
-}
-
-/* ==================== جدول‌های آکادمیک بوک‌تبز (LaTeX Booktabs) ==================== */
-table.booktabs {
+table.apa-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 12px 0;
-    font-size: 20px;
+    font-size: 15px;
     text-align: right;
-    background: #FFFFFF;
-    border-top: 3px solid var(--color-pine-dark);
-    border-bottom: 3px solid var(--color-pine-dark);
+    line-height: 1.6;
+    border-top: 2px solid var(--color-ut-dark);
+    border-bottom: 2px solid var(--color-ut-dark);
 }
 
-table.booktabs thead th {
-    border-bottom: 2px solid var(--color-pine-dark);
-    padding: 14px 18px;
+table.apa-table thead th {
     font-weight: 800;
-    color: var(--color-pine-deepest);
-    background: var(--color-cream-tint);
-    font-size: 21px;
+    color: var(--color-ut-dark);
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--color-ut-dark);
+    background: var(--color-surface-soft);
 }
 
-table.booktabs tbody td {
-    padding: 12px 18px;
-    border-bottom: 1px solid var(--color-border-subtle);
+table.apa-table tbody td {
+    padding: 11px 14px;
     color: var(--color-text-body);
-    font-size: 20px;
+    border-bottom: 1px solid #E5E7EB;
 }
 
-table.booktabs tbody tr:last-child td {
+table.apa-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-table.booktabs tbody tr.highlight-row {
-    background: var(--color-sage-tint);
-    font-weight: 800;
+table.apa-table tbody tr:hover {
+    background-color: var(--color-ut-light);
 }
 
-/* ==================== قاب تصاویر آکادمیک (Figure Frames) ==================== */
-.figure-frame {
-    border: 2px solid var(--color-pine-dark);
-    background: #FFFFFF;
-    padding: 14px 20px;
+table.apa-table td.numeric, 
+table.apa-table th.numeric {
+    text-align: left;
+    direction: ltr;
+    font-family: 'Peyda', sans-serif;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ==================== ۹. ارجاعات علمی و فرمول‌های ریاضی ==================== */
+.academic-cite {
+    color: var(--color-ut-green);
+    font-weight: 700;
+    font-size: 0.85em;
+    padding: 0 3px;
+    cursor: help;
+}
+
+.formula-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-ut-border);
+    /* border-radius: 4px; */
+    padding: 18px 24px;
+    text-align: center;
+    direction: ltr;
+    margin: 10px 0;
+}
+
+/* ==================== ۱۰. نوار ناوبری موبایل و تبلت ==================== */
+#mobile-nav-bar {
+    display: none;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9998;
+    background: rgba(15, 42, 29, 0.94);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    padding: 6px 14px;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 1024px), (pointer: coarse) {
+    #mobile-nav-bar {
+        display: flex;
+    }
+    #stage {
+        box-shadow: none;
+    }
+}
+
+.mobile-nav-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: none !important;
-    width: 100%;
-    box-sizing: border-box;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.figure-frame img {
-    max-width: 100%;
-    max-height: 520px;
-    height: auto;
-    object-fit: contain;
-    display: block;
+.mobile-nav-btn:active {
+    background: var(--color-gold);
+    color: var(--color-ut-dark);
+    transform: scale(0.92);
 }
 
-.figure-caption {
-    width: 100%;
-    margin-top: 10px;
-    border-top: 1.5px solid var(--color-border-subtle);
-    padding-top: 8px;
-    font-size: 19px;
+.mobile-nav-counter {
+    color: #F8FAFC;
+    font-size: 14px;
     font-weight: 700;
-    color: var(--color-pine-dark);
+    min-width: 60px;
     text-align: center;
+    direction: ltr;
 }
 
-/* ==================== نوار سه‌گانه نقش‌ها (Role Switcher Hub) ==================== */
+/* ==================== ۱۱. نوار نقش و وضعیت (Role Switcher Bar) ==================== */
 #role-switcher-bar {
     position: fixed;
-    top: 16px;
-    left: 20px;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 42, 29, 0.94);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+    padding: 6px 16px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(15, 42, 29, 0.95);
-    border: 1.5px solid var(--color-border-dark);
-    padding: 6px 12px;
+    gap: 10px;
     z-index: 9999;
-    color: #FFFFFF;
-    font-size: 13px;
-    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    direction: rtl;
+}
+
+body:not(.admin-unlocked) #role-switcher-bar {
+    display: none;
 }
 
 .role-tab-btn {
     background: transparent;
-    border: 1px solid transparent;
-    color: #D1D5DB;
-    padding: 5px 12px;
-    font-family: 'Peyda', sans-serif;
+    border: none;
+    color: #E2E8F0;
+    font-family: var(--font-primary);
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .role-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
     color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .role-tab-btn.active {
-    background: var(--color-accent-gold);
-    color: #0F2A1D;
-    font-weight: 900;
+    background: var(--color-gold);
+    color: var(--color-ut-dark);
+    font-weight: 800;
 }
 
 .role-divider {
     width: 1px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 0 4px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.25);
 }
 
 #slide-counter-badge {
-    font-family: monospace;
-    direction: ltr;
+    color: #F8FAFC;
     font-size: 13px;
-    color: #A7F3D0;
-    padding: 2px 6px;
-    background: rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    padding: 0 4px;
+    direction: ltr;
 }
 
-/* ==================== پنل ارائه‌دهنده حرفه‌ای (PowerPoint Presenter HUD) ==================== */
+/* ==================== ۱۲. پنل ارائه‌دهنده (Presenter HUD) ==================== */
 #presenter-hud {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 580px;
-    max-height: 85vh;
-    background: #FFFFFF;
-    border: 2px solid var(--color-pine-dark);
-    z-index: 9998;
-    display: flex;
+    width: 440px;
+    background: rgba(15, 42, 29, 0.96);
+    border: 2px solid var(--color-ut-green);
+    border-radius: 12px;
+    color: #F8FAFC;
+    z-index: 9990;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    display: none;
     flex-direction: column;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
-    font-family: 'Peyda', sans-serif;
+    overflow: hidden;
+    transition: height 0.25s ease;
 }
 
-#presenter-hud.hud-minimized {
-    transform: translateY(calc(100% - 48px));
-}
-
-#presenter-hud.hud-hidden {
-    display: none !important;
+body[data-role="presenter"] #presenter-hud {
+    display: flex;
 }
 
 .hud-header {
-    background: var(--color-pine-dark);
-    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.25);
     padding: 10px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     cursor: pointer;
 }
 
 .hud-header-title {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 800;
     display: flex;
-    align-items: center;
     gap: 8px;
+    align-items: center;
 }
 
 .hud-timer-wrap {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 4px 10px;
+}
+
+#hud-timer-digits {
     font-family: monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-gold);
     direction: ltr;
-    font-size: 15px;
-    font-weight: 800;
-    color: #FDE047;
 }
 
 .hud-timer-btn {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.15);
     border: none;
     color: #FFFFFF;
+    width: 26px;
+    height: 26px;
+    /* border-radius: 4px; */
     cursor: pointer;
-    font-size: 12px;
-    padding: 2px 4px;
-}
-.hud-timer-btn:hover {
-    color: #FDE047;
+    font-size: 11px;
 }
 
 .hud-body {
-    padding: 16px 20px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 240px;
     overflow-y: auto;
-    max-height: 480px;
-    background: var(--color-cream-bg);
 }
 
 .hud-next-preview {
-    background: #FFFFFF;
-    border: 1px solid var(--color-border-subtle);
-    padding: 10px 14px;
-    margin-bottom: 12px;
-    font-size: 13px;
-    color: var(--color-pine-medium);
-}
-.hud-next-preview b {
-    color: var(--color-pine-dark);
+    font-size: 12px;
+    color: var(--color-gold);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 6px;
 }
 
 .hud-notes-box {
-    background: #FFFFFF;
-    border: 2px solid var(--color-pine-dark);
-    padding: 18px 22px;
-    font-size: 22px;
-    line-height: 2.0;
-    color: var(--color-pine-deepest);
-    max-height: 320px;
-    overflow-y: auto;
-}
-
-.hud-notes-box b {
-    color: var(--color-pine-dark);
-}
-
-/* پنهان‌سازی ارائه‌دهنده در اسلاید اصلی */
-.presenter-notes {
-    display: none !important;
-}
-
-/* رفتار نقش‌ها */
-body[data-role="audience"] #role-switcher-bar {
-    opacity: 0.2;
-    transition: opacity 0.3s;
-}
-body[data-role="audience"] #role-switcher-bar:hover {
-    opacity: 1;
-}
-body[data-role="audience"] #editor-toolbar,
-body[data-role="audience"] #presenter-hud,
-body[data-role="audience"] #history-sidebar {
-    display: none !important;
-}
-
-body[data-role="presenter"] #presenter-hud {
-    display: flex !important;
-}
-body[data-role="presenter"] #editor-toolbar {
-    display: none !important;
-}
-
-body[data-role="admin"] #presenter-hud {
-    display: none !important;
-}
-body[data-role="admin"] #editor-toolbar {
-    display: flex !important;
-}
-
-/* ==================== کنترل‌های ادیتور استودیو در حالت ادمین ==================== */
-#editor-toolbar {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(15, 42, 29, 0.95);
-    border: 2px solid var(--color-border-dark);
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 9999;
-}
-
-.editor-btn {
-    background: transparent;
-    border: 1px solid transparent;
-    color: white;
-    font-size: 18px;
-    width: 38px;
-    height: 38px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-}
-
-.editor-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.editor-btn.active {
-    background: var(--color-accent-gold);
-    color: #0F2A1D;
-}
-
-.toolbar-divider {
-    width: 1px;
-    height: 22px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 0 4px;
-}
-
-/* ==================== پیشرفت ارائه ==================== */
-.progress-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: rgba(27, 67, 50, 0.15);
-    z-index: 50;
-}
-
-.progress-bar {
-    height: 100%;
-    background: var(--color-pine-dark);
-    width: 0%;
-    transition: width 0.25s ease-out;
-}
-
-/* ارجاعات علمی */
-sup.academic-cite {
-    color: var(--color-pine-dark);
-    font-weight: 800;
     font-size: 14px;
-    padding: 0 2px;
-    cursor: help;
+    line-height: 1.7;
+    color: #E2E8F0;
 }
 
-/* ==================== حالت امنیتی و قفل پیش‌فرض (Strict Locked View Mode) ==================== */
-body:not(.admin-unlocked) #role-switcher-bar,
-body:not(.admin-unlocked) #editor-toolbar,
-body:not(.admin-unlocked) #presenter-hud,
-body:not(.admin-unlocked) #history-sidebar,
-body:not(.admin-unlocked) #pdf-options,
-body:not(.admin-unlocked) #pdf-download-btn {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+#presenter-hud.hud-minimized .hud-body {
+    display: none;
 }
 
-/* مودال کد عبور ۶۵۱۹ */
+/* ==================== ۱۳. دیالوگ کد عبور مدیریت (Passcode Modal) ==================== */
 #passcode-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(15, 42, 29, 0.75);
+    background: rgba(11, 15, 25, 0.85);
     backdrop-filter: blur(6px);
+    z-index: 100010;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100000;
-    opacity: 1;
-    transition: opacity 0.2s ease;
 }
 
 #passcode-modal.passcode-modal-hidden {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+    display: none;
 }
 
 .passcode-dialog {
-    background: #FAF7EE;
-    border: 3px solid #1B4332;
-    padding: 32px 36px;
-    width: 440px;
+    background: #FFFFFF;
+    border: 2px solid var(--color-ut-green);
+    border-radius: 12px;
+    width: 400px;
     max-width: 90vw;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    direction: rtl;
+    padding: 24px 28px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     text-align: right;
 }
 
@@ -800,92 +681,852 @@ body:not(.admin-unlocked) #pdf-download-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #1B4332;
-    padding-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .passcode-header h3 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 900;
-    color: #0F2A1D;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-ut-dark);
 }
 
 .passcode-close-btn {
     background: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
-    color: #1B4332;
-    font-weight: 800;
+    color: var(--color-text-muted);
 }
 
 .passcode-desc {
-    font-size: 16px;
-    color: #4B5563;
+    font-size: 14px;
+    color: var(--color-text-body);
+    margin-bottom: 16px;
     line-height: 1.6;
-    margin: 0;
 }
 
 #passcode-input {
     width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #1B4332;
-    background: #FFFFFF;
-    font-size: 26px;
-    font-weight: 900;
-    letter-spacing: 6px;
+    padding: 10px 14px;
+    border: 2px solid var(--color-ut-border);
+    border-radius: 6px;
+    font-size: 18px;
     text-align: center;
-    direction: ltr;
-    color: #0F2A1D;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
     outline: none;
-    box-sizing: border-box;
 }
 
 #passcode-input:focus {
-    border-color: #2D5A43;
-    box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.2);
+    border-color: var(--color-ut-green);
+}
+
+#passcode-error {
+    color: var(--color-crimson);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .passcode-error-hidden {
     display: none;
 }
 
-#passcode-error {
-    color: #DC2626;
-    font-size: 15px;
-    font-weight: 800;
-    text-align: center;
-}
-
 .passcode-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
-    margin-top: 8px;
+    gap: 10px;
 }
 
 .passcode-btn-cancel {
-    padding: 10px 20px;
-    border: 1.5px solid #CBD8CE;
-    background: #FFFFFF;
-    color: #4B5563;
-    font-size: 16px;
-    font-weight: 700;
+    background: #F1F5F9;
+    color: #475569;
+    border: 1px solid #CBD5E1;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 .passcode-btn-submit {
-    padding: 10px 24px;
-    border: 2px solid #1B4332;
-    background: #1B4332;
+    background: var(--color-ut-green);
     color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 800;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: 700;
+}
+
+/* ==================== ۱۴. موتور چاپ برداری دقیق ۱۶:۹ (Strict Print Engine) ==================== */
+@media print {
+    @page {
+        size: 297mm 167.0625mm; /* تناسب دقیق ۱۶:۹ در عرض برگه A4 */
+        margin: 0 !important;
+    }
+
+    *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    html, body {
+        width: 297mm !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: var(--color-cream-bg) !important;
+        overflow: visible !important;
+    }
+
+    /* پنهان‌سازی مطلق کلیه ابزارهای تعاملی هنگام چاپ */
+    #role-switcher-bar,
+    #editor-toolbar,
+    #history-sidebar,
+    #presenter-hud,
+    #passcode-modal,
+    #pdf-options,
+    #pdf-loading,
+    #mobile-nav-bar,
+    .progress-container,
+    .moveable-control-box,
+    .hl-svg {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    #presentation-wrapper {
+        display: block !important;
+        position: static !important;
+        width: 297mm !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    #stage {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+        width: 297mm !important;
+        height: auto !important;
+        overflow: visible !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* هر اسلاید بر روی یک صفحه جداگانه برداری چاپ می‌شود */
+    .slide {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        position: relative !important;
+        width: 297mm !important;
+        height: 167.0625mm !important;
+        min-height: 167.0625mm !important;
+        max-height: 167.0625mm !important;
+        padding: 10mm 14mm !important;
+        box-sizing: border-box !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        background-color: var(--color-cream-bg) !important;
+        overflow: hidden !important;
+    }
+
+    body:not(.print-with-notes) .presenter-notes {
+        display: none !important;
+    }
+
+    body.print-with-notes .presenter-notes {
+        display: block !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        max-height: 38mm !important;
+        background: rgba(15, 42, 29, 0.96) !important;
+        color: #F8FAFC !important;
+        padding: 4mm 8mm !important;
+        font-size: 13px !important;
+        z-index: 9999 !important;
+        border-top: 2px solid var(--color-amber) !important;
+    }
+}
+/* ==========================================================================
+   🔥 v4 — MAX-LEGIBILITY UPGRADE: Bigger Text, Bigger Tables, Lightbox
+   ========================================================================== */
+
+/* ---- OVERRIDE SLIDE PADDING (fix collision) ---- */
+@media screen {
+    .slide {
+        padding: 12px 72px !important;
+    }
+}
+
+/* ---- BIGGER TYPOGRAPHY (1920px stage deserves bigger fonts) ---- */
+.title-main { font-size: 44px !important; line-height: 1.3 !important; }
+.title-sub { font-size: 22px !important; }
+.header-top-bar { font-size: 16px !important; }
+.header-tag { font-size: 15px !important; padding: 4px 14px !important; }
+.header-top-bar img { height: 56px !important; }
+
+.pres-hero-box { padding: 28px 36px !important; }
+.pres-hero-box h3 { font-size: 26px !important; }
+.pres-hero-box p { font-size: 20px !important; line-height: 1.85 !important; }
+
+.pres-split-col { padding: 28px 32px !important; }
+.pres-col-title { font-size: 22px !important; padding-bottom: 14px !important; }
+
+.vintage-list li { font-size: 19px !important; line-height: 1.8 !important; padding-right: 26px !important; }
+.vintage-list li::before { font-size: 13px !important; top: 4px !important; }
+
+/* ---- MUCH BIGGER APA TABLES ---- */
+.apa-table-container { padding: 22px 30px !important; }
+table.apa-table { font-size: 18px !important; line-height: 1.7 !important; }
+table.apa-table thead th { padding: 16px 18px !important; font-size: 18px !important; }
+table.apa-table tbody td { padding: 14px 18px !important; }
+
+/* Small tables? Add class="apa-table apa-dense" for 15px, or apa-large for 20px */
+table.apa-table.apa-dense { font-size: 15px !important; }
+table.apa-table.apa-dense thead th, table.apa-table.apa-dense tbody td { padding: 10px 12px !important; }
+table.apa-table.apa-large { font-size: 20px !important; }
+
+/* ---- IMAGES: Clickable + Zoomable Cursor + Border ---- */
+.slide img:not(.header-top-bar img):not(.no-zoom) {
+    cursor: zoom-in;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(15, 42, 29, 0.08);
+}
+
+.slide img:not(.header-top-bar img):not(.no-zoom):hover {
+    transform: scale(1.015);
+    box-shadow: 0 8px 24px rgba(15, 42, 29, 0.2);
+}
+
+/* ---- IMAGE LIGHTBOX (Full-screen with pinch/pan) ---- */
+#image-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 15, 25, 0.96);
+    z-index: 100000;
+    align-items: center;
+    justify-content: center;
+    touch-action: none;
+    overflow: hidden;
+}
+
+#image-lightbox.open {
+    display: flex;
+    animation: lightboxFade 0.25s ease;
+}
+
+@keyframes lightboxFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+#image-lightbox img {
+    max-width: 92vw;
+    max-height: 88vh;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: none;
+    transform-origin: center center;
+    transition: transform 0.15s ease-out;
+    cursor: grab;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    /* border-radius: 4px; */
+}
+
+#image-lightbox img:active { cursor: grabbing; }
+
+#lightbox-close {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFF;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 100001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
     transition: background 0.2s;
 }
 
-.passcode-btn-submit:hover {
-    background: #0F2A1D;
+#lightbox-close:hover, #lightbox-close:active { background: var(--color-crimson); }
+
+#lightbox-controls {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 42, 29, 0.94);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    display: flex;
+    gap: 10px;
+    z-index: 100001;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
+
+.lightbox-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFF;
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s;
+}
+
+.lightbox-btn:active { background: var(--color-gold); color: var(--color-ut-dark); transform: scale(0.9); }
+
+#lightbox-caption {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 600;
+    align-self: center;
+    padding: 0 10px;
+    max-width: 320px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* ---- TABLES: Click-to-zoom in lightbox on mobile ---- */
+.apa-table-container {
+    position: relative;
+}
+
+@media (max-width: 1024px), (pointer: coarse) {
+    .apa-table-container::after {
+        content: "🔍 برای بزرگ‌نمایی ضربه بزنید";
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        color: var(--color-text-muted);
+        margin-top: 6px;
+        font-weight: 600;
+    }
+    .apa-table-container { cursor: zoom-in; }
+}
+
+/* ---- MOBILE: Zoom the whole slide MORE aggressively ---- */
+@media (max-width: 1024px), (pointer: coarse) {
+    #presentation-wrapper {
+        touch-action: pan-y;
+        padding: 8px;
+    }
+    
+    /* Fatten touch targets */
+    .mobile-nav-btn { width: 52px !important; height: 52px !important; font-size: 24px !important; }
+    #mobile-nav-bar { padding: 8px 16px !important; gap: 14px !important; }
+}
+
+/* ---- PRINT: Make sure lightbox is hidden ---- */
+@media print {
+    #image-lightbox, #lightbox-close, #lightbox-controls { display: none !important; }
+    .apa-table-container::after { display: none !important; }
+}
+
+
+/* ==========================================================================
+   🔥 v5 — MATH RESTORATION + IMAGE HERO + BOOKTABS + FIGURE ZOOM
+   ========================================================================== */
+
+/* ---- MathJax visibility (critical - was hidden) ---- */
+.academic-math-box {
+    background: #FFFFFF;
+    border: 2px solid var(--color-ut-border);
+    /* border-right: 5px solid var(--color-amber); */
+    padding: 22px 28px;
+    margin: 16px 0;
+    text-align: center;
+    direction: ltr;
+    /* border-radius: 4px; */
+    overflow-x: auto;
+    box-shadow: 0 3px 10px rgba(15, 42, 29, 0.05);
+}
+
+.academic-math-box mjx-container,
+.academic-math-box mjx-container svg,
+.academic-math-box .MathJax {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: 100% !important;
+    font-size: 130% !important;
+}
+
+/* Inline math in body text */
+mjx-container[jax="SVG"]:not([display="true"]) {
+    display: inline-block !important;
+    visibility: visible !important;
+    font-size: 105% !important;
+    vertical-align: -0.15em;
+}
+
+/* ---- BOOKTABS-STYLE TABLES (used in slide 13) ---- */
+table.booktabs {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: right;
+    border-top: 2.5px solid var(--color-ut-dark);
+    border-bottom: 2.5px solid var(--color-ut-dark);
+    background: #FFFFFF;
+}
+
+table.booktabs thead th {
+    font-weight: 800;
+    color: var(--color-ut-dark);
+    padding: 12px 14px;
+    border-bottom: 1.5px solid var(--color-ut-dark);
+    background: var(--color-surface-soft);
+    font-size: 17px;
+}
+
+table.booktabs tbody td {
+    padding: 11px 14px;
+    color: var(--color-text-body);
+    border-bottom: 1px solid #E5E7EB;
+    font-size: 16px;
+}
+
+table.booktabs tbody tr:last-child td { border-bottom: none; }
+table.booktabs tbody tr:hover { background-color: var(--color-ut-light); }
+
+/* ---- IMAGE HERO CONTAINER (fixes stretched images) ---- */
+.pres-image-hero-wrap {
+    background: #FFFFFF;
+    border: 2px solid var(--color-ut-border);
+    /* border-radius: 4px; */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(15, 42, 29, 0.08);
+    position: relative;
+    flex: 1;
+    min-height: 0;
+}
+
+.pres-image-hero-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block;
+    cursor: zoom-in;
+}
+
+.pres-image-caption {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 6px 12px;
+    background: var(--color-surface-soft);
+    /* border-radius: 4px; */
+    max-width: 90%;
+}
+
+/* ---- FOOTER (was missing styling) ---- */
+.layout-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    margin-top: 14px;
+    border-top: 1.5px solid var(--color-ut-border);
+    font-size: 13px;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.footer-badge {
+    background: var(--color-ut-green);
+    color: #FFFFFF;
+    padding: 4px 12px;
+    /* border-radius: 4px; */
+    font-weight: 700;
+    font-size: 12px;
+    max-width: 60%;
+    text-align: center;
+}
+
+/* ---- SKETCH HIGHLIGHTS (colored variants) ---- */
+.sketch-hl-green {
+    background: #DCFCE7;
+    padding: 2px 8px;
+    /* border-radius: 4px; */
+    font-weight: 700;
+    color: #14532D;
+}
+
+.sketch-hl-red {
+    background: #FEE2E2;
+    padding: 2px 8px;
+    /* border-radius: 4px; */
+    font-weight: 700;
+    color: #991B1B;
+}
+
+.sketch-hl-blue {
+    background: #DBEAFE;
+    padding: 2px 8px;
+    /* border-radius: 4px; */
+    font-weight: 700;
+    color: #1E3A8A;
+}
+
+/* ---- CINEMATIC KEY-NUMBER (huge metric display) ---- */
+.mega-metric {
+    font-size: 88px;
+    font-weight: 900;
+    color: var(--color-ut-green);
+    line-height: 1;
+    letter-spacing: -3px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    direction: ltr;
+}
+
+.mega-metric-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 6px;
+}
+
+/* ---- COMPARISON GRID (for engaging vs vs slides) ---- */
+.vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 20px;
+    align-items: stretch;
+    flex: 1;
+    min-height: 0;
+}
+
+.vs-grid .vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--color-amber);
+    letter-spacing: -3px;
+}
+
+.vs-card {
+    padding: 22px 26px;
+    /* border-radius: 4px; */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.vs-card.losing {
+    background: #FEF2F2;
+    border: 2px solid #FCA5A5;
+}
+
+.vs-card.winning {
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--color-ut-light) 100%);
+    border: 2.5px solid var(--color-ut-green);
+    box-shadow: 0 8px 24px rgba(27, 67, 50, 0.12);
+}
+
+.vs-card h4 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-ut-dark);
+    padding-bottom: 10px;
+    border-bottom: 2px dashed rgba(0,0,0,0.1);
+}
+
+.vs-card.losing h4 { color: #991B1B; }
+.vs-card.winning h4 { color: var(--color-ut-green); }
+
+.vs-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.vs-card ul li {
+    position: relative;
+    padding-right: 26px;
+    color: var(--color-text-body);
+}
+
+.vs-card.losing ul li::before {
+    content: "✗";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #DC2626;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.vs-card.winning ul li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--color-ut-green);
+    font-weight: 900;
+    font-size: 18px;
+}
+
+/* ---- WORLD-MAP style language cards ---- */
+.lang-card {
+    background: #FFFFFF;
+    border: 2px solid var(--color-ut-border);
+    /* border-radius: 4px; */
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-card.spotlight {
+    border-color: var(--color-ut-green);
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--color-ut-light) 100%);
+    box-shadow: 0 6px 20px rgba(27, 67, 50, 0.1);
+}
+
+.lang-flag {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    font-size: 34px;
+    opacity: 0.5;
+}
+
+.lang-card h4 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-ut-dark);
+    padding-right: 0;
+}
+
+.lang-card .example-block {
+    background: var(--color-surface-soft);
+    border-right: 4px solid var(--color-gold);
+    padding: 10px 14px;
+    font-size: 16px;
+    color: var(--color-text-body);
+    direction: ltr;
+    text-align: center;
+    font-family: 'Peyda', monospace;
+    /* border-radius: 4px; */
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   🚀 v6 — MEGA TEXT UPGRADE (final size boost for 1920px stage)
+   ========================================================================== */
+
+/* Force much bigger everything */
+.slide { font-size: 20px !important; }
+
+.title-main { font-size: 52px !important; letter-spacing: -1px !important; }
+.title-sub { font-size: 24px !important; line-height: 1.5 !important; }
+.header-top-bar { font-size: 17px !important; font-weight: 700 !important; }
+.header-tag { font-size: 17px !important; padding: 5px 16px !important; }
+.header-top-bar img { height: 60px !important; }
+
+/* Hero boxes */
+.pres-hero-box { padding: 30px 40px !important; }
+.pres-hero-box h3 { font-size: 30px !important; line-height: 1.5 !important; }
+.pres-hero-box p { font-size: 22px !important; line-height: 1.9 !important; }
+
+/* Split columns */
+.pres-split-col { padding: 26px 30px !important; }
+.pres-col-title { font-size: 24px !important; padding-bottom: 14px !important; margin-bottom: 16px !important; }
+
+/* Lists */
+.vintage-list { gap: 16px !important; }
+.vintage-list li { font-size: 21px !important; line-height: 1.85 !important; padding-right: 30px !important; }
+.vintage-list li::before { font-size: 14px !important; top: 6px !important; }
+
+/* VS cards (used on slide 4 etc.) */
+.vs-card { padding: 28px 32px !important; }
+.vs-card h4 { font-size: 26px !important; padding-bottom: 14px !important; }
+.vs-card ul { gap: 14px !important; }
+.vs-card ul li { font-size: 20px !important; line-height: 1.75 !important; padding-right: 32px !important; }
+.vs-card ul li::before { font-size: 22px !important; top: -2px !important; }
+.vs-card p { font-size: 21px !important; line-height: 1.8 !important; }
+.vs-grid .vs-divider { font-size: 56px !important; }
+
+/* Tables — BIGGER */
+table.apa-table { font-size: 20px !important; line-height: 1.75 !important; }
+table.apa-table thead th { padding: 16px 18px !important; font-size: 20px !important; }
+table.apa-table tbody td { padding: 14px 18px !important; }
+
+table.booktabs { font-size: 19px !important; line-height: 1.7 !important; }
+table.booktabs thead th { padding: 14px 16px !important; font-size: 19px !important; }
+table.booktabs tbody td { padding: 13px 16px !important; font-size: 18px !important; }
+
+/* Footer */
+.layout-footer { font-size: 15px !important; padding-top: 14px !important; }
+.footer-badge { font-size: 14px !important; padding: 5px 14px !important; }
+
+/* Mega metrics */
+.mega-metric { font-size: 110px !important; }
+.mega-metric-label { font-size: 22px !important; }
+
+/* Lang cards */
+.lang-card { padding: 24px 28px !important; }
+.lang-card h4 { font-size: 24px !important; }
+.lang-card p { font-size: 18px !important; line-height: 1.75 !important; }
+.lang-card .example-block { font-size: 19px !important; padding: 14px 18px !important; }
+.lang-flag { font-size: 42px !important; }
+
+/* Math boxes bigger */
+.academic-math-box mjx-container svg { font-size: 160% !important; }
+
+
+/* ==========================================================================
+   🎨 v7 — ENHANCED UNIFIED HEADER (logo + page counter)
+   ========================================================================== */
+
+.header-top-bar.header-enhanced {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 6px 0 12px !important;
+    margin-bottom: 8px !important;
+    border-bottom: 1.5px solid var(--color-ut-border) !important;
+}
+
+.hdr-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.header-logo {
+    height: 62px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(15, 42, 29, 0.15));
+}
+
+.hdr-institution {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.hdr-inst-line {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--color-ut-dark) !important;
+    line-height: 1.3 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hdr-thesis-line {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--color-text-muted) !important;
+    line-height: 1.3 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hdr-counter {
+    flex-shrink: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    /* background: var(--color-ut-green); */
+    color: #FFFFFF;
+    padding: 8px 18px;
+    /* border-radius: 4px; */
+    direction: ltr;
+    /* box-shadow: 0 3px 8px rgba(27, 67, 50, 0.25); */
+}
+
+.hdr-counter-num {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1;
+    color: var(--color-ut-green);
+    /* color: var(--color-gold) !important; */
+    font-variant-numeric: tabular-nums;
+}
+
+.hdr-counter-slash {
+    color: gray;
+    font-size: 18px !important;
+    opacity: 0.6;
+    font-weight: 300;
+}
+
+.hdr-counter-total {
+    color: gray;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1;
+    opacity: 0.9;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Cover slide: hide the enhanced header bar entirely */
+#slide_01 .header-top-bar.header-enhanced {
+    display: none !important;
+}
+
