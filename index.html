@@ -1109,37 +1109,45 @@ if (typeof window !== 'undefined') {
     <!-- Slide Specific Styling -->
     <style>
         #slide_12b .layout-content {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            gap: 12px;
-            min-height: 0;
-            overflow: hidden;
+            display: flex !important;
+            flex-direction: column !important;
+            flex: 1 1 auto !important;
+            gap: 10px !important;
+            min-height: 0 !important;
+            overflow: hidden !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
 
-        /* STRICT SIDE-BY-SIDE GRID - WILL NEVER STACK */
+        /* STRICT SIDE-BY-SIDE GRID - FORCED 2 COLUMNS */
         #slide_12b .pipeline-container {
             display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
+            grid-template-columns: calc(50% - 8px) calc(50% - 8px) !important; /* Hard lock to 50/50 */
+            grid-auto-flow: column !important;
             gap: 16px !important;
             width: 100% !important;
-            height: 360px !important; /* Fixed height boundary to guarantee caption space */
-            direction: rtl;
-            box-sizing: border-box;
+            max-width: 100% !important;
+            height: 360px !important;
+            direction: rtl !important;
+            box-sizing: border-box !important;
+            align-items: stretch !important;
         }
 
         #slide_12b .pipeline-half-wrap {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+            position: relative !important;
+            height: 100% !important;
+            width: 100% !important;
+            min-width: 0 !important; /* CRITICAL: Prevents grid items from expanding to full width */
+            max-width: 100% !important;
+            overflow: hidden !important;
             border: 2px solid #e2e8f0;
             border-radius: 12px;
             cursor: zoom-in;
             background: #ffffff;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            box-sizing: border-box;
+            box-sizing: border-box !important;
+            display: block !important;
         }
 
         #slide_12b .pipeline-half-wrap:hover {
@@ -1148,46 +1156,53 @@ if (typeof window !== 'undefined') {
             box-shadow: 0 8px 24px rgba(49, 130, 206, 0.15);
         }
 
-        /* Frame container to isolate image dimensions from the grid calculations */
+        /* Isolate image container strictly within 50% box */
         #slide_12b .crop-frame {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            position: relative !important;
+            width: 100% !important;
+            height: 100% !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
         }
 
-        /* Displays image zoomed at roughly 60% vertical viewport while preserving aspect ratio */
         #slide_12b .crop-frame img {
-            position: absolute;
-            width: 100%;
-            height: 160%; 
-            left: 50%;
-            transform: translateX(-50%);
-            object-fit: contain;
+            position: absolute !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: 175% !important;
+            max-height: none !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: auto !important;
+            object-fit: fill !important; /* Ensures the slice fills horizontal width accurately */
+            display: block !important;
         }
 
         #slide_12b .crop-top {
-            top: 0;
+            top: 0 !important;
+            bottom: auto !important;
         }
 
         #slide_12b .crop-bottom {
-            bottom: 0;
+            bottom: 0 !important;
+            top: auto !important;
         }
 
         #slide_12b .pipeline-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
+            top: 10px;
+            right: 10px;
             background: rgba(26, 32, 44, 0.88);
             color: #fff;
-            padding: 6px 12px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: bold;
             backdrop-filter: blur(4px);
             z-index: 10;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            pointer-events: none; /* Allows click-through to parent zoom trigger */
+            pointer-events: none;
+            white-space: nowrap;
         }
     </style>
 
@@ -1204,7 +1219,7 @@ if (typeof window !== 'undefined') {
     <div class="layout-content">
         <!-- Strictly side-by-side columns -->
         <div class="pipeline-container" id="el_zsd84qvl3">
-            <!-- Right Column: Top 60% (Pipeline Start) -->
+            <!-- Right Column: Top Half (Pipeline Start) -->
             <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')" id="el_wa09tqvaf">
                 <span class="pipeline-badge" id="el_lg0clxzsz">بخش اول: ورودی متن و لایه رمزگذار (Encoder)</span>
                 <div class="crop-frame">
@@ -1212,7 +1227,7 @@ if (typeof window !== 'undefined') {
                 </div>
             </div>
 
-            <!-- Left Column: Bottom 60% (Pipeline End) -->
+            <!-- Left Column: Bottom Half (Pipeline End) -->
             <div class="pipeline-half-wrap" onclick="openPipelineLightbox('images/fig_3_1_system_dataflow_architecture.png')" id="el_ol8b3e4aa">
                 <span class="pipeline-badge" id="el_5airi5hir">بخش دوم: برچسب‌گذاری موازی و رمزگشایی (Decoder)</span>
                 <div class="crop-frame">
