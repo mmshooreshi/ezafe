@@ -349,7 +349,7 @@ html, body {
 }
 
 .vintage-list li {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.75;
     color: var(--color-text-body);
     position: relative;
