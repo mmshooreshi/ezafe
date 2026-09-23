@@ -434,50 +434,185 @@ document.addEventListener('keydown', (e) => {
 
 
 
-// === ۹. موتور لمسی و سوایپ موبایل (Mobile Touch Swipe & Pinch Gesture Engine) ===
+// === ۹. موتور لمسی: سوایپ + Pinch-Zoom دو-حالته + Double-Tap Reset ===
 (function initTouchEngine() {
     let touchStartX = 0;
     let touchStartY = 0;
     let touchEndX = 0;
     let touchEndY = 0;
-    const MIN_SWIPE_DISTANCE = 45; // Minimum px to register as swipe
+    const MIN_SWIPE_DISTANCE = 45;
 
-    const touchTarget = document.getElementById('presentation-wrapper') || document.body;
+    // متغیرهای وضعیت زوم استیج
+    let isZoomed = false;
+    let baseScale = 1;
+    let initialPinchDistance = 0;
+    let isPinching = false;
+    let lastTapTime = 0;
+    const DOUBLE_TAP_DELAY = 300;
 
+    const wrapperEl = document.getElementById('presentation-wrapper');
+    const stageEl = document.getElementById('stage');
+    const touchTarget = wrapperEl || document.body;
+
+    // محاسبه فاصله بین دو انگشت برای pinch
+    function getPinchDistance(touches) {
+        const dx = touches[0].clientX - touches[1].clientX;
+        const dy = touches[0].clientY - touches[1].clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    // ذخیره اسکیل پایه استیج (توسط resizeStage تنظیم می‌شود)
+    function captureBaseScale() {
+        if (!stageEl) return 1;
+        const transformValue = window.getComputedStyle(stageEl).transform;
+        if (transformValue && transformValue !== 'none') {
+            const match = transformValue.match(/matrix\(([^,]+),/);
+            if (match) return parseFloat(match[1]) || 1;
+        }
+        return 1;
+    }
+
+    // اعمال زوم دو-حالته: x1 یا x2 (روی اسکیل پایه)
+    function setZoomState(zoomed) {
+        if (!stageEl) return;
+        isZoomed = zoomed;
+        baseScale = captureBaseScale();
+        
+        if (zoomed) {
+            // x2 نسبت به وضعیت پایه فعلی
+            const targetScale = baseScale * 2;
+            stageEl.style.transform = `scale(${targetScale})`;
+            stageEl.classList.add('slide-zoomed');
+        } else {
+            // بازگشت به resizeStage استاندارد
+            stageEl.classList.remove('slide-zoomed');
+            if (typeof window.resizeStage === 'function') {
+                window.resizeStage();
+            }
+        }
+    }
+
+    // تشخیص دابل‌تپ فقط برای بازگرداندن زوم به x1
+    function handleDoubleTapReset(e) {
+        if (e.target.closest('.slide img')) return; // عکس‌ها لایت‌باکس دارند
+        if (e.target.closest('#mobile-nav-bar, #presenter-hud, #editor-toolbar, #role-switcher-bar, #passcode-modal')) return;
+        
+        const now = Date.now();
+        if (now - lastTapTime < DOUBLE_TAP_DELAY && now - lastTapTime > 40) {
+            e.preventDefault();
+            setZoomState(!isZoomed);
+            lastTapTime = 0;
+        } else {
+            lastTapTime = now;
+        }
+    }
+
+    // === touchstart ===
     touchTarget.addEventListener('touchstart', (e) => {
-        // Ignore multi-touch (e.g. pinch zoom on diagram)
-        if (e.touches.length === 1) {
+        if (e.touches.length === 2) {
+            // آغاز pinch
+            isPinching = true;
+            initialPinchDistance = getPinchDistance(e.touches);
+            baseScale = captureBaseScale();
+        } else if (e.touches.length === 1) {
             touchStartX = e.touches[0].screenX;
             touchStartY = e.touches[0].screenY;
         }
-    }, { passive: true });
+    }, { passive: false });
 
+    // === touchmove — کنترل pinch در حال حرکت ===
+    touchTarget.addEventListener('touchmove', (e) => {
+        if (isPinching && e.touches.length === 2) {
+            e.preventDefault();
+            // Live scaling فقط تشخیص جهت pinch (in/out)
+            const currentDist = getPinchDistance(e.touches);
+            const delta = currentDist - initialPinchDistance;
+            
+            // زوم زنده (اختیاری - می‌توانید کامنت کنید و فقط در touchend تصمیم بگیرید)
+            if (Math.abs(delta) > 30 && stageEl) {
+                const factor = currentDist / initialPinchDistance;
+                const liveScale = baseScale * Math.max(0.9, Math.min(2.2, factor));
+                stageEl.style.transition = 'none';
+                stageEl.style.transform = `scale(${liveScale})`;
+            }
+        }
+    }, { passive: false });
+
+    // === touchend — تصمیم نهایی زوم ===
     touchTarget.addEventListener('touchend', (e) => {
-        // Prevent swipe triggers if user was actively typing or editing text
+        // پایان pinch: نهایی‌سازی به x1 یا x2
+        if (isPinching) {
+            const currentScale = captureBaseScale();
+            const originalBase = isZoomed ? baseScale / 2 : baseScale;
+            const ratio = currentScale / originalBase;
+            
+            stageEl.style.transition = 'transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            if (ratio > 1.35) {
+                setZoomState(true);
+            } else {
+                setZoomState(false);
+            }
+            
+            isPinching = false;
+            initialPinchDistance = 0;
+            return;
+        }
+
+        // فیلتر برای سوایپ و دابل‌تپ
         if (e.target.isContentEditable || ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
-        // Don't trigger if swiping inside interactive modals or HUD
-        if (e.target.closest('#presenter-hud') || e.target.closest('#pdf-options') || e.target.closest('#editor-toolbar') || e.target.closest('#mobile-nav-bar')) return;
+        if (e.target.closest('#presenter-hud, #pdf-options, #editor-toolbar, #mobile-nav-bar, #role-switcher-bar, #passcode-modal, #image-lightbox')) return;
+
+        // اگر در حالت زوم هستیم، سوایپ ناوبری اسلاید را غیرفعال کن
+        if (isZoomed) {
+            handleDoubleTapReset(e);
+            return;
+        }
 
         if (e.changedTouches.length === 1) {
             touchEndX = e.changedTouches[0].screenX;
             touchEndY = e.changedTouches[0].screenY;
-            handleSwipeGesture();
-        }
-    }, { passive: true });
+            
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            const absDx = Math.abs(deltaX);
+            const absDy = Math.abs(deltaY);
 
-    function handleSwipeGesture() {
-        const deltaX = touchEndX - touchStartX;
-        const deltaY = touchEndY - touchStartY;
-
-        // Ensure swipe was primarily horizontal, not vertical scroll
-        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) >= MIN_SWIPE_DISTANCE) {
-            if (deltaX < 0) {
-                // Swiped Left in RTL -> Forward / Next Slide
-                nextSlide();
-            } else {
-                // Swiped Right in RTL -> Backward / Prev Slide
-                prevSlide();
+            // سوایپ افقی → ناوبری اسلاید
+            if (absDx > absDy && absDx >= MIN_SWIPE_DISTANCE) {
+                if (deltaX < 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            } else if (absDx < 10 && absDy < 10) {
+                // تپ کوچک → بررسی دابل‌تپ برای زوم
+                handleDoubleTapReset(e);
             }
         }
-    }
+    }, { passive: false });
+
+    // جلوگیری مطلق از زوم پیش‌فرض مرورگر (دابل‌تپ سیستمی)
+    let lastPreventTap = 0;
+    document.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastPreventTap <= 350) {
+            e.preventDefault();
+        }
+        lastPreventTap = now;
+    }, { passive: false });
+
+    // جلوگیری از زوم gesture در سافاری iOS
+    document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('gesturechange', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('gestureend', (e) => e.preventDefault(), { passive: false });
+
+    // خروجی به window برای دسترسی از لایت‌باکس
+    window.__stageZoom = {
+        reset: () => setZoomState(false),
+        toggle: () => setZoomState(!isZoomed),
+        isZoomed: () => isZoomed
+    };
 })();
+
+
